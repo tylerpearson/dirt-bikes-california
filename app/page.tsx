@@ -36,8 +36,9 @@ export default function Home() {
     const map = hasTrack
       ? trackMap(track)
       : centeredMap(route.trailhead.lat, route.trailhead.lng, { zoom: 12 });
+    const points = track.map((p) => ({ lat: p.lat, lng: p.lng }));
     const stats = hasTrack ? trackStats(track) : null;
-    return { route, map, hasTrack, stats };
+    return { route, map, points, stats };
   });
 
   return (
@@ -114,13 +115,13 @@ export default function Home() {
           <span className="text-sm text-olive">{cards.length} rides</span>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {cards.map(({ route, map, hasTrack, stats }) => (
+        <div className="flex flex-col gap-6">
+          {cards.map(({ route, map, points, stats }) => (
             <RouteCard
               key={route.id}
               route={route}
               map={map}
-              hasTrack={hasTrack}
+              points={points}
               stats={stats}
             />
           ))}

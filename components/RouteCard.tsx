@@ -3,8 +3,10 @@ import type { MapRender } from "@/lib/tiles";
 import type { TrackStats } from "@/lib/track-stats";
 import { fullMapUrl } from "@/lib/routes";
 import { AccessBadge } from "./AccessBadge";
-import { StaticMap } from "./StaticMap";
+import { ExpandableMap } from "./ExpandableMap";
 import { ElevationProfile } from "./ElevationProfile";
+
+type LL = { lat: number; lng: number };
 
 const DIFFICULTY_COLOR: Record<Difficulty, string> = {
   Easy: "text-diff-easy",
@@ -27,59 +29,65 @@ function Stat({ label, value }: { label: string; value: string }) {
 export function RouteCard({
   route,
   map,
-  hasTrack,
+  points,
   stats,
 }: {
   route: Route;
   map: MapRender;
-  hasTrack: boolean;
+  points: LL[];
   stats: TrackStats | null;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] transition hover:border-rust/50">
-      <StaticMap
-        map={map}
-        label={route.trailhead.name}
-        href={fullMapUrl(route.trailhead)}
-        approximate={hasTrack}
-      />
+    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
+      {/* Map side */}
+      <div className="flex flex-col lg:w-[56%] lg:shrink-0 lg:border-r lg:border-edge">
+        <ExpandableMap
+          map={map}
+          points={points}
+          label={route.trailhead.name}
+          routeName={route.name}
+          gpxHref={`/gpx/${route.id}.gpx`}
+          directionsHref={fullMapUrl(route.trailhead)}
+        />
 
-      {stats && (
-        <div className="border-b border-edge bg-manila/50 px-5 py-3">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold uppercase tracking-wider text-olive">
-              GPX Track
-            </span>
-            <span className="flex items-center gap-4 text-bistre">
-              <span>
-                <b className="text-ink">{stats.distanceMiles.toFixed(1)}</b> mi
+        {stats && (
+          <div className="border-t border-edge bg-manila/50 px-5 py-3 lg:mt-auto">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-semibold uppercase tracking-wider text-olive">
+                GPX Track
               </span>
-              {stats.hasElevation && (
-                <>
-                  <span>
-                    ↑ <b className="text-ink">
-                      {Math.round(stats.gainFt).toLocaleString()}
-                    </b>{" "}
-                    ft
-                  </span>
-                  <span>
-                    ↓ <b className="text-ink">
-                      {Math.round(stats.lossFt).toLocaleString()}
-                    </b>{" "}
-                    ft
-                  </span>
-                </>
-              )}
-            </span>
-          </div>
-          {stats.hasElevation && (
-            <div className="mt-2">
-              <ElevationProfile stats={stats} />
+              <span className="flex items-center gap-4 text-bistre">
+                <span>
+                  <b className="text-ink">{stats.distanceMiles.toFixed(1)}</b> mi
+                </span>
+                {stats.hasElevation && (
+                  <>
+                    <span>
+                      ↑ <b className="text-ink">
+                        {Math.round(stats.gainFt).toLocaleString()}
+                      </b>{" "}
+                      ft
+                    </span>
+                    <span>
+                      ↓ <b className="text-ink">
+                        {Math.round(stats.lossFt).toLocaleString()}
+                      </b>{" "}
+                      ft
+                    </span>
+                  </>
+                )}
+              </span>
             </div>
-          )}
-        </div>
-      )}
+            {stats.hasElevation && (
+              <div className="mt-2">
+                <ElevationProfile stats={stats} />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
 
+      {/* Details side */}
       <div className="flex flex-1 flex-col gap-4 p-5">
         <header className="flex flex-col gap-2">
           <div className="flex items-start justify-between gap-3">
@@ -110,7 +118,7 @@ export function RouteCard({
           {route.description}
         </p>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-edge pt-4">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-edge pt-4 sm:grid-cols-3">
           <Stat label="Distance" value={`${route.distanceMiles} mi`} />
           <div>
             <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
@@ -126,7 +134,7 @@ export function RouteCard({
             <Stat label="Elevation" value={route.elevationFt} />
           )}
           <Stat label="Best season" value={route.bestSeason} />
-          <div className="col-span-2">
+          <div className="col-span-2 sm:col-span-3">
             <Stat label="Surface" value={route.surface} />
           </div>
         </dl>
