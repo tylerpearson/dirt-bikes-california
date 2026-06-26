@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Rugged / outdoor palette */
+  --color-bark: #1c1b17;
+  --color-bark-2: #25241e;
+  --color-moss: #3a4a2f;
+  --color-pine: #5a7245;
+  --color-trail: #c8732b;
+  --color-trail-bright: #e8862f;
+  --color-sand: #e7ddc8;
+  --color-bone: #f4efe3;
+
+  --color-background: var(--color-bark);
+  --color-foreground: var(--color-bone);
+
+  --font-display: var(--font-oswald);
+  --font-sans: var(--font-archivo);
+
+  /* Saturated brand colors — for dots, fills, accents. */
+  --color-sticker-green: #3f9142;
+  --color-sticker-red: #c0392b;
+  --color-plate-blue: #2f6fb0;
+  --color-either-teal: #2e9c8e;
+
+  /* Brightened on-dark variants — for TEXT on the dark surfaces (AA ≥4.5:1). */
+  --color-green-text: #74c47a;
+  --color-red-text: #ef6d63;
+  --color-blue-text: #6aa9e0;
+  --color-teal-text: #4fc5b4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bark);
+  color: var(--color-bone);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle topographic texture for the hero. */
+.topo {
+  background-color: var(--color-bark);
+  background-image:
+    radial-gradient(
+      120% 120% at 50% -10%,
+      rgba(232, 134, 47, 0.18),
+      transparent 55%
+    ),
+    repeating-radial-gradient(
+      circle at 30% 30%,
+      rgba(231, 221, 200, 0.05) 0,
+      rgba(231, 221, 200, 0.05) 1px,
+      transparent 1px,
+      transparent 26px
+    );
 }
