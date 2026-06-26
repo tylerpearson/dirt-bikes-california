@@ -7,19 +7,19 @@ import { StaticMap } from "./StaticMap";
 import { ElevationProfile } from "./ElevationProfile";
 
 const DIFFICULTY_COLOR: Record<Difficulty, string> = {
-  Easy: "text-green-text",
-  Moderate: "text-teal-text",
-  Difficult: "text-trail-bright",
-  Expert: "text-red-text",
+  Easy: "text-diff-easy",
+  Moderate: "text-diff-mod",
+  Difficult: "text-diff-hard",
+  Expert: "text-diff-exp",
 };
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-sand/70">
+      <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
         {label}
       </dt>
-      <dd className="text-sm text-bone">{value}</dd>
+      <dd className="text-sm text-ink">{value}</dd>
     </div>
   );
 }
@@ -36,7 +36,7 @@ export function RouteCard({
   stats: TrackStats | null;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-bark-2 shadow-lg shadow-black/30 transition hover:border-trail/40">
+    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] transition hover:border-rust/50">
       <StaticMap
         map={map}
         label={route.trailhead.name}
@@ -45,25 +45,25 @@ export function RouteCard({
       />
 
       {stats && (
-        <div className="border-b border-white/10 bg-bark/40 px-5 py-3">
+        <div className="border-b border-edge bg-manila/50 px-5 py-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold uppercase tracking-wider text-sand/70">
+            <span className="font-semibold uppercase tracking-wider text-olive">
               GPX Track
             </span>
-            <span className="flex items-center gap-4 text-sand/80">
+            <span className="flex items-center gap-4 text-bistre">
               <span>
-                <b className="text-bone">{stats.distanceMiles.toFixed(1)}</b> mi
+                <b className="text-ink">{stats.distanceMiles.toFixed(1)}</b> mi
               </span>
               {stats.hasElevation && (
                 <>
                   <span>
-                    ↑ <b className="text-bone">
+                    ↑ <b className="text-ink">
                       {Math.round(stats.gainFt).toLocaleString()}
                     </b>{" "}
                     ft
                   </span>
                   <span>
-                    ↓ <b className="text-bone">
+                    ↓ <b className="text-ink">
                       {Math.round(stats.lossFt).toLocaleString()}
                     </b>{" "}
                     ft
@@ -83,37 +83,37 @@ export function RouteCard({
       <div className="flex flex-1 flex-col gap-4 p-5">
         <header className="flex flex-col gap-2">
           <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-2xl font-bold leading-tight tracking-wide text-bone">
+            <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-bistre">
               {route.name}
             </h3>
             {route.forestRoad && (
-              <span className="mt-1 shrink-0 rounded border border-white/15 px-1.5 py-0.5 font-mono text-xs text-sand/70">
-                {route.forestRoad}
+              <span className="mt-1 shrink-0 rounded-sm border border-edge-strong/70 bg-paper px-1.5 py-0.5 font-mono text-xs font-semibold text-rust-ink">
+                No. {route.forestRoad}
               </span>
             )}
           </div>
           <AccessBadge status={route.access.greenSticker} className="self-start" />
         </header>
 
-        <div className="rounded-lg border border-white/10 bg-bark/40 p-3">
-          <p className="text-xs leading-relaxed text-sand/80">
+        <div className="rounded-sm border border-edge bg-manila/40 p-3">
+          <p className="text-xs leading-relaxed text-bistre">
             {route.access.note}
           </p>
-          <p className="mt-1.5 text-[0.65rem] uppercase tracking-wider text-sand/60">
+          <p className="mt-1.5 text-[0.65rem] uppercase tracking-wider text-olive">
             Source: {route.access.source}
           </p>
         </div>
 
-        <p className="text-sm font-medium text-trail-bright">{route.summary}</p>
+        <p className="text-sm font-semibold text-rust-ink">{route.summary}</p>
 
-        <p className="text-sm leading-relaxed text-sand/80">
+        <p className="text-sm leading-relaxed text-ink/90">
           {route.description}
         </p>
 
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/10 pt-4">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-edge pt-4">
           <Stat label="Distance" value={`${route.distanceMiles} mi`} />
           <div>
-            <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-sand/70">
+            <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
               Difficulty
             </dt>
             <dd
@@ -132,11 +132,11 @@ export function RouteCard({
         </dl>
 
         {route.highlights.length > 0 && (
-          <ul className="mt-auto space-y-1.5 border-t border-white/10 pt-4">
+          <ul className="mt-auto space-y-1.5 border-t border-edge pt-4">
             {route.highlights.map((h) => (
               <li
                 key={h}
-                className="flex gap-2 text-sm text-sand/80 before:mt-1.5 before:h-1.5 before:w-1.5 before:shrink-0 before:rounded-full before:bg-pine"
+                className="flex gap-2 text-sm text-ink/90 before:mt-1.5 before:h-1.5 before:w-1.5 before:shrink-0 before:rounded-full before:bg-sage"
               >
                 <span>{h}</span>
               </li>

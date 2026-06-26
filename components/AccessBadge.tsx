@@ -5,23 +5,23 @@ const STYLES: Record<
   { dot: string; ring: string; label: string }
 > = {
   yes: {
-    dot: "bg-sticker-green",
-    ring: "border-sticker-green/50 bg-sticker-green/10 text-green-text",
+    dot: "bg-ok-fill",
+    ring: "border-ok-fill/40 bg-ok-fill/12 text-ok-ink",
     label: "Green sticker OK",
   },
   partial: {
-    dot: "bg-trail-bright",
-    ring: "border-trail/50 bg-trail/10 text-trail-bright",
+    dot: "bg-partial-fill",
+    ring: "border-partial-fill/40 bg-partial-fill/12 text-partial-ink",
     label: "Green sticker: partial",
   },
   no: {
-    dot: "bg-plate-blue",
-    ring: "border-plate-blue/50 bg-plate-blue/10 text-blue-text",
+    dot: "bg-plate-fill",
+    ring: "border-plate-fill/40 bg-plate-fill/12 text-plate-ink",
     label: "Street-legal plate only",
   },
   unconfirmed: {
-    dot: "bg-sand/60",
-    ring: "border-white/20 bg-white/5 text-sand/80",
+    dot: "bg-unsure-fill",
+    ring: "border-unsure-fill/40 bg-unsure-fill/12 text-unsure-ink",
     label: "Access unverified",
   },
 };

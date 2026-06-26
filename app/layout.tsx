@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Oswald, Archivo } from "next/font/google";
+import { Zilla_Slab, Archivo } from "next/font/google";
 import "./globals.css";
 
-const oswald = Oswald({
-  variable: "--font-oswald",
+const zilla = Zilla_Slab({
+  variable: "--font-zilla",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${oswald.variable} ${archivo.variable} h-full antialiased`}
+      className={`${zilla.variable} ${archivo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
