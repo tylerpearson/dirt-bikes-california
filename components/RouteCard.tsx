@@ -41,17 +41,20 @@ export function RouteCard({
     <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
       {/* Map side */}
       <div className="flex flex-col lg:w-[56%] lg:shrink-0 lg:border-r lg:border-edge">
-        <ExpandableMap
-          map={map}
-          points={points}
-          label={route.trailhead.name}
-          routeName={route.name}
-          gpxHref={`/gpx/${route.id}.gpx`}
-          directionsHref={fullMapUrl(route.trailhead)}
-        />
+        <div className="relative aspect-[16/10] lg:aspect-auto lg:flex-1">
+          <ExpandableMap
+            map={map}
+            points={points}
+            label={route.trailhead.name}
+            routeName={route.name}
+            gpxHref={`/gpx/${route.id}.gpx`}
+            directionsHref={fullMapUrl(route.trailhead)}
+            className="absolute inset-0"
+          />
+        </div>
 
         {stats && (
-          <div className="border-t border-edge bg-manila/50 px-5 py-3 lg:mt-auto">
+          <div className="border-t border-edge bg-manila/50 px-5 py-3">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold uppercase tracking-wider text-olive">
                 GPX Track

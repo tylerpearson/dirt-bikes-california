@@ -14,6 +14,7 @@ export function ExpandableMap({
   routeName,
   gpxHref,
   directionsHref,
+  className = "",
 }: {
   map: MapRender;
   points: LL[];
@@ -21,6 +22,7 @@ export function ExpandableMap({
   routeName: string;
   gpxHref: string;
   directionsHref: string;
+  className?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -42,7 +44,7 @@ export function ExpandableMap({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group block w-full cursor-pointer text-left"
+        className={`group block h-full w-full cursor-pointer text-left ${className}`}
         aria-label={`Expand interactive map for ${routeName}`}
       >
         <StaticMap map={map} label={label} approximate />
