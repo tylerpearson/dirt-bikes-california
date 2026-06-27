@@ -73,6 +73,12 @@ body {
     hue-rotate(-8deg);
 }
 
+/* Area map: age the tiles only, so the color-coded route overlay stays vivid. */
+.area-map .leaflet-tile-pane {
+  filter: sepia(0.42) saturate(0.72) brightness(1.05) contrast(0.92)
+    hue-rotate(-8deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -4,6 +4,7 @@ import { centeredMap, trackMap } from "@/lib/tiles";
 import { trackStats } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
 import { AccessBadge } from "@/components/AccessBadge";
+import { AreaMap } from "@/components/AreaMap";
 import { HeroTopo } from "@/components/HeroTopo";
 import type { GreenStickerStatus } from "@/lib/types";
 
@@ -141,6 +142,39 @@ export default function Home() {
           </details>
         </div>
       </header>
+
+      <section className="border-b-2 border-bistre/70 bg-paper-2">
+        <div className="mx-auto max-w-6xl px-6 pt-12">
+          <div className="flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">
+              Where can I ride?
+            </h2>
+            <span className="text-sm text-olive">San Bernardino N.F. MVUM</span>
+          </div>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
+            Every legal motorized road and trail in the Big Bear area, straight
+            from the Forest Service&apos;s{" "}
+            <span className="font-semibold text-bistre">
+              Motor Vehicle Use Map
+            </span>
+            . Most numbered roads are open to{" "}
+            <span className="font-semibold text-plate-ink">
+              street-legal plated
+            </span>{" "}
+            bikes only — the{" "}
+            <span className="font-semibold text-ok-ink">green</span> routes are
+            the comparatively few where a{" "}
+            <span className="font-semibold text-ok-ink">green-sticker</span>{" "}
+            (non-street-legal) bike is allowed. Hover any line for its road
+            number and access.
+          </p>
+        </div>
+        <div className="mx-auto mt-6 max-w-6xl px-6 pb-12">
+          <div className="overflow-hidden rounded-sm border-2 border-bistre/70 shadow-[0_1px_0_var(--color-edge),0_14px_30px_-22px_rgba(60,45,20,0.7)]">
+            <AreaMap />
+          </div>
+        </div>
+      </section>
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
         <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
