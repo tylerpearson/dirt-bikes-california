@@ -199,33 +199,5 @@ export const palmSpringsRoutes: Route[] = [
       "lat": 33.5679,
       "lng": -116.5118
     }
-  },
-  {
-    "id": "black-mountain-road",
-    "name": "Black Mountain Road",
-    "forestRoad": "4S01",
-    "summary": "Forest climb toward the Black Mountain lookout and trails.",
-    "description": "4S01 climbs the Black Mountain area on the north side of the San Jacintos through pine forest toward the historic lookout and trailheads. A scenic, moderate graded road — highway-legal-only, so it's a plated dual-sport ride rather than a green-sticker one.",
-    "distanceMiles": 11.4,
-    "difficulty": "Moderate",
-    "elevationFt": "5,350–7,700 ft",
-    "surface": "Graded dirt with rocky, rutted sections",
-    "bestSeason": "May–October",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "no",
-      "note": "Per the MVUM, 4S01 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Pine forest toward Black Mountain lookout",
-      "Cooler high-elevation riding",
-      "Scenic moderate grade (plated only)"
-    ],
-    "trailhead": {
-      "name": "Black Mountain Road (4S01)",
-      "lat": 33.7967,
-      "lng": -116.7578
-    }
   }
 ];

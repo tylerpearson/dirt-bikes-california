@@ -22,6 +22,7 @@ const UA = "dirt-bikes/1.0 (route-guide; build script)";
 const AREAS = {
   "big-bear": "-117.05,34.15,-116.70,34.35",
   "palm-springs": "-116.90,33.45,-116.30,33.95",
+  "idyllwild": "-116.82,33.64,-116.62,33.84",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
 };
 

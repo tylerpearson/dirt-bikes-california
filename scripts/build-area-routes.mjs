@@ -21,6 +21,7 @@ const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 // to a same-numbered road three states away).
 const BBOX = {
   "palm-springs": "-116.90,33.45,-116.30,33.95",
+  "idyllwild": "-116.82,33.64,-116.62,33.84",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
 };
 
@@ -128,18 +129,82 @@ const CONFIG = {
           "Cool conifer country up high (plated only)",
         ],
       },
+    ],
+  },
+
+  // Idyllwild is the forested west/upper side of the San Jacintos. Its roads
+  // are almost all plated dual-sport (highway-legal only) — the green-sticker
+  // OHV network is on the desert/Garner Valley side (see the Palm Springs guide).
+  "idyllwild": {
+    routes: [
       {
         id: "black-mountain-road", name: "Black Mountain Road", ids: ["4S01"],
-        difficulty: "Moderate",
-        summary: "Forest climb toward the Black Mountain lookout and trails.",
+        difficulty: "Difficult",
+        summary: "Long forest climb to the Black Mountain lookout above Idyllwild.",
         description:
-          "4S01 climbs the Black Mountain area on the north side of the San Jacintos through pine forest toward the historic lookout and trailheads. A scenic, moderate graded road — highway-legal-only, so it's a plated dual-sport ride rather than a green-sticker one.",
-        surface: "Graded dirt with rocky, rutted sections",
+          "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections — highway-legal-only, so it's a plated dual-sport ride.",
+        surface: "Graded dirt with rocky, rutted climbs",
         bestSeason: "May–October",
         highlights: [
-          "Pine forest toward Black Mountain lookout",
-          "Cooler high-elevation riding",
-          "Scenic moderate grade (plated only)",
+          "Climbs to the Black Mountain fire lookout",
+          "Dense pine-and-cedar San Jacinto forest",
+          "Cooler high-elevation riding (plated only)",
+        ],
+      },
+      {
+        id: "idyllwild-control-road", name: "Idyllwild Control Road", ids: ["5S06"],
+        difficulty: "Moderate",
+        summary: "Classic dirt connector linking Idyllwild to the high country.",
+        description:
+          "5S06 is a graded forest road threading the pines near Idyllwild, a relaxed plated dual-sport ride with good sight lines and forest scenery. Highway-legal-only, it's a pleasant way to link the area's roads and trailheads without technical demands.",
+        surface: "Graded dirt, generally smooth",
+        bestSeason: "May–October",
+        highlights: [
+          "Easy pine-forest cruising near town",
+          "Links the Idyllwild road network",
+          "Beginner-friendly grade (plated only)",
+        ],
+      },
+      {
+        id: "dark-canyon-road", name: "Dark Canyon Road", ids: ["4S02"],
+        difficulty: "Moderate",
+        summary: "Short forest road into the Dark Canyon drainage.",
+        description:
+          "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak — highway-legal vehicles only.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "May–October",
+        highlights: [
+          "Shaded Dark Canyon forest",
+          "Campground and trailhead access",
+          "Short, scenic plated ride",
+        ],
+      },
+      {
+        id: "fobes-ranch-road", name: "Fobes Ranch Road", ids: ["6S05"],
+        difficulty: "Moderate",
+        summary: "Plated spur to the Fobes Ranch PCT trailhead.",
+        description:
+          "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views — plated dual-sport, highway-legal only.",
+        surface: "Rocky graded dirt; rougher up high",
+        bestSeason: "May–October",
+        highlights: [
+          "Access to the Fobes Ranch PCT trailhead",
+          "Chaparral-to-forest transition",
+          "Big San Jacinto views (plated only)",
+        ],
+      },
+      {
+        id: "red-hill-road", name: "Red Hill Road", ids: ["5S10"],
+        difficulty: "Moderate",
+        summary: "Short, scenic plated spur in the Garner Valley fringe.",
+        description:
+          "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride — highway-legal only — best paired with the longer roads nearby.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "May–October",
+        highlights: [
+          "Forest-and-meadow scenery",
+          "Short, scenic plated spur",
+          "Pairs with the Idyllwild road network",
         ],
       },
     ],

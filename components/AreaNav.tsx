@@ -14,7 +14,7 @@ export function AreaNav() {
       <div className="mx-auto flex h-12 max-w-6xl items-center justify-between gap-4 px-6">
         <Link
           href="/"
-          className="flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rust-ink"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rust-ink"
         >
           <span aria-hidden className="text-base leading-none">
             ◇
@@ -23,16 +23,16 @@ export function AreaNav() {
           <span className="text-olive">CA OHV</span>
         </Link>
 
-        <ul className="flex items-stretch -mr-2">
+        <ul className="-mr-2 flex items-stretch overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {AREAS.map((area) => {
             const to = href(area.id);
             const active = pathname === to;
             return (
-              <li key={area.id} className="flex">
+              <li key={area.id} className="flex shrink-0">
                 <Link
                   href={to}
                   aria-current={active ? "page" : undefined}
-                  className={`relative flex items-center px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:transition-colors ${
+                  className={`relative flex items-center whitespace-nowrap px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:transition-colors ${
                     active
                       ? "text-rust-ink after:bg-rust"
                       : "text-olive hover:text-bistre after:bg-transparent"

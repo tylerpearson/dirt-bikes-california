@@ -1,9 +1,14 @@
 import type { Route, Trailhead } from "./types";
 import { bigBearRoutes } from "./routes/big-bear";
 import { palmSpringsRoutes } from "./routes/palm-springs.generated";
+import { idyllwildRoutes } from "./routes/idyllwild.generated";
 import { santaBarbaraRoutes } from "./routes/santa-barbara.generated";
 
-export type AreaId = "big-bear" | "palm-springs" | "santa-barbara";
+export type AreaId =
+  | "big-bear"
+  | "palm-springs"
+  | "idyllwild"
+  | "santa-barbara";
 
 export type Area = {
   id: AreaId;
@@ -50,6 +55,18 @@ export const AREAS: Area[] = [
     mvumGeojson: "/data/palm-springs-mvum.geojson",
     forest: SBNF,
     routes: palmSpringsRoutes,
+  },
+  {
+    id: "idyllwild",
+    name: "Idyllwild",
+    region: "San Bernardino N.F. · San Jacinto R.D.",
+    regionShort: "San Jacinto R.D.",
+    state: "California",
+    blurb:
+      "The forested west side of the San Jacintos around Idyllwild — pine-and-cedar dirt roads to the Black Mountain lookout, Dark Canyon, and the PCT trailheads. These are almost all plated dual-sport roads; for green-sticker OHV riding in the same range, see the Palm Springs (Garner Valley) guide. Maps and elevation from the Forest Service MVUM and SRTM.",
+    mvumGeojson: "/data/idyllwild-mvum.geojson",
+    forest: SBNF,
+    routes: idyllwildRoutes,
   },
   {
     id: "santa-barbara",
