@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MapRender } from "@/lib/tiles";
 import { StaticMap } from "./StaticMap";
 import { RouteMap } from "./RouteMap";
@@ -25,23 +25,58 @@ export function ExpandableMap({
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
+    const trigger = triggerRef.current;
+
+    const focusables = () =>
+      Array.from(
+        dialogRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      );
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = focusables();
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
+
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    // Move focus into the dialog once it's painted.
+    const raf = requestAnimationFrame(() => focusables()[0]?.focus());
+
     return () => {
+      cancelAnimationFrame(raf);
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      // Restore focus to the trigger that opened the dialog.
+      trigger?.focus();
     };
   }, [open]);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
         className={`group block h-full w-full cursor-pointer text-left ${className}`}
@@ -59,6 +94,7 @@ export function ExpandableMap({
           onClick={() => setOpen(false)}
         >
           <div
+            ref={dialogRef}
             className="mx-auto flex h-full w-full max-w-5xl flex-col overflow-hidden rounded-sm border-2 border-bistre bg-paper shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
