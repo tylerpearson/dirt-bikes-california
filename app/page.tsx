@@ -98,12 +98,25 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mt-4 max-w-2xl text-xs leading-relaxed text-olive">
-            California sticker note: since Jan 1 2025, red and green stickers are
-            treated as equally valid year-round in OHV-designated areas; model-year
-            2022+ non-compliant bikes now use the new tan sticker. Always carry
-            current registration and a working spark arrestor.
-          </p>
+          <div className="mt-4 max-w-2xl space-y-2 text-xs leading-relaxed text-olive">
+            <p>
+              <span className="font-semibold text-rust-ink">
+                New for 2026 (SB 586):
+              </span>{" "}
+              electric off-highway motorcycles — Sur-Ron, Talaria, Segway and the
+              like — now need a green sticker and must follow OHV rules (helmet,
+              ID display). They&apos;re treated as OHVs, so they&apos;re limited to
+              OHV-designated areas just like gas bikes — follow the same
+              green-sticker access shown on each route, and note they can&apos;t
+              be made street-legal.
+            </p>
+            <p>
+              Sticker note: since Jan 1 2025, red and green stickers are treated
+              as equally valid year-round in OHV-designated areas; model-year
+              2022+ non-compliant gas bikes use the new tan sticker. Always carry
+              current registration and a working spark arrestor.
+            </p>
+          </div>
         </div>
       </header>
 
