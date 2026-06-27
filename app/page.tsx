@@ -101,25 +101,25 @@ export default function Home() {
           <div className="mt-4 max-w-2xl space-y-2 text-xs leading-relaxed text-olive">
             <p>
               <span className="font-semibold text-rust-ink">
-                In effect now (SB 586, since Jan 2026):
+                Electric bikes are OHVs now:
               </span>{" "}
-              off-road electric motorcycles — from light bikes like the{" "}
-              <span className="font-semibold text-bistre">Sur-Ron</span> to the
+              under California&apos;s SB 586, off-road electric motorcycles count
+              as OHVs. A{" "}
+              <span className="font-semibold text-bistre">Sur-Ron</span> or a
               race-bred{" "}
-              <span className="font-semibold text-bistre">Stark Varg (MX)</span> —
-              now need a green sticker and follow OHV rules (helmet, ID display).
-              The competition Varg has no lights or DOT gear, so it can&apos;t be
-              plated: green sticker only, OHV-designated areas only — same
-              green-sticker access shown on each route.
+              <span className="font-semibold text-bistre">Stark Varg (MX)</span>{" "}
+              needs a green sticker, a helmet, and visible ID — and like any
+              green-sticker bike, it&apos;s restricted to OHV-designated areas. So
+              they follow the same green-sticker access shown on each route, and
+              they can&apos;t be plated.
             </p>
             <p>
-              The road-going{" "}
-              <span className="font-semibold text-bistre">Stark Varg EX</span> is
-              the exception — it&apos;s fully road-homologated in the US (lights,
-              indicators, foot rear brake), so it can be registered and plated like
-              a street-legal dual-sport. That puts it in the plate lane: it can
-              ride every route here, including the plate-only roads like Arrastre
-              Creek.
+              The exception is the road-going{" "}
+              <span className="font-semibold text-bistre">Stark Varg EX</span>:
+              it&apos;s fully road-homologated in the US (lights, indicators, foot
+              rear brake), so it registers and plates like a street-legal
+              dual-sport — and can ride every route here, including plate-only
+              roads like Arrastre Creek.
             </p>
             <p>
               Sticker note: since Jan 1 2025, red and green stickers are treated
