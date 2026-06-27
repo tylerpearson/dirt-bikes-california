@@ -1,7 +1,7 @@
 import type { Difficulty, Route } from "@/lib/types";
 import type { MapRender } from "@/lib/tiles";
 import type { TrackStats } from "@/lib/track-stats";
-import { fullMapUrl } from "@/lib/routes";
+import { fullMapUrl } from "@/lib/areas";
 import { AccessBadge } from "./AccessBadge";
 import { ExpandableMap } from "./ExpandableMap";
 import { ElevationProfile } from "./ElevationProfile";

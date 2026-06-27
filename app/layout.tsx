@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Zilla_Slab, Archivo } from "next/font/google";
 import "./globals.css";
+import { AreaNav } from "@/components/AreaNav";
 
 const zilla = Zilla_Slab({
   variable: "--font-zilla",
@@ -14,9 +15,12 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Big Bear Dirt Bike Routes",
+  title: {
+    default: "SoCal Dirt Bike Routes — Field Guide",
+    template: "%s",
+  },
   description:
-    "The best dirt bike and OHV routes in the Big Bear area — ride details, difficulty, and whether you need a green sticker, red sticker, or street-legal plate.",
+    "A field guide to the best dirt bike and OHV routes across Southern California — ride details, difficulty, real route maps, and whether you need a green sticker or a street-legal plate.",
 };
 
 export default function RootLayout({
@@ -29,7 +33,10 @@ export default function RootLayout({
       lang="en"
       className={`${zilla.variable} ${archivo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AreaNav />
+        {children}
+      </body>
     </html>
   );
 }

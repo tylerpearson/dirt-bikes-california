@@ -15,10 +15,19 @@ import { writeFile, mkdir } from "node:fs/promises";
 
 const BASE =
   "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_MVUM_01/MapServer";
-// Big Bear bbox: xmin,ymin,xmax,ymax (lon/lat, WGS84).
-const BBOX = "-117.05,34.15,-116.70,34.35";
-const UA = "dirt-bikes/1.0 (big-bear-route-guide; build script)";
-const OUT = new URL("../public/data/big-bear-mvum.geojson", import.meta.url);
+const UA = "dirt-bikes/1.0 (route-guide; build script)";
+
+// Per-area bounding boxes (xmin,ymin,xmax,ymax in lon/lat, WGS84). The MVUM
+// service is national, so each area is just a different window onto it.
+const AREAS = {
+  "big-bear": "-117.05,34.15,-116.70,34.35",
+  "palm-springs": "-116.90,33.45,-116.30,33.95",
+  "santa-barbara": "-120.05,34.40,-119.55,34.80",
+};
+
+// Run all areas, or just the one(s) named on the command line.
+const argv = process.argv.slice(2);
+const targets = argv.length ? argv : Object.keys(AREAS);
 
 const OUT_FIELDS = [
   "id",
@@ -51,14 +60,14 @@ function classify(p) {
   return { access: green ? "green" : "plate", seasonal };
 }
 
-async function fetchLayer(layer, kind) {
+async function fetchLayer(bbox, layer, kind) {
   const out = [];
   let offset = 0;
   const PAGE = 500;
   for (;;) {
     const url =
       `${BASE}/${layer}/query?` +
-      `geometry=${encodeURIComponent(BBOX)}&geometryType=esriGeometryEnvelope` +
+      `geometry=${encodeURIComponent(bbox)}&geometryType=esriGeometryEnvelope` +
       `&inSR=4326&spatialRel=esriSpatialRelIntersects` +
       `&outFields=${OUT_FIELDS}&returnGeometry=true&outSR=4326` +
       `&resultOffset=${offset}&resultRecordCount=${PAGE}&f=geojson`;
@@ -102,29 +111,37 @@ async function fetchLayer(layer, kind) {
   return out;
 }
 
-const roads = await fetchLayer(1, "road");
-const trails = await fetchLayer(2, "trail");
-const features = [...roads, ...trails];
-
-const counts = features.reduce((acc, f) => {
-  acc[f.properties.access] = (acc[f.properties.access] ?? 0) + 1;
-  return acc;
-}, {});
-
-const fc = {
-  type: "FeatureCollection",
-  metadata: {
-    source: "USFS Motor Vehicle Use Map (MVUM), EDW_MVUM_01",
-    area: "Big Bear, San Bernardino National Forest",
-    bbox: BBOX,
-    fetched: new Date().toISOString().slice(0, 10),
-    counts,
-  },
-  features,
-};
-
 await mkdir(new URL("../public/data/", import.meta.url), { recursive: true });
-await writeFile(OUT, JSON.stringify(fc));
-const kb = (JSON.stringify(fc).length / 1024).toFixed(0);
-console.log(`\nWrote ${features.length} features (${kb} KB) -> public/data/big-bear-mvum.geojson`);
-console.log("access counts:", counts);
+
+for (const area of targets) {
+  const bbox = AREAS[area];
+  if (!bbox) {
+    console.error(`Unknown area "${area}" — known: ${Object.keys(AREAS).join(", ")}`);
+    continue;
+  }
+  console.log(`\n== ${area} (${bbox}) ==`);
+  const roads = await fetchLayer(bbox, 1, "road");
+  const trails = await fetchLayer(bbox, 2, "trail");
+  const features = [...roads, ...trails];
+  const counts = features.reduce((acc, f) => {
+    acc[f.properties.access] = (acc[f.properties.access] ?? 0) + 1;
+    return acc;
+  }, {});
+  const fc = {
+    type: "FeatureCollection",
+    metadata: {
+      source: "USFS Motor Vehicle Use Map (MVUM), EDW_MVUM_01",
+      area,
+      bbox,
+      fetched: new Date().toISOString().slice(0, 10),
+      counts,
+    },
+    features,
+  };
+  const out = new URL(`../public/data/${area}-mvum.geojson`, import.meta.url);
+  const json = JSON.stringify(fc);
+  await writeFile(out, json);
+  console.log(
+    `Wrote ${features.length} features (${(json.length / 1024).toFixed(0)} KB) -> public/data/${area}-mvum.geojson · counts ${JSON.stringify(counts)}`,
+  );
+}

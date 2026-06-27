@@ -34,7 +34,7 @@ const esc = (s: string) =>
  * Leaflet + the ~140 KB (gzip) GeoJSON load lazily, only when the section
  * nears the viewport.
  */
-export function AreaMap() {
+export function AreaMap({ src }: { src: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -69,7 +69,7 @@ export function AreaMap() {
       try {
         const [{ default: L }, res] = await Promise.all([
           import("leaflet"),
-          fetch("/data/big-bear-mvum.geojson"),
+          fetch(src),
         ]);
         if (cancelled) return;
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -145,7 +145,7 @@ export function AreaMap() {
       cancelled = true;
       if (map) map.remove();
     };
-  }, [inView]);
+  }, [inView, src]);
 
   return (
     <div ref={wrapRef} className="relative">

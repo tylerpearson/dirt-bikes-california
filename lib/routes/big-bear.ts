@@ -1,4 +1,4 @@
-import type { Route, Trailhead } from "./types";
+import type { Route } from "../types";
 
 /**
  * Big Bear–area OHV / dirt bike routes, ordered best → worst (editorial).
@@ -18,7 +18,7 @@ import type { Route, Trailhead } from "./types";
  */
 const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 
-export const routes: Route[] = [
+export const bigBearRoutes: Route[] = [
   {
     id: "john-bull",
     name: "John Bull Trail",
@@ -310,9 +310,3 @@ export const routes: Route[] = [
     },
   },
 ];
-
-/** Link to the full interactive Google Map centered on the trailhead. */
-export function fullMapUrl(trailhead: Trailhead): string {
-  const { lat, lng } = trailhead;
-  return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
-}
