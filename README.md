@@ -90,12 +90,51 @@ node scripts/fetch-osm-gpx.mjs             # route geometry from OpenStreetMap (
 ## Deployment
 
 The app is a fully static Next.js export (`output: "export"` in
-`next.config.ts`) — no server runtime — hosted on **Cloudflare Workers static
-assets**. Config lives in `wrangler.jsonc`.
+`next.config.ts`) — no server runtime. `next build` writes plain HTML/CSS/JS to
+`./out`, which is served from **Cloudflare Workers static assets**. The Worker
+config (asset directory, clean-URL handling, 404 fallback, and the custom-domain
+route) lives in `wrangler.jsonc`.
+
+- **Production URL:** [dirtbikes.typearson.dev](https://dirtbikes.typearson.dev)
+- **Worker name:** `dirt-bikes-california`
+- **Hosting:** Cloudflare Workers static assets (no server/edge functions)
+
+### Automatic deploys (default)
+
+Pushing to `main` deploys automatically via **Cloudflare Workers Builds**, which
+is connected to the GitHub repo. On every push, Cloudflare:
+
+1. Installs dependencies,
+2. runs the build command `npm run build` (writes `./out`),
+3. runs the deploy command `npx wrangler deploy` (uploads `./out` per
+   `wrangler.jsonc`).
+
+```
+git push origin main   →   Cloudflare builds + deploys   →   dirtbikes.typearson.dev
+```
+
+Pull requests get their own preview URL automatically. The build/deploy commands
+are configured in the Cloudflare dashboard under the Worker's **Settings →
+Builds**; the connection itself is a one-time GitHub-app authorization done in
+the dashboard (there's no CLI for connecting Workers Builds).
+
+### Manual deploy (fallback)
+
+To deploy from your machine instead — e.g. to push without committing — you need
+[Wrangler](https://developers.cloudflare.com/workers/wrangler/) authenticated to
+the Cloudflare account (`npx wrangler login`):
 
 ```bash
 npm run deploy   # next build (writes ./out) + wrangler deploy
 ```
+
+### Custom domain
+
+`dirtbikes.typearson.dev` is attached via the `routes` entry in `wrangler.jsonc`
+(`custom_domain: true`). Because the `typearson.dev` zone lives in the same
+Cloudflare account, the DNS record and TLS cert are provisioned automatically on
+deploy. The `*.workers.dev` URL is disabled for this Worker; enable it under the
+Worker's **Settings → Domains & Routes** if you want it as a fallback.
 
 ## Data sources & credits
 
@@ -106,4 +145,6 @@ npm run deploy   # next build (writes ./out) + wrangler deploy
 
 ## License
 
-TBD.
+[MIT](LICENSE) © Tyler Pearson. Note that the underlying data carries its own
+terms: OpenStreetMap geometry is © OpenStreetMap contributors (ODbL), and MVUM /
+SRTM data are U.S. government works.
