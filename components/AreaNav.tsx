@@ -5,8 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AREAS } from "@/lib/areas";
 
-const href = (id: string) => (id === "big-bear" ? "/" : `/${id}`);
-
 export function AreaNav() {
   const pathname = usePathname();
   const activeRef = useRef<HTMLAnchorElement>(null);
@@ -32,7 +30,7 @@ export function AreaNav() {
 
         <ul className="-mr-2 flex items-stretch overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {AREAS.map((area) => {
-            const to = href(area.id);
+            const to = `/${area.id}`;
             const active = pathname === to;
             return (
               <li key={area.id} className="flex shrink-0">

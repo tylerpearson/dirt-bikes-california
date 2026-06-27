@@ -67,6 +67,27 @@ body {
     );
 }
 
+/* Overview-map pin labels: bare field-guide caption, no Leaflet box/arrow. */
+.leaflet-tooltip.overview-pin-label {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: var(--color-bistre);
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-shadow:
+    0 0 3px var(--color-paper),
+    0 0 3px var(--color-paper),
+    0 1px 2px var(--color-paper);
+}
+.leaflet-tooltip.overview-pin-label::before {
+  display: none;
+}
+
 /* Sepia / aged-topo treatment for the OSM map tiles. */
 .map-vintage {
   filter: sepia(0.42) saturate(0.72) brightness(1.05) contrast(0.92)
