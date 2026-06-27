@@ -89,7 +89,7 @@ export default function Home() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-ink/90">
             The best OHV and dual-sport rides across Southern California&apos;s
-            national forests — real route maps and elevation pulled from the
+            national forests, with real route maps and elevation pulled from the
             Forest Service MVUM and OpenStreetMap, the details that matter, and
             exactly where you need a street-legal plate versus where
             green-sticker bikes are allowed.

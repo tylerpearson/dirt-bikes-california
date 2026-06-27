@@ -48,7 +48,7 @@ export const AREAS: Area[] = [
     regionShort: "San Bernardino N.F.",
     state: "California",
     blurb:
-      "A field guide to the best OHV rides around Big Bear — real route maps and elevation pulled from the Forest Service MVUM and OpenStreetMap, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
+      "A field guide to the best OHV rides around Big Bear, with real route maps and elevation pulled from the Forest Service MVUM and OpenStreetMap, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
     tagline:
       "Forest roads and OHV trails ringing Big Bear Lake at 7,000 feet.",
     mvumGeojson: "/data/big-bear-mvum.geojson",
@@ -62,7 +62,7 @@ export const AREAS: Area[] = [
     regionShort: "San Jacinto R.D.",
     state: "California",
     blurb:
-      "The San Jacinto Mountains between Palm Springs and Idyllwild — one range, two characters. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. Route maps and elevation from the Forest Service MVUM and SRTM.",
+      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "One range, two sides: green-sticker OHV roads above Palm Springs, plated dual-sport up at Idyllwild.",
     mvumGeojson: "/data/san-jacinto-mvum.geojson",
@@ -76,7 +76,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Santa Ana Mountains between Orange County and the Inland Empire — the Main Divide country, about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback; for green-sticker OHV riding, the Wildomar OHV area sits on the southeast edge of the range. Route maps and elevation from the Forest Service MVUM and SRTM.",
+      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback; for green-sticker OHV riding, the Wildomar OHV area sits on the southeast edge of the range. Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
     tagline:
       "Mostly plated Main Divide country, headlined by the 35-mile run over Saddleback.",
     mvumGeojson: "/data/santa-ana-mvum.geojson",
@@ -90,7 +90,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Laguna Mountains in San Diego County — the Corral Canyon OHV Area near Pine Valley, the guide's one real green-sticker network this far south, plus the plated forest roads of the Mount Laguna / Sunrise Highway country. Mostly segment-by-segment green-sticker access on the OHV roads and plated dual-sport elsewhere. Route maps and elevation from the Forest Service MVUM and SRTM.",
+      "The Laguna Mountains in San Diego County hold the Corral Canyon OHV Area near Pine Valley, the guide's one real green-sticker network this far south, plus the plated forest roads of the Mount Laguna and Sunrise Highway country. Green-sticker access on the OHV roads is mostly segment-by-segment, with plated dual-sport riding everywhere else. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "Corral Canyon's green-sticker network plus the Mount Laguna forest roads, the guide's southernmost riding.",
     mvumGeojson: "/data/laguna-mvum.geojson",
@@ -104,7 +104,7 @@ export const AREAS: Area[] = [
     regionShort: "Mt Pinos R.D.",
     state: "California",
     blurb:
-      "The Mt Pinos / Frazier Park country in northern Los Padres, near Gorman and I-5 about an hour from LA — the strongest green-sticker OHV complex in this guide. High pine roads around Alamo and Frazier Mountains, the colorful Cuyama sandstone badlands of Apache and Quatal Canyons, and the Ballinger Canyon OHV area, plus scenic plated ridge roads. (The adjacent Hungry Valley SVRA is California State land and isn't covered here.) Much of it is high country that closes seasonally with snow. Route maps and elevation from the Forest Service MVUM and SRTM.",
+      "The Mt Pinos / Frazier Park country in northern Los Padres, near Gorman and I-5 about an hour from LA, is the strongest green-sticker OHV complex in this guide. You get high pine roads around Alamo and Frazier Mountains, the colorful Cuyama sandstone badlands of Apache and Quatal Canyons, and the Ballinger Canyon OHV area, plus scenic plated ridge roads. (The adjacent Hungry Valley SVRA is California State land and isn't covered here.) Much of it is high country that closes seasonally with snow. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "The guide's strongest green-sticker complex: pine roads, Cuyama badlands, and Ballinger Canyon OHV.",
     mvumGeojson: "/data/mt-pinos-mvum.geojson",
@@ -118,7 +118,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Santa Ynez and San Rafael backcountry behind Santa Barbara — the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Maps and elevation from the Forest Service MVUM and SRTM; many roads have seasonal wet-weather closures.",
+      "The Santa Ynez and San Rafael backcountry behind Santa Barbara takes in the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Route geometry and elevation come from the Forest Service MVUM and SRTM, and many roads have seasonal wet-weather closures.",
     tagline:
       "Camuesa OHV roads and the East Camino Cielo crest in the backcountry above the city.",
     mvumGeojson: "/data/santa-barbara-mvum.geojson",
@@ -132,7 +132,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Los Padres backcountry east of San Luis Obispo — the Pozo and La Panza OHV area. A real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close seasonally when wet. Route maps and elevation from the Forest Service MVUM and SRTM.",
+      "The Los Padres backcountry east of San Luis Obispo is home to the Pozo and La Panza OHV area: a real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close seasonally when wet. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "The Pozo and La Panza OHV area: green-sticker roads, singletrack, and the long Sierra Madre Ridge.",
     mvumGeojson: "/data/san-luis-obispo-mvum.geojson",
