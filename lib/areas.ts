@@ -2,6 +2,8 @@ import type { Route, Trailhead } from "./types";
 import { bigBearRoutes } from "./routes/big-bear";
 import { sanJacintoRoutes } from "./routes/san-jacinto.generated";
 import { santaAnaRoutes } from "./routes/santa-ana.generated";
+import { lagunaRoutes } from "./routes/laguna.generated";
+import { mtPinosRoutes } from "./routes/mt-pinos.generated";
 import { santaBarbaraRoutes } from "./routes/santa-barbara.generated";
 import { sanLuisObispoRoutes } from "./routes/san-luis-obispo.generated";
 
@@ -9,6 +11,8 @@ export type AreaId =
   | "big-bear"
   | "san-jacinto"
   | "santa-ana"
+  | "laguna"
+  | "mt-pinos"
   | "santa-barbara"
   | "san-luis-obispo";
 
@@ -70,6 +74,30 @@ export const AREAS: Area[] = [
     mvumGeojson: "/data/santa-ana-mvum.geojson",
     forest: CNF,
     routes: santaAnaRoutes,
+  },
+  {
+    id: "laguna",
+    name: "Laguna Mtns",
+    region: "Cleveland National Forest",
+    regionShort: "Cleveland N.F.",
+    state: "California",
+    blurb:
+      "The Laguna Mountains in San Diego County — the Corral Canyon OHV Area near Pine Valley, the guide's one real green-sticker network this far south, plus the plated forest roads of the Mount Laguna / Sunrise Highway country. Mostly segment-by-segment green-sticker access on the OHV roads and plated dual-sport elsewhere. Route maps and elevation from the Forest Service MVUM and SRTM.",
+    mvumGeojson: "/data/laguna-mvum.geojson",
+    forest: CNF,
+    routes: lagunaRoutes,
+  },
+  {
+    id: "mt-pinos",
+    name: "Mt Pinos",
+    region: "Los Padres National Forest",
+    regionShort: "Mt Pinos R.D.",
+    state: "California",
+    blurb:
+      "The Mt Pinos / Frazier Park country in northern Los Padres, near Gorman and I-5 about an hour from LA — the strongest green-sticker OHV complex in this guide. High pine roads around Alamo and Frazier Mountains, the colorful Cuyama sandstone badlands of Apache and Quatal Canyons, and the Ballinger Canyon OHV area, plus scenic plated ridge roads. (The adjacent Hungry Valley SVRA is California State land and isn't covered here.) Much of it is high country that closes seasonally with snow. Route maps and elevation from the Forest Service MVUM and SRTM.",
+    mvumGeojson: "/data/mt-pinos-mvum.geojson",
+    forest: LPNF,
+    routes: mtPinosRoutes,
   },
   {
     id: "santa-barbara",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AREAS } from "@/lib/areas";
@@ -8,6 +9,12 @@ const href = (id: string) => (id === "big-bear" ? "/" : `/${id}`);
 
 export function AreaNav() {
   const pathname = usePathname();
+  const activeRef = useRef<HTMLAnchorElement>(null);
+
+  // With many tabs the active one can start off-screen on mobile — center it.
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ inline: "center", block: "nearest" });
+  }, [pathname]);
 
   return (
     <nav className="sticky top-0 z-30 border-b-2 border-bistre/70 bg-paper/95 backdrop-blur-sm">
@@ -31,6 +38,7 @@ export function AreaNav() {
               <li key={area.id} className="flex shrink-0">
                 <Link
                   href={to}
+                  ref={active ? activeRef : undefined}
                   aria-current={active ? "page" : undefined}
                   className={`relative flex items-center whitespace-nowrap px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:transition-colors ${
                     active

@@ -22,8 +22,10 @@ const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 const BBOX = {
   "san-jacinto": "-116.90,33.45,-116.30,33.95",
   "santa-ana": "-117.55,33.55,-117.30,33.80",
+  "laguna": "-116.60,32.65,-116.30,32.95",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
   "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
+  "mt-pinos": "-119.55,34.65,-118.85,35.00",
 };
 
 // ---- Curated featured routes (editorial fields only; facts are derived) -----
@@ -308,6 +310,233 @@ const CONFIG = {
           "Easy graded riding near Blue Jay / El Cariso",
           "Campground and trailhead access",
           "Beginner-friendly plated route",
+        ],
+      },
+    ],
+  },
+
+  // The Laguna Mountains in San Diego County (Cleveland N.F., Descanso R.D.):
+  // the Corral Canyon OHV Area green-sticker network near Pine Valley, plus the
+  // plated Mount Laguna / Sunrise Highway forest roads.
+  "laguna": {
+    routes: [
+      {
+        id: "corral-canyon", name: "Corral Canyon Road", ids: ["17S04"],
+        difficulty: "Difficult",
+        summary: "The namesake road of San Diego's Corral Canyon OHV Area.",
+        description:
+          "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment — read the signs at each junction.",
+        surface: "Rocky, high-clearance OHV-area dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Heart of the Corral Canyon OHV Area",
+          "Green-sticker access on part of the road",
+          "Rocky, technical San Diego backcountry",
+        ],
+      },
+      {
+        id: "bear-valley", name: "Bear Valley Road", ids: ["16S12"],
+        difficulty: "Difficult",
+        summary: "Rugged OHV-area road through the Corral Canyon backcountry.",
+        description:
+          "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a solid intermediate-to-hard ride that links the OHV-area roads.",
+        surface: "Rocky high-clearance dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Green-sticker access on part of the road",
+          "Rocky Corral Canyon backcountry",
+          "Connects the OHV-area network",
+        ],
+      },
+      {
+        id: "skye-valley", name: "Skye Valley Road", ids: ["17S06"],
+        difficulty: "Moderate",
+        summary: "OHV-area road threading the Skye Valley chaparral.",
+        description:
+          "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a good intermediate green-sticker option in the network.",
+        surface: "Graded-to-rocky OHV-area dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Green-sticker access on part of the road",
+          "Chaparral-and-grassland scenery",
+          "Links the Corral Canyon roads",
+        ],
+      },
+      {
+        id: "long-valley-loop", name: "Long Valley Loop", ids: ["16S15"],
+        difficulty: "Moderate",
+        summary: "Fully green-sticker loop in the Corral Canyon OHV Area.",
+        description:
+          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area — the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+        surface: "Rocky and sandy OHV-area tread",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Fully designated green-sticker loop",
+          "Centerpiece of the OHV-area network",
+          "Oak-and-chaparral San Diego backcountry",
+        ],
+      },
+      {
+        id: "los-pinos", name: "Los Pinos Road", ids: ["16S17"],
+        difficulty: "Moderate",
+        summary: "Climb toward the Los Pinos lookout above Corral Canyon.",
+        description:
+          "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
+        surface: "Rocky high-clearance dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Climbs toward the Los Pinos lookout",
+          "Green-sticker access on part of the road",
+          "Big San-Diego-to-desert views",
+        ],
+      },
+      {
+        id: "la-posta", name: "La Posta Road", ids: ["15S05"],
+        difficulty: "Moderate",
+        summary: "Long plated forest road on the south side of the Lagunas.",
+        description:
+          "15S05 (La Posta) is a long graded forest road through the oak and chaparral country south of the Laguna crest, a scenic plated dual-sport ride. Highway-legal-only, it's a good way to cover ground and link the area's backcountry away from the OHV roads.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "Spring–fall",
+        highlights: [
+          "Long, scenic plated dual-sport road",
+          "Oak-and-chaparral Laguna country",
+          "Quieter than the OHV area",
+        ],
+      },
+      {
+        id: "pine-creek", name: "Pine Creek Road", ids: ["14S05"],
+        difficulty: "Easy",
+        summary: "Mellow plated road below the Laguna crest near Pine Valley.",
+        description:
+          "14S05 (Pine Creek) is a gentler graded road near Pine Valley below the Laguna Mountain crest, a relaxed plated ride through pine and oak good for building seat time and reaching the area's trailheads. Highway-legal only.",
+        surface: "Wide graded dirt, generally smooth",
+        bestSeason: "Spring–fall",
+        highlights: [
+          "Easy, beginner-friendly grade",
+          "Pine-and-oak Laguna foothills",
+          "Trailhead access near Pine Valley (plated only)",
+        ],
+      },
+    ],
+  },
+
+  // Mt Pinos / Frazier Park (Los Padres N.F., Mt Pinos R.D.) — the green-sticker
+  // OHV complex near Gorman / I-5, ~1 hr from LA: Alamo & Frazier Mountains, the
+  // Cuyama sandstone badlands (Apache/Quatal), and the Ballinger OHV area. (The
+  // adjacent Hungry Valley SVRA is California State land and is not included.)
+  "mt-pinos": {
+    routes: [
+      {
+        id: "alamo-mountain", name: "Alamo Mountain OHV", ids: ["8N01.3"],
+        difficulty: "Difficult",
+        summary: "High green-sticker loop around 8,000-foot Alamo Mountain.",
+        description:
+          "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views — the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
+        surface: "Rocky, high-clearance OHV-area dirt",
+        bestSeason: "May–October (seasonal snow closure)",
+        highlights: [
+          "Loops 8,000-foot Alamo Mountain",
+          "Pine high country in the Piru headwaters",
+          "Marquee green-sticker ride of the area",
+        ],
+      },
+      {
+        id: "mutau", name: "Mutau OHV Road", ids: ["7N03.2"],
+        difficulty: "Moderate",
+        summary: "Long, remote green-sticker road toward Mutau Flat.",
+        description:
+          "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage — go prepared; seasonal.",
+        surface: "Mixed forest road, sandy and rocky sections",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "Remote ride toward Mutau Flat",
+          "Edge of the Sespe backcountry",
+          "Quiet green-sticker mileage",
+        ],
+      },
+      {
+        id: "apache-canyon", name: "Apache Canyon OHV", ids: ["8N06"],
+        difficulty: "Moderate",
+        summary: "Green-sticker road through the colorful Cuyama badlands.",
+        description:
+          "8N06 threads Apache Canyon in the sandstone badlands on the Cuyama side of the range, an open-to-all-vehicles road with sandy washes, rocky benches, and striking eroded rock. A fun, scenic green-sticker ride that pairs with neighboring Quatal Canyon.",
+        surface: "Sandy wash and rocky badlands tread",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Colorful Cuyama sandstone badlands",
+          "Sandy-wash green-sticker riding",
+          "Pairs with Quatal Canyon",
+        ],
+      },
+      {
+        id: "quatal-canyon", name: "Quatal Canyon OHV", ids: ["9N09.2"],
+        difficulty: "Moderate",
+        summary: "Sandstone-badlands OHV road — green-sticker on part of it.",
+        description:
+          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Sandy and exposed; best in cool weather.",
+        surface: "Deep sandy wash through sandstone badlands",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Dramatic sandstone badlands",
+          "Sandy-wash riding",
+          "Green-sticker access on part of the road",
+        ],
+      },
+      {
+        id: "frazier-mountain", name: "Frazier Mountain OHV", ids: ["8N04.2"],
+        difficulty: "Moderate",
+        summary: "Green-sticker climb to the Frazier Mountain lookout.",
+        description:
+          "8N04.2 is the OHV-designated climb up Frazier Mountain toward the lookout and summit antennas near 8,000 feet, with sweeping views over Lockwood Valley, Mt Pinos, and the high desert. A rocky, high-clearance green-sticker road; seasonal up top.",
+        surface: "Rocky, high-clearance climb",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "Climbs toward the Frazier Mountain lookout",
+          "Views over Lockwood Valley and Mt Pinos",
+          "Designated green-sticker road",
+        ],
+      },
+      {
+        id: "scott-russell", name: "Scott Russell OHV", ids: ["9N21.1", "9N21.2", "9N21.3"],
+        difficulty: "Moderate",
+        summary: "Green-sticker OHV road in the Frazier high country.",
+        description:
+          "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
+        surface: "Mixed graded and rocky forest road",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "Forested Frazier high country",
+          "Links the area's OHV network",
+          "Designated green-sticker road",
+        ],
+      },
+      {
+        id: "reyes-peak", name: "Reyes Peak Road", ids: ["6N06.1"],
+        difficulty: "Moderate",
+        summary: "Scenic plated ridge road along Pine Mountain.",
+        description:
+          "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only — a scenic plated cruise; seasonal.",
+        surface: "Graded dirt ridge road",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "High conifer ridge along Pine Mountain",
+          "Views toward the Sespe wilderness",
+          "Scenic plated cruise",
+        ],
+      },
+      {
+        id: "ballinger-canyon", name: "Ballinger Canyon Road", ids: ["9N10.1"],
+        difficulty: "Easy",
+        summary: "Plated staging road into the Ballinger Canyon OHV area.",
+        description:
+          "9N10 is the graded access road into the Ballinger Canyon OHV area on the Cuyama side, an easy plated ride to the staging area and campground that anchors a big network of OHV trails. The road itself is highway-legal-only; the OHV trail riding branches off it.",
+        surface: "Wide graded dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Gateway to the Ballinger Canyon OHV area",
+          "Easy plated access road",
+          "Anchors a big OHV trail network",
         ],
       },
     ],

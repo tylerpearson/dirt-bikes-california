@@ -23,8 +23,10 @@ const AREAS = {
   "big-bear": "-117.05,34.15,-116.70,34.35",
   "san-jacinto": "-116.90,33.45,-116.30,33.95",
   "santa-ana": "-117.55,33.55,-117.30,33.80",
+  "laguna": "-116.60,32.65,-116.30,32.95",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
   "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
+  "mt-pinos": "-119.55,34.65,-118.85,35.00",
 };
 
 // Run all areas, or just the one(s) named on the command line.
