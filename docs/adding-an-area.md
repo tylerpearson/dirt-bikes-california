@@ -104,8 +104,19 @@ BBOX="-120.05,34.40,-119.55,34.80"   # xmin,ymin,xmax,ymax
 curl -s -A "$UA" "$BASE/1/query?geometry=$BBOX&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnCountOnly=true&f=json"
 ```
 
-If the count is ~0, it's BLM/state land or a different forest the MVUM doesn't
-cover here — reconsider the area.
+If the count is ~0, it's BLM/state land or a forest the MVUM doesn't cover —
+reconsider the area. **Not every national forest is in EDW.** Confirmed gaps:
+
+- **Angeles N.F. (the LA forest) is absent entirely** — `forestname LIKE '%Angeles%'`
+  returns 0 on both `EDW_MVUM_01` and `EDW_MVUM_02`. Its travel-management plan
+  was never published to EDW. Don't try to force it; we substituted the
+  **Santa Ana Mtns (Cleveland N.F.)** as the LA-area option instead.
+- **Oceano Dunes (SLO coast) is state land**, not Forest Service — not in the
+  MVUM. The real SLO forest riding is inland (Pozo / La Panza).
+
+SoCal forests confirmed present: San Bernardino, Cleveland, Los Padres. There's
+also a sibling service `EDW_MVUM_02` (other regions) worth checking if `_01`
+comes up empty for an area you expect to exist.
 
 ### Step 1 — Generate the overview map
 

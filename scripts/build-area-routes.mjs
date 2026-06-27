@@ -21,7 +21,9 @@ const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 // to a same-numbered road three states away).
 const BBOX = {
   "san-jacinto": "-116.90,33.45,-116.30,33.95",
+  "santa-ana": "-117.55,33.55,-117.30,33.80",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
+  "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
 };
 
 // ---- Curated featured routes (editorial fields only; facts are derived) -----
@@ -199,6 +201,219 @@ const CONFIG = {
           "Forest-and-meadow scenery",
           "Short, scenic plated spur",
           "Pairs with the Idyllwild road network",
+        ],
+      },
+    ],
+  },
+
+  // Santa Ana Mountains (Cleveland N.F.) — the Main Divide / Trabuco country
+  // near LA/Orange County. Almost entirely plated dual-sport / adventure roads
+  // (green-sticker OHV here is the separate Wildomar area); the marquee ride is
+  // the ~35-mile North Main Divide over Santiago Peak.
+  "santa-ana": {
+    routes: [
+      {
+        id: "north-main-divide", name: "North Main Divide Road", ids: ["3S04"],
+        difficulty: "Difficult",
+        summary: "The legendary ~35-mile crest of the Santa Ana Mountains over Saddleback.",
+        description:
+          "The North Main Divide Truck Trail (3S04) runs the spine of the Santa Ana Mountains past Santiago and Modjeska Peaks (Saddleback), a long, exposed ridge road with rocky, rutted high-clearance sections and enormous views from the Inland Empire to the Pacific. A classic SoCal plated dual-sport / adventure ride — highway-legal only, and a serious day of riding.",
+        surface: "Long, rocky high-clearance ridge road",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Rides the crest past Santiago Peak (Saddleback)",
+          "Inland-Empire-to-Pacific views",
+          "Marquee plated adventure ride near LA/OC",
+        ],
+      },
+      {
+        id: "south-main-divide", name: "South Main Divide Road", ids: ["6S07"],
+        difficulty: "Moderate",
+        summary: "The southern half of the divide toward El Cariso and Lake Elsinore.",
+        description:
+          "South Main Divide (6S07) continues the ridge south from the Ortega Highway toward El Cariso and the Lake Elsinore side, generally smoother than the north divide with chaparral ridgetops and overlooks of the lake and valley. A scenic, moderate plated ride — highway-legal only.",
+        surface: "Graded-to-rocky ridge road",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Overlooks of Lake Elsinore",
+          "Smoother companion to the north divide",
+          "Chaparral ridgetop scenery (plated only)",
+        ],
+      },
+      {
+        id: "maple-springs", name: "Maple Springs Road", ids: ["5S04"],
+        difficulty: "Moderate",
+        summary: "Climbs from Silverado Canyon up to the Main Divide.",
+        description:
+          "Maple Springs Road (5S04) climbs out of Silverado Canyon through oak and bay woodland to meet the Main Divide near Modjeska Peak. A scenic graded-to-rocky climb and one of the main ways up to the crest from the Orange County side — highway-legal only.",
+        surface: "Graded dirt with rocky upper sections",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Shaded climb out of Silverado Canyon",
+          "Connects to the Main Divide crest",
+          "Oak-and-bay woodland (plated only)",
+        ],
+      },
+      {
+        id: "indian-truck-trail", name: "Indian Truck Trail", ids: ["5S01"],
+        difficulty: "Moderate",
+        summary: "Long graded climb to the divide from the Corona side.",
+        description:
+          "Indian Truck Trail (5S01) climbs the eastern flank of the Santa Anas from the Corona / Lake Mathews side up to the Main Divide, a steady graded ascent through chaparral with expanding Inland Empire views. A popular plated dual-sport climb — highway-legal only.",
+        surface: "Graded dirt, steady grade",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Long steady climb to the crest",
+          "Inland Empire views",
+          "Popular plated dual-sport route",
+        ],
+      },
+      {
+        id: "trabuco-canyon", name: "Trabuco Canyon Road", ids: ["6S13"],
+        difficulty: "Difficult",
+        summary: "Rough, rocky canyon road to the Holy Jim trailhead.",
+        description:
+          "Trabuco Canyon Road (6S13) runs up the boulder-strewn Trabuco Canyon to the Holy Jim trailhead, a notoriously rocky, rutted, creek-crossing road that demands real high-clearance riding. Short but technical, shaded and scenic — highway-legal only.",
+        surface: "Rocky, rutted canyon road with creek crossings",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Rough, technical canyon riding",
+          "Shaded Trabuco Canyon and Holy Jim",
+          "Short but demanding (plated only)",
+        ],
+      },
+      {
+        id: "bedford-ridge", name: "Bedford Ridge Road", ids: ["4S03"],
+        difficulty: "Moderate",
+        summary: "Short ridge spur off the northern divide country.",
+        description:
+          "Bedford Ridge (4S03) is a shorter high-clearance ridge road in the northern Santa Anas, mixing rocky benches and chaparral with valley views. A compact plated ride best linked with the Main Divide — highway-legal only.",
+        surface: "Rocky high-clearance ridge dirt",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Compact northern-divide spur",
+          "Chaparral ridge and valley views",
+          "Pairs with the Main Divide (plated only)",
+        ],
+      },
+      {
+        id: "long-canyon", name: "Long Canyon Road", ids: ["6S05"],
+        difficulty: "Easy",
+        summary: "Mellow graded road in the El Cariso / Blue Jay area.",
+        description:
+          "Long Canyon Road (6S05) is a gentler graded road around the El Cariso and Blue Jay campground area on the south end of the range, good for an easy plated cruise and reaching trailheads and camps. Highway-legal only.",
+        surface: "Wide graded dirt, generally smooth",
+        bestSeason: "Year-round (avoid heat and after rain)",
+        highlights: [
+          "Easy graded riding near Blue Jay / El Cariso",
+          "Campground and trailhead access",
+          "Beginner-friendly plated route",
+        ],
+      },
+    ],
+  },
+
+  // The Pozo / La Panza OHV area in the Santa Lucia backcountry east of SLO:
+  // a real green-sticker network of OHV roads (and motorcycle singletrack),
+  // plus the long, remote Sierra Madre Ridge for plated adventure riding.
+  "san-luis-obispo": {
+    routes: [
+      {
+        id: "hi-mountain", name: "Hi Mountain OHV Road", ids: ["30S11"],
+        difficulty: "Difficult",
+        summary: "Climb to the Hi Mountain lookout in the heart of the Pozo OHV area.",
+        description:
+          "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route — open seasonally, and a long way from anywhere.",
+        surface: "Rocky, high-clearance OHV-area dirt",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Heart of the Pozo OHV area",
+          "Climbs toward the Hi Mountain condor lookout",
+          "Designated green-sticker road",
+        ],
+      },
+      {
+        id: "rock-front", name: "Rock Front OHV Road", ids: ["30S06.1"],
+        difficulty: "Moderate",
+        summary: "Designated green-sticker OHV road through the La Panza chaparral.",
+        description:
+          "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network — seasonal when wet.",
+        surface: "Rocky and sandy OHV-area tread",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Designated green-sticker (open to all vehicles)",
+          "La Panza chaparral country",
+          "Connects the Pozo OHV network",
+        ],
+      },
+      {
+        id: "queen-bee-loop", name: "Queen Bee Loop OHV", ids: ["29S18.1", "29S18.2"],
+        difficulty: "Moderate",
+        summary: "Short green-sticker loop in the Pozo OHV area.",
+        description:
+          "The Queen Bee Loop (29S18) is a compact designated OHV road in the Pozo area, open to all vehicles, with sandy and rocky tread through oak and chaparral. A fun, low-commitment green-sticker loop to add onto a bigger day — open seasonally.",
+        surface: "Sandy and rocky OHV-area tread",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Designated green-sticker loop",
+          "Oak-and-chaparral Pozo country",
+          "Good add-on to the Hi Mountain ride",
+        ],
+      },
+      {
+        id: "old-sierra", name: "Old Sierra OHV Road", ids: ["12N03.1"],
+        difficulty: "Moderate",
+        summary: "Short, rocky green-sticker spur toward the Sierra Madre country.",
+        description:
+          "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country — rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
+        surface: "Rocky high-clearance OHV-area dirt",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Designated green-sticker road",
+          "Sierra Madre approach country",
+          "Pairs with Sierra Madre Road",
+        ],
+      },
+      {
+        id: "navajo-road", name: "Navajo Road", ids: ["29S02.1", "29S02.2"],
+        difficulty: "Moderate",
+        summary: "Backcountry road into the Pozo OHV area — green-sticker on part of it.",
+        description:
+          "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Seasonal closures apply.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Green-sticker access on part of the road",
+          "Oak-woodland Pozo backcountry",
+          "Gateway to the OHV network",
+        ],
+      },
+      {
+        id: "sierra-madre-road", name: "Sierra Madre Road", ids: ["32S13.1"],
+        difficulty: "Difficult",
+        summary: "The ~28-mile Sierra Madre Ridge — remote plated backcountry.",
+        description:
+          "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge — one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing — carry everything.",
+        surface: "Long, remote graded-to-rocky ridge road",
+        bestSeason: "Spring–fall (closed when wet)",
+        highlights: [
+          "~28 miles of remote Sierra Madre Ridge",
+          "Huge, lonely grassland-and-chaparral views",
+          "Classic plated backcountry adventure",
+        ],
+      },
+      {
+        id: "fernandez-road", name: "Fernandez Road", ids: ["28S02.1", "28S02.2"],
+        difficulty: "Moderate",
+        summary: "Quiet plated forest road in the Santa Lucia backcountry.",
+        description:
+          "Fernandez Road (28S02) is a quieter highway-legal-only road through the Santa Lucia backcountry near Pozo, with graded dirt and rocky sections through oak and chaparral. A relaxed plated ride and a way to link the area without the technical or seasonal demands of the OHV roads.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "Spring–fall",
+        highlights: [
+          "Quiet Santa Lucia backcountry",
+          "Oak-and-chaparral scenery",
+          "Relaxed plated ride",
         ],
       },
     ],

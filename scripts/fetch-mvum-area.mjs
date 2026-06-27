@@ -22,7 +22,9 @@ const UA = "dirt-bikes/1.0 (route-guide; build script)";
 const AREAS = {
   "big-bear": "-117.05,34.15,-116.70,34.35",
   "san-jacinto": "-116.90,33.45,-116.30,33.95",
+  "santa-ana": "-117.55,33.55,-117.30,33.80",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
+  "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
 };
 
 // Run all areas, or just the one(s) named on the command line.
