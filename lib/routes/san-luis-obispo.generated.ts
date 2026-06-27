@@ -145,6 +145,34 @@ export const sanLuisObispoRoutes: Route[] = [
     }
   },
   {
+    "id": "pozo-singletrack",
+    "name": "Pozo OHV Singletrack",
+    "forestRoad": "16E21",
+    "summary": "The longest designated OHV trail in the Pozo singletrack network.",
+    "description": "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area — narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
+    "distanceMiles": 9.1,
+    "difficulty": "Difficult",
+    "elevationFt": "1,800–2,750 ft",
+    "surface": "Narrow OHV singletrack through chaparral",
+    "bestSeason": "Fall–spring (closed when wet)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 16E21 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Longest trail in the Pozo singletrack network",
+      "Narrow, technical green-sticker riding",
+      "The real draw of the Pozo OHV area"
+    ],
+    "trailhead": {
+      "name": "Pozo OHV Singletrack (16E21)",
+      "lat": 35.3592,
+      "lng": -120.2757
+    }
+  },
+  {
     "id": "sierra-madre-road",
     "name": "Sierra Madre Road",
     "forestRoad": "32S13.1",

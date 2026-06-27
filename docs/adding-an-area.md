@@ -279,5 +279,24 @@ for (nm,rid),(mi,g) in sorted(named.items(),key=lambda x:-x[1][0]):
 ```
 
 Layer 2 (`/2/query…`) is trails — dedicated OHV singletrack like
-`Wheeled OHV <50"` or `Trails open to motorcycles`. Worth a look; some areas
-have great trail riding the road layer misses.
+`Wheeled OHV <50"` or `Trails open to motorcycles`. **Often the best riding in an
+OHV area is its singletrack, not its roads** — always check layer 2.
+
+### Featuring a trail
+
+The route builder handles trails: add `layer: 2` to a route's CONFIG entry and
+give its trail number in `ids` (e.g. `ids: ["912"], layer: 2`). Everything else
+(geometry, access, stitching, elevation, GPX) is identical — layer 2 shares the
+layer-1 schema. The access note is auto-worded for trails ("designated OHV trail
+open to motorcycles… true singletrack, not a road").
+
+- **Trail numbers also collide nationally** — the bbox constraint handles it,
+  same as roads.
+- **Naming:** some trails carry a real `name` (e.g. Corral Canyon's *Kernan*,
+  *Wrangler*, *Peace Maker*) — use it. Many are **unnamed** in the MVUM; give
+  those an honest descriptive editorial name anchored to the real trail number
+  (e.g. `name: "Pozo OHV Singletrack"`, `ids: ["16E21"]`) — don't invent a
+  fake-official name, and don't put the number in `name` (the card shows it as a
+  "No." badge and the trailhead label appends it).
+- Set `surface` to something like "narrow OHV singletrack" so the card reads as a
+  trail, not a road.

@@ -391,6 +391,48 @@ const CONFIG = {
         ],
       },
       {
+        id: "kernan-trail", name: "Kernan Trail", ids: ["802"], layer: 2,
+        difficulty: "Difficult",
+        summary: "The longest singletrack in the Corral Canyon OHV Area.",
+        description:
+          "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley — narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
+        surface: "Narrow, rocky OHV singletrack",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Longest singletrack in the Corral Canyon system",
+          "Technical, narrow OHV trail",
+          "Designated green-sticker singletrack",
+        ],
+      },
+      {
+        id: "wrangler-trail", name: "Wrangler Trail", ids: ["901"], layer: 2,
+        difficulty: "Moderate",
+        summary: "Classic Corral Canyon OHV singletrack loop trail.",
+        description:
+          "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding — open to vehicles 50 inches and under.",
+        surface: "Narrow OHV singletrack, rocky and sandy",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Signature Corral Canyon trail",
+          "Twisting green-sticker singletrack",
+          "Links the area's loop system",
+        ],
+      },
+      {
+        id: "peace-maker-trail", name: "Peace Maker Singletrack", ids: ["912"], layer: 2,
+        difficulty: "Difficult",
+        summary: "Motorcycle-only singletrack in the Corral Canyon OHV Area.",
+        description:
+          "Trail 912 (Peace Maker) is designated open to motorcycles only — true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
+        surface: "Tight motorcycle-only singletrack",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Motorcycle-only singletrack",
+          "Tightest, most technical trail here",
+          "Designated green-sticker (dirt bikes only)",
+        ],
+      },
+      {
         id: "la-posta", name: "La Posta Road", ids: ["15S05"],
         difficulty: "Moderate",
         summary: "Long plated forest road on the south side of the Lagunas.",
@@ -512,6 +554,20 @@ const CONFIG = {
         ],
       },
       {
+        id: "mt-pinos-singletrack", name: "Mt Pinos Singletrack", ids: ["19W04"], layer: 2,
+        difficulty: "Difficult",
+        summary: "Long designated motorcycle singletrack — the area's premier trail ride.",
+        description:
+          "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area — miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+        surface: "Long, technical motorcycle singletrack",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "One of the area's longest moto singletracks",
+          "Technical, narrow green-sticker trail",
+          "Motorcycle-only — the real reason to come",
+        ],
+      },
+      {
         id: "reyes-peak", name: "Reyes Peak Road", ids: ["6N06.1"],
         difficulty: "Moderate",
         summary: "Scenic plated ridge road along Pine Mountain.",
@@ -615,6 +671,20 @@ const CONFIG = {
           "Green-sticker access on part of the road",
           "Oak-woodland Pozo backcountry",
           "Gateway to the OHV network",
+        ],
+      },
+      {
+        id: "pozo-singletrack", name: "Pozo OHV Singletrack", ids: ["16E21"], layer: 2,
+        difficulty: "Difficult",
+        summary: "The longest designated OHV trail in the Pozo singletrack network.",
+        description:
+          "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area — narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
+        surface: "Narrow OHV singletrack through chaparral",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Longest trail in the Pozo singletrack network",
+          "Narrow, technical green-sticker riding",
+          "The real draw of the Pozo OHV area",
         ],
       },
       {
@@ -753,16 +823,18 @@ const CONFIG = {
 };
 
 // ---- geometry + access from the MVUM -----------------------------------------
-async function fetchRoad(ids, bbox) {
+// layer 1 = roads, layer 2 = trails (same schema, so the rest of the pipeline
+// is identical — a featured route just declares which layer it lives on).
+async function fetchFeature(ids, bbox, layer = 1) {
   const where = ids.map((i) => `id='${i.replace(/'/g, "''")}'`).join(" OR ");
   const url =
-    `${BASE}/1/query?where=${encodeURIComponent(where)}` +
+    `${BASE}/${layer}/query?where=${encodeURIComponent(where)}` +
     `&geometry=${encodeURIComponent(bbox)}&geometryType=esriGeometryEnvelope` +
     `&inSR=4326&spatialRel=esriSpatialRelIntersects` +
     `&outFields=id,name,mvum_symbol_name,seasonal,motorcycle,other_ohv_lt50inches,atv,gis_miles` +
     `&returnGeometry=true&outSR=4326&f=geojson`;
   const res = await fetch(url, { headers: { "User-Agent": UA } });
-  if (!res.ok) throw new Error(`road ${ids} HTTP ${res.status}`);
+  if (!res.ok) throw new Error(`layer ${layer} ${ids} HTTP ${res.status}`);
   const json = await res.json();
   return json.features ?? [];
 }
@@ -840,11 +912,14 @@ async function fetchElevations(coords) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmtFt = (m) => Math.round((m * 3.28084) / 50) * 50;
 
-function accessNote(name, ids, access, seasonal) {
+function accessNote(name, ids, access, seasonal, isTrail = false) {
   const id = ids[0];
   const season = seasonal
     ? " This route has a seasonal (wet-weather) closure, so confirm it's open before you go."
     : "";
+  if (isTrail)
+    // Trails are motorcycle/OHV singletrack — green-sticker by nature.
+    return `Per the MVUM, trail ${id} is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.${season}`;
   if (access === "yes")
     return `Per the MVUM, ${id} is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.${season}`;
   if (access === "partial")
@@ -853,9 +928,10 @@ function accessNote(name, ids, access, seasonal) {
 }
 
 async function buildRoute(cfg, bbox) {
-  const feats = await fetchRoad(cfg.ids, bbox);
+  const layer = cfg.layer ?? 1;
+  const feats = await fetchFeature(cfg.ids, bbox, layer);
   if (!feats.length) {
-    console.warn(`  ! ${cfg.id}: no MVUM features for ${cfg.ids.join(",")}`);
+    console.warn(`  ! ${cfg.id}: no MVUM features for ${cfg.ids.join(",")} (layer ${layer})`);
     return null;
   }
   const parts = [];
@@ -933,7 +1009,7 @@ ${trkpts}
     access: {
       streetLegal: true,
       greenSticker: access,
-      note: accessNote(cfg.name, cfg.ids, access, seasonal),
+      note: accessNote(cfg.name, cfg.ids, access, seasonal, layer === 2),
       source: MVUM,
     },
     highlights: cfg.highlights,

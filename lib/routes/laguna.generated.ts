@@ -145,6 +145,90 @@ export const lagunaRoutes: Route[] = [
     }
   },
   {
+    "id": "kernan-trail",
+    "name": "Kernan Trail",
+    "forestRoad": "802",
+    "summary": "The longest singletrack in the Corral Canyon OHV Area.",
+    "description": "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley — narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
+    "distanceMiles": 5.5,
+    "difficulty": "Difficult",
+    "elevationFt": "3,100–4,050 ft",
+    "surface": "Narrow, rocky OHV singletrack",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 802 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Longest singletrack in the Corral Canyon system",
+      "Technical, narrow OHV trail",
+      "Designated green-sticker singletrack"
+    ],
+    "trailhead": {
+      "name": "Kernan Trail (802)",
+      "lat": 32.7246,
+      "lng": -116.5591
+    }
+  },
+  {
+    "id": "wrangler-trail",
+    "name": "Wrangler Trail",
+    "forestRoad": "901",
+    "summary": "Classic Corral Canyon OHV singletrack loop trail.",
+    "description": "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding — open to vehicles 50 inches and under.",
+    "distanceMiles": 3.6,
+    "difficulty": "Moderate",
+    "elevationFt": "3,450–3,950 ft",
+    "surface": "Narrow OHV singletrack, rocky and sandy",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 901 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Signature Corral Canyon trail",
+      "Twisting green-sticker singletrack",
+      "Links the area's loop system"
+    ],
+    "trailhead": {
+      "name": "Wrangler Trail (901)",
+      "lat": 32.6932,
+      "lng": -116.5545
+    }
+  },
+  {
+    "id": "peace-maker-trail",
+    "name": "Peace Maker Singletrack",
+    "forestRoad": "912",
+    "summary": "Motorcycle-only singletrack in the Corral Canyon OHV Area.",
+    "description": "Trail 912 (Peace Maker) is designated open to motorcycles only — true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
+    "distanceMiles": 2.6,
+    "difficulty": "Difficult",
+    "elevationFt": "3,300–3,650 ft",
+    "surface": "Tight motorcycle-only singletrack",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 912 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Motorcycle-only singletrack",
+      "Tightest, most technical trail here",
+      "Designated green-sticker (dirt bikes only)"
+    ],
+    "trailhead": {
+      "name": "Peace Maker Singletrack (912)",
+      "lat": 32.7073,
+      "lng": -116.5973
+    }
+  },
+  {
     "id": "la-posta",
     "name": "La Posta Road",
     "forestRoad": "15S05",

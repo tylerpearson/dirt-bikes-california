@@ -173,6 +173,34 @@ export const mtPinosRoutes: Route[] = [
     }
   },
   {
+    "id": "mt-pinos-singletrack",
+    "name": "Mt Pinos Singletrack",
+    "forestRoad": "19W04",
+    "summary": "Long designated motorcycle singletrack — the area's premier trail ride.",
+    "description": "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area — miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+    "distanceMiles": 14.2,
+    "difficulty": "Difficult",
+    "elevationFt": "3,150–6,700 ft",
+    "surface": "Long, technical motorcycle singletrack",
+    "bestSeason": "May–October (seasonal)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 19W04 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "One of the area's longest moto singletracks",
+      "Technical, narrow green-sticker trail",
+      "Motorcycle-only — the real reason to come"
+    ],
+    "trailhead": {
+      "name": "Mt Pinos Singletrack (19W04)",
+      "lat": 34.7165,
+      "lng": -118.9296
+    }
+  },
+  {
     "id": "reyes-peak",
     "name": "Reyes Peak Road",
     "forestRoad": "6N06.1",
