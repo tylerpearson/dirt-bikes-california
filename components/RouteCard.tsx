@@ -106,6 +106,34 @@ export function RouteCard({
           <AccessBadge status={route.access.greenSticker} className="self-start" />
         </header>
 
+        {/* Headline spec line — the two numbers a rider scans first */}
+        <dl className="flex items-stretch gap-5 border-y border-edge-strong/40 py-3">
+          <div>
+            <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
+              Distance
+            </dt>
+            <dd className="flex items-baseline gap-1 leading-none">
+              <span className="font-display text-4xl font-bold tracking-tight text-rust-ink">
+                {(stats?.distanceMiles ?? route.distanceMiles).toFixed(1)}
+              </span>
+              <span className="text-sm font-semibold uppercase tracking-wider text-olive">
+                mi
+              </span>
+            </dd>
+          </div>
+          <div className="w-px self-stretch bg-edge" aria-hidden />
+          <div className="flex flex-col justify-center">
+            <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
+              Difficulty
+            </dt>
+            <dd
+              className={`text-lg font-semibold leading-tight ${DIFFICULTY_COLOR[route.difficulty]}`}
+            >
+              {route.difficulty}
+            </dd>
+          </div>
+        </dl>
+
         <div className="rounded-sm border border-edge bg-manila/40 p-3">
           <p className="text-xs leading-relaxed text-bistre">
             {route.access.note}
@@ -122,25 +150,11 @@ export function RouteCard({
         </p>
 
         <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-edge pt-4 sm:grid-cols-3">
-          <Stat
-            label="Distance"
-            value={`${(stats?.distanceMiles ?? route.distanceMiles).toFixed(1)} mi`}
-          />
-          <div>
-            <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
-              Difficulty
-            </dt>
-            <dd
-              className={`text-sm font-semibold ${DIFFICULTY_COLOR[route.difficulty]}`}
-            >
-              {route.difficulty}
-            </dd>
-          </div>
           {route.elevationFt && (
             <Stat label="Elevation" value={route.elevationFt} />
           )}
           <Stat label="Best season" value={route.bestSeason} />
-          <div className="col-span-2">
+          <div className="col-span-2 sm:col-span-1">
             <Stat label="Surface" value={route.surface} />
           </div>
         </dl>
