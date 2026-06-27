@@ -1,0 +1,19 @@
+{
+  // Cloudflare Workers static-assets deploy for the Next.js static export.
+  // The app has no server code — `out/` is plain HTML/CSS/JS, served directly
+  // from Cloudflare's edge with no Worker script.
+  //   npm run build      -> regenerate ./out
+  //   npx wrangler deploy
+  "name": "dirt-bikes-california",
+  "compatibility_date": "2026-06-27",
+  // Serve on a subdomain of the typearson.dev zone (same account). On deploy,
+  // Cloudflare provisions the DNS record + SSL cert automatically.
+  "routes": [{ "pattern": "dirtbikes.typearson.dev", "custom_domain": true }],
+  "assets": {
+    "directory": "./out",
+    // Next export emits `big-bear.html`; serve it at `/big-bear`.
+    "html_handling": "auto-trailing-slash",
+    // Fall back to the exported 404 page for unknown paths.
+    "not_found_handling": "404-page"
+  }
+}
