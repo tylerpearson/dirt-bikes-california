@@ -7,6 +7,25 @@ import { RouteCard } from "@/components/RouteCard";
 import { AccessBadge } from "@/components/AccessBadge";
 import { AreaMap } from "@/components/AreaMap";
 import { HeroTopo } from "@/components/HeroTopo";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/seo";
+
+/** Home → Area breadcrumb trail for richer search results. */
+function breadcrumbJsonLd(area: Area) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: `${area.name} Dirt Bike & OHV Routes`,
+        item: `${SITE_URL}/${area.id}`,
+      },
+    ],
+  };
+}
 
 const LEGEND: { status: GreenStickerStatus; meaning: string }[] = [
   {
@@ -42,6 +61,7 @@ export function AreaGuide({ area }: { area: Area }) {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd(area)} />
       <header className="relative overflow-hidden border-b-2 border-bistre/70 bg-paper">
         <HeroTopo />
         <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
