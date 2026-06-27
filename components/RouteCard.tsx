@@ -117,7 +117,7 @@ export function RouteCard({
 
         <p className="text-sm font-semibold text-rust-ink">{route.summary}</p>
 
-        <p className="text-sm leading-relaxed text-ink/90">
+        <p className="text-pretty text-sm leading-relaxed text-ink/90">
           {route.description}
         </p>
 

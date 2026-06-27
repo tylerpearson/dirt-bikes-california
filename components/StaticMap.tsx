@@ -41,7 +41,7 @@ export function StaticMap({
             <polyline
               points={pathPoints}
               fill="none"
-              stroke="#f6efdd"
+              stroke="var(--color-paper-2)"
               strokeWidth={7}
               strokeLinejoin="round"
               strokeLinecap="round"
@@ -59,13 +59,13 @@ export function StaticMap({
         )}
 
         {map.start && (
-          <circle cx={map.start.left} cy={map.start.top} r={6} fill="var(--color-ok-fill)" stroke="#f6efdd" strokeWidth={2} />
+          <circle cx={map.start.left} cy={map.start.top} r={6} fill="var(--color-ok-fill)" stroke="var(--color-paper-2)" strokeWidth={2} />
         )}
         {map.end && (
-          <circle cx={map.end.left} cy={map.end.top} r={6} fill="var(--color-diff-exp)" stroke="#f6efdd" strokeWidth={2} />
+          <circle cx={map.end.left} cy={map.end.top} r={6} fill="var(--color-diff-exp)" stroke="var(--color-paper-2)" strokeWidth={2} />
         )}
         {map.pin && (
-          <circle cx={map.pin.left} cy={map.pin.top} r={7} fill="var(--color-rust)" stroke="#f6efdd" strokeWidth={3} />
+          <circle cx={map.pin.left} cy={map.pin.top} r={7} fill="var(--color-rust)" stroke="var(--color-paper-2)" strokeWidth={3} />
         )}
       </svg>
 

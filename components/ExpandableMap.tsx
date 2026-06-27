@@ -79,10 +79,15 @@ export function ExpandableMap({
         ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
-        className={`group block h-full w-full cursor-pointer text-left ${className}`}
+        className={`group relative block h-full w-full cursor-pointer text-left focus-visible:outline-none ${className}`}
         aria-label={`Expand interactive map for ${routeName}`}
       >
         <StaticMap map={map} label={label} approximate />
+        {/* keyboard-focus ring drawn over the map (card clips an outset outline) */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-20 hidden border-[3px] border-rust group-focus-visible:block"
+        />
       </button>
 
       {open && (
@@ -106,7 +111,7 @@ export function ExpandableMap({
                 <a
                   href={gpxHref}
                   download
-                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-2.5 py-1.5 text-xs font-semibold text-bistre transition hover:border-rust/60"
+                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-3 py-2 text-xs font-semibold text-bistre transition hover:border-rust/60"
                 >
                   ↓ GPX
                 </a>
@@ -114,14 +119,14 @@ export function ExpandableMap({
                   href={directionsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-2.5 py-1.5 text-xs font-semibold text-bistre transition hover:border-rust/60"
+                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-3 py-2 text-xs font-semibold text-bistre transition hover:border-rust/60"
                 >
                   Trailhead ↗
                 </a>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-2.5 py-1.5 text-xs font-semibold text-bistre transition hover:border-rust/60"
+                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-3 py-2 text-xs font-semibold text-bistre transition hover:border-rust/60"
                   aria-label="Close map"
                 >
                   ✕ Close
