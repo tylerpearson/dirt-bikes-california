@@ -98,36 +98,47 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-4 max-w-2xl space-y-2 text-xs leading-relaxed text-olive">
-            <p>
-              <span className="font-semibold text-rust-ink">
-                Electric bikes are OHVs now:
-              </span>{" "}
-              under California&apos;s SB 586, off-road electric motorcycles count
-              as OHVs. A{" "}
-              <span className="font-semibold text-bistre">Sur-Ron</span> or a
-              race-bred{" "}
-              <span className="font-semibold text-bistre">Stark Varg (MX)</span>{" "}
-              needs a green sticker, a helmet, and visible ID — and like any
-              green-sticker bike, it&apos;s restricted to OHV-designated areas. So
-              they follow the same green-sticker access shown on each route, and
-              they can&apos;t be plated.
-            </p>
-            <p>
-              The exception is the road-going{" "}
-              <span className="font-semibold text-bistre">Stark Varg EX</span>:
-              it&apos;s fully road-homologated in the US (lights, indicators, foot
-              rear brake), so it registers and plates like a street-legal
-              dual-sport — and can ride every route here, including plate-only
-              roads like Arrastre Creek.
-            </p>
-            <p>
-              Sticker note: since Jan 1 2025, red and green stickers are treated
-              as equally valid year-round in OHV-designated areas; model-year
-              2022+ non-compliant gas bikes use the new tan sticker. Always carry
-              current registration and a working spark arrestor.
-            </p>
-          </div>
+          <details className="group mt-5 max-w-2xl overflow-hidden rounded-sm border border-edge bg-paper-2/50">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-bistre [&::-webkit-details-marker]:hidden">
+              <span>Sticker rules &amp; the 2026 e-bike law (SB 586)</span>
+              <span
+                aria-hidden
+                className="text-rust-ink transition-transform duration-200 group-open:rotate-90"
+              >
+                ›
+              </span>
+            </summary>
+            <div className="space-y-2 border-t border-edge px-4 pb-4 pt-3 text-xs leading-relaxed text-olive">
+              <p>
+                <span className="font-semibold text-rust-ink">
+                  Electric bikes are OHVs now:
+                </span>{" "}
+                under California&apos;s SB 586, off-road electric motorcycles
+                count as OHVs. A{" "}
+                <span className="font-semibold text-bistre">Sur-Ron</span> or a
+                race-bred{" "}
+                <span className="font-semibold text-bistre">Stark Varg (MX)</span>{" "}
+                needs a green sticker, a helmet, and visible ID — and like any
+                green-sticker bike, it&apos;s restricted to OHV-designated areas.
+                So they follow the same green-sticker access shown on each route,
+                and they can&apos;t be plated.
+              </p>
+              <p>
+                The exception is the road-going{" "}
+                <span className="font-semibold text-bistre">Stark Varg EX</span>:
+                it&apos;s fully road-homologated in the US (lights, indicators,
+                foot rear brake), so it registers and plates like a street-legal
+                dual-sport — and can ride every route here, including plate-only
+                roads like Arrastre Creek.
+              </p>
+              <p>
+                Sticker note: since Jan 1 2025, red and green stickers are treated
+                as equally valid year-round in OHV-designated areas; model-year
+                2022+ non-compliant gas bikes use the new tan sticker. Always
+                carry current registration and a working spark arrestor.
+              </p>
+            </div>
+          </details>
         </div>
       </header>
 

@@ -60,9 +60,6 @@ export function RouteCard({
                 GPX Track
               </span>
               <span className="flex items-center gap-4 text-bistre">
-                <span>
-                  <b className="text-ink">{stats.distanceMiles.toFixed(1)}</b> mi
-                </span>
                 {stats.hasElevation && (
                   <>
                     <span>
@@ -122,7 +119,10 @@ export function RouteCard({
         </p>
 
         <dl className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-edge pt-4 sm:grid-cols-3">
-          <Stat label="Distance" value={`${route.distanceMiles} mi`} />
+          <Stat
+            label="Distance"
+            value={`${(stats?.distanceMiles ?? route.distanceMiles).toFixed(1)} mi`}
+          />
           <div>
             <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-olive">
               Difficulty

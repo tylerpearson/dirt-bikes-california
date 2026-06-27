@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
 
 type LL = { lat: number; lng: number };
@@ -11,6 +11,7 @@ type LL = { lat: number; lng: number };
  */
 export function RouteMap({ points }: { points: LL[] }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (points.length < 2) return;
@@ -25,10 +26,18 @@ export function RouteMap({ points }: { points: LL[] }) {
 
       const latlngs = points.map((p) => [p.lat, p.lng] as [number, number]);
       map = L.map(el, { scrollWheelZoom: true });
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+
+      const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 17,
         attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(map);
+      });
+      // Clear the loading state once tiles have painted (with a safety fallback).
+      const done = () => {
+        if (!cancelled) setLoading(false);
+      };
+      tiles.on("load", done);
+      const fallback = setTimeout(done, 6000);
+      tiles.addTo(map);
 
       // paper casing under the rust route line
       L.polyline(latlngs, { color: "#f6efdd", weight: 8, opacity: 0.9 }).addTo(map);
@@ -47,6 +56,8 @@ export function RouteMap({ points }: { points: LL[] }) {
 
       map.fitBounds(line.getBounds(), { padding: [30, 30] });
       L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+      map.once("remove", () => clearTimeout(fallback));
     })();
 
     return () => {
@@ -55,5 +66,16 @@ export function RouteMap({ points }: { points: LL[] }) {
     };
   }, [points]);
 
-  return <div ref={ref} className="map-vintage h-full w-full bg-manila" />;
+  return (
+    <div className="relative h-full w-full">
+      <div ref={ref} className="map-vintage h-full w-full bg-manila" />
+      {loading && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-manila">
+          <span className="animate-pulse text-sm font-semibold uppercase tracking-wider text-olive">
+            Loading map…
+          </span>
+        </div>
+      )}
+    </div>
+  );
 }
