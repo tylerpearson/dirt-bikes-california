@@ -23,7 +23,7 @@ export const bigBearRoutes: Route[] = [
     id: "john-bull",
     name: "John Bull Trail",
     forestRoad: "3N10",
-    summary: "Big Bear's legendary boulder-strewn rock crawl — for experts only.",
+    summary: "Big Bear's legendary boulder-strewn rock crawl, for experts only.",
     description:
       "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control. Never ride it alone.",
     distanceMiles: 5,
@@ -34,7 +34,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "no",
-      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only — a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
+      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only, a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
       source: MVUM,
     },
     highlights: [
@@ -63,7 +63,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, 3N16 is mostly highway-legal-only, but one segment (around the Crab Flats / 3N34 area) is open to all vehicles — green-sticker bikes are allowed on that portion only, not the stretches toward Green Valley Lake, Big Bear, or Fawnskin. Registration + spark arrestor required.",
+      note: "Per the MVUM, 3N16 is mostly highway-legal-only, but one segment (around the Crab Flats / 3N34 area) is open to all vehicles, so green-sticker bikes are allowed on that portion only, not the stretches toward Green Valley Lake, Big Bear, or Fawnskin. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -81,9 +81,9 @@ export const bigBearRoutes: Route[] = [
     id: "pinyon-vista",
     name: "Pinyon & Vista OHV Trails",
     forestRoad: "2E20",
-    summary: "Big Bear's beginner-friendly OHV singletrack — the trails, not a fire road.",
+    summary: "Big Bear's beginner-friendly OHV singletrack, the trails, not a fire road.",
     description:
-      "A well-marked network of designated OHV trails (Pinyon, Vista, Joshua Loop) running from the Cactus Flat staging area through pinyon and juniper. Easy-to-moderate 'terra trail' tread that's genuinely fun on a dirt bike — the closest thing here to true singletrack.",
+      "A well-marked network of designated OHV trails (Pinyon, Vista, Joshua Loop) running from the Cactus Flat staging area through pinyon and juniper. Easy-to-moderate 'terra trail' tread that's genuinely fun on a dirt bike, the closest thing here to true singletrack.",
     distanceMiles: 2,
     difficulty: "Moderate",
     elevationFt: "6,100–6,400 ft",
@@ -92,7 +92,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "yes",
-      note: "Per the MVUM, these are designated OHV trails open to wheeled OHVs under 50 inches wide, year-round — green-sticker (and red-sticker, in season) dirt bikes welcome. Registration + spark arrestor required. The singletrack option, not a fire road.",
+      note: "Per the MVUM, these are designated OHV trails open to wheeled OHVs under 50 inches wide, year-round, green-sticker (and red-sticker, in season) dirt bikes welcome. Registration + spark arrestor required. The singletrack option, not a fire road.",
       source: MVUM,
     },
     highlights: [
@@ -121,7 +121,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "no",
-      note: "Per the MVUM, 3N69 is open to highway-legal vehicles only — plated bikes only; green-sticker (non-street-legal) bikes are not permitted. A technical, high-clearance climb.",
+      note: "Per the MVUM, 3N69 is open to highway-legal vehicles only, plated bikes only; green-sticker (non-street-legal) bikes are not permitted. A technical, high-clearance climb.",
       source: MVUM,
     },
     highlights: [
@@ -150,7 +150,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, Smarts Ranch Rd (3N03) is part highway-legal-only and part open-to-all-vehicles, so green-sticker access is segment-by-segment — but the staging area's OHV trails (Pinyon/Vista, 2E20) are fully green-sticker. Registration + spark arrestor required.",
+      note: "Per the MVUM, Smarts Ranch Rd (3N03) is part highway-legal-only and part open-to-all-vehicles, so green-sticker access is segment-by-segment, but the staging area's OHV trails (Pinyon/Vista, 2E20) are fully green-sticker. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -168,7 +168,7 @@ export const bigBearRoutes: Route[] = [
     id: "coxey-road",
     name: "Coxey Road Connector",
     forestRoad: "3N14",
-    summary: "Long, mellow graded road — the backbone of the backcountry.",
+    summary: "Long, mellow graded road, the backbone of the backcountry.",
     description:
       "Coxey Road runs ~17.8 miles from Fawnskin to the northern forest boundary. Smooth and beginner-friendly with long sight lines, it's ideal for building seat time or covering ground between trail systems.",
     distanceMiles: 13,
@@ -179,7 +179,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, 3N14 is part highway-legal-only and part open-to-all-vehicles — green-sticker bikes are allowed on the open-to-all segment (north toward the forest boundary), not the lower stretch from Fawnskin. Registration + spark arrestor required.",
+      note: "Per the MVUM, 3N14 is part highway-legal-only and part open-to-all-vehicles, so green-sticker bikes are allowed on the open-to-all segment (north toward the forest boundary), not the lower stretch from Fawnskin. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -197,9 +197,9 @@ export const bigBearRoutes: Route[] = [
     id: "van-dusen-canyon",
     name: "Van Dusen Canyon Road",
     forestRoad: "3N09",
-    summary: "Historic stage road — an easy, scenic climb from town toward Holcomb Valley.",
+    summary: "Historic stage road, an easy, scenic climb from town toward Holcomb Valley.",
     description:
-      "A wide, smooth dirt road following the old Van Dusen Canyon stage route from Big Bear City up to Holcomb Valley. Gentle and beginner-friendly under a canopy of pines — one of the most accessible ways into the backcountry.",
+      "A wide, smooth dirt road following the old Van Dusen Canyon stage route from Big Bear City up to Holcomb Valley. Gentle and beginner-friendly under a canopy of pines, one of the most accessible ways into the backcountry.",
     distanceMiles: 4,
     difficulty: "Easy",
     elevationFt: "6,800–7,400 ft",
@@ -208,7 +208,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "no",
-      note: "Per the MVUM, 3N09 is open to highway-legal vehicles only — plated bikes only; green-sticker bikes are not permitted. A gentle, scenic connector to Holcomb Valley.",
+      note: "Per the MVUM, 3N09 is open to highway-legal vehicles only, plated bikes only; green-sticker bikes are not permitted. A gentle, scenic connector to Holcomb Valley.",
       source: MVUM,
     },
     highlights: [
@@ -228,7 +228,7 @@ export const bigBearRoutes: Route[] = [
     forestRoad: "2N02",
     summary: "Long east-side graded road with one green-sticker-legal stretch.",
     description:
-      "Arrastre Creek Road runs ~13 miles from Baldwin Lake Road east to the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride — mostly plate-only, with one segment open to OHVs.",
+      "Arrastre Creek Road runs ~13 miles from Baldwin Lake Road east to the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride, mostly plate-only, with one segment open to OHVs.",
     distanceMiles: 11,
     difficulty: "Moderate",
     elevationFt: "6,800–7,500 ft",
@@ -237,7 +237,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, most of 2N02 is highway-legal-only, but a ~3.8-mile middle segment is open to all vehicles — green-sticker bikes are allowed on that stretch only. Registration + spark arrestor required.",
+      note: "Per the MVUM, most of 2N02 is highway-legal-only, but a ~3.8-mile middle segment is open to all vehicles, so green-sticker bikes are allowed on that stretch only. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -255,7 +255,7 @@ export const bigBearRoutes: Route[] = [
     id: "burnt-flat",
     name: "Burnt Flat Road",
     forestRoad: "3N02",
-    summary: "Moderate road into John Bull country — camp or get the wheels dirty.",
+    summary: "Moderate road into John Bull country, camp or get the wheels dirty.",
     description:
       "Burnt Flat Road climbs through pinyon and Jeffrey pine east of Big Bear toward the John Bull area, linking to the 'Little John Bull' connector. A moderate ride with dispersed camping and access to rockier trails nearby.",
     distanceMiles: 3,
@@ -266,7 +266,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "no",
-      note: "Per the MVUM, 3N02 is open to highway-legal vehicles only — plated bikes only; green-sticker bikes are not permitted, even though it heads toward the John Bull area.",
+      note: "Per the MVUM, 3N02 is open to highway-legal vehicles only, plated bikes only; green-sticker bikes are not permitted, even though it heads toward the John Bull area.",
       source: MVUM,
     },
     highlights: [
@@ -295,7 +295,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "no",
-      note: "Per the MVUM, 3N07 is open to highway-legal vehicles only — plated bikes only; green-sticker bikes are not permitted. A quiet, easy forest road.",
+      note: "Per the MVUM, 3N07 is open to highway-legal vehicles only, plated bikes only; green-sticker bikes are not permitted. A quiet, easy forest road.",
       source: MVUM,
     },
     highlights: [

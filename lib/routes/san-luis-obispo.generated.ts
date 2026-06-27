@@ -9,7 +9,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Hi Mountain OHV Road",
     "forestRoad": "30S11",
     "summary": "Climb to the Hi Mountain lookout in the heart of the Pozo OHV area.",
-    "description": "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route — open seasonally, and a long way from anywhere.",
+    "description": "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route, open seasonally, and a long way from anywhere.",
     "distanceMiles": 8.2,
     "difficulty": "Difficult",
     "elevationFt": "1,950–3,050 ft",
@@ -37,7 +37,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Rock Front OHV Road",
     "forestRoad": "30S06.1",
     "summary": "Designated green-sticker OHV road through the La Panza chaparral.",
-    "description": "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network — seasonal when wet.",
+    "description": "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network, seasonal when wet.",
     "distanceMiles": 4,
     "difficulty": "Moderate",
     "elevationFt": "1,250–1,900 ft",
@@ -65,7 +65,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Queen Bee Loop OHV",
     "forestRoad": "29S18.1, 29S18.2",
     "summary": "Short green-sticker loop in the Pozo OHV area.",
-    "description": "The Queen Bee Loop (29S18) is a compact designated OHV road in the Pozo area, open to all vehicles, with sandy and rocky tread through oak and chaparral. A fun, low-commitment green-sticker loop to add onto a bigger day — open seasonally.",
+    "description": "The Queen Bee Loop (29S18) is a compact designated OHV road in the Pozo area, open to all vehicles, with sandy and rocky tread through oak and chaparral. A fun, low-commitment green-sticker loop to add onto a bigger day, open seasonally.",
     "distanceMiles": 4.6,
     "difficulty": "Moderate",
     "elevationFt": "1,750–2,600 ft",
@@ -93,7 +93,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Old Sierra OHV Road",
     "forestRoad": "12N03.1",
     "summary": "Short, rocky green-sticker spur toward the Sierra Madre country.",
-    "description": "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country — rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
+    "description": "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country, rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
     "distanceMiles": 2,
     "difficulty": "Moderate",
     "elevationFt": "2,600–3,050 ft",
@@ -120,8 +120,8 @@ export const sanLuisObispoRoutes: Route[] = [
     "id": "navajo-road",
     "name": "Navajo Road",
     "forestRoad": "29S02.1, 29S02.2",
-    "summary": "Backcountry road into the Pozo OHV area — green-sticker on part of it.",
-    "description": "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Seasonal closures apply.",
+    "summary": "Backcountry road into the Pozo OHV area, green-sticker on part of it.",
+    "description": "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Seasonal closures apply.",
     "distanceMiles": 7.8,
     "difficulty": "Moderate",
     "elevationFt": "1,750–2,650 ft",
@@ -130,7 +130,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Navajo Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, Navajo Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -149,7 +149,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Pozo OHV Singletrack",
     "forestRoad": "16E21",
     "summary": "The longest designated OHV trail in the Pozo singletrack network.",
-    "description": "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area — narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
+    "description": "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area, narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
     "distanceMiles": 9.1,
     "difficulty": "Difficult",
     "elevationFt": "1,800–2,750 ft",
@@ -158,7 +158,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, trail 16E21 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, trail 16E21 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -176,8 +176,8 @@ export const sanLuisObispoRoutes: Route[] = [
     "id": "sierra-madre-road",
     "name": "Sierra Madre Road",
     "forestRoad": "32S13.1",
-    "summary": "The ~28-mile Sierra Madre Ridge — remote plated backcountry.",
-    "description": "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge — one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing — carry everything.",
+    "summary": "The ~28-mile Sierra Madre Ridge, remote plated backcountry.",
+    "description": "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge, one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing, carry everything.",
     "distanceMiles": 28.6,
     "difficulty": "Difficult",
     "elevationFt": "1,300–5,600 ft",
@@ -186,7 +186,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 32S13.1 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 32S13.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -214,7 +214,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 28S02.1 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 28S02.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

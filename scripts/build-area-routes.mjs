@@ -42,7 +42,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "High, rocky ridge road with sweeping Garner Valley and desert views.",
         description:
-          "Forest road 5S09 works along the high ridge on the east side of the San Jacintos above Garner Valley — a rough, high-clearance OHV route with loose, rocky, rutted pitches. The reward is a long ridgeline that opens onto the Santa Rosa Mountains and, on clear days, the Coachella Valley far below.",
+          "Forest road 5S09 works along the high ridge on the east side of the San Jacintos above Garner Valley, a rough, high-clearance OHV route with loose, rocky, rutted pitches. Up top, a long ridgeline opens onto the Santa Rosa Mountains and, on clear days, the Coachella Valley far below.",
         surface: "High-clearance dirt with loose rock and rutted climbs",
         bestSeason: "April–November",
         highlights: [
@@ -54,9 +54,9 @@ const CONFIG = {
       {
         id: "red-mountain", name: "Red Mountain OHV Road", ids: ["6S22"],
         difficulty: "Moderate",
-        summary: "Pinyon-slope climb on Red Mountain — green-sticker on part of it.",
+        summary: "Pinyon-slope climb on Red Mountain, green-sticker on part of it.",
         description:
-          "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment — read the signs at each junction.",
+          "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment; read the signs at each junction.",
         surface: "Graded dirt with rockier, looser climbs up high",
         bestSeason: "April–November",
         highlights: [
@@ -68,9 +68,9 @@ const CONFIG = {
       {
         id: "indian-canyon", name: "Indian Canyon Road", ids: ["4S06"],
         difficulty: "Moderate",
-        summary: "Canyon road through the Garner Valley high country — partly green-sticker.",
+        summary: "Canyon road through the Garner Valley high country, partly green-sticker.",
         description:
-          "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a solid intermediate option that connects to the surrounding road network.",
+          "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate option that connects to the surrounding road network.",
         surface: "Mixed dirt and sandy wash with rocky sections",
         bestSeason: "April–November",
         highlights: [
@@ -84,7 +84,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short, scenic green-sticker spur toward Indian Mountain.",
         description:
-          "A shorter designated OHV road (4S21) branching toward Indian Mountain. Open to all vehicles, it's a quick, scenic high-clearance ride with rocky pitches and good views — a nice add-on to a Garner Valley day rather than a destination in itself.",
+          "A shorter designated OHV road (4S21) branching toward Indian Mountain. Open to all vehicles, it's a quick, scenic high-clearance ride with rocky pitches and good views, a nice add-on to a Garner Valley day rather than a destination in itself.",
         surface: "High-clearance dirt with rocky sections",
         bestSeason: "April–November",
         highlights: [
@@ -110,7 +110,7 @@ const CONFIG = {
       {
         id: "thomas-mountain", name: "Thomas Mountain Road", ids: ["6S13"],
         difficulty: "Moderate",
-        summary: "Long, scenic climb to Thomas Mountain — plated bikes only.",
+        summary: "Long, scenic climb to Thomas Mountain, plated bikes only.",
         description:
           "6S13 is a long, graded climb up Thomas Mountain on the west side of Garner Valley, generally smooth enough for passenger cars but a fun, view-packed dual-sport ride. It passes Jeffrey pine, dispersed campsites, and overlooks of Lake Hemet and Garner Valley.",
         surface: "Long graded dirt, generally smooth",
@@ -126,7 +126,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Remote high-clearance climb deep into the Santa Rosa Mountains.",
         description:
-          "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area — a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
+          "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
         surface: "Rough, rocky high-clearance road; washouts likely",
         bestSeason: "May–October",
         highlights: [
@@ -140,7 +140,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Long forest climb to the Black Mountain lookout above Idyllwild.",
         description:
-          "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections — highway-legal-only, so it's a plated dual-sport ride.",
+          "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections. Highway-legal-only, so it's a plated dual-sport ride.",
         surface: "Graded dirt with rocky, rutted climbs",
         bestSeason: "May–October",
         highlights: [
@@ -168,7 +168,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short forest road into the Dark Canyon drainage.",
         description:
-          "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak — highway-legal vehicles only.",
+          "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak, highway-legal vehicles only.",
         surface: "Graded dirt with rocky sections",
         bestSeason: "May–October",
         highlights: [
@@ -182,7 +182,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Plated spur to the Fobes Ranch PCT trailhead.",
         description:
-          "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views — plated dual-sport, highway-legal only.",
+          "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views, plated dual-sport, highway-legal only.",
         surface: "Rocky graded dirt; rougher up high",
         bestSeason: "May–October",
         highlights: [
@@ -196,7 +196,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short, scenic plated spur in the Garner Valley fringe.",
         description:
-          "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride — highway-legal only — best paired with the longer roads nearby.",
+          "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride, highway-legal only, best paired with the longer roads nearby.",
         surface: "Graded dirt with rocky sections",
         bestSeason: "May–October",
         highlights: [
@@ -219,7 +219,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The legendary ~35-mile crest of the Santa Ana Mountains over Saddleback.",
         description:
-          "The North Main Divide Truck Trail (3S04) runs the spine of the Santa Ana Mountains past Santiago and Modjeska Peaks (Saddleback), a long, exposed ridge road with rocky, rutted high-clearance sections and enormous views from the Inland Empire to the Pacific. A classic SoCal plated dual-sport / adventure ride — highway-legal only, and a serious day of riding.",
+          "The North Main Divide Truck Trail (3S04) runs the spine of the Santa Ana Mountains past Santiago and Modjeska Peaks (Saddleback), a long, exposed ridge road with rocky, rutted high-clearance sections and enormous views from the Inland Empire to the Pacific. A classic SoCal plated dual-sport / adventure ride, highway-legal only, and a serious day of riding.",
         surface: "Long, rocky high-clearance ridge road",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -233,7 +233,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "The southern half of the divide toward El Cariso and Lake Elsinore.",
         description:
-          "South Main Divide (6S07) continues the ridge south from the Ortega Highway toward El Cariso and the Lake Elsinore side, generally smoother than the north divide with chaparral ridgetops and overlooks of the lake and valley. A scenic, moderate plated ride — highway-legal only.",
+          "South Main Divide (6S07) continues the ridge south from the Ortega Highway toward El Cariso and the Lake Elsinore side, generally smoother than the north divide with chaparral ridgetops and overlooks of the lake and valley. A scenic, moderate plated ride, highway-legal only.",
         surface: "Graded-to-rocky ridge road",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -247,7 +247,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Climbs from Silverado Canyon up to the Main Divide.",
         description:
-          "Maple Springs Road (5S04) climbs out of Silverado Canyon through oak and bay woodland to meet the Main Divide near Modjeska Peak. A scenic graded-to-rocky climb and one of the main ways up to the crest from the Orange County side — highway-legal only.",
+          "Maple Springs Road (5S04) climbs out of Silverado Canyon through oak and bay woodland to meet the Main Divide near Modjeska Peak. A scenic graded-to-rocky climb and one of the main ways up to the crest from the Orange County side, highway-legal only.",
         surface: "Graded dirt with rocky upper sections",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -261,7 +261,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Long graded climb to the divide from the Corona side.",
         description:
-          "Indian Truck Trail (5S01) climbs the eastern flank of the Santa Anas from the Corona / Lake Mathews side up to the Main Divide, a steady graded ascent through chaparral with expanding Inland Empire views. A popular plated dual-sport climb — highway-legal only.",
+          "Indian Truck Trail (5S01) climbs the eastern flank of the Santa Anas from the Corona / Lake Mathews side up to the Main Divide, a steady graded ascent through chaparral with expanding Inland Empire views. A popular plated dual-sport climb, highway-legal only.",
         surface: "Graded dirt, steady grade",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -275,7 +275,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Rough, rocky canyon road to the Holy Jim trailhead.",
         description:
-          "Trabuco Canyon Road (6S13) runs up the boulder-strewn Trabuco Canyon to the Holy Jim trailhead, a notoriously rocky, rutted, creek-crossing road that demands real high-clearance riding. Short but technical, shaded and scenic — highway-legal only.",
+          "Trabuco Canyon Road (6S13) runs up the boulder-strewn Trabuco Canyon to the Holy Jim trailhead, a notoriously rocky, rutted, creek-crossing road that demands real high-clearance riding. Short but technical, shaded and scenic, highway-legal only.",
         surface: "Rocky, rutted canyon road with creek crossings",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -289,7 +289,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short ridge spur off the northern divide country.",
         description:
-          "Bedford Ridge (4S03) is a shorter high-clearance ridge road in the northern Santa Anas, mixing rocky benches and chaparral with valley views. A compact plated ride best linked with the Main Divide — highway-legal only.",
+          "Bedford Ridge (4S03) is a shorter high-clearance ridge road in the northern Santa Anas, mixing rocky benches and chaparral with valley views. A compact plated ride best linked with the Main Divide, highway-legal only.",
         surface: "Rocky high-clearance ridge dirt",
         bestSeason: "Year-round (avoid heat and after rain)",
         highlights: [
@@ -325,7 +325,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The namesake road of San Diego's Corral Canyon OHV Area.",
         description:
-          "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment — read the signs at each junction.",
+          "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
         surface: "Rocky, high-clearance OHV-area dirt",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -339,7 +339,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Rugged OHV-area road through the Corral Canyon backcountry.",
         description:
-          "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a solid intermediate-to-hard ride that links the OHV-area roads.",
+          "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
         surface: "Rocky high-clearance dirt",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -353,7 +353,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "OHV-area road threading the Skye Valley chaparral.",
         description:
-          "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a good intermediate green-sticker option in the network.",
+          "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
         surface: "Graded-to-rocky OHV-area dirt",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -367,7 +367,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Fully green-sticker loop in the Corral Canyon OHV Area.",
         description:
-          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area — the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
         surface: "Rocky and sandy OHV-area tread",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -395,7 +395,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The longest singletrack in the Corral Canyon OHV Area.",
         description:
-          "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley — narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
+          "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley, narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
         surface: "Narrow, rocky OHV singletrack",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -409,7 +409,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Classic Corral Canyon OHV singletrack loop trail.",
         description:
-          "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding — open to vehicles 50 inches and under.",
+          "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding, open to vehicles 50 inches and under.",
         surface: "Narrow OHV singletrack, rocky and sandy",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -423,7 +423,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Motorcycle-only singletrack in the Corral Canyon OHV Area.",
         description:
-          "Trail 912 (Peace Maker) is designated open to motorcycles only — true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
+          "Trail 912 (Peace Maker) is designated open to motorcycles only, true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
         surface: "Tight motorcycle-only singletrack",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -474,7 +474,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "High green-sticker loop around 8,000-foot Alamo Mountain.",
         description:
-          "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views — the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
+          "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views, the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
         surface: "Rocky, high-clearance OHV-area dirt",
         bestSeason: "May–October (seasonal snow closure)",
         highlights: [
@@ -488,7 +488,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Long, remote green-sticker road toward Mutau Flat.",
         description:
-          "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage — go prepared; seasonal.",
+          "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage. Go prepared; seasonal.",
         surface: "Mixed forest road, sandy and rocky sections",
         bestSeason: "May–October (seasonal)",
         highlights: [
@@ -514,9 +514,9 @@ const CONFIG = {
       {
         id: "quatal-canyon", name: "Quatal Canyon OHV", ids: ["9N09.2"],
         difficulty: "Moderate",
-        summary: "Sandstone-badlands OHV road — green-sticker on part of it.",
+        summary: "Sandstone-badlands OHV road, green-sticker on part of it.",
         description:
-          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Sandy and exposed; best in cool weather.",
+          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
         surface: "Deep sandy wash through sandstone badlands",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -556,15 +556,15 @@ const CONFIG = {
       {
         id: "mt-pinos-singletrack", name: "Mt Pinos Singletrack", ids: ["19W04"], layer: 2,
         difficulty: "Difficult",
-        summary: "Long designated motorcycle singletrack — the area's premier trail ride.",
+        summary: "Long designated motorcycle singletrack, the area's premier trail ride.",
         description:
-          "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area — miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+          "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
         surface: "Long, technical motorcycle singletrack",
         bestSeason: "May–October (seasonal)",
         highlights: [
           "One of the area's longest moto singletracks",
           "Technical, narrow green-sticker trail",
-          "Motorcycle-only — the real reason to come",
+          "Motorcycle-only, the real reason to come",
         ],
       },
       {
@@ -572,7 +572,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Scenic plated ridge road along Pine Mountain.",
         description:
-          "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only — a scenic plated cruise; seasonal.",
+          "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only, a scenic plated cruise; seasonal.",
         surface: "Graded dirt ridge road",
         bestSeason: "May–October (seasonal)",
         highlights: [
@@ -608,7 +608,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Climb to the Hi Mountain lookout in the heart of the Pozo OHV area.",
         description:
-          "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route — open seasonally, and a long way from anywhere.",
+          "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route, open seasonally, and a long way from anywhere.",
         surface: "Rocky, high-clearance OHV-area dirt",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -622,7 +622,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Designated green-sticker OHV road through the La Panza chaparral.",
         description:
-          "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network — seasonal when wet.",
+          "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network, seasonal when wet.",
         surface: "Rocky and sandy OHV-area tread",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -636,7 +636,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short green-sticker loop in the Pozo OHV area.",
         description:
-          "The Queen Bee Loop (29S18) is a compact designated OHV road in the Pozo area, open to all vehicles, with sandy and rocky tread through oak and chaparral. A fun, low-commitment green-sticker loop to add onto a bigger day — open seasonally.",
+          "The Queen Bee Loop (29S18) is a compact designated OHV road in the Pozo area, open to all vehicles, with sandy and rocky tread through oak and chaparral. A fun, low-commitment green-sticker loop to add onto a bigger day, open seasonally.",
         surface: "Sandy and rocky OHV-area tread",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -650,7 +650,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short, rocky green-sticker spur toward the Sierra Madre country.",
         description:
-          "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country — rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
+          "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country, rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
         surface: "Rocky high-clearance OHV-area dirt",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -662,9 +662,9 @@ const CONFIG = {
       {
         id: "navajo-road", name: "Navajo Road", ids: ["29S02.1", "29S02.2"],
         difficulty: "Moderate",
-        summary: "Backcountry road into the Pozo OHV area — green-sticker on part of it.",
+        summary: "Backcountry road into the Pozo OHV area, green-sticker on part of it.",
         description:
-          "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Seasonal closures apply.",
+          "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Seasonal closures apply.",
         surface: "Graded dirt with rocky sections",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -678,7 +678,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The longest designated OHV trail in the Pozo singletrack network.",
         description:
-          "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area — narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
+          "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area, narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
         surface: "Narrow OHV singletrack through chaparral",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -690,9 +690,9 @@ const CONFIG = {
       {
         id: "sierra-madre-road", name: "Sierra Madre Road", ids: ["32S13.1"],
         difficulty: "Difficult",
-        summary: "The ~28-mile Sierra Madre Ridge — remote plated backcountry.",
+        summary: "The ~28-mile Sierra Madre Ridge, remote plated backcountry.",
         description:
-          "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge — one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing — carry everything.",
+          "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge, one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing, carry everything.",
         surface: "Long, remote graded-to-rocky ridge road",
         bestSeason: "Spring–fall (closed when wet)",
         highlights: [
@@ -723,9 +723,9 @@ const CONFIG = {
       {
         id: "camuesa-road", name: "Camuesa Road (Romero–Camuesa)", ids: ["5N15.2"],
         difficulty: "Difficult",
-        summary: "The backbone of Santa Barbara's Camuesa OHV area — green-sticker riding.",
+        summary: "The backbone of Santa Barbara's Camuesa OHV area, green-sticker riding.",
         description:
-          "The Romero–Camuesa road (5N15) is the spine of the Camuesa OHV area in the Santa Ynez backcountry, with segment 5N15.2 designated open to all vehicles. It's a rugged, remote backcountry road through chaparral and oak — the heart of the only real green-sticker network near Santa Barbara, with seasonal wet-weather closures.",
+          "The Romero–Camuesa road (5N15) is the spine of the Camuesa OHV area in the Santa Ynez backcountry, with segment 5N15.2 designated open to all vehicles. It's a rugged, remote backcountry road through chaparral and oak, the heart of the only real green-sticker network near Santa Barbara, with seasonal wet-weather closures.",
         surface: "Rugged backcountry dirt with rocky, eroded sections",
         bestSeason: "Late spring–fall (closed when wet)",
         highlights: [
@@ -737,7 +737,7 @@ const CONFIG = {
       {
         id: "east-camino-cielo", name: "East Camino Cielo (OHV segment)", ids: ["5N12.1"],
         difficulty: "Moderate",
-        summary: "The legendary ridge road above Santa Barbara — its OHV-open stretch.",
+        summary: "The legendary ridge road above Santa Barbara, its OHV-open stretch.",
         description:
           "East Camino Cielo rides the crest of the Santa Ynez Mountains directly above Santa Barbara, with the 5N12.1 segment designated open to all vehicles. Expect knife-edge ocean-and-backcountry views, sandstone outcrops, and a mix of graded and rougher tread along one of the most scenic ridgelines in the county.",
         surface: "Mixed graded dirt and rocky sandstone tread",
@@ -753,7 +753,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Remote green-sticker road into the San Rafael backcountry.",
         description:
-          "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated open-to-all-vehicles road. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine — proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
+          "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated open-to-all-vehicles road. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine, proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
         surface: "Rugged high-clearance dirt; rough and remote",
         bestSeason: "Late spring–fall (closed when wet)",
         highlights: [
@@ -765,9 +765,9 @@ const CONFIG = {
       {
         id: "zaca-ridge", name: "Zaca Ridge OHV Road", ids: ["8N02"],
         difficulty: "Moderate",
-        summary: "Ridge road in the Zaca Peak OHV area — green-sticker on part of it.",
+        summary: "Ridge road in the Zaca Peak OHV area, green-sticker on part of it.",
         description:
-          "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment — and it's open seasonally.",
+          "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment, and it's open seasonally.",
         surface: "Graded-to-rocky ridge road",
         bestSeason: "Spring–fall (seasonal)",
         highlights: [
@@ -781,7 +781,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Quiet plated backcountry road in the Sunset Valley area.",
         description:
-          "8N19 runs through the West Dry Canyon / Sunset Valley country as a highway-legal-only road. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings — a good way to link the area's backcountry without the technical demands of the OHV roads.",
+          "8N19 runs through the West Dry Canyon / Sunset Valley country as a highway-legal-only road. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings, a good way to link the area's backcountry without the technical demands of the OHV roads.",
         surface: "Graded dirt with creek crossings",
         bestSeason: "Spring–fall",
         highlights: [
@@ -795,7 +795,7 @@ const CONFIG = {
         difficulty: "Easy",
         summary: "Mellow plated road into the Sunset Valley backcountry.",
         description:
-          "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for building seat time and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation — highway-legal-only, so plated bikes only.",
+          "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for building seat time and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation. Highway-legal-only, so plated bikes only.",
         surface: "Wide graded dirt, generally smooth",
         bestSeason: "Spring–fall",
         highlights: [
@@ -809,7 +809,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Scenic plated road from the Santa Ynez Valley into the forest.",
         description:
-          "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic, highway-legal-only road — a classic plated dual-sport climb toward Figueroa Mountain country.",
+          "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic, highway-legal-only road, a classic plated dual-sport climb toward Figueroa Mountain country.",
         surface: "Graded dirt, smooth lower, rougher up high",
         bestSeason: "Spring–fall",
         highlights: [
@@ -919,12 +919,12 @@ function accessNote(name, ids, access, seasonal, isTrail = false) {
     : "";
   if (isTrail)
     // Trails are motorcycle/OHV singletrack — green-sticker by nature.
-    return `Per the MVUM, trail ${id} is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.${season}`;
+    return `Per the MVUM, trail ${id} is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.${season}`;
   if (access === "yes")
     return `Per the MVUM, ${id} is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.${season}`;
   if (access === "partial")
-    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.${season}`;
-  return `Per the MVUM, ${id} is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.${season}`;
+    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.${season}`;
+  return `Per the MVUM, ${id} is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.${season}`;
 }
 
 async function buildRoute(cfg, bbox) {

@@ -9,7 +9,7 @@ export const mtPinosRoutes: Route[] = [
     "name": "Alamo Mountain OHV",
     "forestRoad": "8N01.3",
     "summary": "High green-sticker loop around 8,000-foot Alamo Mountain.",
-    "description": "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views — the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
+    "description": "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views, the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
     "distanceMiles": 13.5,
     "difficulty": "Difficult",
     "elevationFt": "4,750–7,050 ft",
@@ -37,7 +37,7 @@ export const mtPinosRoutes: Route[] = [
     "name": "Mutau OHV Road",
     "forestRoad": "7N03.2",
     "summary": "Long, remote green-sticker road toward Mutau Flat.",
-    "description": "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage — go prepared; seasonal.",
+    "description": "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage. Go prepared; seasonal.",
     "distanceMiles": 9.9,
     "difficulty": "Moderate",
     "elevationFt": "4,750–5,750 ft",
@@ -92,8 +92,8 @@ export const mtPinosRoutes: Route[] = [
     "id": "quatal-canyon",
     "name": "Quatal Canyon OHV",
     "forestRoad": "9N09.2",
-    "summary": "Sandstone-badlands OHV road — green-sticker on part of it.",
-    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment — read the signs at each junction. Sandy and exposed; best in cool weather.",
+    "summary": "Sandstone-badlands OHV road, green-sticker on part of it.",
+    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
     "distanceMiles": 9.9,
     "difficulty": "Moderate",
     "elevationFt": "3,550–5,750 ft",
@@ -102,7 +102,7 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Quatal Canyon OHV is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Quatal Canyon OHV is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -176,8 +176,8 @@ export const mtPinosRoutes: Route[] = [
     "id": "mt-pinos-singletrack",
     "name": "Mt Pinos Singletrack",
     "forestRoad": "19W04",
-    "summary": "Long designated motorcycle singletrack — the area's premier trail ride.",
-    "description": "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area — miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+    "summary": "Long designated motorcycle singletrack, the area's premier trail ride.",
+    "description": "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
     "distanceMiles": 14.2,
     "difficulty": "Difficult",
     "elevationFt": "3,150–6,700 ft",
@@ -186,13 +186,13 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, trail 19W04 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, trail 19W04 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
       "One of the area's longest moto singletracks",
       "Technical, narrow green-sticker trail",
-      "Motorcycle-only — the real reason to come"
+      "Motorcycle-only, the real reason to come"
     ],
     "trailhead": {
       "name": "Mt Pinos Singletrack (19W04)",
@@ -205,7 +205,7 @@ export const mtPinosRoutes: Route[] = [
     "name": "Reyes Peak Road",
     "forestRoad": "6N06.1",
     "summary": "Scenic plated ridge road along Pine Mountain.",
-    "description": "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only — a scenic plated cruise; seasonal.",
+    "description": "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only, a scenic plated cruise; seasonal.",
     "distanceMiles": 5.7,
     "difficulty": "Moderate",
     "elevationFt": "5,100–7,100 ft",
@@ -214,7 +214,7 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6N06.1 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 6N06.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -242,7 +242,7 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 9N10.1 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 9N10.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
