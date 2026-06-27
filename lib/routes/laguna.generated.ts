@@ -9,7 +9,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Corral Canyon Road",
     "forestRoad": "17S04",
     "summary": "The namesake road of San Diego's Corral Canyon OHV Area.",
-    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment — read the signs at each junction.",
+    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
     "distanceMiles": 8.2,
     "difficulty": "Difficult",
     "elevationFt": "3,050–3,850 ft",
@@ -18,7 +18,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Corral Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Corral Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -37,7 +37,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Bear Valley Road",
     "forestRoad": "16S12",
     "summary": "Rugged OHV-area road through the Corral Canyon backcountry.",
-    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a solid intermediate-to-hard ride that links the OHV-area roads.",
+    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
     "distanceMiles": 8.4,
     "difficulty": "Difficult",
     "elevationFt": "3,200–4,600 ft",
@@ -46,7 +46,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -65,7 +65,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Skye Valley Road",
     "forestRoad": "17S06",
     "summary": "OHV-area road threading the Skye Valley chaparral.",
-    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a good intermediate green-sticker option in the network.",
+    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
     "distanceMiles": 7.9,
     "difficulty": "Moderate",
     "elevationFt": "2,900–3,850 ft",
@@ -74,7 +74,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -93,7 +93,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Long Valley Loop",
     "forestRoad": "16S15",
     "summary": "Fully green-sticker loop in the Corral Canyon OHV Area.",
-    "description": "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area — the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+    "description": "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
     "distanceMiles": 4.5,
     "difficulty": "Moderate",
     "elevationFt": "3,800–4,100 ft",
@@ -130,7 +130,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -149,7 +149,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Kernan Trail",
     "forestRoad": "802",
     "summary": "The longest singletrack in the Corral Canyon OHV Area.",
-    "description": "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley — narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
+    "description": "Trail 802 (Kernan) is the longest dedicated OHV trail in the Corral Canyon system near Pine Valley, narrow, rocky, twisting singletrack through dense chaparral and oak. This is the real reason riders come to Corral Canyon: technical green-sticker trail riding, not fire roads. Open to vehicles 50 inches and under.",
     "distanceMiles": 5.5,
     "difficulty": "Difficult",
     "elevationFt": "3,100–4,050 ft",
@@ -158,7 +158,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, trail 802 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "note": "Per the MVUM, trail 802 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -177,7 +177,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Wrangler Trail",
     "forestRoad": "901",
     "summary": "Classic Corral Canyon OHV singletrack loop trail.",
-    "description": "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding — open to vehicles 50 inches and under.",
+    "description": "Trail 901 (Wrangler) is one of the signature OHV trails in the Corral Canyon network, a twisting green-sticker singletrack through chaparral that links the area's loop system. Tighter and more technical than the roads, it's prime dirt-bike trail riding, open to vehicles 50 inches and under.",
     "distanceMiles": 3.6,
     "difficulty": "Moderate",
     "elevationFt": "3,450–3,950 ft",
@@ -186,7 +186,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, trail 901 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "note": "Per the MVUM, trail 901 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -205,7 +205,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Peace Maker Singletrack",
     "forestRoad": "912",
     "summary": "Motorcycle-only singletrack in the Corral Canyon OHV Area.",
-    "description": "Trail 912 (Peace Maker) is designated open to motorcycles only — true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
+    "description": "Trail 912 (Peace Maker) is designated open to motorcycles only, true narrow-gauge singletrack, the tightest, most technical green-sticker riding in the Corral Canyon system. No quads or wider machines; just dirt bikes threading the chaparral. The heart of why Corral Canyon is San Diego's best forest moto-trail area.",
     "distanceMiles": 2.6,
     "difficulty": "Difficult",
     "elevationFt": "3,300–3,650 ft",
@@ -214,7 +214,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, trail 912 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed — and being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
+      "note": "Per the MVUM, trail 912 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -242,7 +242,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 15S05 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 15S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -270,7 +270,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 14S05 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 14S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

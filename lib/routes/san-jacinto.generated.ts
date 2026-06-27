@@ -9,7 +9,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "San Jacinto Ridge",
     "forestRoad": "5S09",
     "summary": "High, rocky ridge road with sweeping Garner Valley and desert views.",
-    "description": "Forest road 5S09 works along the high ridge on the east side of the San Jacintos above Garner Valley — a rough, high-clearance OHV route with loose, rocky, rutted pitches. The reward is a long ridgeline that opens onto the Santa Rosa Mountains and, on clear days, the Coachella Valley far below.",
+    "description": "Forest road 5S09 works along the high ridge on the east side of the San Jacintos above Garner Valley, a rough, high-clearance OHV route with loose, rocky, rutted pitches. Up top, a long ridgeline opens onto the Santa Rosa Mountains and, on clear days, the Coachella Valley far below.",
     "distanceMiles": 11,
     "difficulty": "Difficult",
     "elevationFt": "3,000–6,050 ft",
@@ -36,8 +36,8 @@ export const sanJacintoRoutes: Route[] = [
     "id": "red-mountain",
     "name": "Red Mountain OHV Road",
     "forestRoad": "6S22",
-    "summary": "Pinyon-slope climb on Red Mountain — green-sticker on part of it.",
-    "description": "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment — read the signs at each junction.",
+    "summary": "Pinyon-slope climb on Red Mountain, green-sticker on part of it.",
+    "description": "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment; read the signs at each junction.",
     "distanceMiles": 8.1,
     "difficulty": "Moderate",
     "elevationFt": "3,850–4,600 ft",
@@ -46,7 +46,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Red Mountain OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Red Mountain OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -64,8 +64,8 @@ export const sanJacintoRoutes: Route[] = [
     "id": "indian-canyon",
     "name": "Indian Canyon Road",
     "forestRoad": "4S06",
-    "summary": "Canyon road through the Garner Valley high country — partly green-sticker.",
-    "description": "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, so green-sticker access is segment-by-segment — a solid intermediate option that connects to the surrounding road network.",
+    "summary": "Canyon road through the Garner Valley high country, partly green-sticker.",
+    "description": "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate option that connects to the surrounding road network.",
     "distanceMiles": 7.2,
     "difficulty": "Moderate",
     "elevationFt": "3,150–5,050 ft",
@@ -74,7 +74,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Indian Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Indian Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -93,7 +93,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Indian Mountain OHV Road",
     "forestRoad": "4S21",
     "summary": "Short, scenic green-sticker spur toward Indian Mountain.",
-    "description": "A shorter designated OHV road (4S21) branching toward Indian Mountain. Open to all vehicles, it's a quick, scenic high-clearance ride with rocky pitches and good views — a nice add-on to a Garner Valley day rather than a destination in itself.",
+    "description": "A shorter designated OHV road (4S21) branching toward Indian Mountain. Open to all vehicles, it's a quick, scenic high-clearance ride with rocky pitches and good views, a nice add-on to a Garner Valley day rather than a destination in itself.",
     "distanceMiles": 4.2,
     "difficulty": "Moderate",
     "elevationFt": "4,700–5,750 ft",
@@ -148,7 +148,7 @@ export const sanJacintoRoutes: Route[] = [
     "id": "thomas-mountain",
     "name": "Thomas Mountain Road",
     "forestRoad": "6S13",
-    "summary": "Long, scenic climb to Thomas Mountain — plated bikes only.",
+    "summary": "Long, scenic climb to Thomas Mountain, plated bikes only.",
     "description": "6S13 is a long, graded climb up Thomas Mountain on the west side of Garner Valley, generally smooth enough for passenger cars but a fun, view-packed dual-sport ride. It passes Jeffrey pine, dispersed campsites, and overlooks of Lake Hemet and Garner Valley.",
     "distanceMiles": 15,
     "difficulty": "Moderate",
@@ -158,7 +158,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S13 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 6S13 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -177,7 +177,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Santa Rosa Mountain Road",
     "forestRoad": "7S02",
     "summary": "Remote high-clearance climb deep into the Santa Rosa Mountains.",
-    "description": "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area — a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
+    "description": "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
     "distanceMiles": 11.7,
     "difficulty": "Difficult",
     "elevationFt": "4,600–7,950 ft",
@@ -186,7 +186,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 7S02 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 7S02 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -205,7 +205,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Black Mountain Road",
     "forestRoad": "4S01",
     "summary": "Long forest climb to the Black Mountain lookout above Idyllwild.",
-    "description": "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections — highway-legal-only, so it's a plated dual-sport ride.",
+    "description": "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections. Highway-legal-only, so it's a plated dual-sport ride.",
     "distanceMiles": 11.4,
     "difficulty": "Difficult",
     "elevationFt": "5,350–7,700 ft",
@@ -214,7 +214,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 4S01 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 4S01 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -242,7 +242,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 5S06 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 5S06 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -261,7 +261,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Dark Canyon Road",
     "forestRoad": "4S02",
     "summary": "Short forest road into the Dark Canyon drainage.",
-    "description": "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak — highway-legal vehicles only.",
+    "description": "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak, highway-legal vehicles only.",
     "distanceMiles": 5.6,
     "difficulty": "Moderate",
     "elevationFt": "5,750–6,300 ft",
@@ -270,7 +270,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 4S02 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 4S02 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -289,7 +289,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Fobes Ranch Road",
     "forestRoad": "6S05",
     "summary": "Plated spur to the Fobes Ranch PCT trailhead.",
-    "description": "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views — plated dual-sport, highway-legal only.",
+    "description": "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views, plated dual-sport, highway-legal only.",
     "distanceMiles": 4,
     "difficulty": "Moderate",
     "elevationFt": "4,450–5,250 ft",
@@ -298,7 +298,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S05 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 6S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -317,7 +317,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Red Hill Road",
     "forestRoad": "5S10",
     "summary": "Short, scenic plated spur in the Garner Valley fringe.",
-    "description": "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride — highway-legal only — best paired with the longer roads nearby.",
+    "description": "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride, highway-legal only, best paired with the longer roads nearby.",
     "distanceMiles": 2.9,
     "difficulty": "Moderate",
     "elevationFt": "4,900–6,050 ft",
@@ -326,7 +326,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 5S10 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 5S10 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

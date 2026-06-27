@@ -8,8 +8,8 @@ export const santaBarbaraRoutes: Route[] = [
     "id": "camuesa-road",
     "name": "Camuesa Road (Romero–Camuesa)",
     "forestRoad": "5N15.2",
-    "summary": "The backbone of Santa Barbara's Camuesa OHV area — green-sticker riding.",
-    "description": "The Romero–Camuesa road (5N15) is the spine of the Camuesa OHV area in the Santa Ynez backcountry, with segment 5N15.2 designated open to all vehicles. It's a rugged, remote backcountry road through chaparral and oak — the heart of the only real green-sticker network near Santa Barbara, with seasonal wet-weather closures.",
+    "summary": "The backbone of Santa Barbara's Camuesa OHV area, green-sticker riding.",
+    "description": "The Romero–Camuesa road (5N15) is the spine of the Camuesa OHV area in the Santa Ynez backcountry, with segment 5N15.2 designated open to all vehicles. It's a rugged, remote backcountry road through chaparral and oak, the heart of the only real green-sticker network near Santa Barbara, with seasonal wet-weather closures.",
     "distanceMiles": 11.8,
     "difficulty": "Difficult",
     "elevationFt": "1,250–2,800 ft",
@@ -36,7 +36,7 @@ export const santaBarbaraRoutes: Route[] = [
     "id": "east-camino-cielo",
     "name": "East Camino Cielo (OHV segment)",
     "forestRoad": "5N12.1",
-    "summary": "The legendary ridge road above Santa Barbara — its OHV-open stretch.",
+    "summary": "The legendary ridge road above Santa Barbara, its OHV-open stretch.",
     "description": "East Camino Cielo rides the crest of the Santa Ynez Mountains directly above Santa Barbara, with the 5N12.1 segment designated open to all vehicles. Expect knife-edge ocean-and-backcountry views, sandstone outcrops, and a mix of graded and rougher tread along one of the most scenic ridgelines in the county.",
     "distanceMiles": 11.9,
     "difficulty": "Moderate",
@@ -65,7 +65,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "Buckhorn Road",
     "forestRoad": "9N11.4",
     "summary": "Remote green-sticker road into the San Rafael backcountry.",
-    "description": "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated open-to-all-vehicles road. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine — proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
+    "description": "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated open-to-all-vehicles road. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine, proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
     "distanceMiles": 10.1,
     "difficulty": "Difficult",
     "elevationFt": "2,800–4,750 ft",
@@ -92,8 +92,8 @@ export const santaBarbaraRoutes: Route[] = [
     "id": "zaca-ridge",
     "name": "Zaca Ridge OHV Road",
     "forestRoad": "8N02",
-    "summary": "Ridge road in the Zaca Peak OHV area — green-sticker on part of it.",
-    "description": "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment — and it's open seasonally.",
+    "summary": "Ridge road in the Zaca Peak OHV area, green-sticker on part of it.",
+    "description": "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment, and it's open seasonally.",
     "distanceMiles": 7.6,
     "difficulty": "Moderate",
     "elevationFt": "3,450–4,200 ft",
@@ -102,7 +102,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Zaca Ridge OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only — so access is segment-by-segment. Read the signs at each junction; registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, Zaca Ridge OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -121,7 +121,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "West Dry Canyon Road",
     "forestRoad": "8N19",
     "summary": "Quiet plated backcountry road in the Sunset Valley area.",
-    "description": "8N19 runs through the West Dry Canyon / Sunset Valley country as a highway-legal-only road. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings — a good way to link the area's backcountry without the technical demands of the OHV roads.",
+    "description": "8N19 runs through the West Dry Canyon / Sunset Valley country as a highway-legal-only road. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings, a good way to link the area's backcountry without the technical demands of the OHV roads.",
     "distanceMiles": 7.9,
     "difficulty": "Moderate",
     "elevationFt": "3,250–5,800 ft",
@@ -130,7 +130,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 8N19 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 8N19 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -149,7 +149,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "Sunset Valley Road",
     "forestRoad": "8N09",
     "summary": "Mellow plated road into the Sunset Valley backcountry.",
-    "description": "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for building seat time and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation — highway-legal-only, so plated bikes only.",
+    "description": "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for building seat time and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation. Highway-legal-only, so plated bikes only.",
     "distanceMiles": 5.7,
     "difficulty": "Easy",
     "elevationFt": "1,800–3,100 ft",
@@ -158,7 +158,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 8N09 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "note": "Per the MVUM, 8N09 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -177,7 +177,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "Happy Canyon Road",
     "forestRoad": "7N07.2",
     "summary": "Scenic plated road from the Santa Ynez Valley into the forest.",
-    "description": "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic, highway-legal-only road — a classic plated dual-sport climb toward Figueroa Mountain country.",
+    "description": "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic, highway-legal-only road, a classic plated dual-sport climb toward Figueroa Mountain country.",
     "distanceMiles": 9.8,
     "difficulty": "Moderate",
     "elevationFt": "2,450–4,450 ft",
@@ -186,7 +186,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 7N07.2 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 7N07.2 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
