@@ -3,7 +3,7 @@
 // Prose, difficulty, and ordering are editorial (see the script's CONFIG).
 import type { Route } from "../types";
 
-export const palmSpringsRoutes: Route[] = [
+export const sanJacintoRoutes: Route[] = [
   {
     "id": "san-jacinto-ridge",
     "name": "San Jacinto Ridge",
@@ -198,6 +198,146 @@ export const palmSpringsRoutes: Route[] = [
       "name": "Santa Rosa Mountain Road (7S02)",
       "lat": 33.5679,
       "lng": -116.5118
+    }
+  },
+  {
+    "id": "black-mountain-road",
+    "name": "Black Mountain Road",
+    "forestRoad": "4S01",
+    "summary": "Long forest climb to the Black Mountain lookout above Idyllwild.",
+    "description": "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections — highway-legal-only, so it's a plated dual-sport ride.",
+    "distanceMiles": 11.4,
+    "difficulty": "Difficult",
+    "elevationFt": "5,350–7,700 ft",
+    "surface": "Graded dirt with rocky, rutted climbs",
+    "bestSeason": "May–October",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "no",
+      "note": "Per the MVUM, 4S01 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Climbs to the Black Mountain fire lookout",
+      "Dense pine-and-cedar San Jacinto forest",
+      "Cooler high-elevation riding (plated only)"
+    ],
+    "trailhead": {
+      "name": "Black Mountain Road (4S01)",
+      "lat": 33.7967,
+      "lng": -116.7578
+    }
+  },
+  {
+    "id": "idyllwild-control-road",
+    "name": "Idyllwild Control Road",
+    "forestRoad": "5S06",
+    "summary": "Classic dirt connector linking Idyllwild to the high country.",
+    "description": "5S06 is a graded forest road threading the pines near Idyllwild, a relaxed plated dual-sport ride with good sight lines and forest scenery. Highway-legal-only, it's a pleasant way to link the area's roads and trailheads without technical demands.",
+    "distanceMiles": 6.1,
+    "difficulty": "Moderate",
+    "elevationFt": "2,350–5,100 ft",
+    "surface": "Graded dirt, generally smooth",
+    "bestSeason": "May–October",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "no",
+      "note": "Per the MVUM, 5S06 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Easy pine-forest cruising near town",
+      "Links the Idyllwild road network",
+      "Beginner-friendly grade (plated only)"
+    ],
+    "trailhead": {
+      "name": "Idyllwild Control Road (5S06)",
+      "lat": 33.7339,
+      "lng": -116.7507
+    }
+  },
+  {
+    "id": "dark-canyon-road",
+    "name": "Dark Canyon Road",
+    "forestRoad": "4S02",
+    "summary": "Short forest road into the Dark Canyon drainage.",
+    "description": "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak — highway-legal vehicles only.",
+    "distanceMiles": 5.6,
+    "difficulty": "Moderate",
+    "elevationFt": "5,750–6,300 ft",
+    "surface": "Graded dirt with rocky sections",
+    "bestSeason": "May–October",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "no",
+      "note": "Per the MVUM, 4S02 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Shaded Dark Canyon forest",
+      "Campground and trailhead access",
+      "Short, scenic plated ride"
+    ],
+    "trailhead": {
+      "name": "Dark Canyon Road (4S02)",
+      "lat": 33.8099,
+      "lng": -116.7492
+    }
+  },
+  {
+    "id": "fobes-ranch-road",
+    "name": "Fobes Ranch Road",
+    "forestRoad": "6S05",
+    "summary": "Plated spur to the Fobes Ranch PCT trailhead.",
+    "description": "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views — plated dual-sport, highway-legal only.",
+    "distanceMiles": 4,
+    "difficulty": "Moderate",
+    "elevationFt": "4,450–5,250 ft",
+    "surface": "Rocky graded dirt; rougher up high",
+    "bestSeason": "May–October",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "no",
+      "note": "Per the MVUM, 6S05 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Access to the Fobes Ranch PCT trailhead",
+      "Chaparral-to-forest transition",
+      "Big San Jacinto views (plated only)"
+    ],
+    "trailhead": {
+      "name": "Fobes Ranch Road (6S05)",
+      "lat": 33.6375,
+      "lng": -116.6457
+    }
+  },
+  {
+    "id": "red-hill-road",
+    "name": "Red Hill Road",
+    "forestRoad": "5S10",
+    "summary": "Short, scenic plated spur in the Garner Valley fringe.",
+    "description": "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride — highway-legal only — best paired with the longer roads nearby.",
+    "distanceMiles": 2.9,
+    "difficulty": "Moderate",
+    "elevationFt": "4,900–6,050 ft",
+    "surface": "Graded dirt with rocky sections",
+    "bestSeason": "May–October",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "no",
+      "note": "Per the MVUM, 5S10 is open to highway-legal vehicles only — plated, street-legal bikes only; green-sticker (non-street-legal) bikes are not permitted.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Forest-and-meadow scenery",
+      "Short, scenic plated spur",
+      "Pairs with the Idyllwild road network"
+    ],
+    "trailhead": {
+      "name": "Red Hill Road (5S10)",
+      "lat": 33.7628,
+      "lng": -116.7443
     }
   }
 ];

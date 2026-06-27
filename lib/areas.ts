@@ -1,14 +1,9 @@
 import type { Route, Trailhead } from "./types";
 import { bigBearRoutes } from "./routes/big-bear";
-import { palmSpringsRoutes } from "./routes/palm-springs.generated";
-import { idyllwildRoutes } from "./routes/idyllwild.generated";
+import { sanJacintoRoutes } from "./routes/san-jacinto.generated";
 import { santaBarbaraRoutes } from "./routes/santa-barbara.generated";
 
-export type AreaId =
-  | "big-bear"
-  | "palm-springs"
-  | "idyllwild"
-  | "santa-barbara";
+export type AreaId = "big-bear" | "san-jacinto" | "santa-barbara";
 
 export type Area = {
   id: AreaId;
@@ -45,28 +40,16 @@ export const AREAS: Area[] = [
     routes: bigBearRoutes,
   },
   {
-    id: "palm-springs",
-    name: "Palm Springs",
+    id: "san-jacinto",
+    name: "San Jacinto",
     region: "San Bernardino N.F. · San Jacinto R.D.",
     regionShort: "San Jacinto R.D.",
     state: "California",
     blurb:
-      "The backcountry above Palm Springs — Garner Valley, the San Jacinto ridges, and the high Santa Rosa Mountains. A mix of designated green-sticker OHV roads and long, scenic plated dual-sport climbs, with route maps and elevation from the Forest Service MVUM and SRTM.",
-    mvumGeojson: "/data/palm-springs-mvum.geojson",
+      "The San Jacinto Mountains between Palm Springs and Idyllwild — one range, two characters. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. Route maps and elevation from the Forest Service MVUM and SRTM.",
+    mvumGeojson: "/data/san-jacinto-mvum.geojson",
     forest: SBNF,
-    routes: palmSpringsRoutes,
-  },
-  {
-    id: "idyllwild",
-    name: "Idyllwild",
-    region: "San Bernardino N.F. · San Jacinto R.D.",
-    regionShort: "San Jacinto R.D.",
-    state: "California",
-    blurb:
-      "The forested west side of the San Jacintos around Idyllwild — pine-and-cedar dirt roads to the Black Mountain lookout, Dark Canyon, and the PCT trailheads. These are almost all plated dual-sport roads; for green-sticker OHV riding in the same range, see the Palm Springs (Garner Valley) guide. Maps and elevation from the Forest Service MVUM and SRTM.",
-    mvumGeojson: "/data/idyllwild-mvum.geojson",
-    forest: SBNF,
-    routes: idyllwildRoutes,
+    routes: sanJacintoRoutes,
   },
   {
     id: "santa-barbara",

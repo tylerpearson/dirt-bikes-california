@@ -208,10 +208,15 @@ Commit with the data + scripts + page together.
    road" and have the MVUM say `partial`. Always reconcile (Step 3). The MVUM
    wins.
 
-3. **Overlapping areas.** Idyllwild and Palm Springs are the same mountain
-   range. Don't duplicate routes — split by *character* (Idyllwild = forested
-   plated side; Palm Springs = desert green-sticker side), assign each shared
-   road to the area it truly belongs to, and **cross-link** in the blurb.
+3. **Overlapping areas — prefer one area with two characters.** We first split
+   the San Jacintos into "Palm Springs" (desert/green-sticker side) and
+   "Idyllwild" (forested/plated side), but their bounding boxes overlapped and
+   the two overview maps showed the same ground — they read as duplicates. We
+   merged them into one `san-jacinto` area covering the whole range; the
+   green-vs-plate map coloring already tells the "two characters" story on a
+   single map. Lesson: if two candidate areas share a mountain range / ranger
+   district and their bboxes overlap, make them **one** area, not two. Only
+   split when the bboxes are genuinely disjoint.
 
 4. **bbox tuning is iterative.** Too wide → the overview map is mostly empty and
    pulls in a neighboring area's roads; too tight → featured roads fall outside

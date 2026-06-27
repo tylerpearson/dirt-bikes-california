@@ -20,8 +20,7 @@ const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 // constrained to the area's bounding box (else id='6S13' stitches Thomas Mtn
 // to a same-numbered road three states away).
 const BBOX = {
-  "palm-springs": "-116.90,33.45,-116.30,33.95",
-  "idyllwild": "-116.82,33.64,-116.62,33.84",
+  "san-jacinto": "-116.90,33.45,-116.30,33.95",
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
 };
 
@@ -29,7 +28,10 @@ const BBOX = {
 // `ids` lists the exact MVUM road numbers that make up the ride (segments are
 // stitched into one track). Order = editorial best -> worst.
 const CONFIG = {
-  "palm-springs": {
+  // The San Jacinto Mountains as one area: the green-sticker OHV roads on the
+  // Garner Valley / Santa Rosa (desert) side, plus the plated forest roads
+  // around Idyllwild on the west/upper side. Ordered green-sticker first.
+  "san-jacinto": {
     routes: [
       {
         id: "san-jacinto-ridge", name: "San Jacinto Ridge", ids: ["5S09"],
@@ -129,14 +131,6 @@ const CONFIG = {
           "Cool conifer country up high (plated only)",
         ],
       },
-    ],
-  },
-
-  // Idyllwild is the forested west/upper side of the San Jacintos. Its roads
-  // are almost all plated dual-sport (highway-legal only) — the green-sticker
-  // OHV network is on the desert/Garner Valley side (see the Palm Springs guide).
-  "idyllwild": {
-    routes: [
       {
         id: "black-mountain-road", name: "Black Mountain Road", ids: ["4S01"],
         difficulty: "Difficult",
