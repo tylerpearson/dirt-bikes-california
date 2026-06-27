@@ -25,6 +25,11 @@ const ROUTES = [
   { id: "coxey-road", ref: "FR 3N14", name: "Coxey Truck Trail" },
   { id: "cactus-flats", ref: "FR 3N03", name: "Smarts Ranch Road" },
   { id: "arrastre-creek", ref: "FR 2N02", name: "Arrastre Creek Road" },
+  { id: "van-dusen-canyon", ref: "FR 3N09", name: "Van Dusen Canyon Road" },
+  { id: "van-dusen-creek", ref: "FR 3N07", name: "Van Dusen Creek Road" },
+  { id: "burnt-flat", ref: "FR 3N02", name: "Burnt Flat Road" },
+  // 2E20 is a network of sub-trails (2E20.1–.5); match them all and chain.
+  { id: "pinyon-vista", ref: "FR 2E20", name: "Pinyon & Vista OHV Trails", regex: true },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -79,8 +84,9 @@ function decimate(points, max) {
   return out;
 }
 
-async function overpass(ref) {
-  const q = `[out:json][timeout:90];way["ref"="${ref}"](${BBOX});out geom;`;
+async function overpass(ref, regex = false) {
+  const selector = regex ? `way["ref"~"^${ref}"]` : `way["ref"="${ref}"]`;
+  const q = `[out:json][timeout:90];${selector}(${BBOX});out geom;`;
   let lastErr;
   for (let attempt = 0; attempt < 4; attempt++) {
     const ep = ENDPOINTS[attempt % ENDPOINTS.length];
@@ -168,7 +174,7 @@ for (const route of ROUTES) {
     continue;
   }
   try {
-    const ways = await overpass(route.ref);
+    const ways = await overpass(route.ref, route.regex);
     if (!ways.length) {
       console.log(`${route.id}: no OSM ways for ${route.ref} — skipped`);
       continue;
