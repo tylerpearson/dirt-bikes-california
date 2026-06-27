@@ -21,6 +21,12 @@ const COLOR: Record<Access, string> = {
   plate: "#3a6e92", // --color-plate-fill: street-legal plated only
 };
 
+/** Escape values before they go into tooltip HTML (data is third-party MVUM). */
+const esc = (s: string) =>
+  s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
+
 /**
  * Area overview: every MVUM road/trail in the Big Bear bbox, drawn from a
  * pre-baked GeoJSON and colored by what's allowed to ride it. Green-sticker
@@ -87,25 +93,43 @@ export function AreaMap() {
             lineCap: "round" as const,
           };
         };
-        const onEach = (f: Feature, layer: { bindTooltip: (s: string, o?: object) => void }) => {
+        // Plate routes underneath, green on top — both non-interactive so the
+        // wide hit layer below owns all hover/tap handling.
+        const plate = fc.features.filter((f) => f.properties.access === "plate");
+        const green = fc.features.filter((f) => f.properties.access === "green");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const plateLayer = L.geoJSON(plate as any, { style: style as any, interactive: false }).addTo(map);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const greenLayer = L.geoJSON(green as any, { style: style as any, interactive: false }).addTo(map);
+
+        // Invisible fat overlay: a forgiving ~16px-wide hover/tap target per
+        // route that carries the tooltip and a faint highlight on hover.
+        const onEach = (f: Feature, layer: any) => {
           const p = f.properties;
           const label = p.access === "green" ? "Green-sticker OK" : "Plated only";
           const name = p.name
             ? p.name.replace(/\b\w/g, (c) => c.toUpperCase())
             : "Unnamed route";
           layer.bindTooltip(
-            `<b>${name}</b>${p.id ? ` · ${p.id}` : ""}<br>${label}${p.seasonal ? " · seasonal" : ""}`,
+            `<b>${esc(name)}</b>${p.id ? ` · ${esc(p.id)}` : ""}<br>${label}${p.seasonal ? " · seasonal" : ""}`,
             { sticky: true },
           );
+          layer.on("mouseover", () => layer.setStyle({ opacity: 0.25 }));
+          layer.on("mouseout", () => layer.setStyle({ opacity: 0 }));
         };
-
-        // Plate routes underneath, green on top.
-        const plate = fc.features.filter((f) => f.properties.access === "plate");
-        const green = fc.features.filter((f) => f.properties.access === "green");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const plateLayer = L.geoJSON(plate as any, { style: style as any, onEachFeature: onEach as any }).addTo(map);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const greenLayer = L.geoJSON(green as any, { style: style as any, onEachFeature: onEach as any }).addTo(map);
+        const hitStyle = (f?: Feature) => ({
+          color: COLOR[f!.properties.access],
+          weight: 16,
+          opacity: 0,
+          lineCap: "round" as const,
+        });
+        L.geoJSON(fc.features as any, {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          style: hitStyle as any,
+          onEachFeature: onEach as any,
+          bubblingMouseEvents: false,
+        }).addTo(map);
 
         const bounds = plateLayer.getBounds().extend(greenLayer.getBounds());
         map.fitBounds(bounds, { padding: [24, 24] });
