@@ -15,6 +15,7 @@ export function ExpandableMap({
   gpxHref,
   directionsHref,
   className = "",
+  priority = false,
 }: {
   map: MapRender;
   points: LL[];
@@ -23,10 +24,31 @@ export function ExpandableMap({
   gpxHref: string;
   directionsHref: string;
   className?: string;
+  /** Load this map's tiles immediately (for above-the-fold cards). */
+  priority?: boolean;
 }) {
   const [open, setOpen] = useState(false);
+  const [inView, setInView] = useState(priority);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Lazy-load below-the-fold map tiles when the card nears the viewport.
+  useEffect(() => {
+    if (inView) return;
+    const el = triggerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [inView]);
 
   useEffect(() => {
     if (!open) return;
@@ -82,7 +104,7 @@ export function ExpandableMap({
         className={`group relative block h-full w-full cursor-pointer text-left focus-visible:outline-none ${className}`}
         aria-label={`Expand interactive map for ${routeName}`}
       >
-        <StaticMap map={map} label={label} approximate />
+        <StaticMap map={map} label={label} approximate showTiles={inView} />
         {/* keyboard-focus ring drawn over the map (card clips an outset outline) */}
         <span
           aria-hidden

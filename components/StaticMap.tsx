@@ -9,10 +9,13 @@ export function StaticMap({
   map,
   label,
   approximate = false,
+  showTiles = true,
 }: {
   map: MapRender;
   label: string;
   approximate?: boolean;
+  /** Gate the OSM tile <image>s for lazy-loading below-fold maps. */
+  showTiles?: boolean;
 }) {
   const pathPoints = map.path?.map((p) => `${p.left},${p.top}`).join(" ");
 
@@ -25,16 +28,17 @@ export function StaticMap({
         role="img"
         aria-label={`Map of ${label}`}
       >
-        {map.tiles.map((t) => (
-          <image
-            key={`${t.left},${t.top}`}
-            href={t.src}
-            x={t.left}
-            y={t.top}
-            width={256}
-            height={256}
-          />
-        ))}
+        {showTiles &&
+          map.tiles.map((t) => (
+            <image
+              key={`${t.left},${t.top}`}
+              href={t.src}
+              x={t.left}
+              y={t.top}
+              width={256}
+              height={256}
+            />
+          ))}
 
         {pathPoints && (
           <>

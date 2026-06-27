@@ -151,13 +151,14 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col gap-6">
-          {cards.map(({ route, map, points, stats }) => (
+          {cards.map(({ route, map, points, stats }, i) => (
             <RouteCard
               key={route.id}
               route={route}
               map={map}
               points={points}
               stats={stats}
+              priority={i < 2}
             />
           ))}
         </div>

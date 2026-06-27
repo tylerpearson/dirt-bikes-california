@@ -31,11 +31,13 @@ export function RouteCard({
   map,
   points,
   stats,
+  priority = false,
 }: {
   route: Route;
   map: MapRender;
   points: LL[];
   stats: TrackStats | null;
+  priority?: boolean;
 }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
@@ -50,6 +52,7 @@ export function RouteCard({
             gpxHref={`/gpx/${route.id}.gpx`}
             directionsHref={fullMapUrl(route.trailhead)}
             className="absolute inset-0"
+            priority={priority}
           />
         </div>
 
