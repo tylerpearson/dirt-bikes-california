@@ -38,22 +38,22 @@ export function ElevationProfile({ stats }: { stats: TrackStats }) {
       >
         <defs>
           <linearGradient id="ele-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-trail-bright)" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="var(--color-trail-bright)" stopOpacity="0.03" />
+            <stop offset="0%" stopColor="var(--color-rust)" stopOpacity="0.32" />
+            <stop offset="100%" stopColor="var(--color-rust)" stopOpacity="0.02" />
           </linearGradient>
         </defs>
         <path d={area} fill="url(#ele-fill)" />
         <path
           d={line}
           fill="none"
-          stroke="var(--color-trail-bright)"
+          stroke="var(--color-rust)"
           strokeWidth={2}
           strokeLinejoin="round"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-      <div className="mt-1 flex justify-between text-[0.6rem] font-medium uppercase tracking-wider text-sand/60">
+      <div className="mt-1 flex justify-between text-[0.6rem] font-medium uppercase tracking-wider text-olive">
         <span>{Math.round(stats.minFt).toLocaleString()} ft</span>
         <span>{Math.round(stats.maxFt).toLocaleString()} ft</span>
       </div>

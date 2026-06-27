@@ -1,32 +1,27 @@
 import type { MapRender } from "@/lib/tiles";
 
+/**
+ * Presentational static-map thumbnail (no link of its own, so it can be wrapped
+ * in a button). Composes OSM tiles with the GPX line drawn on top; .map-vintage
+ * gives the tiles an aged-topo / sepia treatment.
+ */
 export function StaticMap({
   map,
   label,
-  href,
   approximate = false,
 }: {
   map: MapRender;
   label: string;
-  href: string;
   approximate?: boolean;
 }) {
   const pathPoints = map.path?.map((p) => `${p.left},${p.top}`).join(" ");
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group relative block overflow-hidden border-b border-white/10 bg-bark-2"
-      aria-label={`Open ${label} in Google Maps`}
-    >
-      {/* Responsive SVG: viewBox fixes the 600×320 coordinate space while the
-          map scales to the full card width. Tiles, the GPX line, and markers
-          all live in the same coordinate space, so nothing gets clipped. */}
+    <span className="relative block h-full w-full overflow-hidden border-b border-edge bg-manila">
       <svg
         viewBox={`0 0 ${map.width} ${map.height}`}
-        className="block h-auto w-full transition duration-300 group-hover:scale-[1.03]"
+        preserveAspectRatio="xMidYMid meet"
+        className="map-vintage block h-full w-full transition duration-300 group-hover:scale-[1.03]"
         role="img"
         aria-label={`Map of ${label}`}
       >
@@ -43,21 +38,20 @@ export function StaticMap({
 
         {pathPoints && (
           <>
-            {/* white casing under the route line for contrast */}
             <polyline
               points={pathPoints}
               fill="none"
-              stroke="#ffffff"
+              stroke="#f6efdd"
               strokeWidth={7}
               strokeLinejoin="round"
               strokeLinecap="round"
-              opacity={0.85}
+              opacity={0.9}
             />
             <polyline
               points={pathPoints}
               fill="none"
-              stroke="var(--color-trail-bright)"
-              strokeWidth={4}
+              stroke="var(--color-rust)"
+              strokeWidth={3.5}
               strokeLinejoin="round"
               strokeLinecap="round"
             />
@@ -65,48 +59,26 @@ export function StaticMap({
         )}
 
         {map.start && (
-          <circle
-            cx={map.start.left}
-            cy={map.start.top}
-            r={6}
-            fill="var(--color-sticker-green)"
-            stroke="#fff"
-            strokeWidth={2}
-          />
+          <circle cx={map.start.left} cy={map.start.top} r={6} fill="var(--color-ok-fill)" stroke="#f6efdd" strokeWidth={2} />
         )}
         {map.end && (
-          <circle
-            cx={map.end.left}
-            cy={map.end.top}
-            r={6}
-            fill="var(--color-sticker-red)"
-            stroke="#fff"
-            strokeWidth={2}
-          />
+          <circle cx={map.end.left} cy={map.end.top} r={6} fill="var(--color-diff-exp)" stroke="#f6efdd" strokeWidth={2} />
         )}
-
         {map.pin && (
-          <circle
-            cx={map.pin.left}
-            cy={map.pin.top}
-            r={7}
-            fill="var(--color-trail)"
-            stroke="#fff"
-            strokeWidth={3}
-          />
+          <circle cx={map.pin.left} cy={map.pin.top} r={7} fill="var(--color-rust)" stroke="#f6efdd" strokeWidth={3} />
         )}
       </svg>
 
       {approximate && (
-        <span className="pointer-events-none absolute right-2 top-2 z-10 rounded bg-bark/80 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-sand/80">
+        <span className="pointer-events-none absolute right-2 top-2 z-10 rounded border border-edge bg-paper/85 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-olive">
           © OpenStreetMap
         </span>
       )}
 
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-bark/90 to-transparent px-3 pb-2 pt-10 text-xs font-semibold uppercase tracking-wide text-bone">
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-ink/85 to-transparent px-3 pb-2 pt-10 text-xs font-semibold uppercase tracking-wide text-paper">
         <span className="truncate">{label}</span>
-        <span className="ml-2 shrink-0 text-trail-bright">Open map →</span>
+        <span className="ml-2 shrink-0">⤢ Expand map</span>
       </span>
-    </a>
+    </span>
   );
 }

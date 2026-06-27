@@ -1,31 +1,30 @@
 /**
- * Generated topographic hero scene: irregular contour rings around a peak with
- * a dashed trail threading up to a summit marker. Pure SVG (no external image,
- * no broken-image risk), themed from the palette, decorative (aria-hidden).
+ * Light field-guide map-sheet backdrop: faint topographic contour rings around
+ * a peak with a dashed trail to a summit marker, drawn in brown ink on paper.
+ * Pure SVG, decorative (aria-hidden).
  */
 
-const CX = 840;
+const CX = 860;
 const CY = 250;
 
 function contourPath(cx: number, cy: number, r: number, seed: number): string {
-  const N = 40;
+  const N = 44;
   let d = "";
   for (let i = 0; i <= N; i++) {
     const a = (i / N) * Math.PI * 2;
     const wob =
       1 + 0.13 * Math.sin(a * 3 + seed) + 0.07 * Math.sin(a * 5 + seed * 1.7);
-    const x = cx + r * 1.4 * wob * Math.cos(a);
+    const x = cx + r * 1.45 * wob * Math.cos(a);
     const y = cy + r * wob * Math.sin(a);
     d += `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)} `;
   }
   return `${d}Z`;
 }
 
-const RINGS = [38, 74, 116, 164, 218, 278, 344];
+const RINGS = [40, 80, 124, 174, 230, 292, 360, 434];
 
-// Hand-placed trail winding from lower-left up toward the summit.
 const TRAIL =
-  "M70,560 C220,520 250,430 360,420 C470,410 470,330 560,322 C650,314 690,300 760,272";
+  "M60,560 C220,520 250,430 360,420 C470,410 470,330 560,322 C660,314 705,300 778,268";
 
 export function HeroTopo() {
   return (
@@ -35,56 +34,44 @@ export function HeroTopo() {
       preserveAspectRatio="xMidYMid slice"
       aria-hidden
     >
-      <defs>
-        <radialGradient id="hero-glow" cx="68%" cy="42%" r="60%">
-          <stop offset="0%" stopColor="var(--color-trail-bright)" stopOpacity="0.22" />
-          <stop offset="55%" stopColor="var(--color-trail)" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="var(--color-bark)" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="hero-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-bark)" stopOpacity="0" />
-          <stop offset="100%" stopColor="var(--color-bark)" stopOpacity="0.85" />
-        </linearGradient>
-      </defs>
-
-      <rect width="1200" height="600" fill="url(#hero-glow)" />
-
-      {/* contour rings, faint outer → stronger inner */}
-      <g fill="none">
+      {/* contour rings — fainter outer, stronger inner */}
+      <g fill="none" stroke="var(--color-bistre)">
         {RINGS.map((r, i) => (
           <path
             key={r}
             d={contourPath(CX, CY, r, i * 1.3)}
-            stroke="var(--color-pine)"
-            strokeWidth={1.25}
-            opacity={0.1 + (RINGS.length - i) * 0.045}
+            strokeWidth={1.1}
+            opacity={0.05 + (RINGS.length - i) * 0.018}
           />
         ))}
       </g>
 
-      {/* trail: white casing + orange dashed line */}
-      <path d={TRAIL} fill="none" stroke="var(--color-bone)" strokeWidth={5} opacity={0.12} />
+      {/* dashed trail + summit */}
       <path
         d={TRAIL}
         fill="none"
-        stroke="var(--color-trail-bright)"
-        strokeWidth={2.5}
+        stroke="var(--color-rust)"
+        strokeWidth={2.25}
         strokeLinecap="round"
-        strokeDasharray="2 9"
-        opacity={0.75}
+        strokeDasharray="2 8"
+        opacity={0.65}
       />
+      <path
+        d={`M${CX - 11},${CY + 7} L${CX},${CY - 13} L${CX + 11},${CY + 7} Z`}
+        fill="var(--color-rust)"
+        opacity={0.7}
+      />
+      <circle cx={60} cy={560} r={4} fill="var(--color-sage-ink)" opacity={0.8} />
 
-      {/* summit marker */}
-      <g>
-        <path
-          d={`M${CX - 11},${CY + 7} L${CX},${CY - 13} L${CX + 11},${CY + 7} Z`}
-          fill="var(--color-trail-bright)"
-        />
-        <circle cx={70} cy={560} r={4} fill="var(--color-sticker-green)" />
-      </g>
-
-      {/* bottom fade so body text stays legible */}
-      <rect width="1200" height="600" fill="url(#hero-fade)" />
+      {/* right-to-left paper fade so title text stays clean on the left */}
+      <defs>
+        <linearGradient id="hero-clean" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="var(--color-paper)" stopOpacity="0.85" />
+          <stop offset="55%" stopColor="var(--color-paper)" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="var(--color-paper)" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="600" fill="url(#hero-clean)" />
     </svg>
   );
 }

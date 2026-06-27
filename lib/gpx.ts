@@ -3,17 +3,14 @@ import path from "node:path";
 import type { TrackPoint } from "./track-stats";
 
 /**
- * Load a GPX track from /data/gpx/<file>. Returns the ordered track points
+ * Load a GPX track from /public/gpx/<file>. Returns the ordered track points
  * (with elevation in meters when present), or an empty array if the file is
  * missing/unparseable. Server-only (uses fs) — call from a Server Component
- * or at build time.
- *
- * Convention: a route with id "holcomb-valley" looks for
- * /data/gpx/holcomb-valley.gpx. Drop a real GPX export there to replace the
- * approximate placeholder track.
+ * or at build time. Files live under /public/gpx so they're also downloadable
+ * at /gpx/<file>.
  */
 export function loadTrack(file: string): TrackPoint[] {
-  const full = path.join(process.cwd(), "data", "gpx", file);
+  const full = path.join(process.cwd(), "public", "gpx", file);
   let xml: string;
   try {
     xml = readFileSync(full, "utf8");

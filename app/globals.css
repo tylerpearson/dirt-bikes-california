@@ -1,33 +1,43 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Rugged / outdoor palette */
-  --color-bark: #1c1b17;
-  --color-bark-2: #25241e;
-  --color-moss: #3a4a2f;
-  --color-pine: #5a7245;
-  --color-trail: #c8732b;
-  --color-trail-bright: #e8862f;
-  --color-sand: #e7ddc8;
-  --color-bone: #f4efe3;
+  /* Vintage USGS / Forest-Service field-guide palette (light, printed) */
+  --color-paper: #efe7d3; /* body — aged map paper */
+  --color-paper-2: #f6f0df; /* raised panels / cards */
+  --color-manila: #e3d9c0; /* section bands / footer */
+  --color-edge: #c8bb9b; /* hairline borders, brown-tinted */
+  --color-edge-strong: #9c8a64;
 
-  --color-background: var(--color-bark);
-  --color-foreground: var(--color-bone);
+  --color-ink: #2b261d; /* body text */
+  --color-bistre: #4d3f28; /* headings, structure */
+  --color-olive: #5f5743; /* muted text */
 
-  --font-display: var(--font-oswald);
+  --color-sage: #7d8a5c; /* accent fill */
+  --color-sage-ink: #4d5a32;
+  --color-rust: #a8492a; /* primary accent — route line, ticks */
+  --color-rust-ink: #8f3d22;
+
+  /* Access states */
+  --color-ok-ink: #2f6b34;
+  --color-ok-fill: #3f8f3a;
+  --color-partial-ink: #8a4a16;
+  --color-partial-fill: #b9701e;
+  --color-plate-ink: #2f5670;
+  --color-plate-fill: #3a6e92;
+  --color-unsure-ink: #5a5340;
+  --color-unsure-fill: #7a7058;
+
+  /* Difficulty inks (AA on paper) */
+  --color-diff-easy: #2f6b34;
+  --color-diff-mod: #7a5310;
+  --color-diff-hard: #9a3f1f;
+  --color-diff-exp: #8f2a20;
+
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+
+  --font-display: var(--font-zilla);
   --font-sans: var(--font-archivo);
-
-  /* Saturated brand colors — for dots, fills, accents. */
-  --color-sticker-green: #3f9142;
-  --color-sticker-red: #c0392b;
-  --color-plate-blue: #2f6fb0;
-  --color-either-teal: #2e9c8e;
-
-  /* Brightened on-dark variants — for TEXT on the dark surfaces (AA ≥4.5:1). */
-  --color-green-text: #74c47a;
-  --color-red-text: #ef6d63;
-  --color-blue-text: #6aa9e0;
-  --color-teal-text: #4fc5b4;
 }
 
 html {
@@ -35,9 +45,27 @@ html {
 }
 
 body {
-  background-color: var(--color-bark);
-  color: var(--color-bone);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
+  /* faint fibrous paper texture */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(120, 95, 50, 0.018) 0 2px,
+      transparent 2px 5px
+    ),
+    radial-gradient(
+      130% 90% at 50% 0%,
+      rgba(255, 252, 244, 0.5),
+      transparent 60%
+    );
+}
+
+/* Sepia / aged-topo treatment for the OSM map tiles. */
+.map-vintage {
+  filter: sepia(0.42) saturate(0.72) brightness(1.05) contrast(0.92)
+    hue-rotate(-8deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -52,22 +80,4 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Subtle topographic texture for the hero. */
-.topo {
-  background-color: var(--color-bark);
-  background-image:
-    radial-gradient(
-      120% 120% at 50% -10%,
-      rgba(232, 134, 47, 0.18),
-      transparent 55%
-    ),
-    repeating-radial-gradient(
-      circle at 30% 30%,
-      rgba(231, 221, 200, 0.05) 0,
-      rgba(231, 221, 200, 0.05) 1px,
-      transparent 1px,
-      transparent 26px
-    );
 }

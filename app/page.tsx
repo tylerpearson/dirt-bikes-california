@@ -36,42 +36,50 @@ export default function Home() {
     const map = hasTrack
       ? trackMap(track)
       : centeredMap(route.trailhead.lat, route.trailhead.lng, { zoom: 12 });
+    const points = track.map((p) => ({ lat: p.lat, lng: p.lng }));
     const stats = hasTrack ? trackStats(track) : null;
-    return { route, map, hasTrack, stats };
+    return { route, map, points, stats };
   });
 
   return (
     <>
-      <header className="relative overflow-hidden border-b border-white/10 bg-bark">
+      <header className="relative overflow-hidden border-b-2 border-bistre/70 bg-paper">
         <HeroTopo />
-        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-24">
-          <h1 className="font-display text-5xl font-bold uppercase leading-[0.95] tracking-wide text-balance text-bone sm:text-7xl">
+        <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
+          {/* map-sheet collar / title block */}
+          <div className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-rust-ink">
+            <span>Field Guide</span>
+            <span className="h-px flex-1 bg-edge-strong/60" aria-hidden />
+            <span className="text-olive">San Bernardino N.F.</span>
+          </div>
+
+          <h1 className="mt-5 font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight text-balance text-bistre sm:text-7xl">
             Big Bear
             <br />
             Dirt Bike Routes
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-sand/85">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-ink/90">
             A field guide to the best OHV rides around Big Bear — real route maps
             and elevation pulled from{" "}
-            <span className="font-semibold text-bone">OpenStreetMap</span>, the
+            <span className="font-semibold text-bistre">OpenStreetMap</span>, the
             details that matter, and exactly where you need a{" "}
-            <span className="font-semibold text-blue-text">
+            <span className="font-semibold text-plate-ink">
               street-legal plate
             </span>{" "}
             versus where{" "}
-            <span className="font-semibold text-green-text">green-sticker</span>{" "}
-            bikes are allowed.
+            <span className="font-semibold text-ok-ink">green-sticker</span> bikes
+            are allowed.
           </p>
-          <p className="mt-4 text-sm text-sand/65">
-            San Bernardino National Forest · Big Bear, California
+          <p className="mt-3 text-sm text-olive">
+            Big Bear, California · {routes.length} routes
           </p>
 
-          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-sand/75">
-            <span className="font-semibold text-bone">
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
+            <span className="font-semibold text-bistre">
               Plated street-legal bikes are fine on every route here.
             </span>{" "}
             The badges below show where{" "}
-            <span className="font-semibold text-bone">green-sticker</span>{" "}
+            <span className="font-semibold text-bistre">green-sticker</span>{" "}
             (non-street-legal) OHVs are allowed — that&apos;s the part that
             varies, sometimes segment by segment.
           </p>
@@ -80,57 +88,74 @@ export default function Home() {
             {LEGEND.map(({ status, meaning }) => (
               <div
                 key={status}
-                className="rounded-lg border border-white/10 bg-bark-2/60 p-3"
+                className="rounded-sm border border-edge bg-paper-2/70 p-3"
               >
                 <AccessBadge status={status} />
-                <p className="mt-2 text-xs leading-relaxed text-sand/75">
+                <p className="mt-2 text-xs leading-relaxed text-bistre">
                   {meaning}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 max-w-2xl text-xs leading-relaxed text-sand/65">
-            California sticker note: since Jan 1 2025, red and green stickers are
-            treated as equally valid year-round in OHV-designated areas; model-year
-            2022+ non-compliant bikes now use the new tan sticker. Always carry
-            current registration and a working spark arrestor.
-          </p>
+          <div className="mt-4 max-w-2xl space-y-2 text-xs leading-relaxed text-olive">
+            <p>
+              <span className="font-semibold text-rust-ink">
+                New for 2026 (SB 586):
+              </span>{" "}
+              electric off-highway motorcycles — from light bikes like the Sur-Ron,
+              Talaria and Segway to full-size race machines like the{" "}
+              <span className="font-semibold text-bistre">Stark Varg</span> — now
+              need a green sticker and must follow OHV rules (helmet, ID display).
+              They&apos;re treated as OHVs, so they&apos;re limited to
+              OHV-designated areas just like gas bikes — follow the same
+              green-sticker access shown on each route. A competition bike like the
+              Varg has no lights or DOT equipment, so it can&apos;t be plated or
+              made street-legal; green sticker only.
+            </p>
+            <p>
+              Sticker note: since Jan 1 2025, red and green stickers are treated
+              as equally valid year-round in OHV-designated areas; model-year
+              2022+ non-compliant gas bikes use the new tan sticker. Always carry
+              current registration and a working spark arrestor.
+            </p>
+          </div>
         </div>
       </header>
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
-        <div className="mb-6 flex items-baseline justify-between gap-4">
-          <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-bone">
+        <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
+          <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">
             The Routes
           </h2>
-          <span className="text-sm text-sand/60">{cards.length} rides</span>
+          <span className="text-sm text-olive">{cards.length} rides</span>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {cards.map(({ route, map, hasTrack, stats }) => (
+        <div className="flex flex-col gap-6">
+          {cards.map(({ route, map, points, stats }) => (
             <RouteCard
               key={route.id}
               route={route}
               map={map}
-              hasTrack={hasTrack}
+              points={points}
               stats={stats}
             />
           ))}
         </div>
       </main>
 
-      <footer className="border-t border-white/10 bg-bark-2">
+      <footer className="border-t-2 border-bistre/70 bg-manila">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="font-display text-lg font-bold uppercase tracking-wide text-trail-bright">
+          <h2 className="font-display text-lg font-bold uppercase tracking-tight text-rust-ink">
             Ride responsibly · verify before you go
           </h2>
-          <div className="mt-3 space-y-3 text-sm leading-relaxed text-sand/70">
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink/90">
             <p>
-              Route details, mileage, trailhead locations, and sticker/plate
-              requirements on this page are approximate and provided for general
-              guidance only. Trail status, seasonal closures, the Red Sticker
-              season, and Adventure Pass requirements change frequently.
+              Route details, mileage, trailhead locations, and access info on this
+              page are approximate and provided for general guidance only. Route
+              lines come from OpenStreetMap, not a surveyed legal boundary. Trail
+              status, seasonal closures, and Adventure Pass requirements change
+              frequently.
             </p>
             <p>
               Always confirm current conditions and legal requirements with the{" "}
@@ -138,7 +163,7 @@ export default function Home() {
                 href="https://www.fs.usda.gov/sbnf"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-bone underline decoration-trail/60 underline-offset-2 hover:decoration-trail"
+                className="font-semibold text-rust-ink underline decoration-rust/50 underline-offset-2 hover:decoration-rust"
               >
                 San Bernardino National Forest
               </a>{" "}
@@ -147,7 +172,7 @@ export default function Home() {
                 href="https://www.bigbear.com/things-to-do/recreation/big-bear-discovery-center/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-bone underline decoration-trail/60 underline-offset-2 hover:decoration-trail"
+                className="font-semibold text-rust-ink underline decoration-rust/50 underline-offset-2 hover:decoration-rust"
               >
                 Big Bear Discovery Center
               </a>{" "}
@@ -156,17 +181,17 @@ export default function Home() {
               designated routes.
             </p>
           </div>
-          <p className="mt-6 text-xs text-sand/65">
-            Map tiles ©{" "}
+          <p className="mt-6 text-xs text-olive">
+            Map data ©{" "}
             <a
               href="https://www.openstreetmap.org/copyright"
               target="_blank"
               rel="noreferrer"
-              className="underline underline-offset-2 hover:text-sand/80"
+              className="underline underline-offset-2 hover:text-bistre"
             >
               OpenStreetMap
             </a>{" "}
-            contributors.
+            contributors · elevation from SRTM.
           </p>
         </div>
       </footer>

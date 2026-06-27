@@ -86,7 +86,7 @@ function composeTiles(
 export function centeredMap(
   lat: number,
   lng: number,
-  { zoom = 12, width = 600, height = 320 } = {},
+  { zoom = 12, width = 600, height = 400 } = {},
 ): MapRender {
   const center = project(lat, lng, zoom);
   const { tiles } = composeTiles(center.x, center.y, zoom, width, height);
@@ -106,8 +106,8 @@ export function trackMap(
   points: LatLng[],
   {
     width = 600,
-    height = 320,
-    padding = 34,
+    height = 400,
+    padding = 64,
     minZoom = 9,
     maxZoom = 15,
   }: Frame & { padding?: number; minZoom?: number; maxZoom?: number } = {} as Frame,

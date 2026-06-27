@@ -158,7 +158,7 @@ ${trkpts}
 `;
 }
 
-const outDir = path.join(process.cwd(), "data", "gpx");
+const outDir = path.join(process.cwd(), "public", "gpx");
 mkdirSync(outDir, { recursive: true });
 
 for (const route of ROUTES) {
