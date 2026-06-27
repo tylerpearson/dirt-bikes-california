@@ -103,16 +103,23 @@ export default function Home() {
               <span className="font-semibold text-rust-ink">
                 New for 2026 (SB 586):
               </span>{" "}
-              electric off-highway motorcycles — from light bikes like the{" "}
-              <span className="font-semibold text-bistre">Sur-Ron</span> to
-              full-size race machines like the{" "}
-              <span className="font-semibold text-bistre">Stark Varg</span> — now
-              need a green sticker and must follow OHV rules (helmet, ID display).
-              They&apos;re treated as OHVs, so they&apos;re limited to
-              OHV-designated areas just like gas bikes — follow the same
-              green-sticker access shown on each route. A competition bike like the
-              Varg has no lights or DOT equipment, so it can&apos;t be plated or
-              made street-legal; green sticker only.
+              off-road electric motorcycles — from light bikes like the{" "}
+              <span className="font-semibold text-bistre">Sur-Ron</span> to the
+              race-bred{" "}
+              <span className="font-semibold text-bistre">Stark Varg (MX)</span> —
+              now need a green sticker and follow OHV rules (helmet, ID display).
+              The competition Varg has no lights or DOT gear, so it can&apos;t be
+              plated: green sticker only, OHV-designated areas only — same
+              green-sticker access shown on each route.
+            </p>
+            <p>
+              The newer{" "}
+              <span className="font-semibold text-bistre">Stark Varg EX</span> is
+              the exception — it&apos;s fully road-homologated in the US (lights,
+              indicators, foot rear brake), so it can be registered and plated like
+              a street-legal dual-sport. That puts it in the plate lane: it can
+              ride every route here, including the plate-only roads like Arrastre
+              Creek.
             </p>
             <p>
               Sticker note: since Jan 1 2025, red and green stickers are treated
