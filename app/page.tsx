@@ -101,7 +101,7 @@ export default function Home() {
           <div className="mt-4 max-w-2xl space-y-2 text-xs leading-relaxed text-olive">
             <p>
               <span className="font-semibold text-rust-ink">
-                New for 2026 (SB 586):
+                In effect now (SB 586, since Jan 2026):
               </span>{" "}
               off-road electric motorcycles — from light bikes like the{" "}
               <span className="font-semibold text-bistre">Sur-Ron</span> to the
@@ -113,7 +113,7 @@ export default function Home() {
               green-sticker access shown on each route.
             </p>
             <p>
-              The newer{" "}
+              The road-going{" "}
               <span className="font-semibold text-bistre">Stark Varg EX</span> is
               the exception — it&apos;s fully road-homologated in the US (lights,
               indicators, foot rear brake), so it can be registered and plated like
