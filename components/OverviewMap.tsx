@@ -172,9 +172,10 @@ export function OverviewMap({ areas }: { areas: AreaPin[] }) {
         )}
       </div>
 
-      {/* Detail panel: fills as you hover a pin or focus an area below.
-          Height is reserved for both lines so it doesn't shift on change. */}
-      <div className="mt-4 flex min-h-[3.5rem] flex-col justify-center border-y border-edge py-2.5 text-sm">
+      {/* Detail panel: fills as you hover a pin or focus an area below. Fixed
+          height (sized for the two-line active state) so swapping content never
+          shifts the layout below it; the tagline is clamped to one line. */}
+      <div className="mt-4 flex h-[4.25rem] flex-col justify-center overflow-hidden border-y border-edge py-2.5 text-sm">
         {activeArea ? (
           <>
             <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-bistre">
@@ -194,7 +195,7 @@ export function OverviewMap({ areas }: { areas: AreaPin[] }) {
                 View routes ›
               </Link>
             </p>
-            <p className="mt-0.5 text-pretty text-olive">{activeArea.tagline}</p>
+            <p className="mt-0.5 truncate text-olive">{activeArea.tagline}</p>
           </>
         ) : (
           <p className="text-olive">
