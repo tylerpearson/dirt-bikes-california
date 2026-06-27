@@ -86,9 +86,11 @@ export function AreaMap({ src }: { src: string }) {
         const style = (f?: Feature) => {
           const p = f!.properties;
           return {
+            // Equal weight/opacity for both classes — green vs. blue color
+            // carries the meaning; green still draws on top so overlaps read.
             color: COLOR[p.access],
-            weight: p.access === "green" ? 3.5 : 2,
-            opacity: p.access === "green" ? 0.95 : 0.7,
+            weight: 2.5,
+            opacity: 0.9,
             dashArray: p.seasonal ? "3 5" : undefined,
             lineCap: "round" as const,
           };
@@ -153,7 +155,7 @@ export function AreaMap({ src }: { src: string }) {
         ref={mapRef}
         className="area-map h-[60vh] max-h-[560px] min-h-[360px] w-full bg-manila"
         role="img"
-        aria-label="Map of every legal motorized road and trail around Big Bear, colored by whether green-sticker off-highway motorcycles are allowed"
+        aria-label="Map of every legal motorized road and trail in this area, colored by whether green-sticker off-highway motorcycles are allowed"
       />
 
       {/* Legend — field-guide card pinned to the map */}
@@ -167,7 +169,7 @@ export function AreaMap({ src }: { src: string }) {
             Green-sticker OHV allowed
           </li>
           <li className="flex items-center gap-2">
-            <span className="h-[2px] w-6 rounded-full" style={{ background: COLOR.plate }} />
+            <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.plate }} />
             Street-legal plate only
           </li>
           <li className="flex items-center gap-2 text-olive">
