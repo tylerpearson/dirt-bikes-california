@@ -38,10 +38,10 @@ export function RouteCard({
   stats: TrackStats | null;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row lg:items-start">
+    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
       {/* Map side */}
       <div className="flex flex-col lg:w-[56%] lg:shrink-0 lg:border-r lg:border-edge">
-        <div className="relative aspect-[3/2]">
+        <div className="relative aspect-[3/2] lg:aspect-auto lg:flex-1">
           <ExpandableMap
             map={map}
             points={points}
@@ -137,7 +137,7 @@ export function RouteCard({
             <Stat label="Elevation" value={route.elevationFt} />
           )}
           <Stat label="Best season" value={route.bestSeason} />
-          <div className="col-span-2 sm:col-span-3">
+          <div className="col-span-2">
             <Stat label="Surface" value={route.surface} />
           </div>
         </dl>
