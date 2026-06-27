@@ -103,8 +103,9 @@ export default function Home() {
               <span className="font-semibold text-rust-ink">
                 New for 2026 (SB 586):
               </span>{" "}
-              electric off-highway motorcycles — from light bikes like the Sur-Ron,
-              Talaria and Segway to full-size race machines like the{" "}
+              electric off-highway motorcycles — from light bikes like the{" "}
+              <span className="font-semibold text-bistre">Sur-Ron</span> to
+              full-size race machines like the{" "}
               <span className="font-semibold text-bistre">Stark Varg</span> — now
               need a green sticker and must follow OHV rules (helmet, ID display).
               They&apos;re treated as OHVs, so they&apos;re limited to
