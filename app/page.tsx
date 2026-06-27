@@ -103,12 +103,15 @@ export default function Home() {
               <span className="font-semibold text-rust-ink">
                 New for 2026 (SB 586):
               </span>{" "}
-              electric off-highway motorcycles — Sur-Ron, Talaria, Segway and the
-              like — now need a green sticker and must follow OHV rules (helmet,
-              ID display). They&apos;re treated as OHVs, so they&apos;re limited to
+              electric off-highway motorcycles — from light bikes like the Sur-Ron,
+              Talaria and Segway to full-size race machines like the{" "}
+              <span className="font-semibold text-bistre">Stark Varg</span> — now
+              need a green sticker and must follow OHV rules (helmet, ID display).
+              They&apos;re treated as OHVs, so they&apos;re limited to
               OHV-designated areas just like gas bikes — follow the same
-              green-sticker access shown on each route, and note they can&apos;t
-              be made street-legal.
+              green-sticker access shown on each route. A competition bike like the
+              Varg has no lights or DOT equipment, so it can&apos;t be plated or
+              made street-legal; green sticker only.
             </p>
             <p>
               Sticker note: since Jan 1 2025, red and green stickers are treated

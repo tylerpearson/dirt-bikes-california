@@ -20,7 +20,7 @@ export function StaticMap({
     <span className="relative block h-full w-full overflow-hidden border-b border-edge bg-manila">
       <svg
         viewBox={`0 0 ${map.width} ${map.height}`}
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         className="map-vintage block h-full w-full transition duration-300 group-hover:scale-[1.03]"
         role="img"
         aria-label={`Map of ${label}`}

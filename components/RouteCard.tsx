@@ -38,10 +38,10 @@ export function RouteCard({
   stats: TrackStats | null;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
+    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row lg:items-start">
       {/* Map side */}
       <div className="flex flex-col lg:w-[56%] lg:shrink-0 lg:border-r lg:border-edge">
-        <div className="relative aspect-[16/10] lg:aspect-auto lg:flex-1">
+        <div className="relative aspect-[3/2]">
           <ExpandableMap
             map={map}
             points={points}
