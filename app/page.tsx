@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { AREAS } from "@/lib/areas";
 import { HeroTopo } from "@/components/HeroTopo";
 import { OverviewMap, type AreaPin } from "@/components/OverviewMap";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 /** Build the statewide map pins: one per area, placed at its trailhead centroid. */
 function areaPins(): AreaPin[] {
@@ -27,14 +29,50 @@ function areaPins(): AreaPin[] {
 }
 
 export const metadata: Metadata = {
-  title: "SoCal Dirt Bike Routes — Field Guide",
+  title: { absolute: "SoCal Dirt Bike & OHV Routes — Field Guide" },
   description:
     "A field guide to the best dirt bike and OHV routes across Southern California — ride details, real route maps, elevation, and whether you need a green sticker or a street-legal plate. Pick an area to start.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "SoCal Dirt Bike & OHV Routes — Field Guide",
+    description:
+      "The best OHV and dual-sport dirt bike routes across Southern California — real route maps, elevation, and green-sticker vs. plate-only access.",
+    url: "/",
+    type: "website",
+  },
 };
+
+/** WebSite + an ItemList of every riding area, for richer search/AI results. */
+function homeJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: SITE_NAME,
+        url: SITE_URL,
+        description:
+          "A field guide to dirt bike and OHV routes across Southern California's national forests.",
+      },
+      {
+        "@type": "ItemList",
+        name: "Southern California dirt bike riding areas",
+        numberOfItems: AREAS.length,
+        itemListElement: AREAS.map((area, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: `${area.name} — ${area.region}`,
+          url: `${SITE_URL}/${area.id}`,
+        })),
+      },
+    ],
+  };
+}
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <header className="relative overflow-hidden border-b-2 border-bistre/70 bg-paper">
         <HeroTopo />
         <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
