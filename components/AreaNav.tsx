@@ -77,9 +77,11 @@ export function AreaNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="area-menu"
-          className={`-mr-1.5 flex items-center gap-2 rounded-full py-1.5 pl-3 pr-2.5 text-xs font-semibold uppercase tracking-wide transition-colors hover:bg-paper-2 ${
-            open || current ? "text-rust-ink" : "text-bistre"
-          }`}
+          className={`-mr-1 flex items-center gap-2 rounded-full border py-1.5 pl-3.5 pr-2.5 text-xs font-semibold uppercase tracking-wide transition-colors ${
+            open
+              ? "border-bistre/40 bg-paper-2"
+              : "border-bistre/25 bg-paper-2/70 hover:border-bistre/40 hover:bg-paper-2"
+          } ${open || current ? "text-rust-ink" : "text-bistre"}`}
         >
           <span className="max-w-[42vw] truncate md:max-w-none">{triggerLabel}</span>
           <svg
