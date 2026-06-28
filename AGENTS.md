@@ -22,11 +22,9 @@ before calling it done.
 
 # Writing style (hand-written prose)
 
-Write like a person, not a brochure. Applies to all copy: area blurbs, route
-descriptions and notes, loop descriptions, and SEO/metadata. **Follow these rules
-in documentation too.** Any markdown you write under `docs/`, this file, READMEs,
-PR descriptions, and commit messages get the same no-em-dash, plain-English
-treatment.
+Write like a person, not a brochure. Applies to public-facing site copy: area
+blurbs, route descriptions and notes, loop descriptions, and SEO/metadata. Internal
+docs, PR descriptions, and commit messages don't need to follow these rules.
 
 - **No em dashes.** Use commas, periods, colons, or parentheses instead. (En
   dashes in ranges like `November–April` are fine.)
