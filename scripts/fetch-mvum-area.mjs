@@ -27,6 +27,13 @@ const AREAS = {
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
   "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
   "mt-pinos": "-119.55,34.65,-118.85,35.00",
+  // West of Big Bear's bbox (its western edge is -117.05), so the two areas
+  // stay disjoint and don't show the same Holcomb/Coxey ground on both maps.
+  "lake-arrowhead": "-117.42,34.20,-117.06,34.42",
+  // The Santa Ana River / Barton Flats / Heart Bar corridor on the south side
+  // of the range, below Big Bear's lake-basin routes.
+  "san-gorgonio": "-117.05,34.08,-116.65,34.22",
+  "palomar": "-116.95,33.25,-116.62,33.52",
 };
 
 // Run all areas, or just the one(s) named on the command line.

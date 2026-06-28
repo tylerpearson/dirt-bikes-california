@@ -26,6 +26,9 @@ const BBOX = {
   "santa-barbara": "-120.05,34.40,-119.55,34.80",
   "san-luis-obispo": "-120.55,35.05,-119.85,35.55",
   "mt-pinos": "-119.55,34.65,-118.85,35.00",
+  "lake-arrowhead": "-117.42,34.20,-117.06,34.42",
+  "san-gorgonio": "-117.05,34.08,-116.65,34.22",
+  "palomar": "-116.95,33.25,-116.62,33.52",
 };
 
 // ---- Curated featured routes (editorial fields only; facts are derived) -----
@@ -802,6 +805,242 @@ const CONFIG = {
           "Santa Ynez Valley to forest transition",
           "Toward Figueroa Mountain country",
           "Long scenic plated climb",
+        ],
+      },
+    ],
+  },
+
+  // Lake Arrowhead / Deep Creek (San Bernardino N.F.) — the front-country OHV
+  // country west of Big Bear: the Crab Flats and Deep Creek green-sticker roads
+  // and singletrack, plus the Cleghorn / Pilot Rock ridges above Silverwood.
+  // Green-sticker first, then the long plated backcountry road.
+  "lake-arrowhead": {
+    routes: [
+      {
+        id: "crab-flats-road", name: "Crab Flats Road", ids: ["3N34"],
+        difficulty: "Moderate",
+        summary: "The hub of the Crab Flats green-sticker network near Green Valley Lake.",
+        description:
+          "3N34 runs through the Crab Flats area between Green Valley Lake and the Deep Creek country, the staging hub for this corner of the forest. Graded dirt with rockier, rutted stretches through pine and cedar, linking the campground to the OHV roads and trails around it. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access goes segment by segment; read the signs at each junction.",
+        surface: "Graded dirt with rocky, rutted sections",
+        bestSeason: "May–November (snow closes it in winter)",
+        highlights: [
+          "Staging hub for the Crab Flats OHV network",
+          "Green-sticker access on part of the road",
+          "Pine-and-cedar country near Green Valley Lake",
+        ],
+      },
+      {
+        id: "deep-creek-singletrack", name: "Deep Creek OHV Singletrack", ids: ["2W01"], layer: 2,
+        difficulty: "Difficult",
+        summary: "Designated motorcycle singletrack in the Deep Creek country.",
+        description:
+          "Trail 2W01 is a designated motorcycle trail threading the slopes above Deep Creek, narrow green-sticker singletrack with rocky, twisting tread well off the fire roads. This is the kind of riding people come to this side of the forest for: true singletrack, motorcycles only, not a graded road. Short, but it pairs naturally with the Crab Flats roads for a real green-sticker day.",
+        surface: "Narrow, rocky motorcycle singletrack",
+        bestSeason: "May–November (snow closes it in winter)",
+        highlights: [
+          "Designated motorcycle-only singletrack",
+          "Above the Deep Creek drainage",
+          "True green-sticker trail, not a fire road",
+        ],
+      },
+      {
+        id: "cleghorn-ridge", name: "Cleghorn Ridge OHV Road", ids: ["2N47"],
+        difficulty: "Moderate",
+        summary: "Long green-sticker ridge road above Silverwood Lake, about 15 miles.",
+        description:
+          "2N47 runs the Cleghorn Ridge above Silverwood Lake and the Cajon Pass, roughly 15 miles open to all vehicles the length of its OHV stretch. That makes it the rare thing on a dirt bike: a long green-sticker ride, not just a short spur. Rocky, high-clearance tread along an exposed chaparral ridge with big views down to the lake and out over the pass, well away from the Crab Flats crowds.",
+        surface: "Rocky, high-clearance ridge dirt",
+        bestSeason: "Year-round (hot in summer, muddy after storms)",
+        highlights: [
+          "About 15 miles of designated green-sticker road",
+          "Views over Silverwood Lake and Cajon Pass",
+          "Exposed chaparral ridge riding",
+        ],
+      },
+      {
+        id: "miller-canyon", name: "Miller Canyon OHV Road", ids: ["2N37"],
+        difficulty: "Moderate",
+        summary: "Short green-sticker road dropping through Miller Canyon.",
+        description:
+          "2N37 follows Miller Canyon as a road open to all vehicles, a compact green-sticker option with sandy canyon-bottom stretches and rockier benches through chaparral on the slopes below Crab Flats. A quick, scenic ride and a natural add-on to a bigger green-sticker day in the area rather than a destination on its own.",
+        surface: "Sandy canyon bottom with rocky benches",
+        bestSeason: "Year-round (hot in summer, muddy after storms)",
+        highlights: [
+          "Designated green-sticker road",
+          "Sandy canyon-bottom character",
+          "Pairs with the Crab Flats network",
+        ],
+      },
+      {
+        id: "pilot-rock-road", name: "Pilot Rock Road", ids: ["2N33"],
+        difficulty: "Moderate",
+        summary: "Long ridge road between Lake Arrowhead and Silverwood, partly green-sticker.",
+        description:
+          "2N33 works the ridge between the Lake Arrowhead crest and Silverwood Lake past the Pilot Rock landmark, a long high-clearance road with rocky, rutted climbs and expanding views in both directions. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access goes segment by segment; read the signs at each junction.",
+        surface: "High-clearance dirt with rocky, rutted climbs",
+        bestSeason: "Year-round (hot in summer, muddy after storms)",
+        highlights: [
+          "Long ridge between Arrowhead and Silverwood",
+          "Green-sticker access on part of the road",
+          "Pilot Rock landmark and big two-way views",
+        ],
+      },
+      {
+        id: "bailey-canyon", name: "Bailey Canyon Road", ids: ["2N49"],
+        difficulty: "Difficult",
+        summary: "Long, remote plated backcountry road on the west side of the area.",
+        description:
+          "2N49 pushes a long way through the Bailey Canyon backcountry on the Silverwood / Cleghorn side, roughly 16 miles of rough, high-clearance road through remote chaparral and oak. It's open to street-legal vehicles only, so it's a plated dual-sport ride: quiet, committing, and a good way to cover ground away from the OHV staging areas. Carry water and go prepared.",
+        surface: "Long, rough high-clearance backcountry dirt",
+        bestSeason: "Spring and fall (hot in summer, muddy after storms)",
+        highlights: [
+          "About 16 miles of remote backcountry",
+          "Quiet plated dual-sport riding",
+          "Chaparral-and-oak Silverwood country",
+        ],
+      },
+    ],
+  },
+
+  // San Gorgonio front (San Bernardino N.F.) — the Santa Ana River, Barton Flats
+  // and Heart Bar country on the south side of the range, below the San Gorgonio
+  // Wilderness. Entirely plated dual-sport: no green-sticker roads here.
+  "san-gorgonio": {
+    routes: [
+      {
+        id: "coon-creek-jumpoff", name: "Coon Creek Jumpoff Road", ids: ["1N02"],
+        difficulty: "Difficult",
+        summary: "Rough high-clearance road to the Coon Creek Jumpoff overlook.",
+        description:
+          "1N02 climbs and traverses to the Coon Creek Jumpoff, a dramatic overlook where the forest drops away toward the desert below San Gorgonio. The road is genuinely rough in stretches, rocky, eroded, high-clearance dual-sport riding, with one of the bigger view payoffs in the area. Open to street-legal vehicles only, so plated bikes only.",
+        surface: "Rough, rocky, eroded high-clearance dirt",
+        bestSeason: "May–November (snow up high in winter)",
+        highlights: [
+          "Overlook where the forest drops to the desert",
+          "Genuinely rough high-clearance riding",
+          "One of the best view payoffs in the area",
+        ],
+      },
+      {
+        id: "radford-front-line", name: "Radford Front Line Road", ids: ["1N04"],
+        difficulty: "Moderate",
+        summary: "Long front-line road through the Barton Flats high country.",
+        description:
+          "1N04 runs the front line through the Barton Flats and Santa Ana River high country, a long graded-to-rocky road serving the camps, trailheads, and overlooks along the south side of the range. A scenic plated dual-sport ride with steady mileage and pine-forest views toward San Gorgonio. Open to street-legal vehicles only.",
+        surface: "Graded dirt with rockier sections",
+        bestSeason: "May–November (snow up high in winter)",
+        highlights: [
+          "Long ride through the Barton Flats country",
+          "Camps, trailheads, and overlooks",
+          "Pine-forest views toward San Gorgonio",
+        ],
+      },
+      {
+        id: "wildhorse-meadow", name: "Wildhorse Meadow Road", ids: ["2N93"],
+        difficulty: "Moderate",
+        summary: "Long high-clearance climb to Wildhorse Meadow, about 11 miles.",
+        description:
+          "2N93 runs about 11 miles up toward Wildhorse Meadow on the slopes above the Santa Ana River, a high-clearance road mixing rocky climbs with forest and meadow as it gains real elevation toward the crest. A quieter plated ride with cool conifer country and meadows near the top. Open to street-legal vehicles only.",
+        surface: "Rocky, high-clearance climb",
+        bestSeason: "May–November (snow up high in winter)",
+        highlights: [
+          "Climbs to Wildhorse Meadow",
+          "Forest-and-meadow high country",
+          "Quieter than the front-line roads",
+        ],
+      },
+      {
+        id: "fish-creek-meadows", name: "Fish Creek Meadows Road", ids: ["1N05"],
+        difficulty: "Moderate",
+        summary: "Forest road into the Fish Creek and Heart Bar meadows.",
+        description:
+          "1N05 runs into the Fish Creek and Heart Bar Meadows country on the east end of the area, graded forest road through pine and meadow toward the Fish Creek trailheads near the San Gorgonio Wilderness boundary. A relaxed, scenic plated ride; the wilderness itself is closed to motors, so the trailheads are places to park, not ride. Open to street-legal vehicles only.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "May–November (snow up high in winter)",
+        highlights: [
+          "Into the Fish Creek and Heart Bar meadows",
+          "Pine-and-meadow forest scenery",
+          "Trailheads near the San Gorgonio Wilderness",
+        ],
+      },
+      {
+        id: "city-creek", name: "City Creek Road", ids: ["1N09"],
+        difficulty: "Moderate",
+        summary: "Long graded traverse along the front of the range, about 22 miles.",
+        description:
+          "1N09 is the long one here: roughly 22 miles of graded road traversing the front of the range above the City Creek drainage, the kind of ride you do to cover ground rather than for any single feature. The grade is gentle but the distance is real, winding through chaparral and oak with views out over the San Bernardino Valley. Open to street-legal vehicles only.",
+        surface: "Long graded dirt, gentle grade",
+        bestSeason: "Year-round (hot in summer)",
+        highlights: [
+          "About 22 miles along the range front",
+          "Views over the San Bernardino Valley",
+          "Distance ride, not a technical one",
+        ],
+      },
+    ],
+  },
+
+  // Palomar (Cleveland N.F.) — the compact third district of the Cleveland after
+  // the Santa Anas and the Lagunas. A small, entirely plated network on Palomar
+  // Mountain in north San Diego County: the long Palomar Divide ridge, the climb
+  // to the High Point lookout, and Indian Flats.
+  "palomar": {
+    routes: [
+      {
+        id: "palomar-divide", name: "Palomar Divide Road", ids: ["9S07"],
+        difficulty: "Moderate",
+        summary: "The long backbone ridge of Palomar Mountain, about 13 miles.",
+        description:
+          "9S07 runs the Palomar Divide the length of the mountain, roughly 13 miles of graded-to-rocky ridge road through oak and conifer with sweeping views over the San Diego backcountry and out to the desert. The signature ride on Palomar: a long, scenic plated dual-sport cruise, smoother than the Santa Ana divide but just as big on views. Open to street-legal vehicles only.",
+        surface: "Graded-to-rocky ridge road",
+        bestSeason: "Spring and fall (hot in summer, muddy after storms)",
+        highlights: [
+          "About 13 miles along the Palomar crest",
+          "Big San Diego backcountry and desert views",
+          "The signature ride on the mountain",
+        ],
+      },
+      {
+        id: "high-point", name: "High Point Road", ids: ["8S05"],
+        difficulty: "Moderate",
+        summary: "High-clearance climb on the northeast flank of Palomar Mountain.",
+        description:
+          "8S05 climbs the northeast flank of Palomar above the Aguanga and Lake Henshaw side, gaining a couple of thousand feet of forest through conifer and oak. A high-clearance road with rocky sections and a steadier, more remote feel than the divide. It tops out around 4,900 feet, below the High Point lookout itself, which sits on a separate gated road. Open to street-legal vehicles only.",
+        surface: "High-clearance dirt with rocky sections",
+        bestSeason: "Spring and fall (hot in summer, muddy after storms)",
+        highlights: [
+          "Forested climb on the northeast flank",
+          "Quieter, remote-feeling high-clearance road",
+          "Tops out around 4,900 feet",
+        ],
+      },
+      {
+        id: "indian-flats", name: "Indian Flats Road", ids: ["9S05"],
+        difficulty: "Moderate",
+        summary: "Backcountry road into the Indian Flats country on the north side.",
+        description:
+          "9S05 drops into the Indian Flats country on the north side of Palomar near Lake Henshaw, a graded-to-rocky backcountry road through chaparral and oak toward the Indian Flats campground. A quieter plated ride than the divide, with a more remote feel and good seat time. Open to street-legal vehicles only.",
+        surface: "Graded dirt with rocky sections",
+        bestSeason: "Spring and fall (hot in summer, muddy after storms)",
+        highlights: [
+          "Into the remote Indian Flats country",
+          "Toward the Indian Flats campground",
+          "Quieter companion to the Divide",
+        ],
+      },
+      {
+        id: "oak-grove-road", name: "Oak Grove Road", ids: ["9S09"],
+        difficulty: "Easy",
+        summary: "Short access road linking Highway 79 to the Palomar Divide.",
+        description:
+          "9S09 is the short access road off Highway 79 at Oak Grove that ties into the Palomar Divide, an easy graded climb through oak and chaparral. Brief on its own, but it's the natural way onto the ridge from the east, so it earns its place as the connector that starts a divide day. Open to street-legal vehicles only.",
+        surface: "Short graded climb, generally smooth",
+        bestSeason: "Spring and fall (hot in summer, muddy after storms)",
+        highlights: [
+          "Eastern access onto the Palomar Divide",
+          "Easy oak-and-chaparral grade",
+          "The natural start of a divide day",
         ],
       },
     ],
