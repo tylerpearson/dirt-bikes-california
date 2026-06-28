@@ -81,36 +81,6 @@ export const bigBearRoutes: Route[] = [
     },
   },
   {
-    id: "john-bull",
-    name: "John Bull Trail",
-    forestRoad: "3N10",
-    summary:
-      "Big Bear's most famous trail, a brutal experts-only rock crawl that's more bragging rights than flow on a bike.",
-    description:
-      "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control, and most riders find it more punishing than fun. Never ride it alone.",
-    distanceMiles: 5,
-    difficulty: "Expert",
-    elevationFt: "7,200–7,800 ft",
-    surface: "Large granite boulders and rock ledges",
-    bestSeason: "June–September",
-    access: {
-      streetLegal: true,
-      greenSticker: "no",
-      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only, a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
-      source: MVUM,
-    },
-    highlights: [
-      "Iconic technical rock obstacles",
-      "Big payoff views from the high desert edge",
-      "Connects to the Gold Mountain network",
-    ],
-    trailhead: {
-      name: "John Bull Trailhead (3N10)",
-      lat: 34.2789,
-      lng: -116.8005,
-    },
-  },
-  {
     id: "gold-mountain",
     name: "Gold Mountain / Dishpan Springs",
     forestRoad: "3N69",
@@ -253,6 +223,36 @@ export const bigBearRoutes: Route[] = [
       name: "Arrastre Creek Rd / 2N02 (off Baldwin Lake Rd)",
       lat: 34.265,
       lng: -116.78,
+    },
+  },
+  {
+    id: "john-bull",
+    name: "John Bull Trail",
+    forestRoad: "3N10",
+    summary:
+      "Big Bear's most famous trail, a brutal experts-only rock crawl that's more bragging rights than flow on a bike.",
+    description:
+      "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control, and most riders find it more punishing than fun. Ranked low here because it's plate-only and a sufferfest on two wheels, not because it isn't famous. Never ride it alone.",
+    distanceMiles: 5,
+    difficulty: "Expert",
+    elevationFt: "7,200–7,800 ft",
+    surface: "Large granite boulders and rock ledges",
+    bestSeason: "June–September",
+    access: {
+      streetLegal: true,
+      greenSticker: "no",
+      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only, a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
+      source: MVUM,
+    },
+    highlights: [
+      "Iconic technical rock obstacles",
+      "Big payoff views from the high desert edge",
+      "Connects to the Gold Mountain network",
+    ],
+    trailhead: {
+      name: "John Bull Trailhead (3N10)",
+      lat: 34.2789,
+      lng: -116.8005,
     },
   },
   {

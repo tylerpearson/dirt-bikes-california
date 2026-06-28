@@ -161,7 +161,8 @@ export function AreaGuide({ area }: { area: Area }) {
             <span className="text-sm text-olive">{area.region} MVUM</span>
           </div>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
-            Every legal motorized road and trail in the {area.name} area,
+            Every legal motorized road and trail in the {area.name}
+            {" "}area,
             straight from the Forest Service&apos;s{" "}
             <span className="font-semibold text-bistre">
               Motor Vehicle Use Map
