@@ -23,7 +23,7 @@ export function areaMetadata(
     description,
     alternates: { canonical: path },
     openGraph: {
-      title: `${title} — ${SITE_NAME}`,
+      title: `${title} · ${SITE_NAME}`,
       description,
       url: path,
       type: "article",

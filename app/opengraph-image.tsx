@@ -3,7 +3,7 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 import { AREAS } from "@/lib/areas";
 
-export const alt = "SoCal Dirt Bike & OHV Routes — Field Guide";
+export const alt = "SoCal Dirt Bike & OHV Routes · Field Guide";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

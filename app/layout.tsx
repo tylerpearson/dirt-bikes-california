@@ -18,11 +18,11 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "SoCal Dirt Bike & OHV Routes — Field Guide",
-    template: `%s — ${SITE_NAME}`,
+    default: "SoCal Dirt Bike & OHV Routes · Field Guide",
+    template: `%s · ${SITE_NAME}`,
   },
   description:
-    "A field guide to the best dirt bike and OHV routes across Southern California — ride details, difficulty, real route maps, and whether you need a green sticker or a street-legal plate.",
+    "A field guide to the best dirt bike and OHV routes across Southern California: ride details, difficulty, real route maps, and whether you need a green sticker or a street-legal plate.",
   openGraph: {
     siteName: SITE_NAME,
     locale: "en_US",
