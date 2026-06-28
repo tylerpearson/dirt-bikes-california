@@ -311,33 +311,5 @@ export const sanJacintoRoutes: Route[] = [
       "lat": 33.6375,
       "lng": -116.6457
     }
-  },
-  {
-    "id": "red-hill-road",
-    "name": "Red Hill Road",
-    "forestRoad": "5S10",
-    "summary": "Short, scenic plated spur in the Garner Valley fringe.",
-    "description": "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride, highway-legal only, best paired with the longer roads nearby.",
-    "distanceMiles": 2.9,
-    "difficulty": "Moderate",
-    "elevationFt": "4,900–6,050 ft",
-    "surface": "Graded dirt with rocky sections",
-    "bestSeason": "May–October",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "no",
-      "note": "Per the MVUM, 5S10 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Forest-and-meadow scenery",
-      "Short, scenic plated spur",
-      "Pairs with the Idyllwild road network"
-    ],
-    "trailhead": {
-      "name": "Red Hill Road (5S10)",
-      "lat": 33.7628,
-      "lng": -116.7443
-    }
   }
 ];

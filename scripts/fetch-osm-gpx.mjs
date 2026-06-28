@@ -26,8 +26,6 @@ const ROUTES = [
   { id: "cactus-flats", ref: "FR 3N03", name: "Smarts Ranch Road" },
   { id: "arrastre-creek", ref: "FR 2N02", name: "Arrastre Creek Road" },
   { id: "van-dusen-canyon", ref: "FR 3N09", name: "Van Dusen Canyon Road" },
-  { id: "van-dusen-creek", ref: "FR 3N07", name: "Van Dusen Creek Road" },
-  { id: "burnt-flat", ref: "FR 3N02", name: "Burnt Flat Road" },
   // 2E20 is a network of sub-trails (2E20.1–.5); match them all and chain.
   { id: "pinyon-vista", ref: "FR 2E20", name: "Pinyon & Vista OHV Trails", regex: true },
 ];
