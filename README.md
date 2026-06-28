@@ -146,3 +146,8 @@ Worker's **Settings → Domains & Routes** if you want it as a fallback.
 [MIT](LICENSE) © Tyler Pearson. Note that the underlying data carries its own
 terms: OpenStreetMap basemap tiles are © OpenStreetMap contributors (ODbL), and
 MVUM / SRTM data are U.S. government works.
+
+---
+
+*A personal project, shared as-is — built for my own use, with no warranty or
+support.*
