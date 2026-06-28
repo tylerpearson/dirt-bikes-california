@@ -239,7 +239,7 @@ export const AREAS: Area[] = [
         summary:
           "Wine-country ridges and oak-shaded backroads northwest of the valley.",
         description:
-          "The mellow, scenic counterpoint to the backcountry epics: climb Happy Canyon (7N07) out of the ranch land, cruise Sunset Valley (8N09) toward the dispersed camps, and finish on Zaca Ridge (8N02) in the Zaca Peak OHV area for big views over the wine country. Mostly relaxed graded dirt that genuinely connects into a real loop — ideal for seat time, scenery, or bringing along a newer rider, and a wildflower showcase in spring. Plated throughout except the green-sticker-open stretch of Zaca Ridge, so check the signs there.",
+          "The mellow, scenic counterpoint to the backcountry epics: climb Happy Canyon (7N07) out of the ranch land, cruise Sunset Valley (8N09) toward the dispersed camps, and finish on Zaca Ridge (8N02) in the Zaca Peak OHV area for big views over the wine country. Mostly relaxed graded dirt that genuinely connects into a real loop — ideal for seat time, scenery, or bringing along a newer rider, and a wildflower showcase in spring. Plated throughout, except part of Zaca Ridge is also open to green-sticker bikes — check the signs there.",
         routeIds: ["happy-canyon-road", "sunset-valley-road", "zaca-ridge"],
       },
     ],
