@@ -6,6 +6,9 @@ import { lagunaRoutes } from "./routes/laguna.generated";
 import { mtPinosRoutes } from "./routes/mt-pinos.generated";
 import { santaBarbaraRoutes } from "./routes/santa-barbara.generated";
 import { sanLuisObispoRoutes } from "./routes/san-luis-obispo.generated";
+import { lakeArrowheadRoutes } from "./routes/lake-arrowhead.generated";
+import { sanGorgonioRoutes } from "./routes/san-gorgonio.generated";
+import { palomarRoutes } from "./routes/palomar.generated";
 
 export type AreaId =
   | "big-bear"
@@ -14,7 +17,10 @@ export type AreaId =
   | "laguna"
   | "mt-pinos"
   | "santa-barbara"
-  | "san-luis-obispo";
+  | "san-luis-obispo"
+  | "lake-arrowhead"
+  | "san-gorgonio"
+  | "palomar";
 
 /**
  * A suggested all-day loop stringing several routes together; editorial, for
@@ -269,6 +275,108 @@ export const AREAS: Area[] = [
       },
     ],
     routes: sanLuisObispoRoutes,
+  },
+  {
+    id: "lake-arrowhead",
+    name: "Lake Arrowhead",
+    region: "San Bernardino National Forest",
+    regionShort: "San Bernardino N.F.",
+    state: "California",
+    blurb:
+      "The front-country forest west of Big Bear, around Lake Arrowhead, Crab Flats, and Deep Creek. This is the closest real green-sticker riding to the Inland Empire: the Crab Flats roads and a designated motorcycle singletrack above Deep Creek, plus a long green-sticker ridge along Cleghorn above Silverwood Lake. The forested high country holds snow, so the upper roads close in winter (roughly December–April). Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+    tagline:
+      "Green-sticker OHV roads and Deep Creek singletrack, just west of Big Bear.",
+    mvumGeojson: "/data/lake-arrowhead-mvum.geojson",
+    forest: SBNF,
+    loops: [
+      {
+        name: "Crab Flats Green-Sticker Day",
+        distanceMiles: 19,
+        summary:
+          "The area's green-sticker core: the Crab Flats roads and the Deep Creek singletrack.",
+        description:
+          "The green-sticker riding here clusters around Crab Flats. Stage at the Crab Flats road (3N34), session the Deep Creek motorcycle singletrack (2W01), which is true narrow-gauge trail, motorcycles only, then add Miller Canyon (2N37) for more designated mileage. One honest catch: Crab Flats and Pilot Rock are mixed, open to all vehicles on some segments and to street-legal vehicles only on others, so on a non-plated bike you ride the green-sticker stretches and trailer or shuttle past the plate-only links. The singletrack is the real reason to come. Budget by hours, not the rough 19-mile composite.",
+        routeIds: ["crab-flats-road", "deep-creek-singletrack", "miller-canyon"],
+      },
+      {
+        name: "Cleghorn Ridge & the West Side",
+        distanceMiles: 42,
+        summary:
+          "A long western day along the Cleghorn and Pilot Rock ridges above Silverwood.",
+        description:
+          "The west side of the area is all about ridge mileage above Silverwood Lake. Run Cleghorn Ridge (2N47), about 15 miles of green-sticker road and the rare long OHV ride a non-street-legal bike can do here, link Pilot Rock (2N33) back toward the Arrowhead crest, then drop the long, remote Bailey Canyon (2N49) if you want a committing plated finish. Cleghorn is green-sticker, Pilot Rock is mixed, and Bailey is open to street-legal vehicles only, so plan access by bike. A big, exposed day; carry water and watch the weather, since the clay turns greasy after rain.",
+        routeIds: ["cleghorn-ridge", "pilot-rock-road", "bailey-canyon"],
+      },
+    ],
+    routes: lakeArrowheadRoutes,
+  },
+  {
+    id: "san-gorgonio",
+    name: "San Gorgonio",
+    region: "San Bernardino N.F. · Front Country & Mountaintop R.D.",
+    regionShort: "San Gorgonio front",
+    state: "California",
+    blurb:
+      "The south side of the San Bernardinos below San Gorgonio: the Santa Ana River, Barton Flats, and Heart Bar high country. This is entirely plated dual-sport country, with no green-sticker roads, so it's a place for street-legal bikes to cover scenic forest mileage rather than green-sticker trail riding. For green-sticker access nearby, the Crab Flats roads around Lake Arrowhead or the Cactus Flat side of Big Bear are the closest options. The San Gorgonio Wilderness itself is closed to all motor vehicles. Those are trailheads to park at, not trails to ride. The high country holds snow in winter (roughly December–April). Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+    tagline:
+      "Plated dual-sport in the Santa Ana River and Barton Flats high country below San Gorgonio.",
+    mvumGeojson: "/data/san-gorgonio-mvum.geojson",
+    forest: SBNF,
+    loops: [
+      {
+        name: "Coon Creek Jumpoff & the Front Line",
+        distanceMiles: 18,
+        summary:
+          "The signature plated day: the front-line road out to the Coon Creek Jumpoff overlook.",
+        description:
+          "The standout ride on this side is the Coon Creek Jumpoff (1N02), where the forest drops away toward the desert. Link the long Radford front-line road (1N04) to reach it and string the high-country overlooks together along the way. All plated dual-sport, no green-sticker bikes, and genuinely rough in stretches out to the Jumpoff, so it's high-clearance riding. Mostly snow-free spring through fall; the upper road can hold snow into spring.",
+        routeIds: ["radford-front-line", "coon-creek-jumpoff"],
+      },
+      {
+        name: "Wildhorse & Fish Creek Meadows",
+        distanceMiles: 18,
+        summary:
+          "A higher, cooler day through the conifer and meadows near the wilderness boundary.",
+        description:
+          "For the cooler, higher country, climb Wildhorse Meadow (2N93) toward the crest and pair it with the Fish Creek and Heart Bar meadows (1N05) on the east end. Pine, fir, and mountain meadows up near 8,000 feet, a relaxed plated ride rather than a technical one. The Fish Creek trailheads sit right on the San Gorgonio Wilderness boundary, which is closed to motors, so park there, don't ride in. Best late spring through fall, once the snow is gone up high.",
+        routeIds: ["wildhorse-meadow", "fish-creek-meadows"],
+      },
+    ],
+    routes: sanGorgonioRoutes,
+  },
+  {
+    id: "palomar",
+    name: "Palomar",
+    region: "Cleveland National Forest",
+    regionShort: "Cleveland N.F.",
+    state: "California",
+    blurb:
+      "Palomar Mountain in north San Diego County, the compact third district of the Cleveland after the Santa Anas and the Lagunas. It's a small, entirely plated network: the long Palomar Divide ridge, a high-clearance climb on the mountain's northeast flank, and the remote Indian Flats backcountry toward Lake Henshaw. No green-sticker roads here, so for green-sticker riding in San Diego County the place to go is the Corral Canyon OHV area in the Lagunas. Many of these roads close when wet, storm-driven rather than calendar-based, so expect closures during and after winter rains. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+    tagline:
+      "A compact, all-plate district headlined by the long Palomar Divide ridge.",
+    mvumGeojson: "/data/palomar-mvum.geojson",
+    forest: CNF,
+    loops: [
+      {
+        name: "Palomar Divide Traverse",
+        distanceMiles: 15,
+        summary:
+          "The signature ride: in from Oak Grove and the length of the divide.",
+        description:
+          "The classic Palomar day is the divide itself. Come in on the short Oak Grove access road (9S09) from Highway 79, then run the full Palomar Divide (9S07), about 13 miles of ridge with sweeping San Diego backcountry and desert views. All plated dual-sport, street-legal bikes only, and smoother than the Santa Ana divide, so a scenic cruise more than a technical day. Best in spring and fall; the road closes when wet.",
+        routeIds: ["oak-grove-road", "palomar-divide"],
+      },
+      {
+        name: "High Point & Indian Flats",
+        distanceMiles: 20,
+        summary:
+          "The quieter, remote-feeling north side of the mountain.",
+        description:
+          "For a more remote feel, pair the High Point flank road (8S05), a forested high-clearance climb that tops out around 4,900 feet below the lookout itself, with the Indian Flats backcountry road (9S05) dropping toward Lake Henshaw. Both are plated, street-legal bikes only, and quieter than the divide. Good seat time through conifer and oak, again best once things have dried out after winter rains.",
+        routeIds: ["high-point", "indian-flats"],
+      },
+    ],
+    routes: palomarRoutes,
   },
 ];
 
