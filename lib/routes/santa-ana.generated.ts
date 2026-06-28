@@ -9,7 +9,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "North Main Divide Road",
     "forestRoad": "3S04",
     "summary": "The legendary ~35-mile crest of the Santa Ana Mountains over Saddleback.",
-    "description": "The North Main Divide Truck Trail (3S04) runs the spine of the Santa Ana Mountains past Santiago and Modjeska Peaks (Saddleback), a long, exposed ridge road with rocky, rutted high-clearance sections and enormous views from the Inland Empire to the Pacific. A classic SoCal plated dual-sport / adventure ride, highway-legal only, and a serious day of riding.",
+    "description": "The North Main Divide Truck Trail (3S04) runs the spine of the Santa Ana Mountains past Santiago and Modjeska Peaks (Saddleback), a long, exposed ridge road with rocky, rutted high-clearance sections and enormous views from the Inland Empire to the Pacific. A classic SoCal plated dual-sport / adventure ride, street-legal vehicles only, and a serious day of riding.",
     "distanceMiles": 34.7,
     "difficulty": "Difficult",
     "elevationFt": "2,650–5,550 ft",
@@ -18,7 +18,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 3S04 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 3S04 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -37,7 +37,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "South Main Divide Road",
     "forestRoad": "6S07",
     "summary": "The southern half of the divide toward El Cariso and Lake Elsinore.",
-    "description": "South Main Divide (6S07) continues the ridge south from the Ortega Highway toward El Cariso and the Lake Elsinore side, generally smoother than the north divide with chaparral ridgetops and overlooks of the lake and valley. A scenic, moderate plated ride, highway-legal only.",
+    "description": "South Main Divide (6S07) continues the ridge south from the Ortega Highway toward El Cariso and the Lake Elsinore side, generally smoother than the north divide with chaparral ridgetops and overlooks of the lake and valley. A scenic, moderate plated ride, street-legal vehicles only.",
     "distanceMiles": 16.2,
     "difficulty": "Moderate",
     "elevationFt": "1,350–3,350 ft",
@@ -46,7 +46,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S07 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 6S07 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -65,7 +65,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "Maple Springs Road",
     "forestRoad": "5S04",
     "summary": "Climbs from Silverado Canyon up to the Main Divide.",
-    "description": "Maple Springs Road (5S04) climbs out of Silverado Canyon through oak and bay woodland to meet the Main Divide near Modjeska Peak. A scenic graded-to-rocky climb and one of the main ways up to the crest from the Orange County side, highway-legal only.",
+    "description": "Maple Springs Road (5S04) climbs out of Silverado Canyon through oak and bay woodland to meet the Main Divide near Modjeska Peak. A scenic graded-to-rocky climb and one of the main ways up to the crest from the Orange County side, open to street-legal vehicles only.",
     "distanceMiles": 7.3,
     "difficulty": "Moderate",
     "elevationFt": "1,850–4,500 ft",
@@ -74,7 +74,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 5S04 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 5S04 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -93,7 +93,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "Indian Truck Trail",
     "forestRoad": "5S01",
     "summary": "Long graded climb to the divide from the Corona side.",
-    "description": "Indian Truck Trail (5S01) climbs the eastern flank of the Santa Anas from the Corona / Lake Mathews side up to the Main Divide, a steady graded ascent through chaparral with expanding Inland Empire views. A popular plated dual-sport climb, highway-legal only.",
+    "description": "Indian Truck Trail (5S01) climbs the eastern flank of the Santa Anas from the Corona / Lake Mathews side up to the Main Divide, a steady graded ascent through chaparral with expanding Inland Empire views. A popular plated dual-sport climb, street-legal vehicles only.",
     "distanceMiles": 7.1,
     "difficulty": "Moderate",
     "elevationFt": "1,300–3,750 ft",
@@ -102,7 +102,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 5S01 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 5S01 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -121,7 +121,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "Trabuco Canyon Road",
     "forestRoad": "6S13",
     "summary": "Rough, rocky canyon road to the Holy Jim trailhead.",
-    "description": "Trabuco Canyon Road (6S13) runs up the boulder-strewn Trabuco Canyon to the Holy Jim trailhead, a notoriously rocky, rutted, creek-crossing road that demands real high-clearance riding. Short but technical, shaded and scenic, highway-legal only.",
+    "description": "Trabuco Canyon Road (6S13) runs up the boulder-strewn Trabuco Canyon to the Holy Jim trailhead, a notoriously rocky, rutted, creek-crossing road that demands real high-clearance riding. Short but technical, shaded and scenic, open to street-legal vehicles only.",
     "distanceMiles": 3.2,
     "difficulty": "Difficult",
     "elevationFt": "1,300–2,050 ft",
@@ -130,7 +130,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S13 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 6S13 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -149,7 +149,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "Bedford Ridge Road",
     "forestRoad": "4S03",
     "summary": "Short ridge spur off the northern divide country.",
-    "description": "Bedford Ridge (4S03) is a shorter high-clearance ridge road in the northern Santa Anas, mixing rocky benches and chaparral with valley views. A compact plated ride best linked with the Main Divide, highway-legal only.",
+    "description": "Bedford Ridge (4S03) is a shorter high-clearance ridge road in the northern Santa Anas, mixing rocky benches and chaparral with valley views. A compact plated ride best linked with the Main Divide, street-legal vehicles only.",
     "distanceMiles": 3.5,
     "difficulty": "Moderate",
     "elevationFt": "2,100–3,700 ft",
@@ -158,7 +158,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 4S03 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 4S03 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -177,7 +177,7 @@ export const santaAnaRoutes: Route[] = [
     "name": "Long Canyon Road",
     "forestRoad": "6S05",
     "summary": "Mellow graded road in the El Cariso / Blue Jay area.",
-    "description": "Long Canyon Road (6S05) is a gentler graded road around the El Cariso and Blue Jay campground area on the south end of the range, good for an easy plated cruise and reaching trailheads and camps. Highway-legal only.",
+    "description": "Long Canyon Road (6S05) is a gentler graded road around the El Cariso and Blue Jay campground area on the south end of the range, good for an easy plated cruise and reaching trailheads and camps. Open to street-legal vehicles only.",
     "distanceMiles": 3.4,
     "difficulty": "Easy",
     "elevationFt": "2,400–3,400 ft",
@@ -186,7 +186,7 @@ export const santaAnaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 6S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

@@ -177,7 +177,7 @@ export const mtPinosRoutes: Route[] = [
     "name": "Quatal Canyon OHV",
     "forestRoad": "9N09.2",
     "summary": "Sandstone-badlands OHV road, green-sticker on part of it.",
-    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is open to street-legal vehicles only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
+    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access goes segment by segment. Sandy and exposed; best in cool weather.",
     "distanceMiles": 9.9,
     "difficulty": "Moderate",
     "elevationFt": "3,550–5,750 ft",
@@ -205,7 +205,7 @@ export const mtPinosRoutes: Route[] = [
     "name": "Reyes Peak Road",
     "forestRoad": "6N06.1",
     "summary": "Scenic plated ridge road along Pine Mountain.",
-    "description": "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,000 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only, a scenic plated cruise; seasonal.",
+    "description": "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,000 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Open to street-legal vehicles only, a scenic plated cruise; seasonal.",
     "distanceMiles": 5.7,
     "difficulty": "Moderate",
     "elevationFt": "5,100–7,100 ft",
@@ -214,7 +214,7 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6N06.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 6N06.1 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -242,7 +242,7 @@ export const mtPinosRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 9N10.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 9N10.1 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

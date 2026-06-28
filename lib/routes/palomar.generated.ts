@@ -9,7 +9,7 @@ export const palomarRoutes: Route[] = [
     "name": "Palomar Divide Road",
     "forestRoad": "9S07",
     "summary": "The long backbone ridge of Palomar Mountain, about 13 miles.",
-    "description": "9S07 runs the Palomar Divide the length of the mountain, roughly 13 miles of graded-to-rocky ridge road through oak and conifer with sweeping views over the San Diego backcountry and out to the desert. The signature ride on Palomar: a long, scenic plated dual-sport cruise, smoother than the Santa Ana divide but just as big on views. Open to street-legal vehicles only.",
+    "description": "9S07 runs the Palomar Divide the length of the mountain, roughly 13 miles of graded-to-rocky ridge road through oak and conifer with sweeping views over the San Diego backcountry and out to the desert. The signature ride on Palomar: a long, scenic plated dual-sport cruise, smoother than the Santa Ana divide but every bit as scenic. Open to street-legal vehicles only.",
     "distanceMiles": 13.1,
     "difficulty": "Moderate",
     "elevationFt": "3,050–6,000 ft",
@@ -18,7 +18,7 @@ export const palomarRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 9S07 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 9S07 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -46,7 +46,7 @@ export const palomarRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 8S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 8S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -74,7 +74,7 @@ export const palomarRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 9S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 9S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -102,7 +102,7 @@ export const palomarRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 9S09 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 9S09 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

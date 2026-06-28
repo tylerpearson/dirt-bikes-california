@@ -93,7 +93,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "Zaca Ridge OHV Road",
     "forestRoad": "8N02",
     "summary": "Ridge road in the Zaca Peak OHV area, green-sticker on part of it.",
-    "description": "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment, and it's open seasonally.",
+    "description": "8N02 climbs to Zaca Ridge in the Zaca Peak OHV area north of the Santa Ynez Valley. Rolling chaparral ridgetops, oak woodland, and big views over the wine-country valleys make it one of the more approachable rides in the forest. Part of the road is open to all vehicles, with green-sticker access changing by segment, and it's open seasonally.",
     "distanceMiles": 7.6,
     "difficulty": "Moderate",
     "elevationFt": "3,450–4,200 ft",
@@ -130,7 +130,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 8N19 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 8N19 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -149,7 +149,7 @@ export const santaBarbaraRoutes: Route[] = [
     "name": "Sunset Valley Road",
     "forestRoad": "8N09",
     "summary": "Mellow plated road into the Sunset Valley backcountry.",
-    "description": "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for building seat time and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation. Highway-legal-only, so plated bikes only.",
+    "description": "8N09 is a gentler graded road into the Sunset Valley area, a relaxed plated ride good for easy miles and reaching trailheads and dispersed camps. Oak woodland, open valley, and easy navigation. Open to street-legal vehicles only.",
     "distanceMiles": 5.7,
     "difficulty": "Easy",
     "elevationFt": "1,800–3,100 ft",
@@ -158,7 +158,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 8N09 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 8N09 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -186,7 +186,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 7N07.2 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 7N07.2 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
