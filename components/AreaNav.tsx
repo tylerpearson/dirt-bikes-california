@@ -39,6 +39,36 @@ export function AreaNav() {
   const current = AREAS.find((a) => pathname === `/${a.id}`);
   const triggerLabel = mounted && current ? current.name : "Riding areas";
 
+  // The desktop strip holds more tabs than fit, so it scrolls. Fade whichever
+  // edge has more tabs past it, so the overflow reads as "scroll for more"
+  // rather than a tab clipped mid-word.
+  const stripRef = useRef<HTMLUListElement>(null);
+  const [edges, setEdges] = useState({ left: false, right: false });
+  useEffect(() => {
+    const el = stripRef.current;
+    if (!el) return;
+    const update = () =>
+      setEdges({
+        left: el.scrollLeft > 4,
+        right: el.scrollLeft + el.clientWidth < el.scrollWidth - 4,
+      });
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  const stripMask = `linear-gradient(to right, ${[
+    edges.left ? "transparent 0" : "black 0",
+    edges.left ? "black 1.25rem" : null,
+    edges.right ? "black calc(100% - 1.5rem)" : null,
+    edges.right ? "transparent 100%" : "black 100%",
+  ]
+    .filter(Boolean)
+    .join(", ")})`;
+
   // With many tabs the active one can start off-screen on the desktop strip —
   // center it.
   useEffect(() => {
@@ -75,7 +105,11 @@ export function AreaNav() {
         </Link>
 
         {/* Desktop: the full horizontal tab strip. */}
-        <ul className="-mr-2 hidden items-stretch overflow-x-auto md:flex [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul
+          ref={stripRef}
+          style={{ maskImage: stripMask, WebkitMaskImage: stripMask }}
+          className="-mr-2 hidden items-stretch overflow-x-auto md:flex [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {AREAS.map((area) => {
             const to = `/${area.id}`;
             const active = pathname === to;
