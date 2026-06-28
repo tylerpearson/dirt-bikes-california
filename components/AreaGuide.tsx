@@ -58,7 +58,7 @@ export function AreaGuide({ area }: { area: Area }) {
       : centeredMap(route.trailhead.lat, route.trailhead.lng, { zoom: 12 });
     const points = track.map((p) => ({ lat: p.lat, lng: p.lng }));
     const stats = hasTrack ? trackStats(track) : null;
-    return { route, map, points, stats };
+    return { route, map, points, segments, stats };
   });
 
   return (
@@ -270,12 +270,13 @@ export function AreaGuide({ area }: { area: Area }) {
         </div>
 
         <div className="flex flex-col gap-6">
-          {cards.map(({ route, map, points, stats }, i) => (
+          {cards.map(({ route, map, points, segments, stats }, i) => (
             <RouteCard
               key={route.id}
               route={route}
               map={map}
               points={points}
+              segments={segments}
               stats={stats}
               priority={i < 2}
             />
