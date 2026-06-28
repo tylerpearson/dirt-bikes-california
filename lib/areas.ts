@@ -17,13 +17,13 @@ export type AreaId =
   | "san-luis-obispo";
 
 /**
- * A suggested all-day loop stringing several routes together — editorial, for
+ * A suggested all-day loop stringing several routes together; editorial, for
  * riders who want a day plan rather than a single road. Distance is a rough
  * composite (segments overlap and connect), so treat it as approximate.
  */
 export type AreaLoop = {
   name: string;
-  /** Rough composite distance in miles — approximate. */
+  /** Rough composite distance in miles (approximate). */
   distanceMiles: number;
   /** One-line framing of the day. */
   summary: string;
@@ -42,7 +42,7 @@ export type Area = {
   /** Compact region label for the map-sheet collar. */
   regionShort: string;
   state: string;
-  /** Hero lead paragraph — area-specific character. */
+  /** Hero lead paragraph; area-specific character. */
   blurb: string;
   /** One-line hook for the home-page card. Short and scannable; no em-dash chains. */
   tagline: string;
@@ -79,16 +79,16 @@ export const AREAS: Area[] = [
         summary:
           "The classic plated-bike day: climb out of town, loop the gold-rush basin, drop out the back.",
         description:
-          "Climb the old stage route up Van Dusen Canyon (3N09) out of Big Bear City, loop the historic Holcomb Valley basin (3N16) with stops at Belleville and the Hangman's Tree, then run Coxey Road (3N14) north toward the forest boundary to close it out. Mostly smooth graded dirt with long sight lines — a relaxed full day, not a technical one. Plan around five to six hours with stops; most of it is plate-legal, with only short green-sticker-open segments.",
+          "Climb the old stage route up Van Dusen Canyon (3N09) out of Big Bear City, loop the historic Holcomb Valley basin (3N16) with stops at Belleville and the Hangman's Tree, then run Coxey Road (3N14) north toward the forest boundary to close it out. Mostly smooth graded dirt with long sight lines. A relaxed full day, not a technical one. Plan around five to six hours with stops; most of it is plate-legal, with only short stretches open to green-sticker bikes.",
         routeIds: ["van-dusen-canyon", "holcomb-valley", "coxey-road"],
       },
       {
         name: "East-Side OHV Sampler",
         distanceMiles: 10,
         summary:
-          "A shorter green-sticker-friendly half-day from the Cactus Flat side.",
+          "A shorter green-sticker half-day from the Cactus Flat side.",
         description:
-          "Start from Cactus Flat off Highway 18, warm up on Smarts Ranch Rd (3N03), then session the Pinyon/Vista OHV trails (2E20) — the closest thing to real singletrack in the area and fully green-sticker. A good half-day for green-sticker bikes or anyone wanting trail tread over fire road; pair it with Gold Mountain or John Bull nearby if you want to add teeth.",
+          "Start from Cactus Flat off Highway 18, warm up on Smarts Ranch Rd (3N03), then session the Pinyon/Vista OHV trails (2E20), the closest thing to real singletrack in the area and fully green-sticker. A good half-day for green-sticker bikes or anyone wanting trail tread over fire road; pair it with Gold Mountain or John Bull nearby if you want to add teeth.",
         routeIds: ["cactus-flats", "pinyon-vista"],
       },
     ],
@@ -101,7 +101,7 @@ export const AREAS: Area[] = [
     regionShort: "San Jacinto R.D.",
     state: "California",
     blurb:
-      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. The Pacific Crest Trail itself is closed to every motor vehicle — those are places to park, not singletrack to ride. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. The Pacific Crest Trail itself is closed to every motor vehicle. Those are places to park, not singletrack to ride. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "One range, two sides: green-sticker OHV roads above Palm Springs, plated dual-sport up at Idyllwild.",
     mvumGeojson: "/data/san-jacinto-mvum.geojson",
@@ -113,7 +113,7 @@ export const AREAS: Area[] = [
         summary:
           "The range's green-sticker corner, strung into one rocky high-country day.",
         description:
-          "The designated OHV roads above Garner Valley are the one place in the San Jacintos a non-street-legal bike is legal: the Indian Mountain spur (4S21), Bee Canyon (5S07), and the marquee San Jacinto Ridge (5S09) — a long, rough ridge run with sweeping desert and Garner Valley views. One honest catch: these are green-sticker OHV roads, not singletrack, and the roads linking them are plate-only — so on a non-plated bike they're isolated stretches you trailer or shuttle between, not one continuous loop. The Ridge alone is slow, rocky, high-clearance going, so budget by hours, not the ~24-mile number. Either way it's the green-sticker riding to prioritize here.",
+          "The designated OHV roads above Garner Valley are the one place in the San Jacintos a non-street-legal bike is legal: the Indian Mountain spur (4S21), Bee Canyon (5S07), and the marquee San Jacinto Ridge (5S09), a long, rough ridge run with sweeping desert and Garner Valley views. One honest catch: these are green-sticker OHV roads, not singletrack, and the roads linking them are plate-only, so on a non-plated bike they're isolated stretches you trailer or shuttle between, not one continuous loop. The Ridge alone is slow, rocky, high-clearance going, so budget by hours, not the ~24-mile number. Either way it's the green-sticker riding to prioritize here.",
         routeIds: ["indian-mountain", "bee-canyon", "san-jacinto-ridge"],
       },
       {
@@ -121,7 +121,7 @@ export const AREAS: Area[] = [
         distanceMiles: 26,
         summary: "Forested plated dual-sport up toward the Black Mountain lookout.",
         description:
-          "The Idyllwild side is plated country and makes a relaxed, view-packed day: climb Dark Canyon (4S02), link onto Black Mountain Road (4S01) toward the lookout and the PCT trailheads, then add the Idyllwild Control Road (5S06) to round it out. Graded dirt through pine and cedar with big drop-offs toward the desert — a dual-sport day, not a technical one. Plate-legal throughout; the PCT itself is closed to motors, so those are places to park, not ride.",
+          "The Idyllwild side is plated country and makes a relaxed, view-packed day: climb Dark Canyon (4S02), link onto Black Mountain Road (4S01) toward the lookout and the PCT trailheads, then add the Idyllwild Control Road (5S06) to round it out. Graded dirt through pine and cedar with big drop-offs toward the desert. A dual-sport day, not a technical one. Plate-legal throughout; the PCT itself is closed to motors, so those are places to park, not ride.",
         routeIds: ["dark-canyon-road", "black-mountain-road", "idyllwild-control-road"],
       },
     ],
@@ -134,7 +134,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback. (For green-sticker OHV riding, the Cleveland's Wildomar OHV area sits on the southeast edge of the range — a separate, staging-based trail system not detailed here.) Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
+      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback. (For green-sticker OHV riding, the Cleveland's Wildomar OHV area sits on the southeast edge of the range, a separate staging-based trail system not detailed here.) Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
     tagline:
       "Mostly plated Main Divide country, headlined by the 35-mile run over Saddleback.",
     mvumGeojson: "/data/santa-ana-mvum.geojson",
@@ -146,7 +146,7 @@ export const AREAS: Area[] = [
         summary:
           "The signature Santa Ana day: climb to the crest and ride the spine the length of the range.",
         description:
-          "Climb Indian Truck Trail (5S01) from the Corona side up to the crest, then run the full North Main Divide (3S04) over the shoulder of Saddleback and continue onto the South Main Divide (6S07) toward the Ortega Highway. A big, exposed, all-day plated ride along the top of the range — high-clearance dual-sport and adventure terrain, no green-sticker bikes. Carry water and watch the sky: the Divide bakes in the heat and the clay turns greasy after rain, when the gates often close.",
+          "Climb Indian Truck Trail (5S01) from the Corona side up to the crest, then run the full North Main Divide (3S04) over the shoulder of Saddleback and continue onto the South Main Divide (6S07) toward the Ortega Highway. A big, exposed, all-day plated ride along the top of the range, high-clearance dual-sport and adventure terrain, no green-sticker bikes. Carry water and watch the sky: the Divide bakes in the heat and the clay turns greasy after rain, when the gates often close.",
         routeIds: ["indian-truck-trail", "north-main-divide", "south-main-divide"],
       },
     ],
@@ -171,7 +171,7 @@ export const AREAS: Area[] = [
         summary:
           "The far south's one real green-sticker network, strung into a full day.",
         description:
-          "Work the Corral Canyon OHV area near Pine Valley: link the Corral Canyon (17S04), Bear Valley (16S12), and Los Pinos (16S17) roads with the green-sticker singletrack on Kernan (802) and Wrangler (901). A genuine OHV-area day for green-sticker bikes — but several of the roads are green-sticker on some segments only, so read each note. Best fall through spring; it bakes in summer.",
+          "Work the Corral Canyon OHV area near Pine Valley: link the Corral Canyon (17S04), Bear Valley (16S12), and Los Pinos (16S17) roads with the green-sticker singletrack on Kernan (802) and Wrangler (901). A genuine OHV-area day for green-sticker bikes, though several of the roads are green-sticker on some segments only, so read each note. Best fall through spring; it bakes in summer.",
         routeIds: ["corral-canyon", "bear-valley", "los-pinos", "kernan-trail", "wrangler-trail"],
       },
     ],
@@ -196,16 +196,16 @@ export const AREAS: Area[] = [
         summary:
           "A green-sticker pine-country day on the high roads above Lockwood Valley.",
         description:
-          "Session the Alamo Mountain loop (8N01) and link into the Scott Russell network (9N21) for a full day in the high pines — both green-sticker, with loose, rocky, rutted climbs and big ridgeline views. This is high country that holds snow: it's a May–October ride, and the upper roads can stay closed late into spring in a heavy-snow year.",
+          "Session the Alamo Mountain loop (8N01) and link into the Scott Russell network (9N21) for a full day in the high pines, both green-sticker, with loose, rocky, rutted climbs and big ridgeline views. This is high country that holds snow: it's a May–October ride, and the upper roads can stay closed late into spring in a heavy-snow year.",
         routeIds: ["alamo-mountain", "scott-russell"],
       },
       {
         name: "Cuyama Badlands",
         distanceMiles: 14,
         summary:
-          "Colorful sandstone canyons on the desert side — the cool-season counterpart to the high country.",
+          "Colorful sandstone canyons on the desert side, the cool-season counterpart to the high country.",
         description:
-          "Run Apache Canyon (8N06) and neighboring Quatal Canyon (9N09) through the banded Cuyama sandstone badlands. Lower, hotter, and best fall through spring when the high country is snowed in. Apache is green-sticker; Quatal is partial — green-sticker on part of it only, so read the note before you drop in.",
+          "Run Apache Canyon (8N06) and neighboring Quatal Canyon (9N09) through the banded Cuyama sandstone badlands. Lower, hotter, and best fall through spring when the high country is snowed in. Apache is green-sticker; Quatal is partial, green-sticker on part of it only, so read the note before you drop in.",
         routeIds: ["apache-canyon", "quatal-canyon"],
       },
     ],
@@ -218,7 +218,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Santa Ynez and San Rafael backcountry behind Santa Barbara takes in the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Route geometry and elevation come from the Forest Service MVUM and SRTM. Many roads here close in wet weather — storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until the tread dries out.",
+      "The Santa Ynez and San Rafael backcountry behind Santa Barbara takes in the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Route geometry and elevation come from the Forest Service MVUM and SRTM. Many roads here close in wet weather, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until the tread dries out.",
     tagline:
       "Camuesa OHV roads and the East Camino Cielo crest in the backcountry above the city.",
     mvumGeojson: "/data/santa-barbara-mvum.geojson",
@@ -230,7 +230,7 @@ export const AREAS: Area[] = [
         summary:
           "The green-sticker crest-to-backcountry day, Santa Barbara's best OHV riding.",
         description:
-          "The three open-to-all-vehicles roads that make this range worth the drive: East Camino Cielo (5N12.1) along the crest above town, the Romero–Camuesa spine (5N15.2) into the Camuesa OHV area, and Buckhorn (9N11.4) deep into the San Rafael backcountry. Treat this as a committing all-day epic, not a casual outing — long, remote, lightly-traveled, so carry water, fuel, and a way to call for help. Two caveats before you make the drive: the Camuesa side closes after rain (the wet-season gate closures, roughly November–April, apply here), and the access roads between these stretches are frequently gated, so they don't always link cleanly — check current gate status first, and bring an Adventure Pass. Open and dry, it's the best green-sticker riding in the area.",
+          "The three open-to-all-vehicles roads that make this range worth the drive: East Camino Cielo (5N12.1) along the crest above town, the Romero–Camuesa spine (5N15.2) into the Camuesa OHV area, and Buckhorn (9N11.4) deep into the San Rafael backcountry. Treat this as a committing all-day epic, not a casual outing. It's long, remote, and lightly-traveled, so carry water, fuel, and a way to call for help. Two caveats before you make the drive: the Camuesa side closes after rain (the wet-season gate closures, roughly November–April, apply here), and the access roads between these stretches are frequently gated, so they don't always link cleanly. Check current gate status first, and bring an Adventure Pass. Open and dry, it's the best green-sticker riding in the area.",
         routeIds: ["east-camino-cielo", "camuesa-road", "buckhorn-road"],
       },
       {
@@ -239,7 +239,7 @@ export const AREAS: Area[] = [
         summary:
           "Wine-country ridges and oak-shaded backroads northwest of the valley.",
         description:
-          "The mellow, scenic counterpoint to the backcountry epics: climb Happy Canyon (7N07) out of the ranch land, cruise Sunset Valley (8N09) toward the dispersed camps, and finish on Zaca Ridge (8N02) in the Zaca Peak OHV area for big views over the wine country. Mostly relaxed graded dirt that genuinely connects into a real loop — ideal for seat time, scenery, or bringing along a newer rider, and a wildflower showcase in spring. Plated throughout, except part of Zaca Ridge is also open to green-sticker bikes — check the signs there.",
+          "The mellow, scenic counterpoint to the backcountry epics: climb Happy Canyon (7N07) out of the ranch land, cruise Sunset Valley (8N09) toward the dispersed camps, and finish on Zaca Ridge (8N02) in the Zaca Peak OHV area for big views over the wine country. Mostly relaxed graded dirt that genuinely connects into a real loop, ideal for seat time, scenery, or bringing along a newer rider, and a wildflower showcase in spring. Plated throughout, except part of Zaca Ridge is also open to green-sticker bikes, so check the signs there.",
         routeIds: ["happy-canyon-road", "sunset-valley-road", "zaca-ridge"],
       },
     ],
@@ -252,7 +252,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Los Padres backcountry east of San Luis Obispo is home to the Pozo and La Panza OHV area: a real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close when wet — storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until things dry out. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The Los Padres backcountry east of San Luis Obispo is home to the Pozo and La Panza OHV area: a real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close when wet, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until things dry out. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "The Pozo and La Panza OHV area: green-sticker roads, singletrack, and the long Sierra Madre Ridge.",
     mvumGeojson: "/data/san-luis-obispo-mvum.geojson",
@@ -264,7 +264,7 @@ export const AREAS: Area[] = [
         summary:
           "Green-sticker roads and real singletrack around Hi Mountain and Pozo.",
         description:
-          "Climb Hi Mountain (30S11), link Rock Front (30S06) and the Queen Bee loop (29S18), and session the Pozo OHV singletrack (16E21) — all green-sticker, the rare southern network with genuine motorcycle singletrack. Closed when wet, so go when it's dried out. For a plated adventure instead, the long, remote Sierra Madre Road (32S13) is the standalone big day — commit to it self-sufficient, there are no bailouts.",
+          "Climb Hi Mountain (30S11), link Rock Front (30S06) and the Queen Bee loop (29S18), and session the Pozo OHV singletrack (16E21), all green-sticker, the rare southern network with genuine motorcycle singletrack. Closed when wet, so go when it's dried out. For a plated adventure instead, the long, remote Sierra Madre Road (32S13) is the standalone big day, so commit to it self-sufficient; there are no bailouts.",
         routeIds: ["hi-mountain", "rock-front", "queen-bee-loop", "pozo-singletrack"],
       },
     ],
