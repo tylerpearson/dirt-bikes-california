@@ -167,7 +167,7 @@ export function AreaGuide({ area }: { area: Area }) {
             {" "}area,
             straight from the Forest Service&apos;s{" "}
             <span className="font-semibold text-bistre">
-              Motor Vehicle Use Map
+              Motor Vehicle Use Map (MVUM)
             </span>
             . Most numbered roads are open to{" "}
             <span className="font-semibold text-plate-ink">
