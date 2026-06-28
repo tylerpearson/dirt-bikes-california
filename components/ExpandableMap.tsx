@@ -121,7 +121,7 @@ export function ExpandableMap({
           className="fixed inset-0 z-50 flex flex-col bg-ink/75 p-3 sm:p-6"
           role="dialog"
           aria-modal="true"
-          aria-label={`Interactive map — ${routeName}`}
+          aria-label={`Interactive map: ${routeName}`}
           onClick={() => setOpen(false)}
         >
           <div
@@ -163,7 +163,7 @@ export function ExpandableMap({
               <RouteMap points={points} segments={segments} />
             </div>
             <p className="border-t border-edge px-4 py-2 text-[0.65rem] text-olive">
-              Route line © OpenStreetMap contributors — approximate; verify on the
+              Route line © OpenStreetMap contributors, approximate; verify on the
               official MVUM. Green start dot · red end dot.
             </p>
           </div>

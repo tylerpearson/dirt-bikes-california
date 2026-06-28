@@ -35,15 +35,15 @@ const LEGEND: { status: GreenStickerStatus; meaning: string }[] = [
   },
   {
     status: "partial",
-    meaning: "Green-sticker allowed on some segments only — read the note.",
+    meaning: "Green-sticker allowed on some segments only; read the note.",
   },
   {
     status: "no",
-    meaning: "Street-legal, plated vehicles only — no green-sticker OHVs.",
+    meaning: "Street-legal, plated vehicles only; no green-sticker OHVs.",
   },
   {
     status: "unconfirmed",
-    meaning: "Couldn't verify green-sticker access — confirm on the MVUM.",
+    meaning: "Couldn't verify green-sticker access; confirm on the MVUM.",
   },
 ];
 
@@ -92,7 +92,7 @@ export function AreaGuide({ area }: { area: Area }) {
             </span>{" "}
             The badges below show where{" "}
             <span className="font-semibold text-bistre">green-sticker</span>{" "}
-            (non-street-legal) OHVs are allowed — that&apos;s the part that
+            (non-street-legal) OHVs are allowed; that&apos;s the part that
             varies, sometimes segment by segment.
           </p>
 
@@ -130,7 +130,7 @@ export function AreaGuide({ area }: { area: Area }) {
                 <span className="font-semibold text-bistre">Sur-Ron</span> or a
                 race-bred{" "}
                 <span className="font-semibold text-bistre">Stark Varg (MX)</span>{" "}
-                needs a green sticker, a helmet, and visible ID — and like any
+                needs a green sticker, a helmet, and visible ID, and like any
                 green-sticker bike, it&apos;s restricted to OHV-designated areas.
                 So they follow the same green-sticker access shown on each route,
                 and they can&apos;t be plated.
@@ -140,7 +140,7 @@ export function AreaGuide({ area }: { area: Area }) {
                 <span className="font-semibold text-bistre">Stark Varg EX</span>:
                 it&apos;s fully road-homologated in the US (lights, indicators,
                 foot rear brake), so it registers and plates like a street-legal
-                dual-sport — and can ride every route here, including plate-only
+                dual-sport, and can ride every route here, including plate-only
                 roads.
               </p>
               <p>
@@ -173,7 +173,7 @@ export function AreaGuide({ area }: { area: Area }) {
             <span className="font-semibold text-plate-ink">
               street-legal plated
             </span>{" "}
-            bikes only — the{" "}
+            bikes only; the{" "}
             <span className="font-semibold text-ok-ink">green</span> routes are
             the comparatively few where a{" "}
             <span className="font-semibold text-ok-ink">green-sticker</span>{" "}
@@ -202,7 +202,7 @@ export function AreaGuide({ area }: { area: Area }) {
             </div>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
               Ways to string these routes into a full ride instead of a single
-              road. Mileage is a rough composite — segments overlap and connect —
+              road. Mileage is a rough composite; segments overlap and connect,
               so plan time and fuel with a margin.
             </p>
 
@@ -293,7 +293,7 @@ export function AreaGuide({ area }: { area: Area }) {
             <p>
               Route details, mileage, trailhead locations, and access info on this
               page are approximate and provided for general guidance only. Route
-              lines and elevation come from the MVUM, OpenStreetMap, and SRTM —
+              lines and elevation come from the MVUM, OpenStreetMap, and SRTM,
               not a surveyed legal boundary. Trail status, seasonal closures, and
               Adventure Pass requirements change frequently.
             </p>

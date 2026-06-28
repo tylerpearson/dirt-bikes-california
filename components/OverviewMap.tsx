@@ -199,7 +199,7 @@ export function OverviewMap({ areas }: { areas: AreaPin[] }) {
           </>
         ) : (
           <p className="text-olive">
-            Hover a pin — or pick an area below — for routes, distance, and access.
+            Hover a pin, or pick an area below, for routes, distance, and access.
           </p>
         )}
       </div>

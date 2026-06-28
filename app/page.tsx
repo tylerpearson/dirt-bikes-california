@@ -29,14 +29,14 @@ function areaPins(): AreaPin[] {
 }
 
 export const metadata: Metadata = {
-  title: { absolute: "SoCal Dirt Bike & OHV Routes — Field Guide" },
+  title: { absolute: "SoCal Dirt Bike & OHV Routes · Field Guide" },
   description:
-    "A field guide to the best dirt bike and OHV routes across Southern California — ride details, real route maps, elevation, and whether you need a green sticker or a street-legal plate. Pick an area to start.",
+    "A field guide to the best dirt bike and OHV routes across Southern California: ride details, real route maps, elevation, and whether you need a green sticker or a street-legal plate. Pick an area to start.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "SoCal Dirt Bike & OHV Routes — Field Guide",
+    title: "SoCal Dirt Bike & OHV Routes · Field Guide",
     description:
-      "The best OHV and dual-sport dirt bike routes across Southern California — real route maps, elevation, and green-sticker vs. plate-only access.",
+      "The best OHV and dual-sport dirt bike routes across Southern California: real route maps, elevation, and green-sticker vs. plate-only access.",
     url: "/",
     type: "website",
   },
@@ -61,7 +61,7 @@ function homeJsonLd() {
         itemListElement: AREAS.map((area, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          name: `${area.name} — ${area.region}`,
+          name: `${area.name}, ${area.region}`,
           url: `${SITE_URL}/${area.id}`,
         })),
       },
@@ -106,11 +106,11 @@ export default function Home() {
               national-forest land
             </span>{" "}
             (USFS Motor Vehicle Use Maps). It doesn&apos;t include
-            California&apos;s state-run OHV parks —{" "}
+            California&apos;s state-run OHV parks,{" "}
             <span className="font-semibold text-bistre">
               State Vehicular Recreation Areas
             </span>{" "}
-            like Ocotillo Wells or Hungry Valley (Gorman) — which have their own
+            like Ocotillo Wells or Hungry Valley (Gorman), which have their own
             maps and rules.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function Home() {
               Route details, mileage, trailhead locations, and access info in
               this guide are approximate and provided for general guidance only.
               Route lines and elevation come from the MVUM, OpenStreetMap, and
-              SRTM — not a surveyed legal boundary. Trail status, seasonal
+              SRTM, not a surveyed legal boundary. Trail status, seasonal
               closures, and Adventure Pass requirements change frequently.
             </p>
             <p>
