@@ -2,14 +2,14 @@ import type { Route } from "../types";
 
 /**
  * Big Bear–area OHV / dirt bike routes, ordered for a dirt-bike audience: the
- * rides that are genuinely fun on two wheels and/or green-sticker-accessible
+ * rides that are genuinely fun on two wheels and/or open to green-sticker bikes
  * come first; the marquee-but-brutal technical rock and the plate-only graded
  * roads sit lower down (editorial).
  *
  * ACCESS DATA comes from the USFS Motor Vehicle Use Map (MVUM) GIS layer
  * (EDW_MVUM_01), queried June 2026. Street-legal plated vehicles are allowed on
  * every route below; green-sticker (non-street-legal) access is the part that
- * varies — and on mixed roads it varies BY SEGMENT, so "partial" means only part
+ * varies, and on mixed roads it varies BY SEGMENT, so "partial" means only part
  * of the road is open to OHVs (read each note). The MVUM is updated periodically;
  * confirm the current map before riding. Route geometry is from OpenStreetMap;
  * trailhead coordinates, mileage, and elevation are approximate.
@@ -200,7 +200,7 @@ export const bigBearRoutes: Route[] = [
     id: "arrastre-creek",
     name: "Arrastre Creek Road",
     forestRoad: "2N02",
-    summary: "Long east-side graded road with one green-sticker-legal stretch.",
+    summary: "Long east-side graded road with one green-sticker stretch.",
     description:
       "Arrastre Creek Road runs about 11 miles from Baldwin Lake Road east to the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride, mostly plate-only, with one segment open to OHVs.",
     distanceMiles: 11,
