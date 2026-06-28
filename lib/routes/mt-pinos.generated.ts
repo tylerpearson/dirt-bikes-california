@@ -33,6 +33,34 @@ export const mtPinosRoutes: Route[] = [
     }
   },
   {
+    "id": "mt-pinos-singletrack",
+    "name": "Mt Pinos Singletrack",
+    "forestRoad": "19W04",
+    "summary": "Long designated motorcycle singletrack, the area's premier trail ride.",
+    "description": "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+    "distanceMiles": 14.2,
+    "difficulty": "Difficult",
+    "elevationFt": "3,150–6,700 ft",
+    "surface": "Long, technical motorcycle singletrack",
+    "bestSeason": "May–October (seasonal)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, trail 19W04 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "One of the area's longest moto singletracks",
+      "Technical, narrow green-sticker trail",
+      "Motorcycle-only, the real reason to come"
+    ],
+    "trailhead": {
+      "name": "Mt Pinos Singletrack (19W04)",
+      "lat": 34.7165,
+      "lng": -118.9296
+    }
+  },
+  {
     "id": "mutau",
     "name": "Mutau OHV Road",
     "forestRoad": "7N03.2",
@@ -89,31 +117,31 @@ export const mtPinosRoutes: Route[] = [
     }
   },
   {
-    "id": "quatal-canyon",
-    "name": "Quatal Canyon OHV",
-    "forestRoad": "9N09.2",
-    "summary": "Sandstone-badlands OHV road, green-sticker on part of it.",
-    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
-    "distanceMiles": 9.9,
+    "id": "scott-russell",
+    "name": "Scott Russell OHV",
+    "forestRoad": "9N21.1, 9N21.2, 9N21.3",
+    "summary": "Green-sticker OHV road in the Frazier high country.",
+    "description": "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
+    "distanceMiles": 5.1,
     "difficulty": "Moderate",
-    "elevationFt": "3,550–5,750 ft",
-    "surface": "Deep sandy wash through sandstone badlands",
-    "bestSeason": "Fall–spring (hot in summer)",
+    "elevationFt": "5,350–7,150 ft",
+    "surface": "Mixed graded and rocky forest road",
+    "bestSeason": "May–October (seasonal)",
     "access": {
       "streetLegal": true,
-      "greenSticker": "partial",
-      "note": "Per the MVUM, Quatal Canyon OHV is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "greenSticker": "yes",
+      "note": "Per the MVUM, 9N21.1 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
-      "Dramatic sandstone badlands",
-      "Sandy-wash riding",
-      "Green-sticker access on part of the road"
+      "Forested Frazier high country",
+      "Links the area's OHV network",
+      "Designated green-sticker road"
     ],
     "trailhead": {
-      "name": "Quatal Canyon OHV (9N09.2)",
-      "lat": 34.8363,
-      "lng": -119.3829
+      "name": "Scott Russell OHV (9N21.1)",
+      "lat": 34.8252,
+      "lng": -119.0116
     }
   },
   {
@@ -145,59 +173,31 @@ export const mtPinosRoutes: Route[] = [
     }
   },
   {
-    "id": "scott-russell",
-    "name": "Scott Russell OHV",
-    "forestRoad": "9N21.1, 9N21.2, 9N21.3",
-    "summary": "Green-sticker OHV road in the Frazier high country.",
-    "description": "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
-    "distanceMiles": 5.1,
+    "id": "quatal-canyon",
+    "name": "Quatal Canyon OHV",
+    "forestRoad": "9N09.2",
+    "summary": "Sandstone-badlands OHV road, green-sticker on part of it.",
+    "description": "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
+    "distanceMiles": 9.9,
     "difficulty": "Moderate",
-    "elevationFt": "5,350–7,150 ft",
-    "surface": "Mixed graded and rocky forest road",
-    "bestSeason": "May–October (seasonal)",
+    "elevationFt": "3,550–5,750 ft",
+    "surface": "Deep sandy wash through sandstone badlands",
+    "bestSeason": "Fall–spring (hot in summer)",
     "access": {
       "streetLegal": true,
-      "greenSticker": "yes",
-      "note": "Per the MVUM, 9N21.1 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "greenSticker": "partial",
+      "note": "Per the MVUM, Quatal Canyon OHV is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
-      "Forested Frazier high country",
-      "Links the area's OHV network",
-      "Designated green-sticker road"
+      "Dramatic sandstone badlands",
+      "Sandy-wash riding",
+      "Green-sticker access on part of the road"
     ],
     "trailhead": {
-      "name": "Scott Russell OHV (9N21.1)",
-      "lat": 34.8252,
-      "lng": -119.0116
-    }
-  },
-  {
-    "id": "mt-pinos-singletrack",
-    "name": "Mt Pinos Singletrack",
-    "forestRoad": "19W04",
-    "summary": "Long designated motorcycle singletrack, the area's premier trail ride.",
-    "description": "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
-    "distanceMiles": 14.2,
-    "difficulty": "Difficult",
-    "elevationFt": "3,150–6,700 ft",
-    "surface": "Long, technical motorcycle singletrack",
-    "bestSeason": "May–October (seasonal)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "yes",
-      "note": "Per the MVUM, trail 19W04 is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "One of the area's longest moto singletracks",
-      "Technical, narrow green-sticker trail",
-      "Motorcycle-only, the real reason to come"
-    ],
-    "trailhead": {
-      "name": "Mt Pinos Singletrack (19W04)",
-      "lat": 34.7165,
-      "lng": -118.9296
+      "name": "Quatal Canyon OHV (9N09.2)",
+      "lat": 34.8363,
+      "lng": -119.3829
     }
   },
   {
@@ -255,5 +255,5 @@ export const mtPinosRoutes: Route[] = [
       "lat": 34.8868,
       "lng": -119.5005
     }
-  }
+  },
 ];

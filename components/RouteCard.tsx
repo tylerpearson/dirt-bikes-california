@@ -40,7 +40,10 @@ export function RouteCard({
   priority?: boolean;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row">
+    <article
+      id={route.id}
+      className="flex scroll-mt-6 flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)] lg:flex-row"
+    >
       {/* Map side */}
       <div className="flex flex-col lg:w-[56%] lg:shrink-0 lg:border-r lg:border-edge">
         <div className="relative aspect-[3/2] lg:aspect-auto lg:flex-1">
