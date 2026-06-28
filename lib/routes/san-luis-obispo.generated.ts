@@ -9,7 +9,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Hi Mountain OHV Road",
     "forestRoad": "30S11",
     "summary": "Climb to the Hi Mountain lookout in the heart of the Pozo OHV area.",
-    "description": "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a genuine OHV-designated route, open seasonally, and a long way from anywhere.",
+    "description": "30S11 is the signature green-sticker road of the Pozo / La Panza OHV area, climbing rocky, high-clearance tread through chaparral and oak toward Hi Mountain and its historic condor lookout. Big Santa Lucia Range views and a designated OHV route, open seasonally, and a long way from anywhere.",
     "distanceMiles": 8.2,
     "difficulty": "Difficult",
     "elevationFt": "1,950–3,050 ft",
@@ -149,7 +149,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Navajo Road",
     "forestRoad": "29S02.1, 29S02.2",
     "summary": "Backcountry road into the Pozo OHV area, green-sticker on part of it.",
-    "description": "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is open to street-legal vehicles only, so green-sticker access is segment-by-segment; read the signs at each junction. Seasonal closures apply.",
+    "description": "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is open to all vehicles and part is open to street-legal vehicles only, with green-sticker access varying by segment. Seasonal closures apply.",
     "distanceMiles": 7.8,
     "difficulty": "Moderate",
     "elevationFt": "1,750–2,650 ft",
@@ -177,7 +177,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "name": "Sierra Madre Road",
     "forestRoad": "32S13.1",
     "summary": "The ~28-mile Sierra Madre Ridge, remote plated backcountry.",
-    "description": "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge, one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with enormous, lonely views. Highway-legal-only, so it's a plated adventure-bike ride; gated and seasonal, and genuinely committing, carry everything.",
+    "description": "Sierra Madre Road (32S13) runs the long, remote Sierra Madre Ridge, one of the great backcountry roads in Los Padres, roughly 28 miles of graded-to-rocky ridgeline through grassland and chaparral with lonely, far-reaching views. Open to street-legal vehicles only, a plated adventure-bike ride; gated and seasonal, and a committing one, so carry everything.",
     "distanceMiles": 28.6,
     "difficulty": "Difficult",
     "elevationFt": "1,300–5,600 ft",
@@ -186,7 +186,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 32S13.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 32S13.1 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -214,7 +214,7 @@ export const sanLuisObispoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 28S02.1 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 28S02.1 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

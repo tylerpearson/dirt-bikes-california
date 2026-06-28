@@ -37,7 +37,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Red Mountain OHV Road",
     "forestRoad": "6S22",
     "summary": "Pinyon-slope climb on Red Mountain, green-sticker on part of it.",
-    "description": "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access is segment-by-segment; read the signs at each junction.",
+    "description": "6S22 climbs through pinyon and chaparral on the flanks of Red Mountain south of Garner Valley, mixing smooth graded stretches with looser, rockier climbs as it gains the ridge. Part of the road is open to all vehicles, so green-sticker access comes and goes by the segment.",
     "distanceMiles": 8.1,
     "difficulty": "Moderate",
     "elevationFt": "3,850–4,600 ft",
@@ -65,7 +65,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Indian Canyon Road",
     "forestRoad": "4S06",
     "summary": "Canyon road through the Garner Valley high country, partly green-sticker.",
-    "description": "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate option that connects to the surrounding road network.",
+    "description": "4S06 runs up Indian Canyon in the Garner Valley area, a high-clearance road with a mix of forest and high-desert transition, sandy washes, and rocky sections. Part of it is open to all vehicles, with green-sticker access varying segment to segment, a solid intermediate option that connects to the surrounding road network.",
     "distanceMiles": 7.2,
     "difficulty": "Moderate",
     "elevationFt": "3,150–5,050 ft",
@@ -158,7 +158,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S13 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 6S13 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -186,7 +186,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 7S02 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 7S02 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -205,7 +205,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Black Mountain Road",
     "forestRoad": "4S01",
     "summary": "Long forest climb to the Black Mountain lookout above Idyllwild.",
-    "description": "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections. Highway-legal-only, so it's a plated dual-sport ride.",
+    "description": "4S01 climbs the north flank of Black Mountain through dense pine and cedar above Idyllwild toward the historic fire lookout and the Black Mountain trailheads. A scenic, sustained graded climb with rocky, rutted sections. Open to street-legal vehicles only, so it's a plated dual-sport ride.",
     "distanceMiles": 11.4,
     "difficulty": "Difficult",
     "elevationFt": "5,350–7,700 ft",
@@ -214,7 +214,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 4S01 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 4S01 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -233,7 +233,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Idyllwild Control Road",
     "forestRoad": "5S06",
     "summary": "Classic dirt connector linking Idyllwild to the high country.",
-    "description": "5S06 is a graded forest road threading the pines near Idyllwild, a relaxed plated dual-sport ride with good sight lines and forest scenery. Highway-legal-only, it's a pleasant way to link the area's roads and trailheads without technical demands.",
+    "description": "5S06 is a graded forest road threading the pines near Idyllwild, a relaxed plated dual-sport ride with good sight lines and forest scenery. Open to street-legal vehicles only, it's a pleasant way to link the area's roads and trailheads without technical demands.",
     "distanceMiles": 6.1,
     "difficulty": "Moderate",
     "elevationFt": "2,350–5,100 ft",
@@ -242,7 +242,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 5S06 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 5S06 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -261,7 +261,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Dark Canyon Road",
     "forestRoad": "4S02",
     "summary": "Short forest road into the Dark Canyon drainage.",
-    "description": "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak, highway-legal vehicles only.",
+    "description": "4S02 drops into the Dark Canyon area northwest of Idyllwild, a shaded forest road serving the campground and trailheads along the San Jacinto's western canyons. A short, scenic plated ride through pine and oak, open to street-legal vehicles only.",
     "distanceMiles": 5.6,
     "difficulty": "Moderate",
     "elevationFt": "5,750–6,300 ft",
@@ -270,7 +270,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 4S02 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 4S02 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -289,7 +289,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Fobes Ranch Road",
     "forestRoad": "6S05",
     "summary": "Plated spur to the Fobes Ranch PCT trailhead.",
-    "description": "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views, plated dual-sport, highway-legal only.",
+    "description": "6S05 climbs to the Fobes Ranch trailhead on the south side of the San Jacintos, a popular jumping-off point for the Pacific Crest Trail. A moderate, rocky graded road with chaparral-to-forest transition and big views, plated dual-sport, street-legal vehicles only.",
     "distanceMiles": 4,
     "difficulty": "Moderate",
     "elevationFt": "4,450–5,250 ft",
@@ -298,7 +298,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 6S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 6S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

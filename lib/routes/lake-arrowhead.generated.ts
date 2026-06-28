@@ -9,7 +9,7 @@ export const lakeArrowheadRoutes: Route[] = [
     "name": "Crab Flats Road",
     "forestRoad": "3N34",
     "summary": "The hub of the Crab Flats green-sticker network near Green Valley Lake.",
-    "description": "3N34 runs through the Crab Flats area between Green Valley Lake and the Deep Creek country, the staging hub for this corner of the forest. Graded dirt with rockier, rutted stretches through pine and cedar, linking the campground to the OHV roads and trails around it. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access goes segment by segment; read the signs at each junction.",
+    "description": "3N34 runs through the Crab Flats area between Green Valley Lake and the Deep Creek country, the staging hub for this corner of the forest. Graded dirt with rockier, rutted stretches through pine and cedar, linking the campground to the OHV roads and trails around it. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access depends on the segment.",
     "distanceMiles": 12,
     "difficulty": "Moderate",
     "elevationFt": "4,400–5,950 ft",
@@ -121,7 +121,7 @@ export const lakeArrowheadRoutes: Route[] = [
     "name": "Pilot Rock Road",
     "forestRoad": "2N33",
     "summary": "Long ridge road between Lake Arrowhead and Silverwood, partly green-sticker.",
-    "description": "2N33 works the ridge between the Lake Arrowhead crest and Silverwood Lake past the Pilot Rock landmark, a long high-clearance road with rocky, rutted climbs and expanding views in both directions. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access goes segment by segment; read the signs at each junction.",
+    "description": "2N33 works the ridge between the Lake Arrowhead crest and Silverwood Lake past the Pilot Rock landmark, a long high-clearance road with rocky, rutted climbs and long views in both directions. Part of it is open to all vehicles and part is open to street-legal vehicles only, so green-sticker access shifts from one segment to the next.",
     "distanceMiles": 11.2,
     "difficulty": "Moderate",
     "elevationFt": "3,400–5,150 ft",
@@ -158,7 +158,7 @@ export const lakeArrowheadRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 2N49 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 2N49 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

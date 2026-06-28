@@ -9,7 +9,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Corral Canyon Road",
     "forestRoad": "17S04",
     "summary": "The namesake road of San Diego's Corral Canyon OHV Area.",
-    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and to street-legal vehicles only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
+    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and to street-legal vehicles only on others, so green-sticker access depends on which segment you're on.",
     "distanceMiles": 8.2,
     "difficulty": "Difficult",
     "elevationFt": "3,050–3,850 ft",
@@ -149,7 +149,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Los Pinos Road",
     "forestRoad": "16S17",
     "summary": "Climb toward the Los Pinos lookout above Corral Canyon.",
-    "description": "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
+    "description": "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access runs segment by segment.",
     "distanceMiles": 4.6,
     "difficulty": "Moderate",
     "elevationFt": "3,850–4,650 ft",
@@ -177,7 +177,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Bear Valley Road",
     "forestRoad": "16S12",
     "summary": "Rugged OHV-area road through the Corral Canyon backcountry.",
-    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
+    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, with green-sticker access changing by segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
     "distanceMiles": 8.4,
     "difficulty": "Difficult",
     "elevationFt": "3,200–4,600 ft",
@@ -205,7 +205,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Skye Valley Road",
     "forestRoad": "17S06",
     "summary": "OHV-area road threading the Skye Valley chaparral.",
-    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
+    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, with green-sticker access shifting segment to segment, a good intermediate option in the network.",
     "distanceMiles": 7.9,
     "difficulty": "Moderate",
     "elevationFt": "2,900–3,850 ft",
@@ -233,7 +233,7 @@ export const lagunaRoutes: Route[] = [
     "name": "La Posta Road",
     "forestRoad": "15S05",
     "summary": "Long plated forest road on the south side of the Lagunas.",
-    "description": "15S05 (La Posta) is a long graded forest road through the oak and chaparral country south of the Laguna crest, a scenic plated dual-sport ride. Highway-legal-only, it's a good way to cover ground and link the area's backcountry away from the OHV roads.",
+    "description": "15S05 (La Posta) is a long graded forest road through the oak and chaparral country south of the Laguna crest, a scenic plated dual-sport ride. Open to street-legal vehicles only, it's a good way to cover ground and link the area's backcountry away from the OHV roads.",
     "distanceMiles": 10.9,
     "difficulty": "Moderate",
     "elevationFt": "3,400–6,050 ft",
@@ -242,7 +242,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 15S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 15S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -261,7 +261,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Pine Creek Road",
     "forestRoad": "14S05",
     "summary": "Mellow plated road below the Laguna crest near Pine Valley.",
-    "description": "14S05 (Pine Creek) is a gentler graded road near Pine Valley below the Laguna Mountain crest, a relaxed plated ride through pine and oak good for building seat time and reaching the area's trailheads. Highway-legal only.",
+    "description": "14S05 (Pine Creek) is a gentler graded road near Pine Valley below the Laguna Mountain crest, a relaxed plated ride through pine and oak, good for easy miles and reaching the area's trailheads. Open to street-legal vehicles only.",
     "distanceMiles": 7.7,
     "difficulty": "Easy",
     "elevationFt": "3,700–5,400 ft",
@@ -270,7 +270,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "no",
-      "note": "Per the MVUM, 14S05 is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.",
+      "note": "Per the MVUM, 14S05 is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

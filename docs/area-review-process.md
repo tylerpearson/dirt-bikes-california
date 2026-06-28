@@ -11,8 +11,8 @@ reviewer persona we actually used. Do them as separate commits so the reasoning
 stays legible (that's how the existing areas read in `git log`).
 
 > TL;DR order: **sort best-first → rider review → PM review → trim weak routes →
-> add loops → impeccable UI critique → writing-style sweep.** Then build, screenshot,
-> commit.
+> add loops → impeccable UI critique → writing-style sweep → content-humanizer
+> audit.** Then build, screenshot, commit.
 
 ---
 
@@ -172,6 +172,7 @@ Eyeball, for the new area:
 - [ ] `npm run build` clean
 - [ ] Screenshots checked: hero, overview map, a card, loops, nav @375px, console
 - [ ] Writing-style sweep done (see below)
+- [ ] content-humanizer audit run (AI tells, incl. the access-note template)
 - [ ] Committed as legible, per-pass commits
 
 ---
@@ -203,3 +204,32 @@ Two hard rules when doing this:
 
 This is a recurring cleanup in the log (`47a87de`, `b5b298b`, `f7f2970`, `3a9760d`,
 PR #13), so do it inline as you write rather than as a late sweep.
+
+## Content-humanizer audit (every new area)
+
+After the writing-style sweep, run the new area's prose through the
+**content-humanizer** skill (`/content-humanizer`, audit mode) before calling it
+done. The writing-style sweep catches the `AGENTS.md` rule breaks; this catches the
+softer AI tells the rules don't name: filler words, hedging chains, verbatim
+templated boilerplate repeated across routes, and "view-word" inflation (every
+route opening to "sweeping / enormous / big views").
+
+Audit the area blurb + tagline (`lib/areas.ts`), the loop descriptions, and every
+route `summary` / `description` / `highlights`. Two things to watch that are
+specific to this guide:
+
+- **The access-note template is a repeat offender.** The auto-generated `note`
+  (the `accessNote()` function in `scripts/build-area-routes.mjs`) once emitted
+  "open to highway-legal vehicles only," which reintroduced the banned jammed
+  compound on every plate-only route at once. A template tell multiplies across the
+  whole area, so check the generated `note` text, not just the hand-written prose.
+- **Descriptions echoing the structured note.** Don't have the description repeat
+  "read the signs at each junction" / "green-sticker access is segment-by-segment"
+  verbatim when the derived `note` already says it. Vary it or drop it; the note
+  carries the authoritative version.
+
+Same two hard rules as the writing-style sweep apply: meaning must not change
+(reword, don't reclassify), and fix it in the `CONFIG`/template **and** the
+generated file identically, or a regen reverts you. This audit was added after
+PR #25's prose-cleanup pass, which normalized ~50 `highway-legal` instances the
+earlier sweeps had missed because they lived in the note template.
