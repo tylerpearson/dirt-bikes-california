@@ -101,7 +101,7 @@ export const AREAS: Area[] = [
     regionShort: "San Jacinto R.D.",
     state: "California",
     blurb:
-      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. The Pacific Crest Trail itself is closed to every motor vehicle — those are places to park, not singletrack to ride. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
     tagline:
       "One range, two sides: green-sticker OHV roads above Palm Springs, plated dual-sport up at Idyllwild.",
     mvumGeojson: "/data/san-jacinto-mvum.geojson",

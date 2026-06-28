@@ -1,6 +1,7 @@
 import type { Area } from "@/lib/areas";
 import type { GreenStickerStatus } from "@/lib/types";
 import { loadTrack } from "@/lib/gpx";
+import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
 import { trackStats } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
@@ -51,8 +52,9 @@ export function AreaGuide({ area }: { area: Area }) {
   const cards = area.routes.map((route) => {
     const track = loadTrack(`${route.id}.gpx`);
     const hasTrack = track.length > 1;
+    const segments = loadRouteSegments(area.mvumGeojson, route.forestRoad);
     const map = hasTrack
-      ? trackMap(track)
+      ? trackMap(track, { segments })
       : centeredMap(route.trailhead.lat, route.trailhead.lng, { zoom: 12 });
     const points = track.map((p) => ({ lat: p.lat, lng: p.lng }));
     const stats = hasTrack ? trackStats(track) : null;
