@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import { AREAS } from "@/lib/areas";
 
@@ -7,6 +9,12 @@ export const contentType = "image/png";
 
 // Required for `output: export` — prerender this image at build time.
 export const dynamic = "force-static";
+
+// The site's own typefaces (Zilla Slab display + Archivo body), vendored as
+// static TTFs so the share card matches the live site instead of falling back
+// to a generic sans. Satori can't read next/font's woff2, hence the local TTFs.
+const fontFile = (name: string) =>
+  readFileSync(path.join(process.cwd(), "app", "_og-fonts", name));
 
 /** Default share card for every page, generated at build time. */
 export default function Image() {
@@ -23,7 +31,7 @@ export default function Image() {
           padding: "72px",
           backgroundColor: "#efe7d4",
           color: "#3c2d14",
-          fontFamily: "sans-serif",
+          fontFamily: "Archivo",
         }}
       >
         <div
@@ -41,11 +49,12 @@ export default function Image() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 110,
+              fontFamily: "Zilla Slab",
+              fontSize: 120,
               fontWeight: 700,
               lineHeight: 1,
               textTransform: "uppercase",
-              letterSpacing: -2,
+              letterSpacing: -3,
             }}
           >
             Dirt Bike Routes
@@ -67,6 +76,13 @@ export default function Image() {
         </div>
       </div>
     ),
-    { ...size },
+    {
+      ...size,
+      fonts: [
+        { name: "Zilla Slab", data: fontFile("ZillaSlab-Bold.ttf"), weight: 700, style: "normal" },
+        { name: "Archivo", data: fontFile("Archivo-SemiBold.ttf"), weight: 600, style: "normal" },
+        { name: "Archivo", data: fontFile("Archivo-Regular.ttf"), weight: 400, style: "normal" },
+      ],
+    },
   );
 }

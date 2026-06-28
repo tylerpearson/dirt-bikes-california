@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { MapRender } from "@/lib/tiles";
+import type { RouteSegment } from "@/lib/mvum";
 import { StaticMap } from "./StaticMap";
 import { RouteMap } from "./RouteMap";
 
@@ -10,6 +11,7 @@ type LL = { lat: number; lng: number };
 export function ExpandableMap({
   map,
   points,
+  segments = [],
   label,
   routeName,
   gpxHref,
@@ -19,6 +21,8 @@ export function ExpandableMap({
 }: {
   map: MapRender;
   points: LL[];
+  /** MVUM access segments (lat/lng) for coloring the interactive map. */
+  segments?: RouteSegment[];
   label: string;
   routeName: string;
   gpxHref: string;
@@ -156,7 +160,7 @@ export function ExpandableMap({
               </div>
             </div>
             <div className="relative flex-1">
-              <RouteMap points={points} />
+              <RouteMap points={points} segments={segments} />
             </div>
             <p className="border-t border-edge px-4 py-2 text-[0.65rem] text-olive">
               Route line © OpenStreetMap contributors — approximate; verify on the
