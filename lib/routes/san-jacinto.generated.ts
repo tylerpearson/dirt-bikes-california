@@ -46,7 +46,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Red Mountain OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Red Mountain OHV Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -74,7 +74,7 @@ export const sanJacintoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Indian Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Indian Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -121,7 +121,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Bee Canyon OHV Road",
     "forestRoad": "5S07",
     "summary": "Designated OHV road dropping through Bee Canyon.",
-    "description": "5S07 follows Bee Canyon as a designated open-to-all-vehicles road. It's a compact green-sticker option with sandy canyon-bottom sections and rockier benches, threading pinyon and scrub on the desert side of the range.",
+    "description": "5S07 follows Bee Canyon as a designated road open to all vehicles. It's a compact green-sticker option with sandy canyon-bottom sections and rockier benches, threading pinyon and scrub on the desert side of the range.",
     "distanceMiles": 4.1,
     "difficulty": "Moderate",
     "elevationFt": "1,950–3,000 ft",
@@ -177,7 +177,7 @@ export const sanJacintoRoutes: Route[] = [
     "name": "Santa Rosa Mountain Road",
     "forestRoad": "7S02",
     "summary": "Remote high-clearance climb deep into the Santa Rosa Mountains.",
-    "description": "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
+    "description": "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's open to street-legal vehicles only.",
     "distanceMiles": 11.7,
     "difficulty": "Difficult",
     "elevationFt": "4,600–7,950 ft",
