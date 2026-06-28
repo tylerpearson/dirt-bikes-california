@@ -191,20 +191,6 @@ const CONFIG = {
           "Big San Jacinto views (plated only)",
         ],
       },
-      {
-        id: "red-hill-road", name: "Red Hill Road", ids: ["5S10"],
-        difficulty: "Moderate",
-        summary: "Short, scenic plated spur in the Garner Valley fringe.",
-        description:
-          "5S10 (Red Hill) is a compact graded road on the eastern fringe of the Idyllwild high country, mixing forest and high-meadow scenery. A short, scenic plated ride, highway-legal only, best paired with the longer roads nearby.",
-        surface: "Graded dirt with rocky sections",
-        bestSeason: "May–October",
-        highlights: [
-          "Forest-and-meadow scenery",
-          "Short, scenic plated spur",
-          "Pairs with the Idyllwild road network",
-        ],
-      },
     ],
   },
 
