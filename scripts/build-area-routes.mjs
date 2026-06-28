@@ -462,13 +462,13 @@ const CONFIG = {
       {
         id: "alamo-mountain", name: "Alamo Mountain OHV", ids: ["8N01.3"],
         difficulty: "Difficult",
-        summary: "High green-sticker loop around 8,000-foot Alamo Mountain.",
+        summary: "High green-sticker loop around Alamo Mountain, climbing past 7,000 feet.",
         description:
-          "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing toward 8,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views, the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
+          "8N01.3 is the OHV-designated upper loop around Alamo Mountain, climbing past 7,000 feet through pine forest in the headwaters of Piru Creek. A long, rocky, high-clearance green-sticker road with big high-country views, the marquee OHV ride of the Mt Pinos / Frazier Park complex. Snow closes it seasonally up high.",
         surface: "Rocky, high-clearance OHV-area dirt",
         bestSeason: "May–October (seasonal snow closure)",
         highlights: [
-          "Loops 8,000-foot Alamo Mountain",
+          "Loops the upper flanks of Alamo Mountain",
           "Pine high country in the Piru headwaters",
           "Marquee green-sticker ride of the area",
         ],
