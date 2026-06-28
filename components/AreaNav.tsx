@@ -7,9 +7,8 @@ import { AREAS } from "@/lib/areas";
 
 // Group areas by managing forest — the same mental model a rider uses ("which
 // forest am I headed to?"). On mobile the groups stack into one scannable list;
-// on desktop they become the columns of a mega-menu. Within each forest, lead
-// with the meatiest areas (most routes first), mirroring the best-first sort we
-// already apply to routes; ties keep registry order (sort is stable).
+// on desktop they become the columns of a mega-menu. Within each forest the
+// areas are alphabetical, the most predictable order for scanning a menu.
 const FOREST_GROUPS = AREAS.reduce<{ forest: string; areas: typeof AREAS }[]>(
   (groups, area) => {
     const forest = area.forest.name.replace(/National Forest$/, "N.F.").trim();
@@ -21,7 +20,7 @@ const FOREST_GROUPS = AREAS.reduce<{ forest: string; areas: typeof AREAS }[]>(
   [],
 );
 for (const group of FOREST_GROUPS) {
-  group.areas.sort((a, b) => b.routes.length - a.routes.length);
+  group.areas.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Does the area have any green-sticker (non-street-legal) riding? Mirrors the
