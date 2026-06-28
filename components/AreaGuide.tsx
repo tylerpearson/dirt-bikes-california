@@ -185,6 +185,79 @@ export function AreaGuide({ area }: { area: Area }) {
         </div>
       </section>
 
+      {area.loops && area.loops.length > 0 && (
+        <section className="border-b-2 border-bistre/70 bg-paper">
+          <div className="mx-auto max-w-6xl px-6 py-12">
+            <div className="flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
+              <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">
+                Make a day of it
+              </h2>
+              <span className="text-sm text-olive">
+                {area.loops.length} suggested loop
+                {area.loops.length > 1 ? "s" : ""}
+              </span>
+            </div>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
+              Ways to string these routes into a full ride instead of a single
+              road. Mileage is a rough composite — segments overlap and connect —
+              so plan time and fuel with a margin.
+            </p>
+
+            <div className="mt-6 grid gap-5 lg:grid-cols-2">
+              {area.loops.map((loop) => (
+                <article
+                  key={loop.name}
+                  className="flex flex-col gap-3 rounded-sm border border-edge-strong/60 bg-paper-2 p-5 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)]"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-xl font-bold leading-tight tracking-tight text-bistre">
+                      {loop.name}
+                    </h3>
+                    <span className="mt-1 flex shrink-0 items-baseline gap-1 leading-none">
+                      <span className="font-display text-2xl font-bold tracking-tight text-rust-ink">
+                        ~{loop.distanceMiles}
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-olive">
+                        mi
+                      </span>
+                    </span>
+                  </div>
+
+                  <p className="text-sm font-semibold text-rust-ink">
+                    {loop.summary}
+                  </p>
+                  <p className="text-pretty text-sm leading-relaxed text-ink/90">
+                    {loop.description}
+                  </p>
+
+                  <div className="mt-auto flex flex-wrap items-center gap-x-1.5 gap-y-2 border-t border-edge pt-4 text-sm">
+                    {loop.routeIds.map((id, i) => {
+                      const r = area.routes.find((x) => x.id === id);
+                      if (!r) return null;
+                      return (
+                        <span key={id} className="flex items-center gap-1.5">
+                          {i > 0 && (
+                            <span aria-hidden className="text-rust-ink">
+                              →
+                            </span>
+                          )}
+                          <a
+                            href={`#${id}`}
+                            className="font-semibold text-bistre underline decoration-rust/40 underline-offset-2 hover:decoration-rust"
+                          >
+                            {r.name}
+                          </a>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
         <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
           <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">

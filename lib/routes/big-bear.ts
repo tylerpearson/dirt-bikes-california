@@ -1,7 +1,10 @@
 import type { Route } from "../types";
 
 /**
- * Big Bear–area OHV / dirt bike routes, ordered best → worst (editorial).
+ * Big Bear–area OHV / dirt bike routes, ordered for a dirt-bike audience: the
+ * rides that are genuinely fun on two wheels and/or green-sticker-accessible
+ * come first; the marquee-but-brutal technical rock and the plate-only graded
+ * roads sit lower down (editorial).
  *
  * ACCESS DATA comes from the USFS Motor Vehicle Use Map (MVUM) GIS layer
  * (EDW_MVUM_01), queried June 2026. Street-legal plated vehicles are allowed on
@@ -20,32 +23,32 @@ const MVUM = "USFS Motor Vehicle Use Map (MVUM), 2026";
 
 export const bigBearRoutes: Route[] = [
   {
-    id: "john-bull",
-    name: "John Bull Trail",
-    forestRoad: "3N10",
-    summary: "Big Bear's legendary boulder-strewn rock crawl, for experts only.",
+    id: "pinyon-vista",
+    name: "Pinyon & Vista OHV Trails",
+    forestRoad: "2E20",
+    summary: "Big Bear's beginner-friendly OHV singletrack, the trails, not a fire road.",
     description:
-      "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control. Never ride it alone.",
-    distanceMiles: 5,
-    difficulty: "Expert",
-    elevationFt: "7,200–7,800 ft",
-    surface: "Large granite boulders and rock ledges",
-    bestSeason: "June–September",
+      "A well-marked network of designated OHV trails (Pinyon, Vista, Joshua Loop) running from the Cactus Flat staging area through pinyon and juniper. Easy-to-moderate 'terra trail' tread that's genuinely fun on a dirt bike, the closest thing here to true singletrack.",
+    distanceMiles: 2,
+    difficulty: "Moderate",
+    elevationFt: "6,100–6,400 ft",
+    surface: "Narrow OHV tread (≤50 in.), sandy with rocky sections",
+    bestSeason: "April–November",
     access: {
       streetLegal: true,
-      greenSticker: "no",
-      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only, a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
+      greenSticker: "yes",
+      note: "Per the MVUM, these are designated OHV trails open to wheeled OHVs under 50 inches wide, year-round, green-sticker (and red-sticker, in season) dirt bikes welcome. Registration + spark arrestor required. The singletrack option, not a fire road.",
       source: MVUM,
     },
     highlights: [
-      "Iconic technical rock obstacles",
-      "Big payoff views from the high desert edge",
-      "Connects to the Gold Mountain network",
+      "Real OHV singletrack, not a fire road",
+      "Well-marked and beginner-friendly",
+      "Loops straight from the Cactus Flat staging area",
     ],
     trailhead: {
-      name: "John Bull Trailhead (3N10)",
-      lat: 34.2789,
-      lng: -116.8005,
+      name: "Cactus Flat OHV Staging (2E20 trails)",
+      lat: 34.221,
+      lng: -116.732,
     },
   },
   {
@@ -78,32 +81,33 @@ export const bigBearRoutes: Route[] = [
     },
   },
   {
-    id: "pinyon-vista",
-    name: "Pinyon & Vista OHV Trails",
-    forestRoad: "2E20",
-    summary: "Big Bear's beginner-friendly OHV singletrack, the trails, not a fire road.",
+    id: "john-bull",
+    name: "John Bull Trail",
+    forestRoad: "3N10",
+    summary:
+      "Big Bear's most famous trail, a brutal experts-only rock crawl that's more bragging rights than flow on a bike.",
     description:
-      "A well-marked network of designated OHV trails (Pinyon, Vista, Joshua Loop) running from the Cactus Flat staging area through pinyon and juniper. Easy-to-moderate 'terra trail' tread that's genuinely fun on a dirt bike, the closest thing here to true singletrack.",
-    distanceMiles: 2,
-    difficulty: "Moderate",
-    elevationFt: "6,100–6,400 ft",
-    surface: "Narrow OHV tread (≤50 in.), sandy with rocky sections",
-    bestSeason: "April–November",
+      "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control, and most riders find it more punishing than fun. Never ride it alone.",
+    distanceMiles: 5,
+    difficulty: "Expert",
+    elevationFt: "7,200–7,800 ft",
+    surface: "Large granite boulders and rock ledges",
+    bestSeason: "June–September",
     access: {
       streetLegal: true,
-      greenSticker: "yes",
-      note: "Per the MVUM, these are designated OHV trails open to wheeled OHVs under 50 inches wide, year-round, green-sticker (and red-sticker, in season) dirt bikes welcome. Registration + spark arrestor required. The singletrack option, not a fire road.",
+      greenSticker: "no",
+      note: "Despite its OHV-trail reputation, the MVUM lists 3N10 and its spurs as open to highway-legal vehicles only, a plated, street-legal bike route, not a green-sticker one. Expert rock; never ride it alone.",
       source: MVUM,
     },
     highlights: [
-      "Real OHV singletrack, not a fire road",
-      "Well-marked and beginner-friendly",
-      "Loops straight from the Cactus Flat staging area",
+      "Iconic technical rock obstacles",
+      "Big payoff views from the high desert edge",
+      "Connects to the Gold Mountain network",
     ],
     trailhead: {
-      name: "Cactus Flat OHV Staging (2E20 trails)",
-      lat: 34.221,
-      lng: -116.732,
+      name: "John Bull Trailhead (3N10)",
+      lat: 34.2789,
+      lng: -116.8005,
     },
   },
   {
@@ -170,7 +174,7 @@ export const bigBearRoutes: Route[] = [
     forestRoad: "3N14",
     summary: "Long, mellow graded road, the backbone of the backcountry.",
     description:
-      "Coxey Road runs ~17.8 miles from Fawnskin to the northern forest boundary. Smooth and beginner-friendly with long sight lines, it's ideal for building seat time or covering ground between trail systems.",
+      "Coxey Road runs about 13 miles from Fawnskin toward the northern forest boundary. Smooth and beginner-friendly with long sight lines, it's ideal for building seat time or covering ground between trail systems.",
     distanceMiles: 13,
     difficulty: "Easy",
     elevationFt: "6,700–7,300 ft",
@@ -228,7 +232,7 @@ export const bigBearRoutes: Route[] = [
     forestRoad: "2N02",
     summary: "Long east-side graded road with one green-sticker-legal stretch.",
     description:
-      "Arrastre Creek Road runs ~13 miles from Baldwin Lake Road east to the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride, mostly plate-only, with one segment open to OHVs.",
+      "Arrastre Creek Road runs about 11 miles from Baldwin Lake Road east to the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride, mostly plate-only, with one segment open to OHVs.",
     distanceMiles: 11,
     difficulty: "Moderate",
     elevationFt: "6,800–7,500 ft",
