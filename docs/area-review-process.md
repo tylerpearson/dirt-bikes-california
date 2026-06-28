@@ -180,10 +180,28 @@ Eyeball, for the new area:
 
 ## Writing-style sweep (every pass)
 
-All copy follows the rules in `AGENTS.md`: **no em dashes**, **no jammed hyphen
-compounds** ("road open to all vehicles," not "open-to-all-vehicles road"), keep
-real rider terms (green-sticker, street-legal, plated). Because route notes are
-generated from the template/CONFIG in `scripts/build-area-routes.mjs`, fix wording
-**there** too, not just in the generated file, or a regen reverts it. This is a
-recurring cleanup in the log (`47a87de`, `b5b298b`, `f7f2970`, `3a9760d`), so do it
-inline as you write rather than as a late sweep.
+All public-facing copy follows the rules in `AGENTS.md`: **no em dashes**, **no
+jammed hyphen compounds**, keep the real rider terms (green-sticker, street-legal,
+plated) as normal adjectives.
+
+The compound rule trips us up most on access wording, where it's tempting to stack
+modifiers into a noun. Unjam them into plain English (PR #13, `435abd1`):
+
+| Don't write | Write |
+|---|---|
+| "open-to-all-vehicles road" | "road open to all vehicles" |
+| "highway-legal-only" | "open to street-legal vehicles only" (or "street-legal vehicles only" / "for street-legal bikes only," as the sentence calls for) |
+| "...some segments are open to all and others are highway-legal-only..." | "...some segments are open to all vehicles and others are open to street-legal vehicles only..." |
+
+Two hard rules when doing this:
+
+1. **Meaning must not change.** This is pure phrasing. The access facts (who can
+   ride where) are identical before and after, and must stay consistent with the
+   derived MVUM badge/note. Reword, don't reclassify.
+2. **Fix it in the template, not just the output.** Route notes are generated from
+   the CONFIG/template in `scripts/build-area-routes.mjs`. Edit the wording **there**
+   and in the generated `lib/routes/<area>.generated.ts`, identically, or the next
+   regen reintroduces the jammed compound (drift).
+
+This is a recurring cleanup in the log (`47a87de`, `b5b298b`, `f7f2970`, `3a9760d`,
+PR #13), so do it inline as you write rather than as a late sweep.
