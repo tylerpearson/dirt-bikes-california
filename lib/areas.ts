@@ -106,6 +106,25 @@ export const AREAS: Area[] = [
       "One range, two sides: green-sticker OHV roads above Palm Springs, plated dual-sport up at Idyllwild.",
     mvumGeojson: "/data/san-jacinto-mvum.geojson",
     forest: SBNF,
+    loops: [
+      {
+        name: "Garner Valley OHV Day",
+        distanceMiles: 24,
+        summary:
+          "The range's green-sticker corner, strung into one rocky high-country day.",
+        description:
+          "The designated OHV roads above Garner Valley are the one place in the San Jacintos a non-street-legal bike is legal: the Indian Mountain spur (4S21), Bee Canyon (5S07), and the marquee San Jacinto Ridge (5S09) — a long, rough ridge run with sweeping desert and Garner Valley views. One honest catch: these are green-sticker OHV roads, not singletrack, and the roads linking them are plate-only — so on a non-plated bike they're isolated stretches you trailer or shuttle between, not one continuous loop. The Ridge alone is slow, rocky, high-clearance going, so budget by hours, not the ~24-mile number. Either way it's the green-sticker riding to prioritize here.",
+        routeIds: ["indian-mountain", "bee-canyon", "san-jacinto-ridge"],
+      },
+      {
+        name: "Idyllwild & Black Mountain",
+        distanceMiles: 26,
+        summary: "Forested plated dual-sport up toward the Black Mountain lookout.",
+        description:
+          "The Idyllwild side is plated country and makes a relaxed, view-packed day: climb Dark Canyon (4S02), link onto Black Mountain Road (4S01) toward the lookout and the PCT trailheads, then add the Idyllwild Control Road (5S06) to round it out. Graded dirt through pine and cedar with big drop-offs toward the desert — a dual-sport day, not a technical one. Plate-legal throughout; the PCT itself is closed to motors, so those are places to park, not ride.",
+        routeIds: ["dark-canyon-road", "black-mountain-road", "idyllwild-control-road"],
+      },
+    ],
     routes: sanJacintoRoutes,
   },
   {
@@ -204,6 +223,26 @@ export const AREAS: Area[] = [
       "Camuesa OHV roads and the East Camino Cielo crest in the backcountry above the city.",
     mvumGeojson: "/data/santa-barbara-mvum.geojson",
     forest: LPNF,
+    loops: [
+      {
+        name: "Camuesa Backcountry Traverse",
+        distanceMiles: 34,
+        summary:
+          "The green-sticker crest-to-backcountry day, Santa Barbara's best OHV riding.",
+        description:
+          "The three open-to-all-vehicles roads that make this range worth the drive: East Camino Cielo (5N12.1) along the crest above town, the Romero–Camuesa spine (5N15.2) into the Camuesa OHV area, and Buckhorn (9N11.4) deep into the San Rafael backcountry. Treat this as a committing all-day epic, not a casual outing — long, remote, lightly-traveled, so carry water, fuel, and a way to call for help. Two caveats before you make the drive: the Camuesa side closes after rain (the wet-season gate closures, roughly November–April, apply here), and the access roads between these stretches are frequently gated, so they don't always link cleanly — check current gate status first, and bring an Adventure Pass. Open and dry, it's the best green-sticker riding in the area.",
+        routeIds: ["east-camino-cielo", "camuesa-road", "buckhorn-road"],
+      },
+      {
+        name: "Figueroa & Zaca Country",
+        distanceMiles: 24,
+        summary:
+          "Wine-country ridges and oak-shaded backroads northwest of the valley.",
+        description:
+          "The mellow, scenic counterpoint to the backcountry epics: climb Happy Canyon (7N07) out of the ranch land, cruise Sunset Valley (8N09) toward the dispersed camps, and finish on Zaca Ridge (8N02) in the Zaca Peak OHV area for big views over the wine country. Mostly relaxed graded dirt that genuinely connects into a real loop — ideal for seat time, scenery, or bringing along a newer rider, and a wildflower showcase in spring. Plated throughout except the green-sticker-open stretch of Zaca Ridge, so check the signs there.",
+        routeIds: ["happy-canyon-road", "sunset-valley-road", "zaca-ridge"],
+      },
+    ],
     routes: santaBarbaraRoutes,
   },
   {
