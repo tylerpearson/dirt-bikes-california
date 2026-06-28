@@ -115,11 +115,22 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback; for green-sticker OHV riding, the Wildomar OHV area sits on the southeast edge of the range. Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
+      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback. (For green-sticker OHV riding, the Cleveland's Wildomar OHV area sits on the southeast edge of the range — a separate, staging-based trail system not detailed here.) Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
     tagline:
       "Mostly plated Main Divide country, headlined by the 35-mile run over Saddleback.",
     mvumGeojson: "/data/santa-ana-mvum.geojson",
     forest: CNF,
+    loops: [
+      {
+        name: "The Main Divide Traverse",
+        distanceMiles: 50,
+        summary:
+          "The signature Santa Ana day: climb to the crest and ride the spine the length of the range.",
+        description:
+          "Climb Indian Truck Trail (5S01) from the Corona side up to the crest, then run the full North Main Divide (3S04) over the shoulder of Saddleback and continue onto the South Main Divide (6S07) toward the Ortega Highway. A big, exposed, all-day plated ride along the top of the range — high-clearance dual-sport and adventure terrain, no green-sticker bikes. Carry water and watch the sky: the Divide bakes in the heat and the clay turns greasy after rain, when the gates often close.",
+        routeIds: ["indian-truck-trail", "north-main-divide", "south-main-divide"],
+      },
+    ],
     routes: santaAnaRoutes,
   },
   {
@@ -134,6 +145,17 @@ export const AREAS: Area[] = [
       "Corral Canyon's green-sticker network plus the Mount Laguna forest roads, the guide's southernmost riding.",
     mvumGeojson: "/data/laguna-mvum.geojson",
     forest: CNF,
+    loops: [
+      {
+        name: "Corral Canyon OHV Day",
+        distanceMiles: 22,
+        summary:
+          "The far south's one real green-sticker network, strung into a full day.",
+        description:
+          "Work the Corral Canyon OHV area near Pine Valley: link the Corral Canyon (17S04), Bear Valley (16S12), and Los Pinos (16S17) roads with the green-sticker singletrack on Kernan (802) and Wrangler (901). A genuine OHV-area day for green-sticker bikes — but several of the roads are green-sticker on some segments only, so read each note. Best fall through spring; it bakes in summer.",
+        routeIds: ["corral-canyon", "bear-valley", "los-pinos", "kernan-trail", "wrangler-trail"],
+      },
+    ],
     routes: lagunaRoutes,
   },
   {
@@ -148,6 +170,26 @@ export const AREAS: Area[] = [
       "The guide's strongest green-sticker complex: pine roads, Cuyama badlands, and Ballinger Canyon OHV.",
     mvumGeojson: "/data/mt-pinos-mvum.geojson",
     forest: LPNF,
+    loops: [
+      {
+        name: "Alamo Mountain High Country",
+        distanceMiles: 28,
+        summary:
+          "A green-sticker pine-country day on the high roads above Lockwood Valley.",
+        description:
+          "Session the Alamo Mountain loop (8N01) and link into the Scott Russell network (9N21) for a full day in the high pines — both green-sticker, with loose, rocky, rutted climbs and big ridgeline views. This is high country that holds snow: it's a May–October ride, and the upper roads can stay closed late into spring in a heavy-snow year.",
+        routeIds: ["alamo-mountain", "scott-russell"],
+      },
+      {
+        name: "Cuyama Badlands",
+        distanceMiles: 14,
+        summary:
+          "Colorful sandstone canyons on the desert side — the cool-season counterpart to the high country.",
+        description:
+          "Run Apache Canyon (8N06) and neighboring Quatal Canyon (9N09) through the banded Cuyama sandstone badlands. Lower, hotter, and best fall through spring when the high country is snowed in. Apache is green-sticker; Quatal is partial — green-sticker on part of it only, so read the note before you drop in.",
+        routeIds: ["apache-canyon", "quatal-canyon"],
+      },
+    ],
     routes: mtPinosRoutes,
   },
   {
@@ -176,6 +218,17 @@ export const AREAS: Area[] = [
       "The Pozo and La Panza OHV area: green-sticker roads, singletrack, and the long Sierra Madre Ridge.",
     mvumGeojson: "/data/san-luis-obispo-mvum.geojson",
     forest: LPNF,
+    loops: [
+      {
+        name: "Pozo / La Panza OHV Day",
+        distanceMiles: 24,
+        summary:
+          "Green-sticker roads and real singletrack around Hi Mountain and Pozo.",
+        description:
+          "Climb Hi Mountain (30S11), link Rock Front (30S06) and the Queen Bee loop (29S18), and session the Pozo OHV singletrack (16E21) — all green-sticker, the rare southern network with genuine motorcycle singletrack. Closed when wet, so go when it's dried out. For a plated adventure instead, the long, remote Sierra Madre Road (32S13) is the standalone big day — commit to it self-sufficient, there are no bailouts.",
+        routeIds: ["hi-mountain", "rock-front", "queen-bee-loop", "pozo-singletrack"],
+      },
+    ],
     routes: sanLuisObispoRoutes,
   },
 ];
