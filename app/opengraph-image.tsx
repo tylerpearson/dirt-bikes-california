@@ -51,7 +51,7 @@ export default function Image() {
             Dirt Bike Routes
           </div>
           <div style={{ display: "flex", fontSize: 34, marginTop: 28, color: "#5c5230" }}>
-            {AREAS.length} riding areas · {routeCount} curated routes · real MVUM maps
+            {AREAS.length} riding areas · {routeCount} curated routes · real Forest Service maps
           </div>
         </div>
         <div
