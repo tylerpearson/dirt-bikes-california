@@ -8,10 +8,9 @@ allowed.
 
 The guiding principle: **facts are derived from authoritative sources and only
 prose is hand-written.** Route geometry and legal access come from the U.S.
-Forest Service Motor Vehicle Use Map (MVUM); elevation from SRTM; some geometry
-from OpenStreetMap. Distance, access, and difficulty aren't guessed — they're
-pulled from the data and committed at build time, so every area holds the same
-accuracy bar.
+Forest Service Motor Vehicle Use Map (MVUM); elevation from SRTM. Distance,
+access, and difficulty aren't guessed, they're pulled from the data and
+committed at build time, so every area holds the same accuracy bar.
 
 > ⚠️ **Verify before you go.** MVUM data and seasonal closures change. Always
 > confirm current access with the managing forest. This is a field guide, not a
@@ -84,7 +83,6 @@ when curated routes change or to refresh against the latest MVUM:
 ```bash
 node scripts/fetch-mvum-area.mjs           # overview-map GeoJSON (per area)
 node scripts/build-area-routes.mjs [area]  # featured-route data + GPX from MVUM + SRTM
-node scripts/fetch-osm-gpx.mjs             # route geometry from OpenStreetMap (Big Bear)
 ```
 
 ## Deployment
@@ -141,10 +139,10 @@ Worker's **Settings → Domains & Routes** if you want it as a fallback.
 - **Route geometry & legal access:** USFS Motor Vehicle Use Map (MVUM), EDW
   MVUM MapServer
 - **Elevation:** SRTM 30m via [opentopodata.org](https://www.opentopodata.org)
-- **Some route geometry:** © OpenStreetMap contributors (ODbL)
+- **Basemap map tiles:** © OpenStreetMap contributors (ODbL)
 
 ## License
 
 [MIT](LICENSE) © Tyler Pearson. Note that the underlying data carries its own
-terms: OpenStreetMap geometry is © OpenStreetMap contributors (ODbL), and MVUM /
-SRTM data are U.S. government works.
+terms: OpenStreetMap basemap tiles are © OpenStreetMap contributors (ODbL), and
+MVUM / SRTM data are U.S. government works.

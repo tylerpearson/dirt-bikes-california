@@ -29,6 +29,7 @@ const BBOX = {
   "lake-arrowhead": "-117.42,34.20,-117.06,34.42",
   "san-gorgonio": "-117.05,34.08,-116.65,34.22",
   "palomar": "-116.95,33.25,-116.62,33.52",
+  "big-bear": "-117.05,34.15,-116.70,34.35",
 };
 
 // ---- Curated featured routes (editorial fields only; facts are derived) -----
@@ -1041,6 +1042,129 @@ const CONFIG = {
           "Eastern access onto the Palomar Divide",
           "Easy oak-and-chaparral grade",
           "The natural start of a divide day",
+        ],
+      },
+    ],
+  },
+
+  // Big Bear (San Bernardino N.F.) — migrated onto the MVUM pipeline so its
+  // geometry, access, distance and elevation are all derived like every other
+  // area (it used to be hand-authored from OpenStreetMap). Pinyon/Vista is the
+  // designated OHV singletrack, split in the MVUM as trail segments 2E20.1-.5.
+  "big-bear": {
+    routes: [
+      {
+        id: "pinyon-vista", name: "Cactus Flat OHV Singletrack",
+        ids: ["2E20.1", "2E20.2", "2E20.3", "2E20.4", "2E20.5"], layer: 2,
+        difficulty: "Moderate",
+        summary: "Big Bear's designated OHV trail tread, narrow-gauge, not a fire road.",
+        description:
+          "The 2E20 system is the designated OHV trail network off the upper Cactus Flat / Smarts Ranch road (3N03), in the pinyon and juniper north of Baldwin Lake. Narrow, wheeled-OHV tread under 50 inches, sandy with rocky sections, the closest thing in the area to true singletrack and the one featured ride here that's open to green-sticker dirt bikes the whole way.",
+        surface: "Narrow OHV tread (≤50 in.), sandy with rocky sections",
+        bestSeason: "April–November",
+        highlights: [
+          "Designated OHV trail, not a fire road",
+          "Fully green-sticker (wheeled OHV under 50 inches)",
+          "Pinyon-and-juniper country north of Baldwin Lake",
+        ],
+      },
+      {
+        id: "holcomb-valley", name: "Holcomb Valley Loop", ids: ["3N16"],
+        difficulty: "Easy",
+        summary: "Historic gold-rush basin with mellow, flowing dirt road riding.",
+        description:
+          "Looping through the old Holcomb Valley mining district north of Big Bear Lake, this is mostly wide, graded forest road with gentle grades and pine-shaded meadows. A great warm-up or family-friendly route with plenty of historic stops like Belleville and the Hangman's Tree.",
+        surface: "Graded dirt road with occasional washboard",
+        bestSeason: "May–October",
+        highlights: [
+          "Historic gold-mining sites and interpretive markers",
+          "Open meadows and easy navigation",
+          "Connects to many other Big Bear backcountry roads",
+        ],
+      },
+      {
+        id: "gold-mountain", name: "Gold Mountain / Dishpan Springs", ids: ["3N69"],
+        difficulty: "Difficult",
+        summary: "Scenic climb past old mines to wide high-desert overlooks.",
+        description:
+          "A technical climb up the flanks of Gold Mountain with mixed dirt and rocky pitches, passing relics of the area's mining past. The upper sections open to sweeping views across Baldwin Lake and the high desert toward Lucerne Valley.",
+        surface: "Dirt road with loose rock and rutted climbs",
+        bestSeason: "May–October",
+        highlights: [
+          "Big views over Baldwin Lake and the desert",
+          "Historic mine sites",
+          "Links the John Bull area",
+        ],
+      },
+      {
+        id: "cactus-flats", name: "Cactus Flat OHV Area", ids: ["3N03"],
+        difficulty: "Moderate",
+        summary: "East-side OHV staging hub feeding the area's road network.",
+        description:
+          "Off Highway 18 north of Big Bear, Cactus Flat is a designated OHV staging area (vault toilet, parking, signage) feeding Smarts Ranch Rd (3N03) through pinyon and juniper. Terrain ranges from easy dirt road to looser, sandier routes.",
+        surface: "Mixed dirt and sandy tread with rocky sections",
+        bestSeason: "April–November",
+        highlights: [
+          "Established OHV staging and parking",
+          "Green-sticker access on part of the road",
+          "High-desert transition scenery",
+        ],
+      },
+      {
+        id: "coxey-road", name: "Coxey Road Connector", ids: ["3N14"],
+        difficulty: "Easy",
+        summary: "Long, mellow graded road, the backbone of the backcountry.",
+        description:
+          "Coxey Road runs from Fawnskin toward the northern forest boundary. Smooth and beginner-friendly with long sight lines, it's ideal for building seat time or covering ground between trail systems.",
+        surface: "Wide graded dirt, generally smooth",
+        bestSeason: "April–November",
+        highlights: [
+          "Great for beginners and warm-ups",
+          "Central connector to the northern road network",
+          "Forest and meadow scenery",
+        ],
+      },
+      {
+        id: "van-dusen-canyon", name: "Van Dusen Canyon Road", ids: ["3N09"],
+        difficulty: "Easy",
+        summary: "Historic stage road, an easy, scenic climb from town toward Holcomb Valley.",
+        description:
+          "A wide, smooth dirt road following the old Van Dusen Canyon stage route from Big Bear City up to Holcomb Valley. Gentle and beginner-friendly under a canopy of pines, one of the most accessible ways into the backcountry.",
+        surface: "Wide, smooth graded dirt",
+        bestSeason: "April–November",
+        highlights: [
+          "Historic Van Dusen stage route",
+          "Gentle, beginner-friendly grade",
+          "Direct line into Holcomb Valley",
+        ],
+      },
+      {
+        id: "arrastre-creek", name: "Arrastre Creek Road", ids: ["2N02"],
+        difficulty: "Moderate",
+        summary: "Long east-side graded road with one green-sticker stretch.",
+        description:
+          "Arrastre Creek Road runs from Baldwin Lake Road east toward the forest boundary, climbing through Jeffrey pine and high-desert transition. A scenic, moderate ride, mostly plate-only, with one segment open to all vehicles.",
+        surface: "Graded dirt with rocky, rutted sections",
+        bestSeason: "May–October",
+        highlights: [
+          "Long, scenic east-side mileage",
+          "Jeffrey pine and high-desert transition",
+          "Quieter than the OHV staging areas",
+        ],
+      },
+      {
+        id: "john-bull", name: "John Bull Trail", ids: ["3N10"],
+        difficulty: "Expert",
+        summary:
+          "Big Bear's most famous trail, a brutal experts-only rock crawl that's more bragging rights than flow on a bike.",
+        description:
+          "One of the most famous technical trails in Southern California, John Bull is a relentless field of granite boulders and step-ups. The Forest Service rates it black-diamond / most difficult. On a dirt bike it demands expert balance, line choice, and clutch control, and most riders find it more punishing than fun. Ranked low here because it's plate-only and a sufferfest on two wheels, not because it isn't famous. Never ride it alone.",
+        surface: "Large granite boulders and rock ledges",
+        bestSeason: "June–September",
+        highlights: [
+          "Iconic technical rock obstacles",
+          "Big payoff views from the high desert edge",
+          "Connects to the Gold Mountain network",
         ],
       },
     ],

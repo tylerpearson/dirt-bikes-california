@@ -20,7 +20,6 @@ everything else is shared.
 |---|---|
 | Area registry (metadata + which routes) | `lib/areas.ts` → `AREAS[]` |
 | Per-area featured-route data | `lib/routes/<area>.generated.ts` (auto) |
-| Big Bear's routes (legacy, hand-authored) | `lib/routes/big-bear.ts` |
 | The page body, identical for every area | `components/AreaGuide.tsx` |
 | Top nav (auto-derives tabs from `AREAS`) | `components/AreaNav.tsx` |
 | The "Where can I ride?" overview map | `components/AreaMap.tsx` (`src` prop) |
@@ -245,10 +244,12 @@ Commit with the data + scripts + page together.
 7. **Escape third-party text in tooltips.** MVUM `name`/`id` go through HTML
    escaping in `AreaMap` before interpolation. Keep it.
 
-8. **Big Bear is the odd one out.** Its routes are hand-authored from
-   OpenStreetMap geometry (`lib/routes/big-bear.ts`), predating this pipeline.
-   New areas use the MVUM-derived `*.generated.ts` flow. Don't "regenerate" Big
-   Bear.
+8. **MVUM trail/road numbers can be split into sub-segments.** Querying
+   `id='2E20'` returned nothing for Big Bear's OHV trails; the real designation
+   is `2E20.1` through `2E20.5`. List every sub-segment in the route's `ids`
+   (the builder stitches them) rather than the base number. Every area is now
+   MVUM-derived through this pipeline, including Big Bear (it used to be
+   hand-authored from OpenStreetMap, but was migrated).
 
 9. **Legal context is statewide.** The SB 586 / sticker section in `AreaGuide`
    is California-wide and shared — no per-area edits needed (unless you add a

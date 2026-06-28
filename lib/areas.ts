@@ -1,5 +1,5 @@
 import type { Route, Trailhead } from "./types";
-import { bigBearRoutes } from "./routes/big-bear";
+import { bigBearRoutes } from "./routes/big-bear.generated";
 import { sanJacintoRoutes } from "./routes/san-jacinto.generated";
 import { santaAnaRoutes } from "./routes/santa-ana.generated";
 import { lagunaRoutes } from "./routes/laguna.generated";
@@ -73,7 +73,7 @@ export const AREAS: Area[] = [
     regionShort: "San Bernardino N.F.",
     state: "California",
     blurb:
-      "A field guide to the best OHV rides around Big Bear, with real route maps and elevation pulled from the Forest Service MVUM and OpenStreetMap, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
+      "A field guide to the best OHV rides around Big Bear, with real route maps and elevation pulled from the Forest Service MVUM and SRTM, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
     tagline:
       "Forest roads and OHV trails ringing Big Bear Lake at 7,000 feet.",
     mvumGeojson: "/data/big-bear-mvum.geojson",
@@ -81,7 +81,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Holcomb Valley Big Day",
-        distanceMiles: 38,
+        distanceMiles: 36,
         summary:
           "The classic plated-bike day: climb out of town, loop the gold-rush basin, drop out the back.",
         description:
@@ -90,11 +90,11 @@ export const AREAS: Area[] = [
       },
       {
         name: "East-Side OHV Sampler",
-        distanceMiles: 10,
+        distanceMiles: 14,
         summary:
           "A shorter green-sticker half-day from the Cactus Flat side.",
         description:
-          "Start from Cactus Flat off Highway 18, warm up on Smarts Ranch Rd (3N03), then session the Pinyon/Vista OHV trails (2E20), the closest thing to real singletrack in the area and fully green-sticker. A good half-day for green-sticker bikes or anyone wanting trail tread over fire road; pair it with Gold Mountain or John Bull nearby if you want to add teeth.",
+          "Start from Cactus Flat off Highway 18, warm up on Smarts Ranch Rd (3N03), then session the Cactus Flat OHV singletrack (the 2E20 trails off its upper end), the closest thing to real trail tread in the area and fully green-sticker. A good half-day for green-sticker bikes or anyone wanting trail over fire road. Gold Mountain and John Bull are right next door if you want to add teeth, but both are open to street-legal vehicles only, so they're a plated-bike detour, not part of the green-sticker day.",
         routeIds: ["cactus-flats", "pinyon-vista"],
       },
     ],
