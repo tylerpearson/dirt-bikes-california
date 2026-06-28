@@ -562,7 +562,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Scenic plated ridge road along Pine Mountain.",
         description:
-          "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,500 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only, a scenic plated cruise; seasonal.",
+          "6N06 runs the Pine Mountain ridge east of Mt Pinos, a high conifer road near 7,000 feet past campgrounds and trailheads with enormous views toward the Sespe and, on clear days, the Channel Islands. Highway-legal-only, a scenic plated cruise; seasonal.",
         surface: "Graded dirt ridge road",
         bestSeason: "May–October (seasonal)",
         highlights: [
