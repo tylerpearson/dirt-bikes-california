@@ -21,7 +21,6 @@ stays legible (that's how the existing areas read in `git log`).
 | Pass touches | File(s) |
 |---|---|
 | Route order, distances, seasons, descriptions | `lib/routes/<area>.generated.ts` **and** the `CONFIG` in `scripts/build-area-routes.mjs` (keep both in sync or a regen reverts you) |
-| Big Bear routes (legacy, hand-authored) | `lib/routes/big-bear.ts` |
 | Area blurb, tagline, loops | `lib/areas.ts` (`AREAS[]`) |
 | Loop rendering ("Make a day of it") | `components/AreaGuide.tsx` (already built, no per-area change) |
 | UI critique fixes | shared components (`RouteCard`, `RouteMap`, `AreaMap`, `app/page.tsx`, …) |
@@ -97,9 +96,8 @@ stub in an already plate-heavy area.
 
 When you remove a route, remove **all** of it so a regen can't resurrect it:
 
-- the entry in `lib/routes/<area>.generated.ts` (or `big-bear.ts`),
-- its `CONFIG` block in `scripts/build-area-routes.mjs` (and any
-  `fetch-osm-gpx.mjs` entry),
+- the entry in `lib/routes/<area>.generated.ts`,
+- its `CONFIG` block in `scripts/build-area-routes.mjs`,
 - the orphaned `public/gpx/<id>.gpx`,
 - and check **no loop's `routeIds` referenced it** before cutting.
 

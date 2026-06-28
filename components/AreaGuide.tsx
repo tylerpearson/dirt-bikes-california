@@ -293,9 +293,9 @@ export function AreaGuide({ area }: { area: Area }) {
             <p>
               Route details, mileage, trailhead locations, and access info on this
               page are approximate and provided for general guidance only. Route
-              lines and elevation come from the MVUM, OpenStreetMap, and SRTM,
-              not a surveyed legal boundary. Trail status, seasonal closures, and
-              Adventure Pass requirements change frequently.
+              lines come from the MVUM and elevation from SRTM, not a surveyed
+              legal boundary. Trail status, seasonal closures, and Adventure Pass
+              requirements change frequently.
             </p>
             <p>
               Always confirm current conditions and legal requirements with the{" "}

@@ -90,7 +90,7 @@ export default function Home() {
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-ink/90">
             The best OHV and dual-sport rides across Southern California&apos;s
             national forests, with real route maps and elevation pulled from the
-            Forest Service Motor Vehicle Use Map (MVUM) and OpenStreetMap, the details that matter, and
+            Forest Service Motor Vehicle Use Map (MVUM) and SRTM, the details that matter, and
             exactly where you need a street-legal plate versus where
             green-sticker bikes are allowed.
           </p>
@@ -136,9 +136,9 @@ export default function Home() {
             <p>
               Route details, mileage, trailhead locations, and access info in
               this guide are approximate and provided for general guidance only.
-              Route lines and elevation come from the MVUM, OpenStreetMap, and
-              SRTM, not a surveyed legal boundary. Trail status, seasonal
-              closures, and Adventure Pass requirements change frequently.
+              Route lines come from the MVUM and elevation from SRTM, not a
+              surveyed legal boundary. Trail status, seasonal closures, and
+              Adventure Pass requirements change frequently.
             </p>
             <p>
               Always confirm current conditions and legal requirements with the
