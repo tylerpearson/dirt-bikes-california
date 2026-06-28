@@ -11,15 +11,22 @@ Springs, Idyllwild, Santa Barbara, …) is a registry entry in `lib/areas.ts`
 rendered by the shared `components/AreaGuide.tsx`. Route geometry and legal
 access come from the USFS MVUM; elevation from SRTM. Only prose is hand-written.
 
-**Adding another riding area?** Follow [`docs/adding-an-area.md`](docs/adding-an-area.md)
-— it's the end-to-end pipeline (bbox → MVUM overview map → curated routes → GPX
+**Adding another riding area?** Follow [`docs/adding-an-area.md`](docs/adding-an-area.md).
+It's the end-to-end pipeline (bbox → MVUM overview map → curated routes → GPX
 → register → verify) plus the gotchas we already hit (national road-number
-collisions, editorial-vs-derived access drift, overlapping areas).
+collisions, editorial-vs-derived access drift, overlapping areas). Then run every
+area through the six editorial/QA passes in
+[`docs/area-review-process.md`](docs/area-review-process.md) (sort best-first →
+rider review → PM review → trim weak routes → loops → impeccable UI critique)
+before calling it done.
 
 # Writing style (hand-written prose)
 
 Write like a person, not a brochure. Applies to all copy: area blurbs, route
-descriptions and notes, loop descriptions, and SEO/metadata.
+descriptions and notes, loop descriptions, and SEO/metadata. **Follow these rules
+in documentation too.** Any markdown you write under `docs/`, this file, READMEs,
+PR descriptions, and commit messages get the same no-em-dash, plain-English
+treatment.
 
 - **No em dashes.** Use commas, periods, colons, or parentheses instead. (En
   dashes in ranges like `November–April` are fine.)
