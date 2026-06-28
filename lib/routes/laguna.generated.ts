@@ -33,118 +33,6 @@ export const lagunaRoutes: Route[] = [
     }
   },
   {
-    "id": "bear-valley",
-    "name": "Bear Valley Road",
-    "forestRoad": "16S12",
-    "summary": "Rugged OHV-area road through the Corral Canyon backcountry.",
-    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
-    "distanceMiles": 8.4,
-    "difficulty": "Difficult",
-    "elevationFt": "3,200–4,600 ft",
-    "surface": "Rocky high-clearance dirt",
-    "bestSeason": "Fall–spring (hot in summer)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "partial",
-      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Green-sticker access on part of the road",
-      "Rocky Corral Canyon backcountry",
-      "Connects the OHV-area network"
-    ],
-    "trailhead": {
-      "name": "Bear Valley Road (16S12)",
-      "lat": 32.817,
-      "lng": -116.5328
-    }
-  },
-  {
-    "id": "skye-valley",
-    "name": "Skye Valley Road",
-    "forestRoad": "17S06",
-    "summary": "OHV-area road threading the Skye Valley chaparral.",
-    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
-    "distanceMiles": 7.9,
-    "difficulty": "Moderate",
-    "elevationFt": "2,900–3,850 ft",
-    "surface": "Graded-to-rocky OHV-area dirt",
-    "bestSeason": "Fall–spring (hot in summer)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "partial",
-      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Green-sticker access on part of the road",
-      "Chaparral-and-grassland scenery",
-      "Links the Corral Canyon roads"
-    ],
-    "trailhead": {
-      "name": "Skye Valley Road (17S06)",
-      "lat": 32.725,
-      "lng": -116.5593
-    }
-  },
-  {
-    "id": "long-valley-loop",
-    "name": "Long Valley Loop",
-    "forestRoad": "16S15",
-    "summary": "Fully green-sticker loop in the Corral Canyon OHV Area.",
-    "description": "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
-    "distanceMiles": 4.5,
-    "difficulty": "Moderate",
-    "elevationFt": "3,800–4,100 ft",
-    "surface": "Rocky and sandy OHV-area tread",
-    "bestSeason": "Fall–spring (hot in summer)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "yes",
-      "note": "Per the MVUM, 16S15 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Fully designated green-sticker loop",
-      "Centerpiece of the OHV-area network",
-      "Oak-and-chaparral San Diego backcountry"
-    ],
-    "trailhead": {
-      "name": "Long Valley Loop (16S15)",
-      "lat": 32.7594,
-      "lng": -116.5074
-    }
-  },
-  {
-    "id": "los-pinos",
-    "name": "Los Pinos Road",
-    "forestRoad": "16S17",
-    "summary": "Climb toward the Los Pinos lookout above Corral Canyon.",
-    "description": "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
-    "distanceMiles": 4.6,
-    "difficulty": "Moderate",
-    "elevationFt": "3,850–4,650 ft",
-    "surface": "Rocky high-clearance dirt",
-    "bestSeason": "Fall–spring (hot in summer)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "partial",
-      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
-      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
-    },
-    "highlights": [
-      "Climbs toward the Los Pinos lookout",
-      "Green-sticker access on part of the road",
-      "Big San-Diego-to-desert views"
-    ],
-    "trailhead": {
-      "name": "Los Pinos Road (16S17)",
-      "lat": 32.7525,
-      "lng": -116.5729
-    }
-  },
-  {
     "id": "kernan-trail",
     "name": "Kernan Trail",
     "forestRoad": "802",
@@ -229,6 +117,118 @@ export const lagunaRoutes: Route[] = [
     }
   },
   {
+    "id": "long-valley-loop",
+    "name": "Long Valley Loop",
+    "forestRoad": "16S15",
+    "summary": "Fully green-sticker loop in the Corral Canyon OHV Area.",
+    "description": "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+    "distanceMiles": 4.5,
+    "difficulty": "Moderate",
+    "elevationFt": "3,800–4,100 ft",
+    "surface": "Rocky and sandy OHV-area tread",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the MVUM, 16S15 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Fully designated green-sticker loop",
+      "Centerpiece of the OHV-area network",
+      "Oak-and-chaparral San Diego backcountry"
+    ],
+    "trailhead": {
+      "name": "Long Valley Loop (16S15)",
+      "lat": 32.7594,
+      "lng": -116.5074
+    }
+  },
+  {
+    "id": "los-pinos",
+    "name": "Los Pinos Road",
+    "forestRoad": "16S17",
+    "summary": "Climb toward the Los Pinos lookout above Corral Canyon.",
+    "description": "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
+    "distanceMiles": 4.6,
+    "difficulty": "Moderate",
+    "elevationFt": "3,850–4,650 ft",
+    "surface": "Rocky high-clearance dirt",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "partial",
+      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Climbs toward the Los Pinos lookout",
+      "Green-sticker access on part of the road",
+      "Big San-Diego-to-desert views"
+    ],
+    "trailhead": {
+      "name": "Los Pinos Road (16S17)",
+      "lat": 32.7525,
+      "lng": -116.5729
+    }
+  },
+  {
+    "id": "bear-valley",
+    "name": "Bear Valley Road",
+    "forestRoad": "16S12",
+    "summary": "Rugged OHV-area road through the Corral Canyon backcountry.",
+    "description": "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
+    "distanceMiles": 8.4,
+    "difficulty": "Difficult",
+    "elevationFt": "3,200–4,600 ft",
+    "surface": "Rocky high-clearance dirt",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "partial",
+      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Green-sticker access on part of the road",
+      "Rocky Corral Canyon backcountry",
+      "Connects the OHV-area network"
+    ],
+    "trailhead": {
+      "name": "Bear Valley Road (16S12)",
+      "lat": 32.817,
+      "lng": -116.5328
+    }
+  },
+  {
+    "id": "skye-valley",
+    "name": "Skye Valley Road",
+    "forestRoad": "17S06",
+    "summary": "OHV-area road threading the Skye Valley chaparral.",
+    "description": "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
+    "distanceMiles": 7.9,
+    "difficulty": "Moderate",
+    "elevationFt": "2,900–3,850 ft",
+    "surface": "Graded-to-rocky OHV-area dirt",
+    "bestSeason": "Fall–spring (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "partial",
+      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
+    },
+    "highlights": [
+      "Green-sticker access on part of the road",
+      "Chaparral-and-grassland scenery",
+      "Links the Corral Canyon roads"
+    ],
+    "trailhead": {
+      "name": "Skye Valley Road (17S06)",
+      "lat": 32.725,
+      "lng": -116.5593
+    }
+  },
+  {
     "id": "la-posta",
     "name": "La Posta Road",
     "forestRoad": "15S05",
@@ -283,5 +283,5 @@ export const lagunaRoutes: Route[] = [
       "lat": 32.8506,
       "lng": -116.525
     }
-  }
+  },
 ];

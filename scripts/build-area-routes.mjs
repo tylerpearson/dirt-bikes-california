@@ -335,62 +335,6 @@ const CONFIG = {
         ],
       },
       {
-        id: "bear-valley", name: "Bear Valley Road", ids: ["16S12"],
-        difficulty: "Difficult",
-        summary: "Rugged OHV-area road through the Corral Canyon backcountry.",
-        description:
-          "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
-        surface: "Rocky high-clearance dirt",
-        bestSeason: "Fall–spring (hot in summer)",
-        highlights: [
-          "Green-sticker access on part of the road",
-          "Rocky Corral Canyon backcountry",
-          "Connects the OHV-area network",
-        ],
-      },
-      {
-        id: "skye-valley", name: "Skye Valley Road", ids: ["17S06"],
-        difficulty: "Moderate",
-        summary: "OHV-area road threading the Skye Valley chaparral.",
-        description:
-          "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
-        surface: "Graded-to-rocky OHV-area dirt",
-        bestSeason: "Fall–spring (hot in summer)",
-        highlights: [
-          "Green-sticker access on part of the road",
-          "Chaparral-and-grassland scenery",
-          "Links the Corral Canyon roads",
-        ],
-      },
-      {
-        id: "long-valley-loop", name: "Long Valley Loop", ids: ["16S15"],
-        difficulty: "Moderate",
-        summary: "Fully green-sticker loop in the Corral Canyon OHV Area.",
-        description:
-          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
-        surface: "Rocky and sandy OHV-area tread",
-        bestSeason: "Fall–spring (hot in summer)",
-        highlights: [
-          "Fully designated green-sticker loop",
-          "Centerpiece of the OHV-area network",
-          "Oak-and-chaparral San Diego backcountry",
-        ],
-      },
-      {
-        id: "los-pinos", name: "Los Pinos Road", ids: ["16S17"],
-        difficulty: "Moderate",
-        summary: "Climb toward the Los Pinos lookout above Corral Canyon.",
-        description:
-          "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
-        surface: "Rocky high-clearance dirt",
-        bestSeason: "Fall–spring (hot in summer)",
-        highlights: [
-          "Climbs toward the Los Pinos lookout",
-          "Green-sticker access on part of the road",
-          "Big San-Diego-to-desert views",
-        ],
-      },
-      {
         id: "kernan-trail", name: "Kernan Trail", ids: ["802"], layer: 2,
         difficulty: "Difficult",
         summary: "The longest singletrack in the Corral Canyon OHV Area.",
@@ -430,6 +374,62 @@ const CONFIG = {
           "Motorcycle-only singletrack",
           "Tightest, most technical trail here",
           "Designated green-sticker (dirt bikes only)",
+        ],
+      },
+      {
+        id: "long-valley-loop", name: "Long Valley Loop", ids: ["16S15"],
+        difficulty: "Moderate",
+        summary: "Fully green-sticker loop in the Corral Canyon OHV Area.",
+        description:
+          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+        surface: "Rocky and sandy OHV-area tread",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Fully designated green-sticker loop",
+          "Centerpiece of the OHV-area network",
+          "Oak-and-chaparral San Diego backcountry",
+        ],
+      },
+      {
+        id: "los-pinos", name: "Los Pinos Road", ids: ["16S17"],
+        difficulty: "Moderate",
+        summary: "Climb toward the Los Pinos lookout above Corral Canyon.",
+        description:
+          "16S17 climbs toward the Los Pinos fire lookout on the ridge above the Corral Canyon area, a high-clearance road with rocky sections and expanding views over the San Diego backcountry to the desert. Part of it is open to all vehicles, so green-sticker access is segment-by-segment.",
+        surface: "Rocky high-clearance dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Climbs toward the Los Pinos lookout",
+          "Green-sticker access on part of the road",
+          "Big San-Diego-to-desert views",
+        ],
+      },
+      {
+        id: "bear-valley", name: "Bear Valley Road", ids: ["16S12"],
+        difficulty: "Difficult",
+        summary: "Rugged OHV-area road through the Corral Canyon backcountry.",
+        description:
+          "16S12 (Bear Valley) is a rugged high-clearance road in the Corral Canyon country, mixing rocky climbs and oak-shaded canyon bottoms. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a solid intermediate-to-hard ride that links the OHV-area roads.",
+        surface: "Rocky high-clearance dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Green-sticker access on part of the road",
+          "Rocky Corral Canyon backcountry",
+          "Connects the OHV-area network",
+        ],
+      },
+      {
+        id: "skye-valley", name: "Skye Valley Road", ids: ["17S06"],
+        difficulty: "Moderate",
+        summary: "OHV-area road threading the Skye Valley chaparral.",
+        description:
+          "17S06 (Skye Valley) runs through the chaparral and grassland of the Corral Canyon area, a mix of graded and rockier tread. Part of it is open to all vehicles, so green-sticker access is segment-by-segment, a good intermediate green-sticker option in the network.",
+        surface: "Graded-to-rocky OHV-area dirt",
+        bestSeason: "Fall–spring (hot in summer)",
+        highlights: [
+          "Green-sticker access on part of the road",
+          "Chaparral-and-grassland scenery",
+          "Links the Corral Canyon roads",
         ],
       },
       {
@@ -484,6 +484,20 @@ const CONFIG = {
         ],
       },
       {
+        id: "mt-pinos-singletrack", name: "Mt Pinos Singletrack", ids: ["19W04"], layer: 2,
+        difficulty: "Difficult",
+        summary: "Long designated motorcycle singletrack, the area's premier trail ride.",
+        description:
+          "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
+        surface: "Long, technical motorcycle singletrack",
+        bestSeason: "May–October (seasonal)",
+        highlights: [
+          "One of the area's longest moto singletracks",
+          "Technical, narrow green-sticker trail",
+          "Motorcycle-only, the real reason to come",
+        ],
+      },
+      {
         id: "mutau", name: "Mutau OHV Road", ids: ["7N03.2"],
         difficulty: "Moderate",
         summary: "Long, remote green-sticker road toward Mutau Flat.",
@@ -512,17 +526,17 @@ const CONFIG = {
         ],
       },
       {
-        id: "quatal-canyon", name: "Quatal Canyon OHV", ids: ["9N09.2"],
+        id: "scott-russell", name: "Scott Russell OHV", ids: ["9N21.1", "9N21.2", "9N21.3"],
         difficulty: "Moderate",
-        summary: "Sandstone-badlands OHV road, green-sticker on part of it.",
+        summary: "Green-sticker OHV road in the Frazier high country.",
         description:
-          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
-        surface: "Deep sandy wash through sandstone badlands",
-        bestSeason: "Fall–spring (hot in summer)",
+          "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
+        surface: "Mixed graded and rocky forest road",
+        bestSeason: "May–October (seasonal)",
         highlights: [
-          "Dramatic sandstone badlands",
-          "Sandy-wash riding",
-          "Green-sticker access on part of the road",
+          "Forested Frazier high country",
+          "Links the area's OHV network",
+          "Designated green-sticker road",
         ],
       },
       {
@@ -540,31 +554,17 @@ const CONFIG = {
         ],
       },
       {
-        id: "scott-russell", name: "Scott Russell OHV", ids: ["9N21.1", "9N21.2", "9N21.3"],
+        id: "quatal-canyon", name: "Quatal Canyon OHV", ids: ["9N09.2"],
         difficulty: "Moderate",
-        summary: "Green-sticker OHV road in the Frazier high country.",
+        summary: "Sandstone-badlands OHV road, green-sticker on part of it.",
         description:
-          "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
-        surface: "Mixed graded and rocky forest road",
-        bestSeason: "May–October (seasonal)",
+          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
+        surface: "Deep sandy wash through sandstone badlands",
+        bestSeason: "Fall–spring (hot in summer)",
         highlights: [
-          "Forested Frazier high country",
-          "Links the area's OHV network",
-          "Designated green-sticker road",
-        ],
-      },
-      {
-        id: "mt-pinos-singletrack", name: "Mt Pinos Singletrack", ids: ["19W04"], layer: 2,
-        difficulty: "Difficult",
-        summary: "Long designated motorcycle singletrack, the area's premier trail ride.",
-        description:
-          "Trail 19W04 is one of the longest designated motorcycle trails in the Mt Pinos area, miles of narrow, technical green-sticker singletrack winding through the backcountry well away from the OHV roads. This is the kind of riding the area is really known for among dirt-bikers: true singletrack, motorcycles only, and seasonal.",
-        surface: "Long, technical motorcycle singletrack",
-        bestSeason: "May–October (seasonal)",
-        highlights: [
-          "One of the area's longest moto singletracks",
-          "Technical, narrow green-sticker trail",
-          "Motorcycle-only, the real reason to come",
+          "Dramatic sandstone badlands",
+          "Sandy-wash riding",
+          "Green-sticker access on part of the road",
         ],
       },
       {
@@ -615,6 +615,20 @@ const CONFIG = {
           "Heart of the Pozo OHV area",
           "Climbs toward the Hi Mountain condor lookout",
           "Designated green-sticker road",
+        ],
+      },
+      {
+        id: "pozo-singletrack", name: "Pozo OHV Singletrack", ids: ["16E21"], layer: 2,
+        difficulty: "Difficult",
+        summary: "The longest designated OHV trail in the Pozo singletrack network.",
+        description:
+          "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area, narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
+        surface: "Narrow OHV singletrack through chaparral",
+        bestSeason: "Fall–spring (closed when wet)",
+        highlights: [
+          "Longest trail in the Pozo singletrack network",
+          "Narrow, technical green-sticker riding",
+          "The real draw of the Pozo OHV area",
         ],
       },
       {
@@ -671,20 +685,6 @@ const CONFIG = {
           "Green-sticker access on part of the road",
           "Oak-woodland Pozo backcountry",
           "Gateway to the OHV network",
-        ],
-      },
-      {
-        id: "pozo-singletrack", name: "Pozo OHV Singletrack", ids: ["16E21"], layer: 2,
-        difficulty: "Difficult",
-        summary: "The longest designated OHV trail in the Pozo singletrack network.",
-        description:
-          "Trail 16E21 is the longest dedicated OHV trail in the Pozo / La Panza area, narrow green-sticker singletrack threading the chaparral and oak well off the OHV roads. The Pozo trail network is the real draw for dirt-bikers here, and this is its centerpiece: technical, remote, and seasonal (closed when wet).",
-        surface: "Narrow OHV singletrack through chaparral",
-        bestSeason: "Fall–spring (closed when wet)",
-        highlights: [
-          "Longest trail in the Pozo singletrack network",
-          "Narrow, technical green-sticker riding",
-          "The real draw of the Pozo OHV area",
         ],
       },
       {
