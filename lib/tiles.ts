@@ -35,7 +35,12 @@ export type MapRender = {
   path?: Point[];
   start?: Point;
   end?: Point;
+  /** MVUM road segments colored by access (green-sticker vs plate-only) */
+  segments?: { access: "green" | "plate"; points: Point[] }[];
 };
+
+/** A run of MVUM geometry sharing one access status, in lat/lng. */
+export type AccessSegment = { access: "green" | "plate"; coords: LatLng[] };
 
 type Frame = { width: number; height: number };
 
@@ -110,10 +115,19 @@ export function trackMap(
     padding = 64,
     minZoom = 9,
     maxZoom = 15,
-  }: Frame & { padding?: number; minZoom?: number; maxZoom?: number } = {} as Frame,
+    segments = [],
+  }: Partial<Frame> & {
+    padding?: number;
+    minZoom?: number;
+    maxZoom?: number;
+    /** MVUM segments to color by access; projected into the same frame. */
+    segments?: AccessSegment[];
+  } = {},
 ): MapRender {
-  const lats = points.map((p) => p.lat);
-  const lngs = points.map((p) => p.lng);
+  // Fit to the track AND any colored segments so neither gets clipped.
+  const fit = [...points, ...segments.flatMap((s) => s.coords)];
+  const lats = fit.map((p) => p.lat);
+  const lngs = fit.map((p) => p.lng);
   const minLat = Math.min(...lats);
   const maxLat = Math.max(...lats);
   const minLng = Math.min(...lngs);
@@ -143,10 +157,16 @@ export function trackMap(
     height,
   );
 
-  const path: Point[] = points.map((p) => {
+  const toPoint = (p: LatLng): Point => {
     const px = project(p.lat, p.lng, zoom);
     return { left: px.x - originX, top: px.y - originY };
-  });
+  };
+
+  const path: Point[] = points.map(toPoint);
+  const projected = segments.map((s) => ({
+    access: s.access,
+    points: s.coords.map(toPoint),
+  }));
 
   return {
     width,
@@ -155,5 +175,6 @@ export function trackMap(
     path,
     start: path[0],
     end: path[path.length - 1],
+    segments: projected.length ? projected : undefined,
   };
 }

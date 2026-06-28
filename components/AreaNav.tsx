@@ -24,8 +24,8 @@ export function AreaNav() {
           <span aria-hidden className="text-base leading-none">
             ◇
           </span>
-          <span className="hidden sm:inline">Field Guide</span>
-          <span className="text-olive">CA OHV</span>
+          <span>Dirt Bike Routes</span>
+          <span className="hidden text-olive sm:inline">· SoCal</span>
         </Link>
 
         <ul className="-mr-2 flex items-stretch overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

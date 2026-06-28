@@ -18,6 +18,15 @@ export function StaticMap({
   showTiles?: boolean;
 }) {
   const pathPoints = map.path?.map((p) => `${p.left},${p.top}`).join(" ");
+  const segments = map.segments ?? [];
+  const SEG_COLOR = {
+    green: "var(--color-ok-fill)",
+    plate: "var(--color-plate-fill)",
+  } as const;
+  // Show a legend only when access is mixed along the route (the "partial" case).
+  const hasGreen = segments.some((s) => s.access === "green");
+  const hasPlate = segments.some((s) => s.access === "plate");
+  const showAccessLegend = hasGreen && hasPlate;
 
   return (
     <span className="relative block h-full w-full overflow-hidden border-b border-edge bg-manila">
@@ -40,27 +49,55 @@ export function StaticMap({
             />
           ))}
 
-        {pathPoints && (
-          <>
-            <polyline
-              points={pathPoints}
-              fill="none"
-              stroke="var(--color-paper-2)"
-              strokeWidth={7}
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              opacity={0.9}
-            />
-            <polyline
-              points={pathPoints}
-              fill="none"
-              stroke="var(--color-rust)"
-              strokeWidth={3.5}
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
-          </>
-        )}
+        {/* MVUM segments colored by access (green-sticker vs plate-only). When
+            present these replace the single GPX line so "partial" roads show
+            exactly where green-sticker is and isn't allowed. */}
+        {segments.length > 0
+          ? segments.map((seg, i) => {
+              const pts = seg.points.map((p) => `${p.left},${p.top}`).join(" ");
+              return (
+                <g key={i}>
+                  <polyline
+                    points={pts}
+                    fill="none"
+                    stroke="var(--color-paper-2)"
+                    strokeWidth={7}
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    opacity={0.9}
+                  />
+                  <polyline
+                    points={pts}
+                    fill="none"
+                    stroke={SEG_COLOR[seg.access]}
+                    strokeWidth={3.5}
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                  />
+                </g>
+              );
+            })
+          : pathPoints && (
+              <>
+                <polyline
+                  points={pathPoints}
+                  fill="none"
+                  stroke="var(--color-paper-2)"
+                  strokeWidth={7}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  opacity={0.9}
+                />
+                <polyline
+                  points={pathPoints}
+                  fill="none"
+                  stroke="var(--color-rust)"
+                  strokeWidth={3.5}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </>
+            )}
 
         {map.start && (
           <circle cx={map.start.left} cy={map.start.top} r={6} fill="var(--color-ok-fill)" stroke="var(--color-paper-2)" strokeWidth={2} />
@@ -76,6 +113,19 @@ export function StaticMap({
       {approximate && (
         <span className="pointer-events-none absolute right-2 top-2 z-10 rounded border border-edge bg-paper/85 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-olive">
           © OpenStreetMap
+        </span>
+      )}
+
+      {showAccessLegend && (
+        <span className="pointer-events-none absolute left-2 top-2 z-10 flex flex-col gap-1 rounded border border-edge bg-paper/85 px-1.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-bistre">
+          <span className="flex items-center gap-1.5">
+            <span className="h-0.5 w-3 rounded-full bg-ok-fill" aria-hidden />
+            Green-sticker
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-0.5 w-3 rounded-full bg-plate-fill" aria-hidden />
+            Plate only
+          </span>
         </span>
       )}
 
