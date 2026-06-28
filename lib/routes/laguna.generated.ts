@@ -9,7 +9,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Corral Canyon Road",
     "forestRoad": "17S04",
     "summary": "The namesake road of San Diego's Corral Canyon OHV Area.",
-    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
+    "description": "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and to street-legal vehicles only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
     "distanceMiles": 8.2,
     "difficulty": "Difficult",
     "elevationFt": "3,050–3,850 ft",
@@ -18,7 +18,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Corral Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Corral Canyon Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -121,7 +121,7 @@ export const lagunaRoutes: Route[] = [
     "name": "Long Valley Loop",
     "forestRoad": "16S15",
     "summary": "Fully green-sticker loop in the Corral Canyon OHV Area.",
-    "description": "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+    "description": "16S15 (Long Valley Loop) is a designated loop open to all vehicles in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
     "distanceMiles": 4.5,
     "difficulty": "Moderate",
     "elevationFt": "3,800–4,100 ft",
@@ -158,7 +158,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Los Pinos Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -186,7 +186,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Bear Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -214,7 +214,7 @@ export const lagunaRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "partial",
-      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
+      "note": "Per the MVUM, Skye Valley Road is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

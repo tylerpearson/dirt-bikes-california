@@ -98,7 +98,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Designated OHV road dropping through Bee Canyon.",
         description:
-          "5S07 follows Bee Canyon as a designated open-to-all-vehicles road. It's a compact green-sticker option with sandy canyon-bottom sections and rockier benches, threading pinyon and scrub on the desert side of the range.",
+          "5S07 follows Bee Canyon as a designated road open to all vehicles. It's a compact green-sticker option with sandy canyon-bottom sections and rockier benches, threading pinyon and scrub on the desert side of the range.",
         surface: "Sandy canyon bottom with rocky benches",
         bestSeason: "April–November",
         highlights: [
@@ -126,7 +126,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Remote high-clearance climb deep into the Santa Rosa Mountains.",
         description:
-          "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's highway-legal-only.",
+          "7S02 climbs toward the high Santa Rosa Mountains and the Toro Peak area, a remote, high-clearance road with rough, rocky, sometimes washed-out sections. It tops out in cool conifer country with enormous views over the desert; come prepared and plated, since it's open to street-legal vehicles only.",
         surface: "Rough, rocky high-clearance road; washouts likely",
         bestSeason: "May–October",
         highlights: [
@@ -311,7 +311,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The namesake road of San Diego's Corral Canyon OHV Area.",
         description:
-          "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and highway-legal-only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
+          "17S04 is the spine of the Corral Canyon OHV Area near Pine Valley, a rocky, high-clearance road through chaparral and oak with technical pitches and connections to the area's trail network. It's open to all vehicles on its OHV segments and to street-legal vehicles only on others, so green-sticker access is segment-by-segment; read the signs at each junction.",
         surface: "Rocky, high-clearance OHV-area dirt",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -367,7 +367,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Fully green-sticker loop in the Corral Canyon OHV Area.",
         description:
-          "16S15 (Long Valley Loop) is a designated open-to-all-vehicles loop in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
+          "16S15 (Long Valley Loop) is a designated loop open to all vehicles in the Corral Canyon OHV Area, the cleanest green-sticker ride here, with rocky and sandy tread through oak and chaparral. A fun, self-contained loop that's a natural centerpiece for a green-sticker day.",
         surface: "Rocky and sandy OHV-area tread",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -488,7 +488,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Long, remote green-sticker road toward Mutau Flat.",
         description:
-          "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long open-to-all-vehicles road mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage. Go prepared; seasonal.",
+          "7N03 (Mutau) runs deep toward Mutau Flat on the edge of the Sespe backcountry, a long road open to all vehicles, mixing forest and meadow with sandy and rocky stretches. Remote, quiet green-sticker mileage. Go prepared; seasonal.",
         surface: "Mixed forest road, sandy and rocky sections",
         bestSeason: "May–October (seasonal)",
         highlights: [
@@ -502,7 +502,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Green-sticker road through the colorful Cuyama badlands.",
         description:
-          "8N06 threads Apache Canyon in the sandstone badlands on the Cuyama side of the range, an open-to-all-vehicles road with sandy washes, rocky benches, and striking eroded rock. A fun, scenic green-sticker ride that pairs with neighboring Quatal Canyon.",
+          "8N06 threads Apache Canyon in the sandstone badlands on the Cuyama side of the range, a road open to all vehicles, with sandy washes, rocky benches, and striking eroded rock. A fun, scenic green-sticker ride that pairs with neighboring Quatal Canyon.",
         surface: "Sandy wash and rocky badlands tread",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -516,7 +516,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Green-sticker OHV road in the Frazier high country.",
         description:
-          "9N21 (Scott Russell) is an open-to-all-vehicles road in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
+          "9N21 (Scott Russell) is a road open to all vehicles in the forested country between Frazier Mountain and Lockwood Valley, mixing graded and rockier stretches through pine and oak. A solid intermediate green-sticker ride linking the area's OHV network; seasonal.",
         surface: "Mixed graded and rocky forest road",
         bestSeason: "May–October (seasonal)",
         highlights: [
@@ -544,7 +544,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Sandstone-badlands OHV road, green-sticker on part of it.",
         description:
-          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
+          "Quatal Canyon (9N09) is the classic Cuyama-badlands sand-wash ride, winding through dramatic eroded sandstone. Part of it is designated open to all vehicles and part is open to street-legal vehicles only, so green-sticker access is segment-by-segment; read the signs at each junction. Sandy and exposed; best in cool weather.",
         surface: "Deep sandy wash through sandstone badlands",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -572,7 +572,7 @@ const CONFIG = {
         difficulty: "Easy",
         summary: "Plated staging road into the Ballinger Canyon OHV area.",
         description:
-          "9N10 is the graded access road into the Ballinger Canyon OHV area on the Cuyama side, an easy plated ride to the staging area and campground that anchors a big network of OHV trails. The road itself is highway-legal-only; the OHV trail riding branches off it.",
+          "9N10 is the graded access road into the Ballinger Canyon OHV area on the Cuyama side, an easy plated ride to the staging area and campground that anchors a big network of OHV trails. The road itself is open to street-legal vehicles only; the OHV trail riding branches off it.",
         surface: "Wide graded dirt",
         bestSeason: "Fall–spring (hot in summer)",
         highlights: [
@@ -622,7 +622,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Designated green-sticker OHV road through the La Panza chaparral.",
         description:
-          "30S06 is an open-to-all-vehicles OHV road in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network, seasonal when wet.",
+          "30S06 is an OHV road open to all vehicles in the La Panza country, mixing rocky benches and sandy stretches through dense chaparral. A solid intermediate green-sticker ride that links into the surrounding Pozo OHV network, seasonal when wet.",
         surface: "Rocky and sandy OHV-area tread",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -650,7 +650,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Short, rocky green-sticker spur toward the Sierra Madre country.",
         description:
-          "12N03 (Old Sierra) is a short open-to-all-vehicles OHV road on the approach to the Sierra Madre high country, rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
+          "12N03 (Old Sierra) is a short OHV road open to all vehicles on the approach to the Sierra Madre high country, rocky, high-clearance tread with chaparral and grassland views. A brief green-sticker option best paired with the longer roads nearby; seasonal.",
         surface: "Rocky high-clearance OHV-area dirt",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -664,7 +664,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Backcountry road into the Pozo OHV area, green-sticker on part of it.",
         description:
-          "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is highway-legal-only, so green-sticker access is segment-by-segment; read the signs at each junction. Seasonal closures apply.",
+          "Navajo Road (29S02) drops into the Pozo / La Panza backcountry, mixing graded stretches with rockier sections through oak woodland. Part of it is designated open to all vehicles and part is open to street-legal vehicles only, so green-sticker access is segment-by-segment; read the signs at each junction. Seasonal closures apply.",
         surface: "Graded dirt with rocky sections",
         bestSeason: "Fall–spring (closed when wet)",
         highlights: [
@@ -692,7 +692,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Quiet plated forest road in the Santa Lucia backcountry.",
         description:
-          "Fernandez Road (28S02) is a quieter highway-legal-only road through the Santa Lucia backcountry near Pozo, with graded dirt and rocky sections through oak and chaparral. A relaxed plated ride and a way to link the area without the technical or seasonal demands of the OHV roads.",
+          "Fernandez Road (28S02) is a quieter road open to street-legal vehicles only, through the Santa Lucia backcountry near Pozo, with graded dirt and rocky sections through oak and chaparral. A relaxed plated ride and a way to link the area without the technical or seasonal demands of the OHV roads.",
         surface: "Graded dirt with rocky sections",
         bestSeason: "Spring–fall",
         highlights: [
@@ -739,7 +739,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "Remote green-sticker road into the San Rafael backcountry.",
         description:
-          "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated open-to-all-vehicles road. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine, proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
+          "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated road open to all vehicles. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine, proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
         surface: "Rugged high-clearance dirt; rough and remote",
         bestSeason: "Late spring–fall (closed when wet)",
         highlights: [
@@ -767,7 +767,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Quiet plated backcountry road in the Sunset Valley area.",
         description:
-          "8N19 runs through the West Dry Canyon / Sunset Valley country as a highway-legal-only road. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings, a good way to link the area's backcountry without the technical demands of the OHV roads.",
+          "8N19 runs through the West Dry Canyon / Sunset Valley country as a road open to street-legal vehicles only. It's a quiet, scenic plated dual-sport ride through oak and chaparral with creek crossings, a good way to link the area's backcountry without the technical demands of the OHV roads.",
         surface: "Graded dirt with creek crossings",
         bestSeason: "Spring–fall",
         highlights: [
@@ -795,7 +795,7 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Scenic plated road from the Santa Ynez Valley into the forest.",
         description:
-          "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic, highway-legal-only road, a classic plated dual-sport climb toward Figueroa Mountain country.",
+          "Happy Canyon (7N07) climbs from the Santa Ynez Valley up into the Los Padres backcountry, transitioning from oak-dotted ranch country to chaparral forest. A long, scenic road for street-legal bikes only, a classic plated dual-sport climb toward Figueroa Mountain country.",
         surface: "Graded dirt, smooth lower, rougher up high",
         bestSeason: "Spring–fall",
         highlights: [
@@ -909,7 +909,7 @@ function accessNote(name, ids, access, seasonal, isTrail = false) {
   if (access === "yes")
     return `Per the MVUM, ${id} is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.${season}`;
   if (access === "partial")
-    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are highway-legal-only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.${season}`;
+    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.${season}`;
   return `Per the MVUM, ${id} is open to highway-legal vehicles only: plated, street-legal bikes only, no green-sticker (non-street-legal) bikes.${season}`;
 }
 

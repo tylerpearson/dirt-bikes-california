@@ -66,7 +66,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, 3N16 is mostly highway-legal-only, but one segment (around the Crab Flats / 3N34 area) is open to all vehicles, so green-sticker bikes are allowed on that portion only, not the stretches toward Green Valley Lake, Big Bear, or Fawnskin. Registration + spark arrestor required.",
+      note: "Per the MVUM, 3N16 is mostly open to street-legal vehicles only, but one segment (around the Crab Flats / 3N34 area) is open to all vehicles, so green-sticker bikes are allowed on that portion only, not the stretches toward Green Valley Lake, Big Bear, or Fawnskin. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -124,7 +124,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, Smarts Ranch Rd (3N03) is part highway-legal-only and part open-to-all-vehicles, so green-sticker access is segment-by-segment, but the staging area's OHV trails (Pinyon/Vista, 2E20) are fully green-sticker. Registration + spark arrestor required.",
+      note: "Per the MVUM, Smarts Ranch Rd (3N03) is open to all vehicles on some segments and street-legal vehicles only on others, so green-sticker access is segment-by-segment, but the staging area's OHV trails (Pinyon/Vista, 2E20) are fully green-sticker. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -153,7 +153,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, 3N14 is part highway-legal-only and part open-to-all-vehicles, so green-sticker bikes are allowed on the open-to-all segment (north toward the forest boundary), not the lower stretch from Fawnskin. Registration + spark arrestor required.",
+      note: "Per the MVUM, 3N14 is open to all vehicles on some segments and street-legal vehicles only on others, so green-sticker bikes are allowed on the segment open to all vehicles (north toward the forest boundary), not the lower stretch from Fawnskin. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
@@ -211,7 +211,7 @@ export const bigBearRoutes: Route[] = [
     access: {
       streetLegal: true,
       greenSticker: "partial",
-      note: "Per the MVUM, most of 2N02 is highway-legal-only, but a ~3.8-mile middle segment is open to all vehicles, so green-sticker bikes are allowed on that stretch only. Registration + spark arrestor required.",
+      note: "Per the MVUM, most of 2N02 is open to street-legal vehicles only, but a ~3.8-mile middle segment is open to all vehicles, so green-sticker bikes are allowed on that stretch only. Registration + spark arrestor required.",
       source: MVUM,
     },
     highlights: [
