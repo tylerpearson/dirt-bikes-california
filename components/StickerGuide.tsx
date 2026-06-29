@@ -343,19 +343,12 @@ export function StickerGuide() {
           </p>
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-ink/90">
             <li>
-              <span className="font-semibold text-bistre">
-                The rider has to wear a helmet
-              </span>
-              , the same as any off-road bike. That is the rule a parent usually
-              asks about first.
-            </li>
-            <li>
               It registers with a{" "}
               <span className="font-semibold text-bistre">green sticker</span>{" "}
               through the DMV. With no exhaust, an electric bike automatically
               meets the emissions side of the rules. After that it follows the
-              same green-sticker rules as a gas dirt bike: visible sticker, ride
-              only in OHV-designated areas.
+              same green-sticker rules as a gas dirt bike: a helmet, a visible
+              sticker, and riding only in OHV-designated areas.
             </li>
             <li>
               The law is specific about what counts: an off-road electric
