@@ -51,7 +51,7 @@ export type AreaLoop = {
  * MVUM uses, so the standard legend labels apply unless an area overrides them.
  */
 export type AreaSource = {
-  /** Collar label by the "Where can I ride?" heading, e.g. "BLM Ridgecrest FO". */
+  /** Collar label by the "Where can I ride?" heading, e.g. "BLM Ridgecrest". */
   overviewLabel: string;
   /** Plain-text intro paragraph under that heading (agency-specific). */
   overviewIntro: string;
@@ -105,7 +105,7 @@ export const AREAS: Area[] = [
     regionShort: "San Bernardino N.F.",
     state: "California",
     blurb:
-      "A field guide to the best OHV rides around Big Bear, with real route maps and elevation pulled from the Forest Service MVUM and SRTM, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
+      "A field guide to the best OHV rides around Big Bear, with real route maps and elevation pulled from the Forest Service's official travel maps and public terrain data, the details that matter, and exactly where you need a street-legal plate versus where green-sticker bikes are allowed.",
     tagline:
       "Forest roads and OHV trails ringing Big Bear Lake at 7,000 feet.",
     mvumGeojson: "/data/big-bear-mvum.geojson",
@@ -139,7 +139,7 @@ export const AREAS: Area[] = [
     regionShort: "San Jacinto R.D.",
     state: "California",
     blurb:
-      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. The Pacific Crest Trail itself is closed to every motor vehicle. Those are places to park, not singletrack to ride. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The San Jacinto Mountains between Palm Springs and Idyllwild are one range with two very different sides. The Garner Valley and Santa Rosa side has designated green-sticker OHV roads; the forested Idyllwild side is plated dual-sport country up to the Black Mountain lookout and the PCT trailheads. The Pacific Crest Trail itself is closed to every motor vehicle. Those are places to park, not singletrack to ride. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "One range, two sides: green-sticker OHV roads above Palm Springs, plated dual-sport up at Idyllwild.",
     mvumGeojson: "/data/san-jacinto-mvum.geojson",
@@ -172,7 +172,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback. (For green-sticker OHV riding, the Cleveland's Wildomar OHV area sits on the southeast edge of the range, a separate staging-based trail system not detailed here.) Route geometry and elevation are pulled from the Forest Service MVUM and SRTM.",
+      "The Santa Ana Mountains sit between Orange County and the Inland Empire, the Main Divide country about an hour from LA. These are mostly plated dual-sport and adventure roads, headlined by the ~35-mile North Main Divide over Saddleback. (For green-sticker OHV riding, the Cleveland's Wildomar OHV area sits on the southeast edge of the range, a separate staging-based trail system not detailed here.) Route geometry and elevation are pulled from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "Mostly plated Main Divide country, headlined by the 35-mile run over Saddleback.",
     mvumGeojson: "/data/santa-ana-mvum.geojson",
@@ -197,7 +197,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "The Laguna Mountains in San Diego County hold the Corral Canyon OHV Area near Pine Valley, the guide's one real green-sticker network this far south, plus the plated forest roads of the Mount Laguna and Sunrise Highway country. Green-sticker access on the OHV roads is mostly segment-by-segment, with plated dual-sport riding everywhere else. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The Laguna Mountains in San Diego County hold the Corral Canyon OHV Area near Pine Valley, the guide's one real green-sticker network this far south, plus the plated forest roads of the Mount Laguna and Sunrise Highway country. Green-sticker access on the OHV roads is mostly segment-by-segment, with plated dual-sport riding everywhere else. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "Corral Canyon's green-sticker network plus the Mount Laguna forest roads, the guide's southernmost riding.",
     mvumGeojson: "/data/laguna-mvum.geojson",
@@ -222,7 +222,7 @@ export const AREAS: Area[] = [
     regionShort: "Mt Pinos R.D.",
     state: "California",
     blurb:
-      "The Mt Pinos / Frazier Park country in northern Los Padres, near Gorman and I-5 about an hour from LA, is the strongest green-sticker OHV complex in this guide. You get high pine roads around Alamo and Frazier Mountains, the colorful Cuyama sandstone badlands of Apache and Quatal Canyons, and the Ballinger Canyon OHV area, plus scenic plated ridge roads. (The adjacent Hungry Valley SVRA is California State land and isn't covered here.) Much of the high country is typically snowbound and closed from roughly December into April, though the timing swings year to year with the snowpack. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The Mt Pinos / Frazier Park country in northern Los Padres, near Gorman and I-5 about an hour from LA, is the strongest green-sticker OHV complex in this guide. You get high pine roads around Alamo and Frazier Mountains, the colorful Cuyama sandstone badlands of Apache and Quatal Canyons, and the Ballinger Canyon OHV area, plus scenic plated ridge roads. (The adjacent Hungry Valley SVRA is California State land and isn't covered here.) Much of the high country is typically snowbound and closed from roughly December into April, though the timing swings year to year with the snowpack. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "The guide's strongest green-sticker complex: pine roads, Cuyama badlands, and Ballinger Canyon OHV.",
     mvumGeojson: "/data/mt-pinos-mvum.geojson",
@@ -256,7 +256,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Santa Ynez and San Rafael backcountry behind Santa Barbara takes in the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Route geometry and elevation come from the Forest Service MVUM and SRTM. Many roads here close in wet weather, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until the tread dries out.",
+      "The Santa Ynez and San Rafael backcountry behind Santa Barbara takes in the Camuesa OHV area, the East Camino Cielo crest, and remote green-sticker roads, plus quieter plated routes. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data. Many roads here close in wet weather, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until the tread dries out.",
     tagline:
       "Camuesa OHV roads and the East Camino Cielo crest in the backcountry above the city.",
     mvumGeojson: "/data/santa-barbara-mvum.geojson",
@@ -290,7 +290,7 @@ export const AREAS: Area[] = [
     regionShort: "Los Padres N.F.",
     state: "California",
     blurb:
-      "The Los Padres backcountry east of San Luis Obispo is home to the Pozo and La Panza OHV area: a real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close when wet, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until things dry out. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The Los Padres backcountry east of San Luis Obispo is home to the Pozo and La Panza OHV area: a real green-sticker network of OHV roads and motorcycle singletrack around Hi Mountain and Pozo, plus the long, remote Sierra Madre Ridge for plated adventure riding. (Oceano Dunes, the coastal riding, is state land and isn't covered here.) Many roads and trails close when wet, storm-driven rather than calendar-based, so expect closures during and after winter and spring rains (roughly November–April) until things dry out. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "The Pozo and La Panza OHV area: green-sticker roads, singletrack, and the long Sierra Madre Ridge.",
     mvumGeojson: "/data/san-luis-obispo-mvum.geojson",
@@ -315,7 +315,7 @@ export const AREAS: Area[] = [
     regionShort: "San Bernardino N.F.",
     state: "California",
     blurb:
-      "The front-country forest west of Big Bear, around Lake Arrowhead, Crab Flats, and Deep Creek. This is the closest real green-sticker riding to the Inland Empire: the Crab Flats roads and a designated motorcycle singletrack above Deep Creek, plus a long green-sticker ridge along Cleghorn above Silverwood Lake. The forested high country holds snow, so the upper roads close in winter (roughly December–April). Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The front-country forest west of Big Bear, around Lake Arrowhead, Crab Flats, and Deep Creek. This is the closest real green-sticker riding to the Inland Empire: the Crab Flats roads and a designated motorcycle singletrack above Deep Creek, plus a long green-sticker ridge along Cleghorn above Silverwood Lake. The forested high country holds snow, so the upper roads close in winter (roughly December–April). Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "Green-sticker OHV roads and Deep Creek singletrack, just west of Big Bear.",
     mvumGeojson: "/data/lake-arrowhead-mvum.geojson",
@@ -349,7 +349,7 @@ export const AREAS: Area[] = [
     regionShort: "San Gorgonio front",
     state: "California",
     blurb:
-      "The south side of the San Bernardinos below San Gorgonio: the Santa Ana River, Barton Flats, and Heart Bar high country. This is entirely plated dual-sport country, with no green-sticker roads, so it's a place for street-legal bikes to cover scenic forest mileage rather than green-sticker trail riding. For green-sticker access nearby, the Crab Flats roads around Lake Arrowhead or the Cactus Flat side of Big Bear are the closest options. The San Gorgonio Wilderness itself is closed to all motor vehicles. Those are trailheads to park at, not trails to ride. The high country holds snow in winter (roughly December–April). Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "The south side of the San Bernardinos below San Gorgonio: the Santa Ana River, Barton Flats, and Heart Bar high country. This is entirely plated dual-sport country, with no green-sticker roads, so it's a place for street-legal bikes to cover scenic forest mileage rather than green-sticker trail riding. For green-sticker access nearby, the Crab Flats roads around Lake Arrowhead or the Cactus Flat side of Big Bear are the closest options. The San Gorgonio Wilderness itself is closed to all motor vehicles. Those are trailheads to park at, not trails to ride. The high country holds snow in winter (roughly December–April). Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "Plated dual-sport in the Santa Ana River and Barton Flats high country below San Gorgonio.",
     mvumGeojson: "/data/san-gorgonio-mvum.geojson",
@@ -383,7 +383,7 @@ export const AREAS: Area[] = [
     regionShort: "Cleveland N.F.",
     state: "California",
     blurb:
-      "Palomar Mountain in north San Diego County, the compact third district of the Cleveland after the Santa Anas and the Lagunas. It's a small, entirely plated network: the long Palomar Divide ridge, a high-clearance climb on the mountain's northeast flank, and the remote Indian Flats backcountry toward Lake Henshaw. No green-sticker roads here, so for green-sticker riding in San Diego County the place to go is the Corral Canyon OHV area in the Lagunas. Many of these roads close when wet, storm-driven rather than calendar-based, so expect closures during and after winter rains. Route geometry and elevation come from the Forest Service MVUM and SRTM.",
+      "Palomar Mountain in north San Diego County, the compact third district of the Cleveland after the Santa Anas and the Lagunas. It's a small, entirely plated network: the long Palomar Divide ridge, a high-clearance climb on the mountain's northeast flank, and the remote Indian Flats backcountry toward Lake Henshaw. No green-sticker roads here, so for green-sticker riding in San Diego County the place to go is the Corral Canyon OHV area in the Lagunas. Many of these roads close when wet, storm-driven rather than calendar-based, so expect closures during and after winter rains. Route geometry and elevation come from the Forest Service's official travel maps and public terrain data.",
     tagline:
       "A compact, all-plate district headlined by the long Palomar Divide ridge.",
     mvumGeojson: "/data/palomar-mvum.geojson",
@@ -417,19 +417,19 @@ export const AREAS: Area[] = [
     regionShort: "BLM · Jawbone",
     state: "California",
     blurb:
-      "Jawbone Canyon is the classic Mojave green-sticker country: open BLM desert off Highway 14 in Kern County, with miles of designated routes climbing west from the canyon toward the Piute Mountains, plus the Dove Springs and Butterbredt drainages alongside. Unlike the national forests, this is open OHV land, so almost the whole designated network is open to green-sticker (non-street-legal) bikes, including real motorcycle singletrack. Route geometry and elevation come from the BLM travel network and SRTM.",
+      "Jawbone Canyon is the classic Mojave green-sticker country: open BLM desert off Highway 14 in Kern County, with miles of designated routes climbing west from the canyon toward the Piute Mountains, plus the Dove Springs and Butterbredt drainages alongside. Unlike the national forests, this is open OHV land, so almost the whole designated network is open to green-sticker (non-street-legal) bikes, including real motorcycle singletrack. Route geometry and elevation come from the BLM travel network and public terrain data.",
     tagline:
       "Open Mojave OHV desert off Highway 14: designated routes and moto singletrack, almost all green-sticker.",
     mvumGeojson: "/data/jawbone-blm.geojson",
     forest: BLM_RIDGECREST,
     source: {
-      overviewLabel: "BLM Ridgecrest FO",
+      overviewLabel: "BLM Ridgecrest",
       overviewIntro:
         "Every designated motorized route in the Jawbone area, from the BLM travel network. This is open OHV land, so the whole designated network here is open to green-sticker (non-street-legal) bikes. Stay on the routes shown; the map leaves out roads closed to OHV recreation. Hover any line for its name.",
-      attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
+      attribution: "&copy; OpenStreetMap contributors · BLM travel data",
       verifyNote:
-        "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. This is open OHV land, but stay on designated routes: BLM closes and reroutes for habitat (desert tortoise) and seasonal conditions, and route designations change.",
-      credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
+        "Route lines come from the BLM travel network and elevation from public terrain data, not a surveyed legal boundary. This is open OHV land, but stay on designated routes: BLM closes and reroutes for habitat (desert tortoise) and seasonal conditions, and route designations change.",
+      credit: "Route data © BLM travel network",
     },
     loops: [
       {
@@ -460,19 +460,19 @@ export const AREAS: Area[] = [
     regionShort: "BLM · El Paso",
     state: "California",
     blurb:
-      "The El Paso Mountains are the colorful, rugged range just east of Jawbone near Randsburg: eroded volcanic badlands threaded with designated motorcycle singletrack, the old Last Chance Canyon mining country, and Burro Schmidt's hand-dug tunnel. Like Jawbone, this is open BLM OHV land, so the designated network is green-sticker terrain end to end. It wraps Red Rock Canyon State Park, which is closed to OHVs, so the boundaries matter here. Route geometry and elevation come from the BLM travel network and SRTM.",
+      "The El Paso Mountains are the colorful, rugged range just east of Jawbone near Randsburg: eroded volcanic badlands threaded with designated motorcycle singletrack, the old Last Chance Canyon mining country, and Burro Schmidt's hand-dug tunnel. Like Jawbone, this is open BLM OHV land, so the designated network is green-sticker terrain end to end. It wraps Red Rock Canyon State Park, which is closed to OHVs, so the boundaries matter here. Route geometry and elevation come from the BLM travel network and public terrain data.",
     tagline:
       "Volcanic badlands and real moto singletrack east of Jawbone, around Last Chance Canyon and Randsburg.",
     mvumGeojson: "/data/el-paso-blm.geojson",
     forest: BLM_RIDGECREST,
     source: {
-      overviewLabel: "BLM Ridgecrest FO",
+      overviewLabel: "BLM Ridgecrest",
       overviewIntro:
         "Every designated motorized route in the El Paso Mountains, from the BLM travel network. This is open OHV land, so the whole designated network here is open to green-sticker (non-street-legal) bikes. Stay on the routes shown; the map leaves out roads closed to OHV recreation, and Red Rock Canyon State Park (to the west) is closed to OHVs entirely. Hover any line for its name.",
-      attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
+      attribution: "&copy; OpenStreetMap contributors · BLM travel data",
       verifyNote:
-        "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. Stay on designated routes: the range borders Red Rock Canyon State Park (closed to OHVs) and carries cultural and mining sites, and BLM closes and reroutes for conditions.",
-      credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
+        "Route lines come from the BLM travel network and elevation from public terrain data, not a surveyed legal boundary. Stay on designated routes: the range borders Red Rock Canyon State Park (closed to OHVs) and carries cultural and mining sites, and BLM closes and reroutes for conditions.",
+      credit: "Route data © BLM travel network",
     },
     loops: [
       {

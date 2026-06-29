@@ -211,7 +211,7 @@ export function AreaGuide({ area }: { area: Area }) {
               Where can I ride?
             </h2>
             <span className="text-sm text-olive">
-              {area.source ? area.source.overviewLabel : `${area.region} MVUM`}
+              {area.source ? area.source.overviewLabel : `${area.region} travel map`}
             </span>
           </div>
           {area.source ? (
@@ -368,7 +368,7 @@ export function AreaGuide({ area }: { area: Area }) {
               page are approximate and provided for general guidance only.{" "}
               {area.source
                 ? area.source.verifyNote
-                : "Route lines come from the MVUM and elevation from SRTM, not a surveyed legal boundary. Trail status, seasonal closures, and Adventure Pass requirements change frequently."}
+                : "Route lines come from the Forest Service travel map and elevation from public terrain data, not a surveyed legal boundary. Trail status, seasonal closures, and Adventure Pass requirements change frequently."}
             </p>
             <p>
               Always confirm current conditions and legal requirements with the{" "}
@@ -387,7 +387,7 @@ export function AreaGuide({ area }: { area: Area }) {
             </p>
           </div>
           <p className="mt-6 text-xs text-olive">
-            {area.source ? area.source.credit : "Access data © USFS MVUM (EDW_MVUM_01)"} · map data ©{" "}
+            {area.source ? area.source.credit : "Access data © US Forest Service travel maps"} · map data ©{" "}
             <a
               href="https://www.openstreetmap.org/copyright"
               target="_blank"
@@ -396,7 +396,7 @@ export function AreaGuide({ area }: { area: Area }) {
             >
               OpenStreetMap
             </a>{" "}
-            contributors · elevation from SRTM.
+            contributors · elevation data from NASA.
           </p>
         </div>
       </footer>
