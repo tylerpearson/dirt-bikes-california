@@ -8,7 +8,7 @@ export const elPasoRoutes: Route[] = [
     "id": "el-paso-singletrack",
     "name": "El Paso Mountains Singletrack",
     "summary": "A real moto singletrack network threading the volcanic badlands.",
-    "description": "The El Paso Mountains hold one of the better designated singletrack networks in the Ridgecrest desert: miles of narrow motorcycle-only tread twisting through colorful volcanic country, tight and sandy with rocky pitches. For most riders this, not the roads, is the point of coming out here. The line on the map joins the area's designated single-track segments so you can see roughly where the network runs.",
+    "description": "The El Paso Mountains hold one of the better designated singletrack networks in the Ridgecrest desert: miles of narrow motorcycle-only tread twisting through colorful volcanic country, tight and sandy with rocky pitches. For most riders this, not the roads, is the point of coming out here. The line on the map joins the area's designated singletrack segments so you can see roughly where the network runs.",
     "distanceMiles": 19.4,
     "difficulty": "Difficult",
     "elevationFt": "2,800–4,350 ft",
@@ -17,7 +17,7 @@ export const elPasoRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the BLM travel plan, this is designated motorized single-track open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's moto-width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
+      "note": "Per the BLM travel plan, this is designated motorized singletrack open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's motorcycle width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
@@ -35,8 +35,8 @@ export const elPasoRoutes: Route[] = [
     "id": "el-paso-willis-well",
     "name": "Willis Well Road",
     "forestRoad": "R43",
-    "summary": "A long designated open route across the El Paso backcountry.",
-    "description": "R43 (Willis Well Road) is one of the longer designated open routes through the El Paso Mountains, natural-surface desert two-track running across the benches and washes past old wells and mining ground. Sandy stretches trade off with rockier pitches, real backcountry mileage well off the staging areas. Open and green-sticker the length of it.",
+    "summary": "A long designated route across the El Paso backcountry.",
+    "description": "R43, the Willis Well Road, is one of the longer routes through the El Paso Mountains, natural-surface two-track running across the benches and washes past old wells and weathered mining ground. The tread trades sandy stretches for rockier pitches as it goes. It reaches a long way into the backcountry, a green-sticker route for covering ground.",
     "distanceMiles": 9.7,
     "difficulty": "Moderate",
     "elevationFt": "2,200–4,100 ft",
@@ -49,9 +49,9 @@ export const elPasoRoutes: Route[] = [
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
-      "Long designated open route, real seat time",
-      "Old wells and mining country",
-      "Quiet El Paso backcountry"
+      "A long route deep into the backcountry",
+      "Past old wells and mining ground",
+      "Quiet El Paso desert"
     ],
     "trailhead": {
       "name": "Willis Well Road",
@@ -63,7 +63,7 @@ export const elPasoRoutes: Route[] = [
     "id": "el-paso-black-mountain",
     "name": "Black Mountain Road",
     "summary": "Designated route climbing toward Black Mountain.",
-    "description": "Black Mountain Road is a designated open route working up toward Black Mountain on the north side of the range, a natural-surface climb with rockier high-clearance pitches and expanding views over the desert and the Sierra to the west. A solid intermediate ride that connects into the wider El Paso network.",
+    "description": "Black Mountain Road climbs toward Black Mountain on the north side of the range, a natural-surface grind that gets rockier and more high-clearance as it gains the height. Up top it opens a long look west over the desert toward the Sierra. One of the few routes here that climbs to any real elevation.",
     "distanceMiles": 6.3,
     "difficulty": "Moderate",
     "elevationFt": "3,050–3,500 ft",
@@ -76,9 +76,9 @@ export const elPasoRoutes: Route[] = [
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
-      "Climbs toward Black Mountain",
-      "Big desert and Sierra views",
-      "Connects the El Paso route network"
+      "Climbs to real elevation on Black Mountain",
+      "Long look west toward the Sierra",
+      "Rockier and high-clearance up high"
     ],
     "trailhead": {
       "name": "Black Mountain Road",

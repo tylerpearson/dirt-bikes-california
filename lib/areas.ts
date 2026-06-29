@@ -460,7 +460,7 @@ export const AREAS: Area[] = [
     regionShort: "BLM · El Paso",
     state: "California",
     blurb:
-      "The El Paso Mountains are the colorful, history-soaked range just east of Jawbone near Randsburg: eroded volcanic badlands threaded with designated motorcycle singletrack, the old Last Chance Canyon mining country, and Burro Schmidt's hand-dug tunnel. Like Jawbone, this is open BLM OHV land, so the designated network is green-sticker terrain end to end. It wraps Red Rock Canyon State Park, which is closed to OHVs, so the boundaries matter here. Route geometry and elevation come from the BLM travel network and SRTM.",
+      "The El Paso Mountains are the colorful, rugged range just east of Jawbone near Randsburg: eroded volcanic badlands threaded with designated motorcycle singletrack, the old Last Chance Canyon mining country, and Burro Schmidt's hand-dug tunnel. Like Jawbone, this is open BLM OHV land, so the designated network is green-sticker terrain end to end. It wraps Red Rock Canyon State Park, which is closed to OHVs, so the boundaries matter here. Route geometry and elevation come from the BLM travel network and SRTM.",
     tagline:
       "Volcanic badlands and real moto singletrack east of Jawbone, around Last Chance Canyon and Randsburg.",
     mvumGeojson: "/data/el-paso-blm.geojson",
