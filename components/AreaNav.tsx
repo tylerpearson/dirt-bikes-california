@@ -193,6 +193,20 @@ export function AreaNav() {
               id="area-menu"
               className="motion-safe:animate-menu-in absolute inset-x-0 top-full z-40 max-h-[calc(100vh-3rem)] overflow-y-auto border-b-2 border-bistre/70 bg-paper shadow-[0_18px_30px_-20px_rgba(43,38,29,0.55)] md:inset-x-auto md:right-6 md:mt-2 md:w-[56rem] md:max-w-[calc(100vw-3rem)] md:rounded-md md:border md:border-bistre/40"
             >
+              {/* New-rider entry point: the registration explainer, ahead of the
+                  area list so first-timers see it before picking a place. */}
+              <Link
+                href="/#stickers"
+                className="flex min-h-[44px] items-center justify-between gap-3 border-b border-edge bg-paper-2/60 px-6 py-3 text-sm text-bistre hover:bg-paper-2 md:min-h-0 md:px-4"
+              >
+                <span className="font-semibold">
+                  New to dirt bikes? Sticker &amp; access guide
+                </span>
+                <span aria-hidden className="shrink-0 text-rust-ink">
+                  →
+                </span>
+              </Link>
+
               {/* Mobile: a single stacked list in source order. */}
               <div className="md:hidden">
                 {FOREST_GROUPS.map((group, i) => (
