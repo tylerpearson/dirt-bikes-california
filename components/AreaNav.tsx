@@ -26,12 +26,88 @@ for (const group of FOREST_GROUPS) {
   group.areas.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Pack the groups into balanced desktop columns. A fixed N-column grid strands
+// the leftover group in a lopsided second row when the count isn't a multiple
+// of N (4 groups in 3 columns left BLM Ridgecrest alone with a dead void beside
+// it). Instead drop each group into whichever column is currently shortest, so a
+// small trailing group tucks under an existing column rather than starting a new
+// row. Source order is kept for the single-column mobile list.
+const COLUMN_COUNT = 3;
+const FOREST_COLUMNS = (() => {
+  const cols = Array.from({ length: COLUMN_COUNT }, () => ({
+    groups: [] as typeof FOREST_GROUPS,
+    weight: 0,
+  }));
+  for (const group of FOREST_GROUPS) {
+    const target = cols.reduce((a, b) => (b.weight < a.weight ? b : a));
+    target.groups.push(group);
+    target.weight += group.areas.length + 1; // +1 for the header row
+  }
+  return cols;
+})();
+
 // Does the area have any green-sticker (non-street-legal) riding? Mirrors the
 // green/blue pins on the home map so the dot means the same thing everywhere.
 const hasGreen = (area: (typeof AREAS)[number]) =>
   area.routes.some(
     (r) => r.access.greenSticker === "yes" || r.access.greenSticker === "partial",
   );
+
+// One forest group: its header plus the list of areas in it. Shared by the
+// mobile stacked list and the desktop packed columns.
+function AreaGroup({
+  group,
+  pathname,
+}: {
+  group: (typeof FOREST_GROUPS)[number];
+  pathname: string | null;
+}) {
+  return (
+    <>
+      <p className="px-6 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-olive md:px-4">
+        {group.forest}
+      </p>
+      <ul>
+        {group.areas.map((area) => {
+          const to = `/${area.id}`;
+          const active = pathname === to;
+          const green = hasGreen(area);
+          return (
+            <li key={area.id}>
+              <Link
+                href={to}
+                aria-current={active ? "page" : undefined}
+                className={`flex min-h-[44px] items-center gap-3 px-6 py-2 md:min-h-0 md:px-4 md:py-1.5 ${
+                  active ? "bg-paper-2 text-rust-ink" : "text-ink hover:bg-paper-2"
+                }`}
+              >
+                <span
+                  aria-hidden
+                  className="h-2 w-2 shrink-0 rounded-full"
+                  style={{
+                    backgroundColor: green
+                      ? "var(--color-sage)"
+                      : "var(--color-plate-fill)",
+                  }}
+                />
+                <span
+                  className={`flex-1 text-[0.95rem] md:text-sm ${
+                    active ? "font-semibold" : "font-medium"
+                  }`}
+                >
+                  {area.name}
+                </span>
+                <span className="text-xs tabular-nums text-olive">
+                  {area.routes.length} route{area.routes.length === 1 ? "" : "s"}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}
 
 export function AreaNav() {
   const pathname = usePathname();
@@ -117,58 +193,28 @@ export function AreaNav() {
               id="area-menu"
               className="motion-safe:animate-menu-in absolute inset-x-0 top-full z-40 max-h-[calc(100vh-3rem)] overflow-y-auto border-b-2 border-bistre/70 bg-paper shadow-[0_18px_30px_-20px_rgba(43,38,29,0.55)] md:inset-x-auto md:right-6 md:mt-2 md:w-[42rem] md:max-w-[calc(100vw-3rem)] md:rounded-md md:border md:border-bistre/40"
             >
-              <div className="md:grid md:grid-cols-3 md:bg-paper">
+              {/* Mobile: a single stacked list in source order. */}
+              <div className="md:hidden">
                 {FOREST_GROUPS.map((group, i) => (
-                  <div
-                    key={group.forest}
-                    className={`border-t border-edge first:border-t-0 md:bg-paper ${
-                      i < 3 ? "md:border-t-0" : "md:border-t md:border-edge"
-                    } ${i % 3 !== 0 ? "md:border-l md:border-edge" : ""}`}
-                  >
-                    <p className="px-6 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-olive md:px-4">
-                      {group.forest}
-                    </p>
-                    <ul>
-                      {group.areas.map((area) => {
-                        const to = `/${area.id}`;
-                        const active = pathname === to;
-                        const green = hasGreen(area);
-                        return (
-                          <li key={area.id}>
-                            <Link
-                              href={to}
-                              aria-current={active ? "page" : undefined}
-                              className={`flex min-h-[44px] items-center gap-3 px-6 py-2 md:min-h-0 md:px-4 md:py-1.5 ${
-                                active
-                                  ? "bg-paper-2 text-rust-ink"
-                                  : "text-ink hover:bg-paper-2"
-                              }`}
-                            >
-                              <span
-                                aria-hidden
-                                className="h-2 w-2 shrink-0 rounded-full"
-                                style={{
-                                  backgroundColor: green
-                                    ? "var(--color-sage)"
-                                    : "var(--color-plate-fill)",
-                                }}
-                              />
-                              <span
-                                className={`flex-1 text-[0.95rem] md:text-sm ${
-                                  active ? "font-semibold" : "font-medium"
-                                }`}
-                              >
-                                {area.name}
-                              </span>
-                              <span className="text-xs tabular-nums text-olive">
-                                {area.routes.length} route
-                                {area.routes.length === 1 ? "" : "s"}
-                              </span>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                  <div key={group.forest} className={i ? "border-t border-edge" : ""}>
+                    <AreaGroup group={group} pathname={pathname} />
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop: groups packed into balanced columns. Grid stretches the
+                  columns to equal height so the hairline dividers run full length. */}
+              <div className="hidden md:grid md:grid-cols-3">
+                {FOREST_COLUMNS.map((col, ci) => (
+                  <div key={ci} className={ci ? "border-l border-edge" : ""}>
+                    {col.groups.map((group, gi) => (
+                      <div
+                        key={group.forest}
+                        className={gi ? "border-t border-edge" : ""}
+                      >
+                        <AreaGroup group={group} pathname={pathname} />
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
