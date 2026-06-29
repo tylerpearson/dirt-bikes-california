@@ -11,7 +11,10 @@ import { AREAS } from "@/lib/areas";
 // areas are alphabetical, the most predictable order for scanning a menu.
 const FOREST_GROUPS = AREAS.reduce<{ forest: string; areas: typeof AREAS }[]>(
   (groups, area) => {
-    const forest = area.forest.name.replace(/National Forest$/, "N.F.").trim();
+    const forest = area.forest.name
+      .replace(/National Forest$/, "N.F.")
+      .replace(/ Field Office$/, "")
+      .trim();
     const group = groups.find((g) => g.forest === forest);
     if (group) group.areas.push(area);
     else groups.push({ forest, areas: [area] });
@@ -114,11 +117,13 @@ export function AreaNav() {
               id="area-menu"
               className="motion-safe:animate-menu-in absolute inset-x-0 top-full z-40 max-h-[calc(100vh-3rem)] overflow-y-auto border-b-2 border-bistre/70 bg-paper shadow-[0_18px_30px_-20px_rgba(43,38,29,0.55)] md:inset-x-auto md:right-6 md:mt-2 md:w-[42rem] md:max-w-[calc(100vw-3rem)] md:rounded-md md:border md:border-bistre/40"
             >
-              <div className="md:grid md:grid-cols-3 md:gap-px md:bg-edge md:p-px">
-                {FOREST_GROUPS.map((group) => (
+              <div className="md:grid md:grid-cols-3 md:bg-paper">
+                {FOREST_GROUPS.map((group, i) => (
                   <div
                     key={group.forest}
-                    className="border-t border-edge first:border-t-0 md:border-t-0 md:bg-paper"
+                    className={`border-t border-edge first:border-t-0 md:bg-paper ${
+                      i < 3 ? "md:border-t-0" : "md:border-t md:border-edge"
+                    } ${i % 3 !== 0 ? "md:border-l md:border-edge" : ""}`}
                   >
                     <p className="px-6 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-olive md:px-4">
                       {group.forest}
