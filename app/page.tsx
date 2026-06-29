@@ -103,46 +103,31 @@ export default function Home() {
 
           <p className="mt-8 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
             <span className="font-semibold text-rust-ink">New to this?</span>{" "}
-            Where you can ride legally comes down to how your bike is
-            registered.{" "}
-            <span className="font-semibold text-bistre">
-              Street-legal (plated)
-            </span>{" "}
-            bikes are road-registered and can ride every route in this guide.{" "}
-            <span className="font-semibold text-bistre">Green-sticker</span>{" "}
-            bikes are dirt-only, registered with a California OHV sticker (now
-            including electric dirt bikes like a Sur-Ron, which the state counts
-            as OHVs), and can ride only the routes where green-sticker OHVs are
-            allowed, which the guide flags route by route. Still shopping for a
-            bike? That one choice decides where you can legally ride.{" "}
+            Where you can ride comes down to how your bike is registered. A{" "}
+            <span className="font-semibold text-bistre">street-legal (plated)</span>{" "}
+            bike rides every route here. A{" "}
+            <span className="font-semibold text-bistre">green-sticker</span> bike
+            (dirt only, now including electric bikes like a Sur-Ron) rides only
+            the routes flagged for it.{" "}
             <Link
               href="#stickers"
               className="font-semibold text-rust-ink underline decoration-rust/50 underline-offset-2 hover:decoration-rust"
             >
-              Jump to the full sticker &amp; access guide ↓
+              Full sticker &amp; access guide ↓
             </Link>
           </p>
 
           <p className="mt-4 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
-            <span className="font-semibold text-rust-ink">Scope:</span> this
-            covers two kinds of federal public land.{" "}
+            <span className="font-semibold text-rust-ink">Scope:</span> federal
+            public land only.{" "}
             <span className="font-semibold text-bistre">National forests</span>{" "}
-            (Forest Service travel maps) are mostly designated roads where access
-            flips
-            between street-legal-only and green-sticker route by route.{" "}
+            are mostly designated roads where access flips between plated and
+            green-sticker route by route.{" "}
             <span className="font-semibold text-bistre">BLM desert</span>{" "}
-            like Jawbone Canyon (BLM travel maps) is open OHV country, where
-            almost every designated route is green-sticker terrain. Federal OHV
-            areas count here too, including forest ones like Rowher Flats. What
-            it does not cover is California&apos;s state-run OHV parks,{" "}
-            <span className="font-semibold text-bistre">
-              State Vehicular Recreation Areas
-            </span>{" "}
-            like Ocotillo Wells or Hungry Valley (Gorman), a separate agency that
-            charges a fee and runs on its own maps and rules. If you&apos;re
-            brand new, those parks are often where people start: open riding
-            areas and beginner loops, rather than the designated routes the
-            forests and desert here keep you on.
+            like Jawbone Canyon is open green-sticker country. Federal OHV areas like
+            Rowher Flats count too. It does not cover California&apos;s state-run
+            OHV parks (Ocotillo Wells, Hungry Valley), which charge a fee and run
+            on their own maps and rules.
           </p>
         </div>
       </header>
