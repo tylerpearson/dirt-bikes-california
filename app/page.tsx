@@ -100,6 +100,22 @@ export default function Home() {
           </p>
 
           <p className="mt-8 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
+            <span className="font-semibold text-rust-ink">New to this?</span>{" "}
+            Where you can ride legally comes down to how your bike is
+            registered.{" "}
+            <span className="font-semibold text-bistre">
+              Street-legal (plated)
+            </span>{" "}
+            bikes are road-registered and can ride every route in this guide.{" "}
+            <span className="font-semibold text-bistre">Green-sticker</span>{" "}
+            bikes are dirt-only, registered with a California OHV sticker (now
+            including electric dirt bikes like a Sur-Ron, which the state counts
+            as OHVs), and can ride only the routes where green-sticker OHVs are
+            allowed, which the guide flags route by route. Still shopping for a
+            bike? That one choice decides where you can legally ride.
+          </p>
+
+          <p className="mt-4 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
             <span className="font-semibold text-rust-ink">Scope:</span> this
             covers two kinds of federal public land.{" "}
             <span className="font-semibold text-bistre">National forests</span>{" "}
@@ -114,7 +130,10 @@ export default function Home() {
               State Vehicular Recreation Areas
             </span>{" "}
             like Ocotillo Wells or Hungry Valley (Gorman), a separate agency that
-            charges a fee and runs on its own maps and rules.
+            charges a fee and runs on its own maps and rules. If you&apos;re
+            brand new, those parks are often where people start: open riding
+            areas and beginner loops, rather than the designated routes the
+            forests and desert here keep you on.
           </p>
         </div>
       </header>
