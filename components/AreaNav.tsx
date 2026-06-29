@@ -26,13 +26,13 @@ for (const group of FOREST_GROUPS) {
   group.areas.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Pack the groups into balanced desktop columns. A fixed N-column grid strands
-// the leftover group in a lopsided second row when the count isn't a multiple
-// of N (4 groups in 3 columns left BLM Ridgecrest alone with a dead void beside
-// it). Instead drop each group into whichever column is currently shortest, so a
-// small trailing group tucks under an existing column rather than starting a new
-// row. Source order is kept for the single-column mobile list.
-const COLUMN_COUNT = 3;
+// Pack the groups into balanced desktop columns. With COLUMN_COUNT == the
+// current group count each forest gets its own column; if a future area adds a
+// group beyond that, dropping each group into the currently-shortest column
+// keeps the leftover tucked under an existing column instead of stranding it in
+// a lopsided new row with a dead void beside it. Source order is kept for the
+// single-column mobile list.
+const COLUMN_COUNT = 4;
 const FOREST_COLUMNS = (() => {
   const cols = Array.from({ length: COLUMN_COUNT }, () => ({
     groups: [] as typeof FOREST_GROUPS,
@@ -191,7 +191,7 @@ export function AreaNav() {
             />
             <div
               id="area-menu"
-              className="motion-safe:animate-menu-in absolute inset-x-0 top-full z-40 max-h-[calc(100vh-3rem)] overflow-y-auto border-b-2 border-bistre/70 bg-paper shadow-[0_18px_30px_-20px_rgba(43,38,29,0.55)] md:inset-x-auto md:right-6 md:mt-2 md:w-[42rem] md:max-w-[calc(100vw-3rem)] md:rounded-md md:border md:border-bistre/40"
+              className="motion-safe:animate-menu-in absolute inset-x-0 top-full z-40 max-h-[calc(100vh-3rem)] overflow-y-auto border-b-2 border-bistre/70 bg-paper shadow-[0_18px_30px_-20px_rgba(43,38,29,0.55)] md:inset-x-auto md:right-6 md:mt-2 md:w-[56rem] md:max-w-[calc(100vw-3rem)] md:rounded-md md:border md:border-bistre/40"
             >
               {/* Mobile: a single stacked list in source order. */}
               <div className="md:hidden">
@@ -204,7 +204,7 @@ export function AreaNav() {
 
               {/* Desktop: groups packed into balanced columns. Grid stretches the
                   columns to equal height so the hairline dividers run full length. */}
-              <div className="hidden md:grid md:grid-cols-3">
+              <div className="hidden md:grid md:grid-cols-4">
                 {FOREST_COLUMNS.map((col, ci) => (
                   <div key={ci} className={ci ? "border-l border-edge" : ""}>
                     {col.groups.map((group, gi) => (
