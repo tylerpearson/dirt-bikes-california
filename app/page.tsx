@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { AREAS } from "@/lib/areas";
 import { HeroTopo } from "@/components/HeroTopo";
 import { OverviewMap, type AreaPin } from "@/components/OverviewMap";
+import { StickerGuide } from "@/components/StickerGuide";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -112,7 +114,13 @@ export default function Home() {
             including electric dirt bikes like a Sur-Ron, which the state counts
             as OHVs), and can ride only the routes where green-sticker OHVs are
             allowed, which the guide flags route by route. Still shopping for a
-            bike? That one choice decides where you can legally ride.
+            bike? That one choice decides where you can legally ride.{" "}
+            <Link
+              href="#stickers"
+              className="font-semibold text-rust-ink underline decoration-rust/50 underline-offset-2 hover:decoration-rust"
+            >
+              Jump to the full sticker &amp; access guide ↓
+            </Link>
           </p>
 
           <p className="mt-4 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
@@ -149,6 +157,8 @@ export default function Home() {
 
         <OverviewMap areas={areaPins()} />
       </main>
+
+      <StickerGuide />
 
       <footer className="border-t-2 border-bistre/70 bg-manila">
         <div className="mx-auto max-w-6xl px-6 py-10">
