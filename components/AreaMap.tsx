@@ -49,6 +49,9 @@ export function AreaMap({
   const mapRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
+  // Which legend rows to show — set once the GeoJSON loads, so an all-green
+  // area (e.g. most BLM areas) doesn't show an empty "plate" or "seasonal" row.
+  const [present, setPresent] = useState({ green: true, plate: true, seasonal: true });
 
   // Defer all work until the section is near the viewport.
   useEffect(() => {
@@ -84,6 +87,11 @@ export function AreaMap({
         if (cancelled) return;
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const fc: FC = await res.json();
+        setPresent({
+          green: fc.features.some((f) => f.properties.access === "green"),
+          plate: fc.features.some((f) => f.properties.access === "plate"),
+          seasonal: fc.features.some((f) => f.properties.seasonal),
+        });
         const el = mapRef.current as (HTMLDivElement & { _leaflet_id?: number }) | null;
         if (cancelled || !el || el._leaflet_id) return;
 
@@ -174,21 +182,27 @@ export function AreaMap({
           What can ride here
         </p>
         <ul className="space-y-1 text-bistre">
-          <li className="flex items-center gap-2">
-            <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.green }} />
-            {labels.green}
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.plate }} />
-            {labels.plate}
-          </li>
-          <li className="flex items-center gap-2 text-olive">
-            <span
-              className="h-0 w-6 border-t-2 border-dashed"
-              style={{ borderColor: "var(--color-olive)" }}
-            />
-            Dashed = seasonal access
-          </li>
+          {present.green && (
+            <li className="flex items-center gap-2">
+              <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.green }} />
+              {labels.green}
+            </li>
+          )}
+          {present.plate && (
+            <li className="flex items-center gap-2">
+              <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.plate }} />
+              {labels.plate}
+            </li>
+          )}
+          {present.seasonal && (
+            <li className="flex items-center gap-2 text-olive">
+              <span
+                className="h-0 w-6 border-t-2 border-dashed"
+                style={{ borderColor: "var(--color-olive)" }}
+              />
+              Dashed = seasonal access
+            </li>
+          )}
         </ul>
       </div>
 

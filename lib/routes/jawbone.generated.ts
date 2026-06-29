@@ -5,6 +5,33 @@ import type { Route } from "../types";
 
 export const jawboneRoutes: Route[] = [
   {
+    "id": "jawbone-singletrack",
+    "name": "Jawbone Motorized Singletrack",
+    "summary": "The designated motorcycle singletrack the area is really known for.",
+    "description": "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
+    "distanceMiles": 3.3,
+    "difficulty": "Difficult",
+    "elevationFt": "3,900–4,400 ft",
+    "surface": "Narrow motorcycle-only singletrack, sandy and technical",
+    "bestSeason": "October–April (hot in summer)",
+    "access": {
+      "streetLegal": true,
+      "greenSticker": "yes",
+      "note": "Per the BLM travel plan, this is designated motorized single-track open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's moto-width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
+      "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
+    },
+    "highlights": [
+      "Designated motorcycle-only singletrack",
+      "The real draw for dirt-bikers here",
+      "Tight, sandy, technical desert tread"
+    ],
+    "trailhead": {
+      "name": "Jawbone Motorized Singletrack",
+      "lat": 35.2544,
+      "lng": -118.143
+    }
+  },
+  {
     "id": "jawbone-canyon-road",
     "name": "Jawbone Canyon Road",
     "summary": "The main artery up Jawbone Canyon from Highway 14 into the OHV network.",
@@ -112,33 +139,6 @@ export const jawboneRoutes: Route[] = [
       "name": "Butterbredt Canyon Road",
       "lat": 35.4595,
       "lng": -118.2102
-    }
-  },
-  {
-    "id": "jawbone-singletrack",
-    "name": "Jawbone Motorized Singletrack",
-    "summary": "The designated motorcycle singletrack the area is really known for.",
-    "description": "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting moto-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
-    "distanceMiles": 3.3,
-    "difficulty": "Difficult",
-    "elevationFt": "3,900–4,400 ft",
-    "surface": "Narrow moto-only singletrack, sandy and technical",
-    "bestSeason": "October–April (hot in summer)",
-    "access": {
-      "streetLegal": true,
-      "greenSticker": "yes",
-      "note": "Per the BLM travel plan, this is designated motorized single-track open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's moto-width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
-      "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
-    },
-    "highlights": [
-      "Designated motorcycle-only singletrack",
-      "The real draw for dirt-bikers here",
-      "Tight, sandy, technical desert tread"
-    ],
-    "trailhead": {
-      "name": "Jawbone Motorized Singletrack",
-      "lat": 35.2544,
-      "lng": -118.143
     }
   }
 ];

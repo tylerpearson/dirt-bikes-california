@@ -24,6 +24,7 @@ const SOURCE = "BLM Ground Transportation Linear Features (GTLF), 2026";
 // lookup is constrained to the area's bounding box (same lesson as the MVUM).
 const BBOX = {
   jawbone: "-118.30,35.18,-118.02,35.46",
+  "el-paso": "-117.95,35.30,-117.62,35.50",
 };
 
 // ---- Curated featured routes (editorial fields only; facts are derived) -----
@@ -34,6 +35,21 @@ const BBOX = {
 const CONFIG = {
   jawbone: {
     routes: [
+      {
+        id: "jawbone-singletrack", name: "Jawbone Motorized Singletrack",
+        select: { singletrack: true },
+        difficulty: "Difficult",
+        summary: "The designated motorcycle singletrack the area is really known for.",
+        description:
+          "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
+        surface: "Narrow motorcycle-only singletrack, sandy and technical",
+        bestSeason: "October–April (hot in summer)",
+        highlights: [
+          "Designated motorcycle-only singletrack",
+          "The real draw for dirt-bikers here",
+          "Tight, sandy, technical desert tread",
+        ],
+      },
       {
         id: "jawbone-canyon-road", name: "Jawbone Canyon Road",
         select: { names: ["Jawbone Canyon Road"] },
@@ -94,23 +110,79 @@ const CONFIG = {
           "Scenic sandy canyon riding",
         ],
       },
+    ],
+  },
+
+  // El Paso Mountains (Ridgecrest FO) — colorful volcanic badlands east of
+  // Jawbone near Randsburg: Last Chance Canyon and the Burro Schmidt Tunnel,
+  // Mesquite and Iron canyons, and a real moto singletrack network. Open OHV
+  // land; stay on designated routes (it borders Red Rock Canyon State Park,
+  // which is closed to OHVs). Ordered best -> worst.
+  "el-paso": {
+    routes: [
       {
-        id: "jawbone-singletrack", name: "Jawbone Motorized Singletrack",
+        id: "el-paso-singletrack", name: "El Paso Mountains Singletrack",
         select: { singletrack: true },
         difficulty: "Difficult",
-        summary: "The designated motorcycle singletrack the area is really known for.",
+        summary: "A real moto singletrack network threading the volcanic badlands.",
         description:
-          "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting moto-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
-        surface: "Narrow moto-only singletrack, sandy and technical",
+          "The El Paso Mountains hold one of the better designated singletrack networks in the Ridgecrest desert: miles of narrow motorcycle-only tread twisting through colorful volcanic country, tight and sandy with rocky pitches. For most riders this, not the roads, is the point of coming out here. The line on the map joins the area's designated single-track segments so you can see roughly where the network runs.",
+        surface: "Narrow motorcycle-only singletrack, sandy and rocky",
         bestSeason: "October–April (hot in summer)",
         highlights: [
           "Designated motorcycle-only singletrack",
-          "The real draw for dirt-bikers here",
-          "Tight, sandy, technical desert tread",
+          "Colorful volcanic badlands country",
+          "The best dirt-bike riding in the El Pasos",
+        ],
+      },
+      {
+        id: "el-paso-willis-well", name: "Willis Well Road",
+        select: { names: ["65093: R43 WILLIS WELL ROAD"] }, designation: "R43",
+        difficulty: "Moderate",
+        summary: "A long designated open route across the El Paso backcountry.",
+        description:
+          "R43 (Willis Well Road) is one of the longer designated open routes through the El Paso Mountains, natural-surface desert two-track running across the benches and washes past old wells and mining ground. Sandy stretches trade off with rockier pitches, real backcountry mileage well off the staging areas. Open and green-sticker the length of it.",
+        surface: "Natural-surface desert two-track, sand and rock",
+        bestSeason: "October–April (hot in summer)",
+        highlights: [
+          "Long designated open route, real seat time",
+          "Old wells and mining country",
+          "Quiet El Paso backcountry",
+        ],
+      },
+      {
+        id: "el-paso-black-mountain", name: "Black Mountain Road",
+        select: { names: ["65040: BLACK MTN ROAD"] },
+        difficulty: "Moderate",
+        summary: "Designated route climbing toward Black Mountain.",
+        description:
+          "Black Mountain Road is a designated open route working up toward Black Mountain on the north side of the range, a natural-surface climb with rockier high-clearance pitches and expanding views over the desert and the Sierra to the west. A solid intermediate ride that connects into the wider El Paso network.",
+        surface: "Natural-surface high-clearance dirt, rocky up high",
+        bestSeason: "October–April (hot in summer)",
+        highlights: [
+          "Climbs toward Black Mountain",
+          "Big desert and Sierra views",
+          "Connects the El Paso route network",
+        ],
+      },
+      {
+        id: "el-paso-iron-canyon", name: "Iron Canyon",
+        select: { names: ["Iron-Canyon"] },
+        difficulty: "Moderate",
+        summary: "Short, scenic canyon route into the El Paso badlands.",
+        description:
+          "Iron Canyon is a short designated route threading one of the colorful eroded canyons that make the El Pasos worth the drive, sandy in the wash bottom with rockier benches and striking volcanic rock. A scenic add-on rather than a destination on its own, best paired with the longer routes and the singletrack.",
+        surface: "Sandy canyon bottom with rocky benches",
+        bestSeason: "October–April (hot in summer)",
+        highlights: [
+          "Colorful eroded volcanic canyon",
+          "Sandy-wash riding",
+          "Pairs with the El Paso network",
         ],
       },
     ],
   },
+
 };
 
 // ---- geometry + access from the BLM GTLF -------------------------------------

@@ -22,7 +22,7 @@ access model, so keep it straight:
 | Land | Manager | Access model | In this guide? |
 |---|---|---|---|
 | **National forest** | USFS | Designated roads/trails; green-sticker vs street-legal-only **flips route by route** (the MVUM `motorcycle`/`atv` columns). Most roads are plate-only; green-sticker access is the exception. | Yes (MVUM pipeline) |
-| **BLM land** | BLM | **Open OHV country.** Almost every *designated* route is open to green-sticker bikes. The split that matters is **open vs limited** (a limited route adds a restriction: vehicle type, permit, single-track-only). | Yes (this pipeline) |
+| **BLM land** | BLM | **Open OHV country.** Almost every *designated* route is open to green-sticker bikes; you just stay on the designated routes (cross-country is closed). A few are genuinely plated-only, and admin/county roads aren't open to recreation at all. | Yes (this pipeline) |
 | **State Vehicular Recreation Area (SVRA)** | CA State Parks (OHMVR) | State OHV parks (Ocotillo Wells, Hungry Valley, Carnegie…). Charge an entry fee, run on their own maps and rules. | **No** — different agency, fee, and data |
 
 The home-page "Scope" callout says this in rider language; keep it accurate if
@@ -59,11 +59,23 @@ Fields we use:
 | `OBSRVE_SRFCE_TYPE` | `NATURAL` (dirt), `NATURAL IMPROVED`, … |
 | `GIS_MILES` | segment length |
 
-**Access classification.** There is no green/plate concept here. Layer 0/2 = the
-**open** OHV network (drawn "green"); layer 1/3 = **limited** (drawn "plate",
-relabeled "Limited / restricted" in the UI). Every *featured* route on open BLM
-OHV land is green-sticker terrain, so its badge is `greenSticker: "yes"` with a
-BLM-worded note. Elevation is SRTM via opentopodata, same as the USFS flow.
+**Access classification — key on `OHV_DSGNTN_LIM_EXPLAIN`, not the layer.**
+"Limited" in GTLF does *not* mean "plate only"; it means "stay on designated
+routes," and most of it is green-sticker terrain. The honest signal is the
+explain field, which `classify()` in `fetch-blm-area.mjs` sorts into three
+buckets so green/plate mean exactly what they do on the USFS pages:
+
+| `OHV_DSGNTN_LIM_EXPLAIN` (or designation) | Result |
+|---|---|
+| `Motorized…`, `Motorized Single Track`, `ATV\UTV`, blank/open | **green** (green-sticker OK) |
+| `Street Legal Only` | **plate** (genuine plated-only route, rare) |
+| `Closed to OHV recreation…`, `Authorized/Permitted`, `PLAN…=Closed` | **dropped** (admin/easement/county or permit access, not general rec — not drawn) |
+
+This matters: an area can be ~all "Limited" yet almost entirely green-sticker
+(El Paso), while another mixes in real plated-only routes (Stoddard had 9) and
+hundreds of closed admin roads that must not be drawn as ridable. Every
+*featured* route is still `greenSticker: "yes"` with a BLM-worded note. Elevation
+is SRTM via opentopodata, same as the USFS flow.
 
 ---
 
@@ -91,7 +103,8 @@ node scripts/fetch-blm-area.mjs <area-id>
 ```
 
 Writes `public/data/<area-id>-blm.geojson` (open + limited, classified). Note the
-printed `counts` (open vs limited).
+printed `counts` (green / plate) and how many features were dropped as
+closed-to-recreation or permit-only.
 
 ### Step 2 — Curate featured routes
 
@@ -237,9 +250,12 @@ render byte-identical when `source` is omitted):
    though the physical road is longer. Don't write prose that implies a specific
    length the data doesn't support; describe character, not mileage.
 
-4. **No green/plate split.** Don't reuse the MVUM access wording. Open BLM OHV
-   land is green-sticker terrain end to end; the meaningful flag is open vs
-   limited, surfaced through the `source.legend` labels and the per-route note.
+4. **"Limited" is not "plate only."** The trap that almost shipped: classifying
+   by GTLF layer (open vs limited) would have drawn hundreds of admin/county
+   roads as ridable and missed the real plated-only routes. Classify by
+   `OHV_DSGNTN_LIM_EXPLAIN` (see §2). Most BLM areas come out all-green and use
+   the standard legend (no `source.legend` override); the overview map hides the
+   empty plate/seasonal rows automatically.
 
 5. **Keep SVRAs out.** State Vehicular Recreation Areas (Hungry Valley is right
    next to several forest areas; Ocotillo Wells, Carnegie) are CA State Parks,
@@ -253,3 +269,11 @@ render byte-identical when `source` is omitted):
    the trailhead coordinates before stringing a loop. Jawbone's routes spanned
    ~23 km in two clusters and got two loops, not one. Don't assert a through-route
    the data doesn't show; keep composite mileage approximate.
+
+8. **Route `id`s are global GPX filenames — keep them unique across ALL areas.**
+   A route writes `public/gpx/<id>.gpx`, so a generic id silently overwrites
+   another area's track. El Paso's `black-mountain-road` clobbered San Jacinto's
+   until it was namespaced to `el-paso-black-mountain`. Prefix BLM road ids with
+   the area (`<area>-<route>`) unless the name is obviously unique, and after a
+   build run `git status public/gpx` — a tracked GPX showing as *modified* (not
+   added) is a collision.

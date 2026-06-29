@@ -10,6 +10,7 @@ import { lakeArrowheadRoutes } from "./routes/lake-arrowhead.generated";
 import { sanGorgonioRoutes } from "./routes/san-gorgonio.generated";
 import { palomarRoutes } from "./routes/palomar.generated";
 import { jawboneRoutes } from "./routes/jawbone.generated";
+import { elPasoRoutes } from "./routes/el-paso.generated";
 
 export type AreaId =
   | "big-bear"
@@ -22,7 +23,8 @@ export type AreaId =
   | "lake-arrowhead"
   | "san-gorgonio"
   | "palomar"
-  | "jawbone";
+  | "jawbone"
+  | "el-paso";
 
 /**
  * A suggested all-day loop stringing several routes together; editorial, for
@@ -44,16 +46,17 @@ export type AreaLoop = {
 /**
  * Per-area data-source descriptor. Defaults (in AreaGuide) describe the USFS
  * MVUM; a non-USFS area (e.g. BLM) overrides these so the overview map, intro
- * copy, and footer attribution read correctly. BLM land has no green/plate
- * distinction, so the access classes are relabeled "open" vs "limited".
+ * copy, and footer attribution read correctly. The BLM classifier sorts routes
+ * into the same green (green-sticker) / plate (street-legal only) classes the
+ * MVUM uses, so the standard legend labels apply unless an area overrides them.
  */
 export type AreaSource = {
   /** Collar label by the "Where can I ride?" heading, e.g. "BLM Ridgecrest FO". */
   overviewLabel: string;
   /** Plain-text intro paragraph under that heading (agency-specific). */
   overviewIntro: string;
-  /** Legend + tooltip labels for the overview map's two access colors. */
-  legend: { green: string; plate: string };
+  /** Legend + tooltip label overrides for the two access colors (optional). */
+  legend?: { green: string; plate: string };
   /** Tile attribution suffix naming the data source. */
   attribution: string;
   /** Footer "verify before you go" body paragraph (agency-specific). */
@@ -157,7 +160,7 @@ export const AREAS: Area[] = [
         summary: "Forested plated dual-sport up toward the Black Mountain lookout.",
         description:
           "The Idyllwild side is plated country and makes a relaxed, view-packed day: climb Dark Canyon (4S02), link onto Black Mountain Road (4S01) toward the lookout and the PCT trailheads, then add the Idyllwild Control Road (5S06) to round it out. Graded dirt through pine and cedar with big drop-offs toward the desert. A dual-sport day, not a technical one. Plate-legal throughout; the PCT itself is closed to motors, so those are places to park, not ride.",
-        routeIds: ["dark-canyon-road", "black-mountain-road", "idyllwild-control-road"],
+        routeIds: ["dark-canyon-road", "el-paso-black-mountain", "idyllwild-control-road"],
       },
     ],
     routes: sanJacintoRoutes,
@@ -422,8 +425,7 @@ export const AREAS: Area[] = [
     source: {
       overviewLabel: "BLM Ridgecrest FO",
       overviewIntro:
-        "Every designated motorized route in the Jawbone area, from the BLM travel network. This is open OHV land, so most routes are open to green-sticker (non-street-legal) bikes; a smaller set carries a designation limit (vehicle type or permit). Hover any line for its name and designation.",
-      legend: { green: "Open OHV route", plate: "Limited / restricted" },
+        "Every designated motorized route in the Jawbone area, from the BLM travel network. This is open OHV land, so the whole designated network here is open to green-sticker (non-street-legal) bikes. Stay on the routes shown; the map leaves out roads closed to OHV recreation. Hover any line for its name.",
       attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
       verifyNote:
         "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. This is open OHV land, but stay on designated routes: BLM closes and reroutes for habitat (desert tortoise) and seasonal conditions, and route designations change.",
@@ -450,6 +452,49 @@ export const AREAS: Area[] = [
       },
     ],
     routes: jawboneRoutes,
+  },
+  {
+    id: "el-paso",
+    name: "El Paso Mountains",
+    region: "BLM Ridgecrest Field Office · Mojave Desert",
+    regionShort: "BLM · El Paso",
+    state: "California",
+    blurb:
+      "The El Paso Mountains are the colorful, history-soaked range just east of Jawbone near Randsburg: eroded volcanic badlands threaded with designated motorcycle singletrack, the old Last Chance Canyon mining country, and Burro Schmidt's hand-dug tunnel. Like Jawbone, this is open BLM OHV land, so the designated network is green-sticker terrain end to end. It wraps Red Rock Canyon State Park, which is closed to OHVs, so the boundaries matter here. Route geometry and elevation come from the BLM travel network and SRTM.",
+    tagline:
+      "Volcanic badlands and real moto singletrack east of Jawbone, around Last Chance Canyon and Randsburg.",
+    mvumGeojson: "/data/el-paso-blm.geojson",
+    forest: BLM_RIDGECREST,
+    source: {
+      overviewLabel: "BLM Ridgecrest FO",
+      overviewIntro:
+        "Every designated motorized route in the El Paso Mountains, from the BLM travel network. This is open OHV land, so the whole designated network here is open to green-sticker (non-street-legal) bikes. Stay on the routes shown; the map leaves out roads closed to OHV recreation, and Red Rock Canyon State Park (to the west) is closed to OHVs entirely. Hover any line for its name.",
+      attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
+      verifyNote:
+        "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. Stay on designated routes: the range borders Red Rock Canyon State Park (closed to OHVs) and carries cultural and mining sites, and BLM closes and reroutes for conditions.",
+      credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
+    },
+    loops: [
+      {
+        name: "Singletrack & Canyons Day",
+        distanceMiles: 31,
+        summary:
+          "The core green-sticker day: the singletrack network plus the canyon routes around it.",
+        description:
+          "Lead with the designated singletrack, the real reason to make the drive, then stretch out on Willis Well Road across the benches and dip into Iron Canyon's colorful eroded rock. It stays mostly in the central El Pasos, sandy and rocky desert, green-sticker the whole way. Composite mileage is rough and the country is exposed and a long way from services, so carry fuel and water and plan a full day.",
+        routeIds: ["el-paso-singletrack", "el-paso-willis-well", "el-paso-iron-canyon"],
+      },
+      {
+        name: "Black Mountain & the West Side",
+        distanceMiles: 16,
+        summary:
+          "A road-focused day reaching the Black Mountain high point on the west side.",
+        description:
+          "A longer-format road day. Run Willis Well Road out across the backcountry, then climb Black Mountain Road on the west side toward the high point, with views over the desert and out to the Sierra. Open green-sticker routes, rockier up high. The two ends are a fair way apart, so plan time and fuel, and keep clear of the Red Rock Canyon State Park boundary on the west.",
+        routeIds: ["el-paso-willis-well", "el-paso-black-mountain"],
+      },
+    ],
+    routes: elPasoRoutes,
   },
 ];
 
