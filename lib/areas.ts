@@ -429,6 +429,26 @@ export const AREAS: Area[] = [
         "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. This is open OHV land, but stay on designated routes: BLM closes and reroutes for habitat (desert tortoise) and seasonal conditions, and route designations change.",
       credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
     },
+    loops: [
+      {
+        name: "Dove Springs Big Day",
+        distanceMiles: 24,
+        summary:
+          "The northern open-route network strung into a full day of high-desert miles.",
+        description:
+          "The north end of the complex, around Dove Springs, is where the open mileage is. Start east near Highway 14 on SC-94, work west across the benches on the long SC-103, then drop toward Butterbredt Spring on the quieter far side toward the Piute Mountains. All of it is open green-sticker desert, sandy washes trading off with rockier two-track. This is a real day of seat time, open and exposed the whole way, so carry fuel and water and plan a margin.",
+        routeIds: ["sc-94", "sc-103-east", "butterbredt-canyon"],
+      },
+      {
+        name: "Canyon Stage & Singletrack",
+        distanceMiles: 10,
+        summary:
+          "Come in up Jawbone Canyon, then session the moto singletrack to the south.",
+        description:
+          "A shorter, more focused day at the south end. Come in on Jawbone Canyon Road from Highway 14, the area's main artery off the highway, then head for the designated singletrack to session tight, sandy tread that's open to motorcycles only. It's less about mileage than about trading the open two-track for real singletrack, a good half-day on its own or a warm-up before pushing deeper into the network.",
+        routeIds: ["jawbone-canyon-road", "jawbone-singletrack"],
+      },
+    ],
     routes: jawboneRoutes,
   },
 ];
