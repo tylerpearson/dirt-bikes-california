@@ -1,0 +1,222 @@
+# Playbook: Adding a BLM Riding Area
+
+This is the BLM counterpart to [`adding-an-area.md`](adding-an-area.md) (which
+covers USFS national-forest areas). Jawbone Canyon was the first BLM area and
+the proof that the pipeline ports. Same idea as the USFS flow: **facts are
+derived from an authoritative source and only prose is hand-written.** The
+source and a few conventions differ; the rendering is almost entirely shared.
+
+> TL;DR: pick a bbox on BLM OHV land → confirm GTLF coverage → fetch the overview
+> network (`fetch-blm-area.mjs`) → curate featured routes by name / designation /
+> singletrack tag (`build-blm-routes.mjs`) → register the area with a `source`
+> descriptor → add the page → build & eyeball it.
+
+---
+
+## 1. Land managers: USFS vs BLM vs State (what riders need to know)
+
+This guide covers two kinds of **federal** public land, and deliberately
+excludes a third **state** kind. The distinction drives both the copy and the
+access model, so keep it straight:
+
+| Land | Manager | Access model | In this guide? |
+|---|---|---|---|
+| **National forest** | USFS | Designated roads/trails; green-sticker vs street-legal-only **flips route by route** (the MVUM `motorcycle`/`atv` columns). Most roads are plate-only; green-sticker access is the exception. | Yes (MVUM pipeline) |
+| **BLM land** | BLM | **Open OHV country.** Almost every *designated* route is open to green-sticker bikes. The split that matters is **open vs limited** (a limited route adds a restriction: vehicle type, permit, single-track-only). | Yes (this pipeline) |
+| **State Vehicular Recreation Area (SVRA)** | CA State Parks (OHMVR) | State OHV parks (Ocotillo Wells, Hungry Valley, Carnegie…). Charge an entry fee, run on their own maps and rules. | **No** — different agency, fee, and data |
+
+The home-page "Scope" callout says this in rider language; keep it accurate if
+the mix of areas changes. The BLM area's hero and footer say "open OHV land" and
+link the managing BLM field office rather than a national forest.
+
+---
+
+## 2. Data source — BLM GTLF (geometry + designation)
+
+ArcGIS REST service, **national** (window into it with a bbox), the BLM analog
+of the EDW MVUM service:
+
+```
+https://gis.blm.gov/arcgis/rest/services/transportation/BLM_Natl_GTLF_Public_Display/MapServer
+  Layer 0 = Roads Managed for Public Motorized Use          -> open
+  Layer 1 = Roads Managed for Limited Public Motorized Use  -> limited
+  Layer 2 = Trails Managed for Public Motorized Use          -> open
+  Layer 3 = Trails Managed for Limited Public Motorized Use  -> limited
+```
+
+`f=geojson` is supported; coordinates are lon/lat (`outSR=4326`); page with
+`resultOffset`/`resultRecordCount` (maxRecordCount 2000). Always send a
+`User-Agent`.
+
+Fields we use:
+
+| Field | Meaning |
+|---|---|
+| `PLAN_OHV_ROUTE_DSGNTN` | `Open` / `Limited` / `Closed` — the core designation |
+| `OHV_DSGNTN_LIM_EXPLAIN` | why a route is limited, e.g. `ATV\UTV`, `Authorized/Permitted`, **`Motorized Single Track`** |
+| `ROUTE_PRMRY_NM` | route name (mostly null; see gotcha 1) |
+| `FAMS_ID` | BLM asset id (mostly null) |
+| `OBSRVE_SRFCE_TYPE` | `NATURAL` (dirt), `NATURAL IMPROVED`, … |
+| `GIS_MILES` | segment length |
+
+**Access classification.** There is no green/plate concept here. Layer 0/2 = the
+**open** OHV network (drawn "green"); layer 1/3 = **limited** (drawn "plate",
+relabeled "Limited / restricted" in the UI). Every *featured* route on open BLM
+OHV land is green-sticker terrain, so its badge is `greenSticker: "yes"` with a
+BLM-worded note. Elevation is SRTM via opentopodata, same as the USFS flow.
+
+---
+
+## 3. Step-by-step
+
+### Step 0 — Pick a bbox and confirm coverage
+
+Find the OHV area, draw a bbox, and check it has GTLF routes:
+
+```bash
+UA="Mozilla/5.0 (research)"
+BASE="https://gis.blm.gov/arcgis/rest/services/transportation/BLM_Natl_GTLF_Public_Display/MapServer"
+BBOX="-118.30,35.18,-118.02,35.46"   # xmin,ymin,xmax,ymax
+for L in 0 1; do
+  curl -s -A "$UA" "$BASE/$L/query?geometry=$BBOX&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnCountOnly=true&f=json"
+done
+```
+
+### Step 1 — Generate the overview map
+
+Add the bbox to `AREAS` in `scripts/fetch-blm-area.mjs`, then:
+
+```bash
+node scripts/fetch-blm-area.mjs <area-id>
+```
+
+Writes `public/data/<area-id>-blm.geojson` (open + limited, classified). Note the
+printed `counts` (open vs limited).
+
+### Step 2 — Curate featured routes
+
+BLM geometry is mostly anonymous, so you can't curate by road number. Select by:
+
+- `names`: exact `ROUTE_PRMRY_NM` (one or more), for the few named roads, **or**
+- `singletrack: true`: every `Motorized Single Track` segment in the bbox.
+
+Add a `<area-id>` entry to `CONFIG` **and** `BBOX` in
+`scripts/build-blm-routes.mjs`. Each route is editorial prose plus a selector;
+optionally a clean `designation` (e.g. `SC-103`) for the route-number badge:
+
+```js
+{
+  id: "sc-103-east", name: "SC-103 East",
+  select: { names: ["65014: SC-103 EAST"] }, designation: "SC-103",
+  difficulty: "Moderate",
+  summary: "…", description: "…", surface: "…", bestSeason: "…",
+  highlights: ["…","…","…"],
+}
+```
+
+Then:
+
+```bash
+node scripts/build-blm-routes.mjs <area-id>
+```
+
+For each route this fetches the segments (bbox-constrained), splits them into
+contiguous **parts** (disjoint pieces stay separate — see gotcha 2), computes
+real distance per part, pulls SRTM elevation, writes a multi-`<trkseg>` GPX, and
+emits `lib/routes/<area>.generated.ts`.
+
+### Step 3 — Register the area
+
+Add to `lib/areas.ts`: import the generated routes, add the id to `AreaId`, and
+append an `Area` with a **`source`** descriptor (this is what re-labels the
+overview, intro, and footer for BLM):
+
+```ts
+{
+  id: "<area-id>", name: "Jawbone Canyon",
+  region: "BLM Ridgecrest Field Office · Mojave Desert",
+  regionShort: "BLM · Jawbone", state: "California",
+  blurb: "…open OHV land…", tagline: "…",
+  mvumGeojson: "/data/<area-id>-blm.geojson",   // field name is historical; any source
+  forest: BLM_RIDGECREST,                        // managing agency { name, url }
+  source: {
+    overviewLabel: "BLM Ridgecrest FO",
+    overviewIntro: "…",
+    legend: { green: "Open OHV route", plate: "Limited / restricted" },
+    attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
+    verifyNote: "…stay on designated routes; desert tortoise closures…",
+    credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
+  },
+  routes: <area>Routes,
+}
+```
+
+### Step 4 — Add the page
+
+Create `app/<area-id>/page.tsx` (identical template to a USFS page; the nav and
+home card auto-derive from `AREAS`). The nav groups by `forest.name`, so a BLM
+field office becomes its own group automatically.
+
+### Step 5 — Build, verify, commit
+
+```bash
+npm run build                          # must be clean (TS + static gen)
+```
+
+Then serve `out/` and screenshot: the hero, the overview map (green open /
+blue limited), a route card (each disjoint part is its own rust polyline), and
+the nav at 375px. Commit the data + scripts + page together.
+
+---
+
+## 4. How the rendering generalizes (what changed to support BLM)
+
+The display layer was source-agnostic except for a few MVUM-specific strings and
+the green/plate access split. The additions (all backward-compatible; USFS areas
+render byte-identical when `source` is omitted):
+
+- **`Area.source?: AreaSource`** — per-area overrides for the overview collar,
+  intro paragraph, map legend/tooltip labels, tile attribution, and footer copy.
+  `AreaGuide` falls back to the MVUM wording when it's absent.
+- **`"track"` segment color** — `AreaMap`/`RouteMap`/`StaticMap` learned a third,
+  neutral access value used to draw a multi-part route as separate polylines
+  without bridging the gaps. Added to `tiles.ts`, `mvum.ts`, and the two map
+  components.
+- **`loadTrackParts` + `trackStatsFromParts`** — parse a GPX into its `<trkseg>`
+  parts and compute distance/elevation **within** parts only, so a route built
+  from disjoint BLM segments doesn't pick up phantom mileage from the straight
+  line that would otherwise connect them.
+- **Filtered hero badge legend** — a BLM area shows only the access badges its
+  routes actually use (all `yes`), instead of the full four-status MVUM legend.
+
+---
+
+## 5. Gotchas & lessons (Jawbone)
+
+1. **BLM geometry is mostly anonymous.** In the Jawbone bbox, 1 of 703 open
+   routes had a name. There are no road numbers like the MVUM's `3N16`. Curate
+   by `ROUTE_PRMRY_NM` where it exists (the main arteries: Jawbone Canyon Rd, the
+   SC-numbered routes) and by the `Motorized Single Track` tag for the moto
+   singletrack. Most of the network is only renderable as the anonymous overview.
+
+2. **Routes are disjoint; don't bridge them.** GTLF labels only stretches of a
+   road (Jawbone Canyon Road came back as 4 separate pieces). The builder keeps
+   parts farther than ~275 m apart **separate** rather than stitching one line
+   across the gap. This is honest but has a consequence:
+
+3. **Featured-route mileage reflects only labeled segments.** "Jawbone Canyon
+   Road" derives to 4.8 mi because that's all GTLF labels by that name, even
+   though the physical road is longer. Don't write prose that implies a specific
+   length the data doesn't support; describe character, not mileage.
+
+4. **No green/plate split.** Don't reuse the MVUM access wording. Open BLM OHV
+   land is green-sticker terrain end to end; the meaningful flag is open vs
+   limited, surfaced through the `source.legend` labels and the per-route note.
+
+5. **Keep SVRAs out.** State Vehicular Recreation Areas (Hungry Valley is right
+   next to several forest areas; Ocotillo Wells, Carnegie) are CA State Parks,
+   not BLM, with fees and their own data. The Scope callout says so; don't smuggle
+   one in under the BLM pipeline.
+
+6. **Overview GeoJSON is larger.** Jawbone's network is ~640 KB raw (~150 KB
+   gzip). Fine to ship; tighten the bbox if it balloons.

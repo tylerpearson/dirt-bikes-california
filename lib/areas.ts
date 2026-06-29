@@ -9,6 +9,7 @@ import { sanLuisObispoRoutes } from "./routes/san-luis-obispo.generated";
 import { lakeArrowheadRoutes } from "./routes/lake-arrowhead.generated";
 import { sanGorgonioRoutes } from "./routes/san-gorgonio.generated";
 import { palomarRoutes } from "./routes/palomar.generated";
+import { jawboneRoutes } from "./routes/jawbone.generated";
 
 export type AreaId =
   | "big-bear"
@@ -20,7 +21,8 @@ export type AreaId =
   | "san-luis-obispo"
   | "lake-arrowhead"
   | "san-gorgonio"
-  | "palomar";
+  | "palomar"
+  | "jawbone";
 
 /**
  * A suggested all-day loop stringing several routes together; editorial, for
@@ -39,6 +41,27 @@ export type AreaLoop = {
   routeIds: string[];
 };
 
+/**
+ * Per-area data-source descriptor. Defaults (in AreaGuide) describe the USFS
+ * MVUM; a non-USFS area (e.g. BLM) overrides these so the overview map, intro
+ * copy, and footer attribution read correctly. BLM land has no green/plate
+ * distinction, so the access classes are relabeled "open" vs "limited".
+ */
+export type AreaSource = {
+  /** Collar label by the "Where can I ride?" heading, e.g. "BLM Ridgecrest FO". */
+  overviewLabel: string;
+  /** Plain-text intro paragraph under that heading (agency-specific). */
+  overviewIntro: string;
+  /** Legend + tooltip labels for the overview map's two access colors. */
+  legend: { green: string; plate: string };
+  /** Tile attribution suffix naming the data source. */
+  attribution: string;
+  /** Footer "verify before you go" body paragraph (agency-specific). */
+  verifyNote: string;
+  /** Footer credit line. */
+  credit: string;
+};
+
 export type Area = {
   id: AreaId;
   /** Short display name, e.g. "Big Bear". */
@@ -52,10 +75,12 @@ export type Area = {
   blurb: string;
   /** One-line hook for the home-page card. Short and scannable; no em-dash chains. */
   tagline: string;
-  /** Pre-baked MVUM overview GeoJSON served from /public. */
+  /** Pre-baked overview GeoJSON served from /public. */
   mvumGeojson: string;
-  /** Managing forest, for the footer's "verify before you go" link. */
+  /** Managing agency (forest or BLM office), for the footer's "verify" link. */
   forest: { name: string; url: string };
+  /** Non-USFS data-source overrides (defaults to USFS MVUM when omitted). */
+  source?: AreaSource;
   /** Suggested all-day loops stringing routes together (optional, editorial). */
   loops?: AreaLoop[];
   routes: Route[];
@@ -64,6 +89,10 @@ export type Area = {
 const SBNF = { name: "San Bernardino National Forest", url: "https://www.fs.usda.gov/sbnf" };
 const LPNF = { name: "Los Padres National Forest", url: "https://www.fs.usda.gov/lpnf" };
 const CNF = { name: "Cleveland National Forest", url: "https://www.fs.usda.gov/cleveland" };
+const BLM_RIDGECREST = {
+  name: "BLM Ridgecrest Field Office",
+  url: "https://www.blm.gov/office/ridgecrest-field-office",
+};
 
 export const AREAS: Area[] = [
   {
@@ -377,6 +406,30 @@ export const AREAS: Area[] = [
       },
     ],
     routes: palomarRoutes,
+  },
+  {
+    id: "jawbone",
+    name: "Jawbone Canyon",
+    region: "BLM Ridgecrest Field Office · Mojave Desert",
+    regionShort: "BLM · Jawbone",
+    state: "California",
+    blurb:
+      "Jawbone Canyon is the classic Mojave green-sticker country: open BLM desert off Highway 14 in Kern County, with miles of designated routes climbing west from the canyon toward the Piute Mountains, plus the Dove Springs and Butterbredt drainages alongside. Unlike the national forests, this is open OHV land, so almost the whole designated network is open to green-sticker (non-street-legal) bikes, including real motorcycle singletrack. Route geometry and elevation come from the BLM travel network and SRTM.",
+    tagline:
+      "Open Mojave OHV desert off Highway 14: designated routes and moto singletrack, almost all green-sticker.",
+    mvumGeojson: "/data/jawbone-blm.geojson",
+    forest: BLM_RIDGECREST,
+    source: {
+      overviewLabel: "BLM Ridgecrest FO",
+      overviewIntro:
+        "Every designated motorized route in the Jawbone area, from the BLM travel network. This is open OHV land, so most routes are open to green-sticker (non-street-legal) bikes; a smaller set carries a designation limit (vehicle type or permit). Hover any line for its name and designation.",
+      legend: { green: "Open OHV route", plate: "Limited / restricted" },
+      attribution: "&copy; OpenStreetMap contributors · BLM GTLF",
+      verifyNote:
+        "Route lines come from the BLM Ground Transportation network and elevation from SRTM, not a surveyed legal boundary. This is open OHV land, but stay on designated routes: BLM closes and reroutes for habitat (desert tortoise) and seasonal conditions, and route designations change.",
+      credit: "Route data © BLM Ground Transportation Linear Features (GTLF)",
+    },
+    routes: jawboneRoutes,
   },
 ];
 

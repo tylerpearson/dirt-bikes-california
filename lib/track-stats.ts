@@ -30,8 +30,20 @@ function haversine(a: TrackPoint, b: TrackPoint): number {
 
 /** Derive distance + elevation stats and a profile series from a GPX track. */
 export function trackStats(points: TrackPoint[]): TrackStats {
+  return trackStatsFromParts([points]);
+}
+
+/**
+ * Stats for a track made of multiple disjoint parts (each a <trkseg>). Distance,
+ * gain, and loss accumulate WITHIN parts only — the gaps between parts are never
+ * counted, so a route stitched from separate BLM segments doesn't pick up
+ * phantom mileage or elevation change from the straight line that would
+ * otherwise connect them. A single-part track behaves exactly like before.
+ */
+export function trackStatsFromParts(parts: TrackPoint[][]): TrackStats {
+  const all = parts.flat();
   const hasElevation =
-    points.length > 0 && points.every((p) => typeof p.ele === "number");
+    all.length > 0 && all.every((p) => typeof p.ele === "number");
 
   let meters = 0;
   let gainFt = 0;
@@ -40,20 +52,24 @@ export function trackStats(points: TrackPoint[]): TrackStats {
   let maxFt = -Infinity;
   const profile: ProfilePoint[] = [];
 
-  for (let i = 0; i < points.length; i++) {
-    if (i > 0) meters += haversine(points[i - 1], points[i]);
-    const eleFt = hasElevation ? (points[i].ele as number) * FT_PER_M : 0;
-    if (hasElevation) {
-      minFt = Math.min(minFt, eleFt);
-      maxFt = Math.max(maxFt, eleFt);
-      if (i > 0) {
-        const d = ((points[i].ele as number) - (points[i - 1].ele as number)) *
-          FT_PER_M;
-        if (d > 0) gainFt += d;
-        else lossFt += -d;
+  for (const points of parts) {
+    for (let i = 0; i < points.length; i++) {
+      // i > 0 keeps accumulation within a part; the gap to the next part's
+      // first point is skipped, so it adds no distance or elevation change.
+      if (i > 0) meters += haversine(points[i - 1], points[i]);
+      const eleFt = hasElevation ? (points[i].ele as number) * FT_PER_M : 0;
+      if (hasElevation) {
+        minFt = Math.min(minFt, eleFt);
+        maxFt = Math.max(maxFt, eleFt);
+        if (i > 0) {
+          const d = ((points[i].ele as number) - (points[i - 1].ele as number)) *
+            FT_PER_M;
+          if (d > 0) gainFt += d;
+          else lossFt += -d;
+        }
       }
+      profile.push({ distMi: meters / M_PER_MI, eleFt });
     }
-    profile.push({ distMi: meters / M_PER_MI, eleFt });
   }
 
   return {

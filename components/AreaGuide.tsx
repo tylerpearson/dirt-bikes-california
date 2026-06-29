@@ -1,9 +1,9 @@
 import type { Area } from "@/lib/areas";
 import type { GreenStickerStatus } from "@/lib/types";
-import { loadTrack } from "@/lib/gpx";
+import { loadTrack, loadTrackParts } from "@/lib/gpx";
 import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
-import { trackStats } from "@/lib/track-stats";
+import { trackStats, trackStatsFromParts } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
 import { AccessBadge } from "@/components/AccessBadge";
 import { AreaMap } from "@/components/AreaMap";
@@ -43,7 +43,7 @@ const LEGEND: { status: GreenStickerStatus; meaning: string }[] = [
   },
   {
     status: "unconfirmed",
-    meaning: "Couldn't verify green-sticker access; confirm on the MVUM.",
+    meaning: "Couldn't verify green-sticker access; confirm with the managing agency.",
   },
 ];
 
@@ -52,12 +52,26 @@ export function AreaGuide({ area }: { area: Area }) {
   const cards = area.routes.map((route) => {
     const track = loadTrack(`${route.id}.gpx`);
     const hasTrack = track.length > 1;
-    const segments = loadRouteSegments(area.mvumGeojson, route.forestRoad);
+    // BLM routes (area.source set) are built from disjoint GTLF parts. Use the
+    // parts for both rendering (each part is its own neutral polyline, so real
+    // gaps aren't bridged) and stats (distance/elevation don't count the gaps).
+    // Per-segment green/plate coloring stays an MVUM-only concept.
+    const parts = area.source ? loadTrackParts(`${route.id}.gpx`) : null;
+    const segments = parts
+      ? parts.map((pts) => ({
+          access: "track" as const,
+          coords: pts.map((p) => ({ lat: p.lat, lng: p.lng })),
+        }))
+      : loadRouteSegments(area.mvumGeojson, route.forestRoad);
     const map = hasTrack
       ? trackMap(track, { segments })
       : centeredMap(route.trailhead.lat, route.trailhead.lng, { zoom: 12 });
     const points = track.map((p) => ({ lat: p.lat, lng: p.lng }));
-    const stats = hasTrack ? trackStats(track) : null;
+    const stats = hasTrack
+      ? parts
+        ? trackStatsFromParts(parts)
+        : trackStats(track)
+      : null;
     return { route, map, points, segments, stats };
   });
 
@@ -86,18 +100,33 @@ export function AreaGuide({ area }: { area: Area }) {
             routes
           </p>
 
-          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
-            <span className="font-semibold text-bistre">
-              Plated street-legal bikes are fine on every route here.
-            </span>{" "}
-            The badges below show where{" "}
-            <span className="font-semibold text-bistre">green-sticker</span>{" "}
-            (non-street-legal) OHVs are allowed; that&apos;s the part that
-            varies, sometimes segment by segment.
-          </p>
+          {area.source ? (
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
+              <span className="font-semibold text-bistre">
+                This is open OHV land.
+              </span>{" "}
+              Green-sticker (non-street-legal) bikes and plated bikes alike can
+              ride the designated routes here; the badge on each route flags its
+              BLM access designation.
+            </p>
+          ) : (
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
+              <span className="font-semibold text-bistre">
+                Plated street-legal bikes are fine on every route here.
+              </span>{" "}
+              The badges below show where{" "}
+              <span className="font-semibold text-bistre">green-sticker</span>{" "}
+              (non-street-legal) OHVs are allowed; that&apos;s the part that
+              varies, sometimes segment by segment.
+            </p>
+          )}
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {LEGEND.map(({ status, meaning }) => (
+            {LEGEND.filter(
+              ({ status }) =>
+                !area.source ||
+                area.routes.some((r) => r.access.greenSticker === status),
+            ).map(({ status, meaning }) => (
               <div
                 key={status}
                 className="rounded-sm border border-edge bg-paper-2/70 p-3"
@@ -160,30 +189,46 @@ export function AreaGuide({ area }: { area: Area }) {
             <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">
               Where can I ride?
             </h2>
-            <span className="text-sm text-olive">{area.region} MVUM</span>
-          </div>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
-            Every legal motorized road and trail in the {area.name}
-            {" "}area,
-            straight from the Forest Service&apos;s{" "}
-            <span className="font-semibold text-bistre">
-              Motor Vehicle Use Map (MVUM)
+            <span className="text-sm text-olive">
+              {area.source ? area.source.overviewLabel : `${area.region} MVUM`}
             </span>
-            . Most numbered roads are open to{" "}
-            <span className="font-semibold text-plate-ink">
-              street-legal plated
-            </span>{" "}
-            bikes only; the{" "}
-            <span className="font-semibold text-ok-ink">green</span> routes are
-            the comparatively few where a{" "}
-            <span className="font-semibold text-ok-ink">green-sticker</span>{" "}
-            (non-street-legal) bike is allowed. Hover any line for its road
-            number and access.
-          </p>
+          </div>
+          {area.source ? (
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
+              {area.source.overviewIntro}
+            </p>
+          ) : (
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/90">
+              Every legal motorized road and trail in the {area.name}
+              {" "}area,
+              straight from the Forest Service&apos;s{" "}
+              <span className="font-semibold text-bistre">
+                Motor Vehicle Use Map (MVUM)
+              </span>
+              . Most numbered roads are open to{" "}
+              <span className="font-semibold text-plate-ink">
+                street-legal plated
+              </span>{" "}
+              bikes only; the{" "}
+              <span className="font-semibold text-ok-ink">green</span> routes are
+              the comparatively few where a{" "}
+              <span className="font-semibold text-ok-ink">green-sticker</span>{" "}
+              (non-street-legal) bike is allowed. Hover any line for its road
+              number and access.
+            </p>
+          )}
         </div>
         <div className="mx-auto mt-6 max-w-6xl px-6 pb-12">
           <div className="overflow-hidden rounded-sm border-2 border-bistre/70 shadow-[0_1px_0_var(--color-edge),0_14px_30px_-22px_rgba(60,45,20,0.7)]">
-            <AreaMap src={area.mvumGeojson} />
+            {area.source ? (
+              <AreaMap
+                src={area.mvumGeojson}
+                labels={area.source.legend}
+                attribution={area.source.attribution}
+              />
+            ) : (
+              <AreaMap src={area.mvumGeojson} />
+            )}
           </div>
         </div>
       </section>
@@ -292,10 +337,10 @@ export function AreaGuide({ area }: { area: Area }) {
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink/90">
             <p>
               Route details, mileage, trailhead locations, and access info on this
-              page are approximate and provided for general guidance only. Route
-              lines come from the MVUM and elevation from SRTM, not a surveyed
-              legal boundary. Trail status, seasonal closures, and Adventure Pass
-              requirements change frequently.
+              page are approximate and provided for general guidance only.{" "}
+              {area.source
+                ? area.source.verifyNote
+                : "Route lines come from the MVUM and elevation from SRTM, not a surveyed legal boundary. Trail status, seasonal closures, and Adventure Pass requirements change frequently."}
             </p>
             <p>
               Always confirm current conditions and legal requirements with the{" "}
@@ -307,13 +352,14 @@ export function AreaGuide({ area }: { area: Area }) {
               >
                 {area.forest.name}
               </a>{" "}
-              before riding. Check the official Motor Vehicle Use Map (MVUM),
-              carry a spark arrestor, pack out what you pack in, and stay on
-              designated routes.
+              before riding.{" "}
+              {area.source
+                ? "Carry a spark arrestor, pack out what you pack in, and stay on designated routes."
+                : "Check the official Motor Vehicle Use Map (MVUM), carry a spark arrestor, pack out what you pack in, and stay on designated routes."}
             </p>
           </div>
           <p className="mt-6 text-xs text-olive">
-            Access data © USFS MVUM (EDW_MVUM_01) · map data ©{" "}
+            {area.source ? area.source.credit : "Access data © USFS MVUM (EDW_MVUM_01)"} · map data ©{" "}
             <a
               href="https://www.openstreetmap.org/copyright"
               target="_blank"

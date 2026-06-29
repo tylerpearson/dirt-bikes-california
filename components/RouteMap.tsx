@@ -7,7 +7,8 @@ import type { RouteSegment } from "@/lib/mvum";
 type LL = { lat: number; lng: number };
 
 // Mirror the static-map access palette (--color-ok-fill / --color-plate-fill).
-const SEG_COLOR = { green: "#3f8f3a", plate: "#3a6e92" } as const;
+// "track" is the neutral rust used for a multi-part route with no access split.
+const SEG_COLOR = { green: "#3f8f3a", plate: "#3a6e92", track: "#a8492a" } as const;
 
 /**
  * Interactive Leaflet map drawing the actual GPX track. Leaflet touches
