@@ -41,7 +41,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "The designated motorcycle singletrack the area is really known for.",
         description:
-          "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
+          "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated singletrack segments into one line so you can see where it runs.",
         surface: "Narrow motorcycle-only singletrack, sandy and technical",
         bestSeason: "October–April (hot in summer)",
         highlights: [
@@ -69,15 +69,15 @@ const CONFIG = {
         id: "sc-103-east", name: "SC-103 East",
         select: { names: ["65014: SC-103 EAST"] }, designation: "SC-103",
         difficulty: "Moderate",
-        summary: "A long designated open route working east across the Jawbone backcountry.",
+        summary: "A long designated route working east across the Jawbone backcountry.",
         description:
-          "SC-103 is one of the longer designated open routes in the area, miles of natural-surface desert two-track winding through Joshua tree and creosote on the high benches above the canyon. Sandy washes and rockier climbs trade off the whole way, real backcountry mileage well off the staging areas. Open and green-sticker the length of it.",
+          "SC-103 is one of the longer designated routes in the area, miles of natural-surface two-track winding through Joshua tree and creosote on the high benches above the canyon. Sandy washes give way to rockier climbs and back again. It runs well out past the staging areas, so it's a quieter ride than the canyon, and it's green-sticker the whole way.",
         surface: "Natural-surface desert two-track, sand and rock",
         bestSeason: "October–April (hot in summer)",
         highlights: [
-          "Long designated open route, miles of seat time",
-          "Joshua tree and creosote high desert",
-          "Quiet backcountry away from staging",
+          "Miles of high-desert two-track",
+          "Joshua tree and creosote benches",
+          "Quieter than the canyon staging areas",
         ],
       },
       {
@@ -86,13 +86,13 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Designated open desert route threading the benches above the canyon.",
         description:
-          "SC-94 is a designated open route of natural-surface two-track that links the Jawbone benches, a mix of sandy straights and rockier pitches through open Mojave desert. A solid intermediate ride that connects into the broader SC route network for a longer loop.",
+          "SC-94 is a shorter designated route of natural-surface two-track linking the Jawbone benches, sandy straights broken up by rockier pitches. It ties into the rest of the SC network, so it's an easy piece to fold into a bigger loop rather than a destination on its own.",
         surface: "Natural-surface two-track, sandy with rocky sections",
         bestSeason: "October–April (hot in summer)",
         highlights: [
-          "Designated open green-sticker route",
-          "Connects into the SC route network",
-          "Open high-desert riding",
+          "Green-sticker desert two-track",
+          "Ties into the SC network for a loop",
+          "Sandy straights and rocky pitches",
         ],
       },
       {
@@ -126,7 +126,7 @@ const CONFIG = {
         difficulty: "Difficult",
         summary: "A real moto singletrack network threading the volcanic badlands.",
         description:
-          "The El Paso Mountains hold one of the better designated singletrack networks in the Ridgecrest desert: miles of narrow motorcycle-only tread twisting through colorful volcanic country, tight and sandy with rocky pitches. For most riders this, not the roads, is the point of coming out here. The line on the map joins the area's designated single-track segments so you can see roughly where the network runs.",
+          "The El Paso Mountains hold one of the better designated singletrack networks in the Ridgecrest desert: miles of narrow motorcycle-only tread twisting through colorful volcanic country, tight and sandy with rocky pitches. For most riders this, not the roads, is the point of coming out here. The line on the map joins the area's designated singletrack segments so you can see roughly where the network runs.",
         surface: "Narrow motorcycle-only singletrack, sandy and rocky",
         bestSeason: "October–April (hot in summer)",
         highlights: [
@@ -139,15 +139,15 @@ const CONFIG = {
         id: "el-paso-willis-well", name: "Willis Well Road",
         select: { names: ["65093: R43 WILLIS WELL ROAD"] }, designation: "R43",
         difficulty: "Moderate",
-        summary: "A long designated open route across the El Paso backcountry.",
+        summary: "A long designated route across the El Paso backcountry.",
         description:
-          "R43 (Willis Well Road) is one of the longer designated open routes through the El Paso Mountains, natural-surface desert two-track running across the benches and washes past old wells and mining ground. Sandy stretches trade off with rockier pitches, real backcountry mileage well off the staging areas. Open and green-sticker the length of it.",
+          "R43, the Willis Well Road, is one of the longer routes through the El Paso Mountains, natural-surface two-track running across the benches and washes past old wells and weathered mining ground. The tread trades sandy stretches for rockier pitches as it goes. It reaches a long way into the backcountry, a green-sticker route for covering ground.",
         surface: "Natural-surface desert two-track, sand and rock",
         bestSeason: "October–April (hot in summer)",
         highlights: [
-          "Long designated open route, real seat time",
-          "Old wells and mining country",
-          "Quiet El Paso backcountry",
+          "A long route deep into the backcountry",
+          "Past old wells and mining ground",
+          "Quiet El Paso desert",
         ],
       },
       {
@@ -156,13 +156,13 @@ const CONFIG = {
         difficulty: "Moderate",
         summary: "Designated route climbing toward Black Mountain.",
         description:
-          "Black Mountain Road is a designated open route working up toward Black Mountain on the north side of the range, a natural-surface climb with rockier high-clearance pitches and expanding views over the desert and the Sierra to the west. A solid intermediate ride that connects into the wider El Paso network.",
+          "Black Mountain Road climbs toward Black Mountain on the north side of the range, a natural-surface grind that gets rockier and more high-clearance as it gains the height. Up top it opens a long look west over the desert toward the Sierra. One of the few routes here that climbs to any real elevation.",
         surface: "Natural-surface high-clearance dirt, rocky up high",
         bestSeason: "October–April (hot in summer)",
         highlights: [
-          "Climbs toward Black Mountain",
-          "Big desert and Sierra views",
-          "Connects the El Paso route network",
+          "Climbs to real elevation on Black Mountain",
+          "Long look west toward the Sierra",
+          "Rockier and high-clearance up high",
         ],
       },
       {
@@ -298,13 +298,13 @@ function accessNote(name, feats, isSingletrack) {
   const limited = feats.filter((f) => f.properties._layer === 1);
   const open = feats.filter((f) => f.properties._layer === 0);
   if (isSingletrack)
-    return `Per the BLM travel plan, this is designated motorized single-track open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's moto-width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.`;
+    return `Per the BLM travel plan, this is designated motorized singletrack open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's motorcycle width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.`;
   if (limited.length && !open.length) {
     const lim = limited.map((f) => f.properties.OHV_DSGNTN_LIM_EXPLAIN).find((x) => x && x !== "Motorized,No Designation Given");
     const detail = lim ? ` The BLM designation carries a limitation (${lim.toLowerCase()}), so check the route signs.` : "";
     return `Per the BLM travel plan, ${name} is a designated route open to motorized use, so green-sticker (non-street-legal) bikes are allowed.${detail} Stay on designated routes; registration + spark arrestor required.`;
   }
-  return `Per the BLM travel plan, ${name} is a designated open route, so green-sticker (non-street-legal) bikes are allowed. This is OHV-open land: stay on designated routes, registration + spark arrestor required.`;
+  return `Per the BLM travel plan, ${name} is a designated open route, so green-sticker (non-street-legal) bikes are allowed. This is open OHV land: stay on designated routes, registration + spark arrestor required.`;
 }
 
 async function buildRoute(cfg, bbox) {

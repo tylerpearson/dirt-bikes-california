@@ -8,7 +8,7 @@ export const jawboneRoutes: Route[] = [
     "id": "jawbone-singletrack",
     "name": "Jawbone Motorized Singletrack",
     "summary": "The designated motorcycle singletrack the area is really known for.",
-    "description": "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated single-track segments into one line so you can see where it runs.",
+    "description": "Beyond the roads, Jawbone carries a network of designated motorized singletrack: narrow, twisting motorcycle-only tread through the desert that's the real reason dirt-bikers come here. Tight, sandy, and technical in spots, it's true singletrack, not a two-track, and it's strictly motorcycle width. This entry stitches the area's designated singletrack segments into one line so you can see where it runs.",
     "distanceMiles": 3.3,
     "difficulty": "Difficult",
     "elevationFt": "3,900–4,400 ft",
@@ -17,7 +17,7 @@ export const jawboneRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the BLM travel plan, this is designated motorized single-track open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's moto-width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
+      "note": "Per the BLM travel plan, this is designated motorized singletrack open to motorcycles, so green-sticker (non-street-legal) bikes are allowed; it's motorcycle width only, no ATVs or wider machines. Stay on the designated tread. Registration + spark arrestor required.",
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
@@ -44,7 +44,7 @@ export const jawboneRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the BLM travel plan, Jawbone Canyon Road is a designated open route, so green-sticker (non-street-legal) bikes are allowed. This is OHV-open land: stay on designated routes, registration + spark arrestor required.",
+      "note": "Per the BLM travel plan, Jawbone Canyon Road is a designated open route, so green-sticker (non-street-legal) bikes are allowed. This is open OHV land: stay on designated routes, registration + spark arrestor required.",
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
@@ -62,8 +62,8 @@ export const jawboneRoutes: Route[] = [
     "id": "sc-103-east",
     "name": "SC-103 East",
     "forestRoad": "SC-103",
-    "summary": "A long designated open route working east across the Jawbone backcountry.",
-    "description": "SC-103 is one of the longer designated open routes in the area, miles of natural-surface desert two-track winding through Joshua tree and creosote on the high benches above the canyon. Sandy washes and rockier climbs trade off the whole way, real backcountry mileage well off the staging areas. Open and green-sticker the length of it.",
+    "summary": "A long designated route working east across the Jawbone backcountry.",
+    "description": "SC-103 is one of the longer designated routes in the area, miles of natural-surface two-track winding through Joshua tree and creosote on the high benches above the canyon. Sandy washes give way to rockier climbs and back again. It runs well out past the staging areas, so it's a quieter ride than the canyon, and it's green-sticker the whole way.",
     "distanceMiles": 13.4,
     "difficulty": "Moderate",
     "elevationFt": "2,850–5,300 ft",
@@ -76,9 +76,9 @@ export const jawboneRoutes: Route[] = [
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
-      "Long designated open route, miles of seat time",
-      "Joshua tree and creosote high desert",
-      "Quiet backcountry away from staging"
+      "Miles of high-desert two-track",
+      "Joshua tree and creosote benches",
+      "Quieter than the canyon staging areas"
     ],
     "trailhead": {
       "name": "SC-103 East",
@@ -91,7 +91,7 @@ export const jawboneRoutes: Route[] = [
     "name": "SC-94",
     "forestRoad": "SC-94",
     "summary": "Designated open desert route threading the benches above the canyon.",
-    "description": "SC-94 is a designated open route of natural-surface two-track that links the Jawbone benches, a mix of sandy straights and rockier pitches through open Mojave desert. A solid intermediate ride that connects into the broader SC route network for a longer loop.",
+    "description": "SC-94 is a shorter designated route of natural-surface two-track linking the Jawbone benches, sandy straights broken up by rockier pitches. It ties into the rest of the SC network, so it's an easy piece to fold into a bigger loop rather than a destination on its own.",
     "distanceMiles": 6.4,
     "difficulty": "Moderate",
     "elevationFt": "3,550–4,350 ft",
@@ -104,9 +104,9 @@ export const jawboneRoutes: Route[] = [
       "source": "BLM Ground Transportation Linear Features (GTLF), 2026"
     },
     "highlights": [
-      "Designated open green-sticker route",
-      "Connects into the SC route network",
-      "Open high-desert riding"
+      "Green-sticker desert two-track",
+      "Ties into the SC network for a loop",
+      "Sandy straights and rocky pitches"
     ],
     "trailhead": {
       "name": "SC-94",
