@@ -10,12 +10,15 @@ export function StaticMap({
   label,
   approximate = false,
   showTiles = true,
+  showExpand = true,
 }: {
   map: MapRender;
   label: string;
   approximate?: boolean;
   /** Gate the OSM tile <image>s for lazy-loading below-fold maps. */
   showTiles?: boolean;
+  /** Show the "Expand map" affordance (off when the map isn't expandable). */
+  showExpand?: boolean;
 }) {
   const pathPoints = map.path?.map((p) => `${p.left},${p.top}`).join(" ");
   const segments = map.segments ?? [];
@@ -132,7 +135,7 @@ export function StaticMap({
 
       <span className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-ink/85 to-transparent px-3 pb-2 pt-10 text-xs font-semibold uppercase tracking-wide text-paper">
         <span className="truncate">{label}</span>
-        <span className="ml-2 shrink-0">⤢ Expand map</span>
+        {showExpand && <span className="ml-2 shrink-0">⤢ Expand map</span>}
       </span>
     </span>
   );
