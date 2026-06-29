@@ -37,7 +37,7 @@ const esc = (s: string) =>
 export function AreaMap({
   src,
   labels = { green: "Green-sticker OHV allowed", plate: "Street-legal plate only" },
-  attribution = "&copy; OpenStreetMap contributors · USFS MVUM",
+  attribution = "&copy; OpenStreetMap contributors · Forest Service travel maps",
 }: {
   src: string;
   /** Legend + tooltip labels for the two access classes (source-specific). */

@@ -90,9 +90,9 @@ export default function Home() {
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-ink/90">
             The best OHV and dual-sport rides across Southern California&apos;s
             national forests and BLM desert, with real route maps and elevation
-            pulled from official travel maps (USFS MVUM, BLM GTLF) and SRTM, the
-            details that matter, and exactly where you need a street-legal plate
-            versus where green-sticker bikes are allowed.
+            built from the Forest Service and BLM travel maps plus public terrain
+            data, the details that matter, and exactly where you need a
+            street-legal plate versus where green-sticker bikes are allowed.
           </p>
           <p className="mt-3 text-sm text-olive">
             {AREAS.length} riding areas ·{" "}
@@ -103,7 +103,8 @@ export default function Home() {
             <span className="font-semibold text-rust-ink">Scope:</span> this
             covers two kinds of federal public land.{" "}
             <span className="font-semibold text-bistre">National forests</span>{" "}
-            (USFS travel maps) are mostly designated roads where access flips
+            (Forest Service travel maps) are mostly designated roads where access
+            flips
             between street-legal-only and green-sticker route by route.{" "}
             <span className="font-semibold text-bistre">BLM desert</span>{" "}
             like Jawbone Canyon (BLM travel maps) is open OHV country, where
@@ -140,7 +141,8 @@ export default function Home() {
               Route details, mileage, trailhead locations, and access info in
               this guide are approximate and provided for general guidance only.
               Route lines come from official agency travel maps and elevation
-              from SRTM, not a surveyed legal boundary. Trail status, seasonal
+              from public terrain data, not a surveyed legal boundary. Trail
+              status, seasonal
               closures, and permit or pass requirements change frequently.
             </p>
             <p>
@@ -151,7 +153,7 @@ export default function Home() {
             </p>
           </div>
           <p className="mt-6 text-xs text-olive">
-            Access data © USFS MVUM (EDW_MVUM_01) and BLM GTLF · map data ©{" "}
+            Access data from US Forest Service and BLM travel maps · map data ©{" "}
             <a
               href="https://www.openstreetmap.org/copyright"
               target="_blank"
@@ -160,7 +162,7 @@ export default function Home() {
             >
               OpenStreetMap
             </a>{" "}
-            contributors · elevation from SRTM.
+            contributors · elevation data from NASA.
           </p>
         </div>
       </footer>

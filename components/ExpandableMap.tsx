@@ -163,7 +163,7 @@ export function ExpandableMap({
               <RouteMap points={points} segments={segments} />
             </div>
             <p className="border-t border-edge px-4 py-2 text-[0.65rem] text-olive">
-              Route line from the MVUM, approximate; verify on the official map.
+              Route line from the agency travel map, approximate; verify on the official map.
               Basemap © OpenStreetMap contributors. Green start dot · red end dot.
             </p>
           </div>

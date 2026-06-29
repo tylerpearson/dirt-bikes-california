@@ -79,7 +79,7 @@ export function OverviewMap({ areas }: { areas: AreaPin[] }) {
         map = L.map(el, { scrollWheelZoom: false });
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
           maxZoom: 16,
-          attribution: "&copy; OpenStreetMap contributors · USFS MVUM",
+          attribution: "&copy; OpenStreetMap contributors · Forest Service travel maps",
         }).addTo(map);
 
         for (const a of areas) {
