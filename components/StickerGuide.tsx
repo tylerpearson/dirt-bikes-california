@@ -208,22 +208,6 @@ export function StickerGuide() {
           </p>
         </div>
 
-        {/* The "grey sticker" question, answered up front because people ask it. */}
-        <div className="mt-8 rounded-sm border border-edge bg-paper/70 p-5">
-          <h3 className="font-display text-lg font-bold uppercase tracking-tight text-rust-ink">
-            Wait, is there a grey sticker?
-          </h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink/90">
-            No. California issues three OHV stickers: green, red, and tan. If
-            you have heard riders mention a grey or gray sticker, they almost
-            always mean the new{" "}
-            <span className="font-semibold text-bistre">tan</span> sticker, the
-            competition-only registration for 2022-and-newer bikes that do not
-            meet emissions standards. It is real, it is recent, and it is covered
-            below.
-          </p>
-        </div>
-
         {/* Green */}
         <div className="mt-10">
           <SubHead>
