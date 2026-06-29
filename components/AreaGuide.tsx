@@ -5,6 +5,7 @@ import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
 import { trackStats, trackStatsFromParts } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
+import { StaticMap } from "@/components/StaticMap";
 import { AccessBadge } from "@/components/AccessBadge";
 import { AreaMap } from "@/components/AreaMap";
 import { HeroTopo } from "@/components/HeroTopo";
@@ -73,6 +74,26 @@ export function AreaGuide({ area }: { area: Area }) {
         : trackStats(track)
       : null;
     return { route, map, points, segments, stats };
+  });
+
+  // A composite map per loop: each route in the loop drawn on one frame so the
+  // "Make a day of it" card shows the shape of the day, not just a list of names.
+  const trackById = new Map(
+    cards.map((c) => [c.route.id, { points: c.points, segments: c.segments }]),
+  );
+  const loopMaps = (area.loops ?? []).map((loop) => {
+    const segs: { access: "green" | "plate" | "track"; coords: { lat: number; lng: number }[] }[] = [];
+    const allPoints: { lat: number; lng: number }[] = [];
+    for (const id of loop.routeIds) {
+      const d = trackById.get(id);
+      if (!d || d.points.length < 2) continue;
+      allPoints.push(...d.points);
+      if (d.segments.length) segs.push(...d.segments);
+      else segs.push({ access: "track", coords: d.points });
+    }
+    return allPoints.length > 1
+      ? trackMap(allPoints, { segments: segs, height: 300, padding: 48 })
+      : null;
   });
 
   return (
@@ -252,11 +273,17 @@ export function AreaGuide({ area }: { area: Area }) {
             </p>
 
             <div className="mt-6 grid gap-5 lg:grid-cols-2">
-              {area.loops.map((loop) => (
+              {area.loops.map((loop, li) => (
                 <article
                   key={loop.name}
-                  className="flex flex-col gap-3 rounded-sm border border-edge-strong/60 bg-paper-2 p-5 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)]"
+                  className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)]"
                 >
+                  {loopMaps[li] && (
+                    <div className="h-44 w-full border-b border-edge-strong/40 sm:h-52">
+                      <StaticMap map={loopMaps[li]!} label={loop.name} approximate showExpand={false} />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col gap-3 p-5">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-display text-xl font-bold leading-tight tracking-tight text-bistre">
                       {loop.name}
@@ -298,6 +325,7 @@ export function AreaGuide({ area }: { area: Area }) {
                         </span>
                       );
                     })}
+                  </div>
                   </div>
                 </article>
               ))}
