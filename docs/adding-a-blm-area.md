@@ -9,7 +9,7 @@ source and a few conventions differ; the rendering is almost entirely shared.
 > TL;DR: pick a bbox on BLM OHV land → confirm GTLF coverage → fetch the overview
 > network (`fetch-blm-area.mjs`) → curate featured routes by name / designation /
 > singletrack tag (`build-blm-routes.mjs`) → register the area with a `source`
-> descriptor → add the page → build & eyeball it.
+> descriptor → add day loops → add the page → build & eyeball it.
 
 ---
 
@@ -151,13 +151,41 @@ overview, intro, and footer for BLM):
 }
 ```
 
-### Step 4 — Add the page
+### Step 4 — Add day loops ("Make a day of it")
+
+Add a `loops` array to the area entry stringing the featured routes into
+all-day rides. The `AreaGuide` renders a "Make a day of it" section whenever an
+area has loops; an open BLM OHV network is a natural place for them, so don't
+skip this pass.
+
+```ts
+loops: [
+  {
+    name: "Dove Springs Big Day",
+    distanceMiles: 24,                 // rough composite; routes overlap/connect
+    summary: "…one-line framing of the day…",
+    description: "…the ride, in order, in prose…",
+    routeIds: ["sc-94", "sc-103-east", "butterbredt-canyon"], // riding order
+  },
+],
+```
+
+**Ground every loop in the routes' real positions** (their `trailhead`
+lat/lng), not just a nice-sounding string of names. BLM areas can be spread out:
+Jawbone's five routes span ~23 km north to south in two clusters, so it got two
+loops (a northern Dove Springs day and a south-end canyon-and-singletrack day)
+rather than one loop pretending it all connects. The GTLF gives route geometry
+but not a verified through-route between routes, so keep mileage approximate and
+lean on the section's standing "segments overlap and connect" disclaimer instead
+of inventing specific junctions.
+
+### Step 5 — Add the page
 
 Create `app/<area-id>/page.tsx` (identical template to a USFS page; the nav and
 home card auto-derive from `AREAS`). The nav groups by `forest.name`, so a BLM
 field office becomes its own group automatically.
 
-### Step 5 — Build, verify, commit
+### Step 6 — Build, verify, commit
 
 ```bash
 npm run build                          # must be clean (TS + static gen)
@@ -220,3 +248,8 @@ render byte-identical when `source` is omitted):
 
 6. **Overview GeoJSON is larger.** Jawbone's network is ~640 KB raw (~150 KB
    gzip). Fine to ship; tighten the bbox if it balloons.
+
+7. **Loops have to follow the geography.** BLM routes can be far apart, so check
+   the trailhead coordinates before stringing a loop. Jawbone's routes spanned
+   ~23 km in two clusters and got two loops, not one. Don't assert a through-route
+   the data doesn't show; keep composite mileage approximate.
