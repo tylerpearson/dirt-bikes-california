@@ -2,7 +2,10 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { LatLng } from "./tiles";
 
-export type Access = "green" | "plate";
+// "green"/"plate" are MVUM access classes; "track" is a neutral run used to
+// draw a multi-part route (e.g. a BLM route of disjoint GTLF pieces) without
+// bridging the gaps.
+export type Access = "green" | "plate" | "track";
 export type RouteSegment = { access: Access; coords: LatLng[] };
 
 /**

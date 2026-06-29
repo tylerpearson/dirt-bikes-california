@@ -9,13 +9,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 A multi-area guide to OHV/dual-sport dirt bike routes. Each area (Big Bear, Palm
 Springs, Idyllwild, Santa Barbara, …) is a registry entry in `lib/areas.ts`
 rendered by the shared `components/AreaGuide.tsx`. Route geometry and legal
-access come from the USFS MVUM; elevation from SRTM. Only prose is hand-written.
+access come from the USFS MVUM (national forests) or the BLM GTLF (BLM OHV land);
+elevation from SRTM. Only prose is hand-written. (California State SVRAs like
+Ocotillo Wells / Hungry Valley are a different agency with fees and are out of
+scope.)
 
-**Adding another riding area?** Follow [`docs/adding-an-area.md`](docs/adding-an-area.md).
-It's the end-to-end pipeline (bbox → MVUM overview map → curated routes → GPX
-→ register → verify) plus the gotchas we already hit (national road-number
-collisions, editorial-vs-derived access drift, overlapping areas). Then run every
-area through the six editorial/QA passes in
+**Adding another riding area?** For a national forest, follow
+[`docs/adding-an-area.md`](docs/adding-an-area.md). For BLM land (e.g. Jawbone
+Canyon), follow [`docs/adding-a-blm-area.md`](docs/adding-a-blm-area.md) — same
+shape, different source and access model (open vs limited, not green vs plate).
+Both are the end-to-end pipeline (bbox → overview map → curated routes → GPX →
+register → verify) plus the gotchas we already hit (national road-number
+collisions, editorial-vs-derived access drift, overlapping areas, BLM's anonymous
+geometry). Then run every area through the six editorial/QA passes in
 [`docs/area-review-process.md`](docs/area-review-process.md) (sort best-first →
 rider review → PM review → trim weak routes → loops → impeccable UI critique)
 before calling it done.

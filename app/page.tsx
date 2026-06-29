@@ -52,7 +52,7 @@ function homeJsonLd() {
         name: SITE_NAME,
         url: SITE_URL,
         description:
-          "A field guide to dirt bike and OHV routes across Southern California's national forests.",
+          "A field guide to dirt bike and OHV routes across Southern California's national forests and BLM desert.",
       },
       {
         "@type": "ItemList",
@@ -89,10 +89,10 @@ export default function Home() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-ink/90">
             The best OHV and dual-sport rides across Southern California&apos;s
-            national forests, with real route maps and elevation pulled from the
-            Forest Service Motor Vehicle Use Map (MVUM) and SRTM, the details that matter, and
-            exactly where you need a street-legal plate versus where
-            green-sticker bikes are allowed.
+            national forests and BLM desert, with real route maps and elevation
+            pulled from official travel maps (USFS MVUM, BLM GTLF) and SRTM, the
+            details that matter, and exactly where you need a street-legal plate
+            versus where green-sticker bikes are allowed.
           </p>
           <p className="mt-3 text-sm text-olive">
             {AREAS.length} riding areas ·{" "}
@@ -101,17 +101,20 @@ export default function Home() {
 
           <p className="mt-8 max-w-2xl rounded-sm border border-edge bg-paper-2/70 px-4 py-3 text-sm leading-relaxed text-bistre">
             <span className="font-semibold text-rust-ink">Scope:</span> this
-            covers routes on{" "}
-            <span className="font-semibold text-bistre">
-              national-forest land
-            </span>{" "}
-            (USFS Motor Vehicle Use Maps). It doesn&apos;t include
+            covers two kinds of federal public land.{" "}
+            <span className="font-semibold text-bistre">National forests</span>{" "}
+            (USFS travel maps) are mostly designated roads where access flips
+            between street-legal-only and green-sticker route by route.{" "}
+            <span className="font-semibold text-bistre">BLM desert</span>{" "}
+            like Jawbone Canyon (BLM travel maps) is open OHV country, where
+            almost
+            every designated route is green-sticker terrain. It does not cover
             California&apos;s state-run OHV parks,{" "}
             <span className="font-semibold text-bistre">
               State Vehicular Recreation Areas
             </span>{" "}
-            like Ocotillo Wells or Hungry Valley (Gorman), which have their own
-            maps and rules.
+            like Ocotillo Wells or Hungry Valley (Gorman), which charge a fee and
+            run on their own maps and rules.
           </p>
         </div>
       </header>
@@ -136,19 +139,19 @@ export default function Home() {
             <p>
               Route details, mileage, trailhead locations, and access info in
               this guide are approximate and provided for general guidance only.
-              Route lines come from the MVUM and elevation from SRTM, not a
-              surveyed legal boundary. Trail status, seasonal closures, and
-              Adventure Pass requirements change frequently.
+              Route lines come from official agency travel maps and elevation
+              from SRTM, not a surveyed legal boundary. Trail status, seasonal
+              closures, and permit or pass requirements change frequently.
             </p>
             <p>
               Always confirm current conditions and legal requirements with the
-              managing national forest before riding. Check the official Motor
-              Vehicle Use Map (MVUM), carry a spark arrestor, pack out what you
-              pack in, and stay on designated routes.
+              managing agency (the national forest or BLM field office) before
+              riding. Carry a spark arrestor, pack out what you pack in, and stay
+              on designated routes.
             </p>
           </div>
           <p className="mt-6 text-xs text-olive">
-            Access data © USFS MVUM (EDW_MVUM_01) · map data ©{" "}
+            Access data © USFS MVUM (EDW_MVUM_01) and BLM GTLF · map data ©{" "}
             <a
               href="https://www.openstreetmap.org/copyright"
               target="_blank"

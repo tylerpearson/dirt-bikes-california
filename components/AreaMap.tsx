@@ -34,7 +34,17 @@ const esc = (s: string) =>
  * Leaflet + the ~140 KB (gzip) GeoJSON load lazily, only when the section
  * nears the viewport.
  */
-export function AreaMap({ src }: { src: string }) {
+export function AreaMap({
+  src,
+  labels = { green: "Green-sticker OHV allowed", plate: "Street-legal plate only" },
+  attribution = "&copy; OpenStreetMap contributors · USFS MVUM",
+}: {
+  src: string;
+  /** Legend + tooltip labels for the two access classes (source-specific). */
+  labels?: { green: string; plate: string };
+  /** Tile attribution suffix naming the data source. */
+  attribution?: string;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -80,7 +90,7 @@ export function AreaMap({ src }: { src: string }) {
         map = L.map(el, { scrollWheelZoom: false });
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
           maxZoom: 16,
-          attribution: "&copy; OpenStreetMap contributors · USFS MVUM",
+          attribution,
         }).addTo(map);
 
         const style = (f?: Feature) => {
@@ -108,7 +118,7 @@ export function AreaMap({ src }: { src: string }) {
         // route that carries the tooltip and a faint highlight on hover.
         const onEach = (f: Feature, layer: any) => {
           const p = f.properties;
-          const label = p.access === "green" ? "Green-sticker OK" : "Plated only";
+          const label = p.access === "green" ? labels.green : labels.plate;
           const name = p.name
             ? p.name.replace(/\b\w/g, (c) => c.toUpperCase())
             : "Unnamed route";
@@ -166,11 +176,11 @@ export function AreaMap({ src }: { src: string }) {
         <ul className="space-y-1 text-bistre">
           <li className="flex items-center gap-2">
             <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.green }} />
-            Green-sticker OHV allowed
+            {labels.green}
           </li>
           <li className="flex items-center gap-2">
             <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.plate }} />
-            Street-legal plate only
+            {labels.plate}
           </li>
           <li className="flex items-center gap-2 text-olive">
             <span

@@ -18,6 +18,11 @@ export function loadTrack(file: string): TrackPoint[] {
     return [];
   }
 
+  return parseTrkpts(xml);
+}
+
+/** Parse every <trkpt> in a chunk of GPX into ordered track points. */
+function parseTrkpts(xml: string): TrackPoint[] {
   const points: TrackPoint[] = [];
   // Match each <trkpt> element, whether self-closing or with inner content.
   const blockRe = /<trkpt\b([^>]*?)(?:\/>|>([\s\S]*?)<\/trkpt>)/g;
@@ -36,4 +41,34 @@ export function loadTrack(file: string): TrackPoint[] {
     });
   }
   return points;
+}
+
+/**
+ * Load a GPX track split into its <trkseg> parts. A route stitched from
+ * disjoint segments (e.g. a BLM route built from separate GTLF pieces) writes
+ * one <trkseg> per part; this returns each part separately so a renderer can
+ * draw them as distinct polylines instead of joining the gaps with a straight
+ * line. Single-segment tracks return one part. Server-only.
+ */
+export function loadTrackParts(file: string): TrackPoint[][] {
+  const full = path.join(process.cwd(), "public", "gpx", file);
+  let xml: string;
+  try {
+    xml = readFileSync(full, "utf8");
+  } catch {
+    return [];
+  }
+  const segRe = /<trkseg\b[^>]*>([\s\S]*?)<\/trkseg>/g;
+  const parts: TrackPoint[][] = [];
+  let m: RegExpExecArray | null;
+  while ((m = segRe.exec(xml)) !== null) {
+    const pts = parseTrkpts(m[1]);
+    if (pts.length) parts.push(pts);
+  }
+  // Fall back to a single part if the file has no <trkseg> wrappers.
+  if (!parts.length) {
+    const pts = parseTrkpts(xml);
+    if (pts.length) parts.push(pts);
+  }
+  return parts;
 }

@@ -22,6 +22,7 @@ export function StaticMap({
   const SEG_COLOR = {
     green: "var(--color-ok-fill)",
     plate: "var(--color-plate-fill)",
+    track: "var(--color-rust)", // neutral: a multi-part route, no access split
   } as const;
   // Show a legend only when access is mixed along the route (the "partial" case).
   const hasGreen = segments.some((s) => s.access === "green");

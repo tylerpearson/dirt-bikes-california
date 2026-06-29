@@ -35,12 +35,16 @@ export type MapRender = {
   path?: Point[];
   start?: Point;
   end?: Point;
-  /** MVUM road segments colored by access (green-sticker vs plate-only) */
-  segments?: { access: "green" | "plate"; points: Point[] }[];
+  /**
+   * Road/trail segments drawn as separate polylines. "green"/"plate" color by
+   * MVUM access; "track" is a neutral run used to draw a multi-part route (e.g.
+   * BLM routes made of disjoint GTLF segments) without connecting the gaps.
+   */
+  segments?: { access: "green" | "plate" | "track"; points: Point[] }[];
 };
 
-/** A run of MVUM geometry sharing one access status, in lat/lng. */
-export type AccessSegment = { access: "green" | "plate"; coords: LatLng[] };
+/** A run of geometry sharing one access status, in lat/lng. */
+export type AccessSegment = { access: "green" | "plate" | "track"; coords: LatLng[] };
 
 type Frame = { width: number; height: number };
 
