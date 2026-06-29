@@ -160,7 +160,7 @@ export function AreaGuide({ area }: { area: Area }) {
             ))}
           </div>
 
-          <details className="group mt-5 max-w-2xl overflow-hidden rounded-sm border border-edge bg-paper-2/50">
+          <details open className="group mt-5 max-w-2xl overflow-hidden rounded-sm border border-edge bg-paper-2/50">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-bistre [&::-webkit-details-marker]:hidden">
               <span>Sticker rules &amp; the 2026 e-bike law (SB 586)</span>
               <span
