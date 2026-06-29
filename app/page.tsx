@@ -107,14 +107,14 @@ export default function Home() {
             between street-legal-only and green-sticker route by route.{" "}
             <span className="font-semibold text-bistre">BLM desert</span>{" "}
             like Jawbone Canyon (BLM travel maps) is open OHV country, where
-            almost
-            every designated route is green-sticker terrain. It does not cover
-            California&apos;s state-run OHV parks,{" "}
+            almost every designated route is green-sticker terrain. Federal OHV
+            areas count here too, including forest ones like Rowher Flats. What
+            it does not cover is California&apos;s state-run OHV parks,{" "}
             <span className="font-semibold text-bistre">
               State Vehicular Recreation Areas
             </span>{" "}
-            like Ocotillo Wells or Hungry Valley (Gorman), which charge a fee and
-            run on their own maps and rules.
+            like Ocotillo Wells or Hungry Valley (Gorman), a separate agency that
+            charges a fee and runs on its own maps and rules.
           </p>
         </div>
       </header>
