@@ -18,7 +18,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, 5N15.2 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 5N15.2 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go. Note: as of 2024 this road and the Upper Oso OHV staging area are closed to motorized use while the forest recovers from storm damage (Forest Order 5-07-54-24-19, currently extended through September 2026), so check the forest's current orders before planning a ride here.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [
@@ -74,7 +74,7 @@ export const santaBarbaraRoutes: Route[] = [
     "access": {
       "streetLegal": true,
       "greenSticker": "yes",
-      "note": "Per the MVUM, 9N11.4 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go.",
+      "note": "Per the MVUM, 9N11.4 is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required. This route has a seasonal (wet-weather) closure, so confirm it's open before you go. Note: as of 2024 this road and the Upper Oso OHV staging area are closed to motorized use while the forest recovers from storm damage (Forest Order 5-07-54-24-19, currently extended through September 2026), so check the forest's current orders before planning a ride here.",
       "source": "USFS Motor Vehicle Use Map (MVUM), 2026"
     },
     "highlights": [

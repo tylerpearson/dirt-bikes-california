@@ -360,6 +360,20 @@ export function AreaGuide({ area }: { area: Area }) {
                 ? "Carry a spark arrestor, pack out what you pack in, and stay on designated routes."
                 : "Check the official Motor Vehicle Use Map (MVUM), carry a spark arrestor, pack out what you pack in, and stay on designated routes."}
             </p>
+            <p>
+              Closures change fast here. Wildfire burn-area orders, storm damage,
+              and seasonal gates can shut roads listed on this page with little
+              notice, so check the{" "}
+              <a
+                href={area.forest.closuresUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-rust-ink underline decoration-rust/50 underline-offset-2 hover:decoration-rust"
+              >
+                {area.forest.name} alerts and current closures
+              </a>{" "}
+              before you load up.
+            </p>
           </div>
           <p className="mt-6 text-xs text-olive">
             {area.source ? area.source.credit : "Access data © US Forest Service travel maps"} · map data ©{" "}

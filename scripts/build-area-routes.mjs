@@ -713,6 +713,8 @@ const CONFIG = {
       {
         id: "camuesa-road", name: "Camuesa Road (Romero–Camuesa)", ids: ["5N15.2"],
         difficulty: "Difficult",
+        closure:
+          "Note: as of 2024 this road and the Upper Oso OHV staging area are closed to motorized use while the forest recovers from storm damage (Forest Order 5-07-54-24-19, currently extended through September 2026), so check the forest's current orders before planning a ride here.",
         summary: "The backbone of Santa Barbara's Camuesa OHV area, green-sticker riding.",
         description:
           "The Romero–Camuesa road (5N15) is the spine of the Camuesa OHV area in the Santa Ynez backcountry, with segment 5N15.2 designated open to all vehicles. It's a rugged, remote backcountry road through chaparral and oak, the heart of the only real green-sticker network near Santa Barbara, with seasonal wet-weather closures.",
@@ -741,6 +743,8 @@ const CONFIG = {
       {
         id: "buckhorn-road", name: "Buckhorn Road", ids: ["9N11.4"],
         difficulty: "Difficult",
+        closure:
+          "Note: as of 2024 this road and the Upper Oso OHV staging area are closed to motorized use while the forest recovers from storm damage (Forest Order 5-07-54-24-19, currently extended through September 2026), so check the forest's current orders before planning a ride here.",
         summary: "Remote green-sticker road into the San Rafael backcountry.",
         description:
           "9N11.4 (Buckhorn) pushes into the remote San Rafael / upper Santa Ynez backcountry as a designated road open to all vehicles. It's a long, rugged, lightly-traveled high-clearance route through chaparral and pine, proper green-sticker backcountry with seasonal closures, so go prepared and self-sufficient.",
@@ -1261,19 +1265,22 @@ async function fetchElevations(coords) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmtFt = (m) => Math.round((m * 3.28084) / 50) * 50;
 
-function accessNote(name, ids, access, seasonal, isTrail = false) {
+function accessNote(name, ids, access, seasonal, isTrail = false, closure = "") {
   const id = ids[0];
   const season = seasonal
     ? " This route has a seasonal (wet-weather) closure, so confirm it's open before you go."
     : "";
+  // Editorial override for a current, non-seasonal closure order (e.g. a storm-damage
+  // forest order). Appended verbatim so it survives a regen; clear it when lifted.
+  const order = closure ? ` ${closure}` : "";
   if (isTrail)
     // Trails are motorcycle/OHV singletrack — green-sticker by nature.
-    return `Per the MVUM, trail ${id} is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.${season}`;
+    return `Per the MVUM, trail ${id} is a designated OHV trail open to motorcycles, so green-sticker (non-street-legal) bikes are allowed. Being narrow-gauge singletrack, it's a true OHV trail, not a road. Registration + spark arrestor required.${season}${order}`;
   if (access === "yes")
-    return `Per the MVUM, ${id} is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.${season}`;
+    return `Per the MVUM, ${id} is designated open to all vehicles, so green-sticker (non-street-legal) bikes are allowed. Registration + spark arrestor required.${season}${order}`;
   if (access === "partial")
-    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.${season}`;
-  return `Per the MVUM, ${id} is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.${season}`;
+    return `Per the MVUM, ${name} is mixed: some segments are open to all vehicles (green-sticker OK) and others are open to street-legal vehicles only, so access goes segment by segment. Read the signs at each junction; registration + spark arrestor required.${season}${order}`;
+  return `Per the MVUM, ${id} is open to street-legal vehicles only: plated bikes, no green-sticker (non-street-legal) bikes.${season}${order}`;
 }
 
 async function buildRoute(cfg, bbox) {
@@ -1358,7 +1365,7 @@ ${trkpts}
     access: {
       streetLegal: true,
       greenSticker: access,
-      note: accessNote(cfg.name, cfg.ids, access, seasonal, layer === 2),
+      note: accessNote(cfg.name, cfg.ids, access, seasonal, layer === 2, cfg.closure),
       source: MVUM,
     },
     highlights: cfg.highlights,
