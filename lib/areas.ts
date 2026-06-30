@@ -81,7 +81,7 @@ export type Area = {
   /** Pre-baked overview GeoJSON served from /public. */
   mvumGeojson: string;
   /** Managing agency (forest or BLM office), for the footer's "verify" link. */
-  forest: { name: string; url: string };
+  forest: { name: string; url: string; closuresUrl: string };
   /** Non-USFS data-source overrides (defaults to USFS MVUM when omitted). */
   source?: AreaSource;
   /** Suggested all-day loops stringing routes together (optional, editorial). */
@@ -89,12 +89,25 @@ export type Area = {
   routes: Route[];
 };
 
-const SBNF = { name: "San Bernardino National Forest", url: "https://www.fs.usda.gov/sbnf" };
-const LPNF = { name: "Los Padres National Forest", url: "https://www.fs.usda.gov/lpnf" };
-const CNF = { name: "Cleveland National Forest", url: "https://www.fs.usda.gov/cleveland" };
+const SBNF = {
+  name: "San Bernardino National Forest",
+  url: "https://www.fs.usda.gov/sbnf",
+  closuresUrl: "https://www.fs.usda.gov/r05/sanbernardino/alerts",
+};
+const LPNF = {
+  name: "Los Padres National Forest",
+  url: "https://www.fs.usda.gov/lpnf",
+  closuresUrl: "https://www.fs.usda.gov/r05/lospadres/alerts",
+};
+const CNF = {
+  name: "Cleveland National Forest",
+  url: "https://www.fs.usda.gov/cleveland",
+  closuresUrl: "https://www.fs.usda.gov/r05/cleveland/alerts",
+};
 const BLM_RIDGECREST = {
   name: "BLM Ridgecrest Field Office",
   url: "https://www.blm.gov/office/ridgecrest-field-office",
+  closuresUrl: "https://www.blm.gov/office/ridgecrest-field-office",
 };
 
 export const AREAS: Area[] = [
@@ -184,7 +197,7 @@ export const AREAS: Area[] = [
         summary:
           "The signature Santa Ana day: climb to the crest and ride the spine the length of the range.",
         description:
-          "Climb Indian Truck Trail (5S01) from the Corona side up to the crest, then run the full North Main Divide (3S04) over the shoulder of Saddleback and continue onto the South Main Divide (6S07) toward the Ortega Highway. A big, exposed, all-day plated ride along the top of the range, high-clearance dual-sport and adventure terrain, no green-sticker bikes. Carry water and watch the sky: the Divide bakes in the heat and the clay turns greasy after rain, when the gates often close.",
+          "Climb Indian Truck Trail (5S01) from the Corona side up to the crest, then run the full North Main Divide (3S04) over the shoulder of Saddleback and continue onto the South Main Divide (6S07) toward the Ortega Highway. A big, exposed, all-day plated ride along the top of the range, high-clearance dual-sport and adventure terrain, no green-sticker bikes. Carry water and watch the sky: the Divide bakes in the heat and the clay turns greasy after rain, when the gates often close. One current caveat: the range sits in the Trabuco district's Airport Fire burn area, and as of 2026 parts of this traverse are closed or gated, including Indian Truck Trail and stretches of the North Main Divide. Check the forest's current alerts before counting on the full run.",
         routeIds: ["indian-truck-trail", "north-main-divide", "south-main-divide"],
       },
     ],
@@ -209,7 +222,7 @@ export const AREAS: Area[] = [
         summary:
           "The far south's one real green-sticker network, strung into a full day.",
         description:
-          "Work the Corral Canyon OHV area near Pine Valley: link the Corral Canyon (17S04), Bear Valley (16S12), and Los Pinos (16S17) roads with the green-sticker singletrack on Kernan (802) and Wrangler (901). A genuine OHV-area day for green-sticker bikes, though several of the roads are green-sticker on some segments only, so read each note. Best fall through spring; it bakes in summer.",
+          "Work the Corral Canyon OHV area near Pine Valley: link the Corral Canyon (17S04), Bear Valley (16S12), and Los Pinos (16S17) roads with the green-sticker singletrack on Kernan (802) and Wrangler (901). A genuine OHV-area day for green-sticker bikes, though several of the roads are green-sticker on some segments only, so read each note. Best fall through spring; it bakes in summer. Note that the Cleveland gates these roads on and off: as of 2026 Los Pinos (16S17) and some connectors are closed, so check current alerts and be ready to ride the open segments rather than the whole loop.",
         routeIds: ["corral-canyon", "bear-valley", "los-pinos", "kernan-trail", "wrangler-trail"],
       },
     ],
@@ -268,7 +281,7 @@ export const AREAS: Area[] = [
         summary:
           "The green-sticker crest-to-backcountry day, Santa Barbara's best OHV riding.",
         description:
-          "The three green-sticker roads that make this range worth the drive: East Camino Cielo (5N12.1) along the crest above town, the Romero–Camuesa spine (5N15.2) into the Camuesa OHV area, and Buckhorn (9N11.4) deep into the San Rafael backcountry. Treat this as a committing all-day epic, not a casual outing. It's long, remote, and lightly-traveled, so carry water, fuel, and a way to call for help. Two caveats before you make the drive: the Camuesa side closes after rain (the wet-season gate closures, roughly November–April, apply here), and the access roads between these stretches are frequently gated, so they don't always link cleanly. Check current gate status first, and bring an Adventure Pass. Open and dry, it's the best green-sticker riding in the area.",
+          "Heads up before you plan around this one: as of 2024 the Romero–Camuesa road, Buckhorn, and the Upper Oso staging area are closed to motorized use while the forest recovers from storm damage (Forest Order 5-07-54-24-19, currently extended through September 2026). That takes most of this loop offline for bikes, so confirm the forest's current orders before making the drive. When it's open, it's the three green-sticker roads that make this range worth it: East Camino Cielo (5N12.1) along the crest above town, the Romero–Camuesa spine (5N15.2) into the Camuesa OHV area, and Buckhorn (9N11.4) deep into the San Rafael backcountry. Treat it as a committing all-day epic, not a casual outing: long, remote, and lightly traveled, so carry water, fuel, and a way to call for help. The Camuesa side also closes after rain (the wet-season gate closures, roughly November–April), and the access roads between these stretches are frequently gated, so they don't always link cleanly. Bring an Adventure Pass. Open and dry, it's the best green-sticker riding in the area.",
         routeIds: ["east-camino-cielo", "camuesa-road", "buckhorn-road"],
       },
       {
