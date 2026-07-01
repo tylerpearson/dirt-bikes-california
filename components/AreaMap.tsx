@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
+import type { Layer, Map as LeafletMap, Path, PathOptions } from "leaflet";
+import type { Feature as GeoJsonFeature } from "geojson";
 
 type Access = "green" | "plate";
 type Feature = {
@@ -74,12 +76,11 @@ export function AreaMap({
   useEffect(() => {
     if (!inView) return;
     let cancelled = false;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let map: any;
-    setStatus("loading");
+    let map: LeafletMap | undefined;
 
     (async () => {
       try {
+        setStatus("loading");
         const [{ default: L }, res] = await Promise.all([
           import("leaflet"),
           fetch(src),
@@ -101,8 +102,8 @@ export function AreaMap({
           attribution,
         }).addTo(map);
 
-        const style = (f?: Feature) => {
-          const p = f!.properties;
+        const style = (f?: GeoJsonFeature): PathOptions => {
+          const p = (f as unknown as Feature).properties;
           return {
             // Equal weight/opacity for both classes — green vs. blue color
             // carries the meaning; green still draws on top so overlaps read.
@@ -117,15 +118,13 @@ export function AreaMap({
         // wide hit layer below owns all hover/tap handling.
         const plate = fc.features.filter((f) => f.properties.access === "plate");
         const green = fc.features.filter((f) => f.properties.access === "green");
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const plateLayer = L.geoJSON(plate as any, { style: style as any, interactive: false }).addTo(map);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const greenLayer = L.geoJSON(green as any, { style: style as any, interactive: false }).addTo(map);
+        const plateLayer = L.geoJSON(plate as unknown as GeoJsonFeature[], { style, interactive: false }).addTo(map);
+        const greenLayer = L.geoJSON(green as unknown as GeoJsonFeature[], { style, interactive: false }).addTo(map);
 
         // Invisible fat overlay: a forgiving ~16px-wide hover/tap target per
         // route that carries the tooltip and a faint highlight on hover.
-        const onEach = (f: Feature, layer: any) => {
-          const p = f.properties;
+        const onEach = (f: GeoJsonFeature, layer: Layer) => {
+          const p = (f as unknown as Feature).properties;
           const label = p.access === "green" ? labels.green : labels.plate;
           const name = p.name
             ? p.name.replace(/\b\w/g, (c) => c.toUpperCase())
@@ -134,20 +133,19 @@ export function AreaMap({
             `<b>${esc(name)}</b>${p.id ? ` · ${esc(p.id)}` : ""}<br>${label}${p.seasonal ? " · seasonal" : ""}`,
             { sticky: true },
           );
-          layer.on("mouseover", () => layer.setStyle({ opacity: 0.25 }));
-          layer.on("mouseout", () => layer.setStyle({ opacity: 0 }));
+          const path = layer as Path;
+          path.on("mouseover", () => path.setStyle({ opacity: 0.25 }));
+          path.on("mouseout", () => path.setStyle({ opacity: 0 }));
         };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const hitStyle = (f?: Feature) => ({
-          color: COLOR[f!.properties.access],
+        const hitStyle = (f?: GeoJsonFeature): PathOptions => ({
+          color: COLOR[(f as unknown as Feature).properties.access],
           weight: 16,
           opacity: 0,
           lineCap: "round" as const,
         });
-        L.geoJSON(fc.features as any, {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          style: hitStyle as any,
-          onEachFeature: onEach as any,
+        L.geoJSON(fc.features as unknown as GeoJsonFeature[], {
+          style: hitStyle,
+          onEachFeature: onEach,
           bubblingMouseEvents: false,
         }).addTo(map);
 
@@ -165,7 +163,7 @@ export function AreaMap({
       cancelled = true;
       if (map) map.remove();
     };
-  }, [inView, src]);
+  }, [inView, src, attribution, labels.green, labels.plate]);
 
   return (
     <div ref={wrapRef} className="relative">

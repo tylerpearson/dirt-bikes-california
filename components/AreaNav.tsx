@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AREAS } from "@/lib/areas";
@@ -111,18 +111,31 @@ function AreaGroup({
 
 export function AreaNav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  // The pathname the menu was opened on; deriving `open` from it means
+  // navigation (pathname change) closes the menu without an effect.
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
+  const open = openedAt !== null && openedAt === pathname;
+  const setOpen = useCallback(
+    (v: boolean | ((prev: boolean) => boolean)) => {
+      setOpenedAt((prevOpenedAt) => {
+        const prevOpen = prevOpenedAt !== null && prevOpenedAt === pathname;
+        const next = typeof v === "function" ? v(prevOpen) : v;
+        return next ? pathname : null;
+      });
+    },
+    [pathname],
+  );
   // usePathname() resolves to null on the first client render of a statically
   // exported page, so deriving the button label from it directly mismatches the
   // prerendered HTML. Gate the dynamic label until after mount.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const current = AREAS.find((a) => pathname === `/${a.id}`);
   const triggerLabel = mounted && current ? current.name : "Riding areas";
-
-  // Close the menu on navigation.
-  useEffect(() => setOpen(false), [pathname]);
 
   // Close on Escape; lock body scroll while the panel is open.
   useEffect(() => {
@@ -134,7 +147,7 @@ export function AreaNav() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [open, setOpen]);
 
   return (
     <nav className="sticky top-0 z-40 border-b-2 border-bistre/70 bg-paper/95 backdrop-blur-sm">
