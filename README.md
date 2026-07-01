@@ -8,9 +8,11 @@ allowed.
 
 The guiding principle: **facts are derived from authoritative sources and only
 prose is hand-written.** Route geometry and legal access come from the U.S.
-Forest Service Motor Vehicle Use Map (MVUM); elevation from SRTM. Distance,
-access, and difficulty aren't guessed, they're pulled from the data and
-committed at build time, so every area holds the same accuracy bar.
+Forest Service Motor Vehicle Use Map (MVUM) for the national forest areas, or
+the BLM Ground Transportation Linear Features (GTLF) travel network for the
+BLM desert areas; elevation from SRTM. Distance, access, and difficulty aren't
+guessed, they're pulled from the data and committed at build time, so every
+area holds the same accuracy bar.
 
 > ⚠️ **Verify before you go.** MVUM data and seasonal closures change. Always
 > confirm current access with the managing forest. This is a field guide, not a
@@ -18,17 +20,39 @@ committed at build time, so every area holds the same accuracy bar.
 
 ## Riding areas
 
-Seven areas across the San Bernardino, Los Padres, and Cleveland national
-forests:
+Twelve areas across three national forests (San Bernardino, Los Padres,
+Cleveland) plus BLM desert (Ridgecrest Field Office):
 
-- **Big Bear** — forest roads and OHV trails ringing Big Bear Lake at 7,000 ft
-- **San Jacinto** — green-sticker OHV roads above Palm Springs, plated
-  dual-sport up at Idyllwild
-- **Santa Ana Mtns** — the Main Divide over Saddleback, about an hour from LA
-- **Laguna Mtns**
-- **Mt Pinos**
-- **Santa Barbara**
-- **San Luis Obispo**
+**San Bernardino National Forest**
+- **Big Bear**: forest roads and OHV trails ringing Big Bear Lake at 7,000 feet
+- **Lake Arrowhead**: green-sticker OHV roads and Deep Creek singletrack, just
+  west of Big Bear
+- **San Gorgonio**: plated dual-sport in the Santa Ana River and Barton Flats
+  high country below San Gorgonio
+- **San Jacinto**: one range, two sides, green-sticker OHV roads above Palm
+  Springs and plated dual-sport up at Idyllwild
+
+**Los Padres National Forest**
+- **Mt Pinos**: the guide's strongest green-sticker complex, with pine roads,
+  Cuyama badlands, and Ballinger Canyon OHV
+- **Santa Barbara**: Camuesa OHV roads and the East Camino Cielo crest in the
+  backcountry above the city
+- **San Luis Obispo**: the Pozo and La Panza OHV area, with green-sticker
+  roads, singletrack, and the long Sierra Madre Ridge
+
+**Cleveland National Forest**
+- **Santa Ana Mtns**: mostly plated Main Divide country, headlined by the
+  35-mile run over Saddleback
+- **Laguna Mtns**: Corral Canyon's green-sticker network plus the Mount Laguna
+  forest roads, the guide's southernmost riding
+- **Palomar**: a compact, all-plate district headlined by the long Palomar
+  Divide ridge
+
+**BLM Ridgecrest Field Office (Mojave Desert)**
+- **Jawbone Canyon**: open Mojave OHV desert off Highway 14, with designated
+  routes and moto singletrack, almost all green-sticker
+- **El Paso Mountains**: volcanic badlands and real moto singletrack east of
+  Jawbone, around Last Chance Canyon and Randsburg
 
 The home page is a statewide map; each area lives at its own route (e.g.
 `/big-bear`).
@@ -77,12 +101,15 @@ npm run lint     # eslint
 
 ### Regenerating area data
 
-Data is fetched once and committed — no live calls per visitor. Re-run these
-when curated routes change or to refresh against the latest MVUM:
+Data is fetched once and committed, so there are no live calls per visitor.
+Re-run these when curated routes change or to refresh against the latest MVUM
+or BLM GTLF:
 
 ```bash
-node scripts/fetch-mvum-area.mjs           # overview-map GeoJSON (per area)
-node scripts/build-area-routes.mjs [area]  # featured-route data + GPX from MVUM + SRTM
+node scripts/fetch-mvum-area.mjs             # USFS overview-map GeoJSON (per area)
+node scripts/build-area-routes.mjs [area]    # USFS featured-route data + GPX from MVUM + SRTM
+node scripts/fetch-blm-area.mjs [area ...]   # BLM overview-map GeoJSON (per area)
+node scripts/build-blm-routes.mjs [area ...] # BLM featured-route data + GPX from GTLF + SRTM
 ```
 
 ## Deployment
@@ -136,8 +163,10 @@ Worker's **Settings → Domains & Routes** if you want it as a fallback.
 
 ## Data sources & credits
 
-- **Route geometry & legal access:** USFS Motor Vehicle Use Map (MVUM), EDW
-  MVUM MapServer
+- **Route geometry & legal access (national forests):** USFS Motor Vehicle Use
+  Map (MVUM), EDW MVUM MapServer
+- **Route geometry & legal access (BLM areas):** BLM Ground Transportation
+  Linear Features (GTLF), BLM National GTLF Public Display MapServer
 - **Elevation:** SRTM 30m via [opentopodata.org](https://www.opentopodata.org)
 - **Basemap map tiles:** © OpenStreetMap contributors (ODbL)
 
