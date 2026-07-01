@@ -173,7 +173,7 @@ export const AREAS: Area[] = [
         summary: "Forested plated dual-sport up toward the Black Mountain lookout.",
         description:
           "The Idyllwild side is plated country and makes a relaxed, view-packed day: climb Dark Canyon (4S02), link onto Black Mountain Road (4S01) toward the lookout and the PCT trailheads, then add the Idyllwild Control Road (5S06) to round it out. Graded dirt through pine and cedar with big drop-offs toward the desert. A dual-sport day, not a technical one. Plate-legal throughout; the PCT itself is closed to motors, so those are places to park, not ride.",
-        routeIds: ["dark-canyon-road", "el-paso-black-mountain", "idyllwild-control-road"],
+        routeIds: ["dark-canyon-road", "black-mountain-road", "idyllwild-control-road"],
       },
     ],
     routes: sanJacintoRoutes,
