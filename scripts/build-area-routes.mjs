@@ -1264,6 +1264,8 @@ async function fetchElevations(coords) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmtFt = (m) => Math.round((m * 3.28084) / 50) * 50;
+const escXml = (s) =>
+  s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 
 function accessNote(name, ids, access, seasonal, isTrail = false, closure = "") {
   const id = ids[0];
@@ -1344,7 +1346,7 @@ async function buildRoute(cfg, bbox) {
     .join("\n");
   const gpx = `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="dirt-bikes build-area-routes (MVUM geometry + SRTM elevation)" xmlns="http://www.topografix.com/GPX/1/1">
-  <trk><name>${cfg.name}</name><trkseg>
+  <trk><name>${escXml(cfg.name)}</name><trkseg>
 ${trkpts}
   </trkseg></trk>
 </gpx>

@@ -6,22 +6,23 @@ brand
 
 ## Users
 
-Dirt bike and OHV riders planning a day in the Big Bear area (San Bernardino
-National Forest, CA) — from beginners looking for mellow graded roads to experts
-hunting technical rock. They arrive on phone or desktop, often before a trip,
-wanting to quickly answer two questions: "is this ride worth it / within my
-ability?" and "what do I legally need to ride it — a green sticker, red sticker,
-or a street-legal plate?"
+Dirt bike and OHV riders planning a day across Southern California's federal
+OHV land (national forests and BLM desert), from beginners looking for mellow
+graded roads to experts hunting technical rock. They arrive on phone or
+desktop, often before a trip, wanting to quickly answer two questions: "is this
+ride worth it and within my ability?" and "what do I legally need to ride it,
+a green sticker or a street-legal plate?"
 
 ## Product Purpose
 
-A single-page field guide to the best dirt bike routes around Big Bear. Each
-route gives a short summary, ride details (distance, difficulty, elevation,
-surface, season, highlights), the legal sticker/plate requirement, and a map —
-a tile-composed thumbnail with the GPX track drawn on it, an elevation profile,
-and a link out to the full interactive map. Success = a rider can scan the page,
-pick a ride that matches their skill and bike, and know what they need before
-they load up.
+A multi-area field guide to the best dirt bike routes across Southern
+California's federal OHV land. A statewide map on the home page leads to each
+area's page, with an overview access map, suggested day loops, and per-route
+cards: a tile-composed thumbnail with the GPX track drawn on it, an elevation
+profile, ride details (distance, difficulty, elevation, surface, season,
+highlights), the legal sticker/plate requirement, and a GPX download. Success =
+a rider can scan the page, pick a ride that matches their skill and bike, and
+know what they need before they load up.
 
 ## Brand Personality
 

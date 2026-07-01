@@ -291,6 +291,8 @@ async function fetchElevations(coords) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmtFt = (m) => Math.round((m * 3.28084) / 50) * 50;
+const escXml = (s) =>
+  s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 
 // On BLM OHV land every featured route here is green-sticker terrain; the note
 // explains the open-vs-limited designation rather than a green/plate split.
@@ -370,7 +372,7 @@ async function buildRoute(cfg, bbox) {
     .join("\n");
   const gpx = `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="dirt-bikes build-blm-routes (BLM GTLF geometry + SRTM elevation)" xmlns="http://www.topografix.com/GPX/1/1">
-  <trk><name>${cfg.name}</name>
+  <trk><name>${escXml(cfg.name)}</name>
 ${trksegs}
   </trk>
 </gpx>
