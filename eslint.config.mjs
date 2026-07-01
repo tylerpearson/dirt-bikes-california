@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Agent worktrees under .claude/ carry their own build artifacts and must not be linted from the repo root
+    ".claude/**",
   ]),
 ]);
 
