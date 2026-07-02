@@ -59,6 +59,11 @@ export type AreaSource = {
   overviewIntro: string;
   /** Legend + tooltip label overrides for the two access colors (optional). */
   legend?: { green: string; plate: string };
+  /**
+   * Hero access summary override: bolded lead sentence + body. Defaults to the
+   * BLM open-OHV-land wording, so BLM areas can omit it.
+   */
+  accessSummary?: { lead: string; body: string };
   /** Tile attribution suffix naming the data source. */
   attribution: string;
   /** Footer "verify before you go" body paragraph (agency-specific). */
@@ -449,6 +454,10 @@ export const AREAS: Area[] = [
       legend: {
         green: "Designated OHV trail (green-sticker OK)",
         plate: "Forest road, street-legal only (verify)",
+      },
+      accessSummary: {
+        lead: "The trails are green-sticker country; the roads are not.",
+        body: "Every trail in the Rowher Flat system is designated for OHVs, so green-sticker (non-street-legal) bikes are allowed there. The forest roads beyond the system are a separate network for street-legal vehicles, and the badge on each route shows its designation from the Forest Service inventories.",
       },
       attribution: "&copy; OpenStreetMap contributors · USFS trail and road inventories",
       verifyNote:
