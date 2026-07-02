@@ -101,7 +101,10 @@ const CONFIG = {
         select: { layer: "road", roadIds: ["3N17.1", "3N17.2", "3N17.3", "3N17.4", "3N17.5", "3N17.6", "3N17.7", "3N17.8", "3N17.9"] },
         designation: "3N17",
         difficulty: "Moderate",
-        summary: "The plated epic: some forty miles along the divide past Mt. Gleason to Mill Creek Summit.",
+        // Start riders at the Bear Divide end above Sand Canyon, not the remote
+        // east end the stitcher happens to put first.
+        trailhead: { name: "Bear Divide (Sand Canyon)", lat: 34.3591, lng: -118.4534 },
+        summary: "The plated epic: 46 miles along the divide past Mt. Gleason to Mill Creek Summit.",
         description:
           "Santa Clara Divide Road runs the long ridge between the Santa Clarita valley and the high Angeles backcountry, from Sand Canyon up past Mt. Gleason and down to Mill Creek Summit, with more segments carrying east toward Mt. Pacifico. Stretches are paved, long stretches are dirt not maintained for passenger cars, and the whole thing strings into one of the biggest dual-sport days this close to LA. Bring a plated bike, fuel for the full distance, and expect the odd locked gate in fire season.",
         surface: "Mixed pavement and dirt, rough in the unmaintained stretches",
@@ -345,7 +348,9 @@ ${trksegs}
       source: SOURCE,
     },
     highlights: cfg.highlights,
-    trailhead: {
+    // Editorial override for routes whose natural start isn't the stitched
+    // path's first point (e.g. a long road stitched east-to-west).
+    trailhead: cfg.trailhead ?? {
       name: cfg.name,
       lat: Math.round(start[1] * 1e4) / 1e4,
       lng: Math.round(start[0] * 1e4) / 1e4,

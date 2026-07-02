@@ -117,7 +117,7 @@ export const rowherFlatsRoutes: Route[] = [
     "id": "santa-clara-divide",
     "name": "Santa Clara Divide Road",
     "forestRoad": "3N17",
-    "summary": "The plated epic: some forty miles along the divide past Mt. Gleason to Mill Creek Summit.",
+    "summary": "The plated epic: 46 miles along the divide past Mt. Gleason to Mill Creek Summit.",
     "description": "Santa Clara Divide Road runs the long ridge between the Santa Clarita valley and the high Angeles backcountry, from Sand Canyon up past Mt. Gleason and down to Mill Creek Summit, with more segments carrying east toward Mt. Pacifico. Stretches are paved, long stretches are dirt not maintained for passenger cars, and the whole thing strings into one of the biggest dual-sport days this close to LA. Bring a plated bike, fuel for the full distance, and expect the odd locked gate in fire season.",
     "distanceMiles": 46.1,
     "difficulty": "Moderate",
@@ -136,9 +136,9 @@ export const rowherFlatsRoutes: Route[] = [
       "Mixes pavement with remote dirt"
     ],
     "trailhead": {
-      "name": "Santa Clara Divide Road",
-      "lat": 34.364,
-      "lng": -118.0131
+      "name": "Bear Divide (Sand Canyon)",
+      "lat": 34.3591,
+      "lng": -118.4534
     }
   },
   {
