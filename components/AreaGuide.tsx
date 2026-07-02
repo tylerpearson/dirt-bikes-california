@@ -125,11 +125,10 @@ export function AreaGuide({ area }: { area: Area }) {
           {area.source ? (
             <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
               <span className="font-semibold text-bistre">
-                This is open OHV land.
+                {area.source.accessSummary?.lead ?? "This is open OHV land."}
               </span>{" "}
-              Green-sticker (non-street-legal) bikes and plated bikes alike can
-              ride the designated routes here; the badge on each route flags its
-              BLM access designation.
+              {area.source.accessSummary?.body ??
+                "Green-sticker (non-street-legal) bikes and plated bikes alike can ride the designated routes here; the badge on each route flags its BLM access designation."}
             </p>
           ) : (
             <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">

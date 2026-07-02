@@ -301,3 +301,40 @@ open to motorcycles… true singletrack, not a road").
   "No." badge and the trailhead label appends it).
 - Set `surface` to something like "narrow OHV singletrack" so the card reads as a
   trail, not a road.
+
+---
+
+## 6. Angeles variant — TrailNFS + RoadBasic (no MVUM GIS)
+
+The Angeles is the one California forest **absent from the EDW MVUM MapServer**
+(`forestname LIKE '%Angeles%'` returns 0 on every layer of `EDW_MVUM_01`/`_02`);
+it publishes its MVUM only as georeferenced PDF sheets (Avenza, R5). So Angeles
+areas use a third pipeline variant, `scripts/fetch-angeles-area.mjs` +
+`scripts/build-angeles-routes.mjs`, built on two sibling EDW services:
+
+- **Trails** — `EDW_TrailNFSPublish_01/MapServer/0`, filtered
+  `admin_org LIKE '0501%' AND terra_motorized='Y'` (0501 = Angeles). Trails
+  carry `mvum_symbol` codes, so access IS machine-readable:
+  5/6 open to all vehicles, 7/8 vehicles ≤50", 9/10 motorcycles only,
+  11/12 special designation, 16/17 wheeled OHV <50". Odd = yearlong,
+  even = seasonal. **Symbol 0 = not currently designated — exclude.**
+- **Roads** — `EDW_RoadBasic_01/MapServer/0`, same `admin_org` filter. Its
+  `symbol_name` is maintenance symbology ("Dirt Road, Suitable for Passenger
+  Car"), NOT an MVUM access class, and `openforuseto` is uniformly "ALL":
+  **there is no machine-readable green-vs-plate class for Angeles roads.**
+  Featured roads therefore ship `greenSticker: "unconfirmed"` with an honest
+  note (or `"no"` only where the maintainer verified plate-only status against
+  the published Angeles MVUM PDF). The overview map renders all roads as
+  plate/"verify".
+
+Other notes:
+
+- Road ids use the same segment-suffix convention as the MVUM (`3N17.1` …
+  `3N17.9`); list every sub-segment. Some ids differ from local signage
+  (Rincon-Redbox is `2N24.2`/`2N24.3`, not `2N24`) — probe with `LIKE` before
+  declaring a road missing.
+- The area's `source: AreaSource` override must say route data comes from the
+  Forest Service trail and road inventories, not the MVUM GIS, and point riders
+  at the published MVUM.
+- If the Angeles ever lands in the EDW MVUM service, migrate its areas to the
+  standard pipeline and retire this variant.

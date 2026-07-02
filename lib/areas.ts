@@ -9,6 +9,7 @@ import { sanLuisObispoRoutes } from "./routes/san-luis-obispo.generated";
 import { lakeArrowheadRoutes } from "./routes/lake-arrowhead.generated";
 import { sanGorgonioRoutes } from "./routes/san-gorgonio.generated";
 import { palomarRoutes } from "./routes/palomar.generated";
+import { rowherFlatsRoutes } from "./routes/rowher-flats.generated";
 import { jawboneRoutes } from "./routes/jawbone.generated";
 import { elPasoRoutes } from "./routes/el-paso.generated";
 
@@ -23,6 +24,7 @@ export type AreaId =
   | "lake-arrowhead"
   | "san-gorgonio"
   | "palomar"
+  | "rowher-flats"
   | "jawbone"
   | "el-paso";
 
@@ -57,6 +59,11 @@ export type AreaSource = {
   overviewIntro: string;
   /** Legend + tooltip label overrides for the two access colors (optional). */
   legend?: { green: string; plate: string };
+  /**
+   * Hero access summary override: bolded lead sentence + body. Defaults to the
+   * BLM open-OHV-land wording, so BLM areas can omit it.
+   */
+  accessSummary?: { lead: string; body: string };
   /** Tile attribution suffix naming the data source. */
   attribution: string;
   /** Footer "verify before you go" body paragraph (agency-specific). */
@@ -103,6 +110,11 @@ const CNF = {
   name: "Cleveland National Forest",
   url: "https://www.fs.usda.gov/cleveland",
   closuresUrl: "https://www.fs.usda.gov/r05/cleveland/alerts",
+};
+const ANF = {
+  name: "Angeles National Forest",
+  url: "https://www.fs.usda.gov/angeles",
+  closuresUrl: "https://www.fs.usda.gov/r05/angeles/alerts",
 };
 const BLM_RIDGECREST = {
   name: "BLM Ridgecrest Field Office",
@@ -422,6 +434,57 @@ export const AREAS: Area[] = [
       },
     ],
     routes: palomarRoutes,
+  },
+  {
+    id: "rowher-flats",
+    name: "Rowher Flats",
+    region: "Angeles National Forest",
+    regionShort: "Angeles N.F.",
+    state: "California",
+    blurb:
+      "Rowher Flats is the closest designated green-sticker riding to Los Angeles proper: a compact OHV trail system in the Sierra Pelona country north of Santa Clarita, staged off Rush Canyon Road above Sierra Highway. The system packs a long 4x4 trail, a web of trails open to bikes and quads, and real motorcycle-only singletrack into a few square miles, with the plated Santa Clara Divide country rising across the valley. The Angeles publishes its motor vehicle use map only as a printed map, so route lines here come from the Forest Service trail and road inventories, with elevation from public terrain data.",
+    tagline:
+      "The closest green-sticker trails to LA: the Rowher Flat OHV system plus the plated Santa Clara Divide country.",
+    mvumGeojson: "/data/rowher-flats-angeles.geojson",
+    forest: ANF,
+    source: {
+      overviewLabel: "Angeles N.F. inventories",
+      overviewIntro:
+        "The motorized network around Rowher Flats, from the Forest Service trail and road inventories. The Angeles publishes its motor vehicle use map as a printed map rather than GIS data, so this view is built from the agency's inventories instead: green lines are the designated OHV trails of the Rowher Flat system, blue lines are forest roads for street-legal vehicles. Hover any line for its name.",
+      legend: {
+        green: "Designated OHV trail (green-sticker OK)",
+        plate: "Forest road, street-legal only (verify)",
+      },
+      accessSummary: {
+        lead: "The trails are green-sticker country; the roads are not.",
+        body: "Every trail in the Rowher Flat system is designated for OHVs, so green-sticker (non-street-legal) bikes are allowed there. The forest roads beyond the system are a separate network for street-legal vehicles, and the badge on each route shows its designation from the Forest Service inventories.",
+      },
+      attribution: "&copy; OpenStreetMap contributors · USFS trail and road inventories",
+      verifyNote:
+        "Route lines come from the Forest Service trail and road inventories and elevation from public terrain data, not from the MVUM GIS: the Angeles publishes its motor vehicle use map only as a printed map, so check that map for the legal word on any road. Rowher Flats closes intermittently after heavy rain (an inch or more in the forecast shuts it), an Adventure Pass is required to park at the staging areas, and spark arrestors are required on the trails.",
+      credit: "Route data © USFS trail and road inventories",
+    },
+    loops: [
+      {
+        name: "Rowher Trails Day",
+        distanceMiles: 17,
+        summary:
+          "The whole green-sticker system in one day, from warm-up laps to the marquee climb.",
+        description:
+          "Start on the Buffer, Spring, and Stage circuit to warm up and learn the tread, work over to Broken Spoke, Sidewinder, and Sierra for the twistier side of the network, then finish with the climb up the Rowher 4x4 Trail while you still have legs. Green-sticker bikes and quads are fine on all of it; add singletrack laps if you're on a motorcycle. It's compact country, more about laps and repeats than mileage, and the flats bake even in spring, so carry water. An Adventure Pass covers staging, and the area shuts intermittently after heavy rain, so check the forest alerts first.",
+        routeIds: ["rowher-buffer-loop", "rowher-broken-spoke", "rowher-4x4"],
+      },
+      {
+        name: "Divide & Pelona Plated Day",
+        distanceMiles: 55,
+        summary:
+          "A big street-legal day linking the Sierra Pelona crest with the long Santa Clara Divide traverse.",
+        description:
+          "For plated bikes, run Sierra Pelona Road along the crest above the OHV area first, drop back down, and cross Soledad Canyon to pick up Santa Clara Divide Road at Sand Canyon for the long climb past Mt. Gleason to Mill Creek Summit. It's a full tank of mixed dirt and pavement with real remoteness for country this close to town. Street-legal bikes only, and check the forest alerts before you commit: gates close for storms and fire danger, and closures change fast on the Angeles.",
+        routeIds: ["sierra-pelona-road", "santa-clara-divide"],
+      },
+    ],
+    routes: rowherFlatsRoutes,
   },
   {
     id: "jawbone",

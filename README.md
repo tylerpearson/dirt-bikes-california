@@ -20,8 +20,8 @@ area holds the same accuracy bar.
 
 ## Riding areas
 
-Twelve areas across three national forests (San Bernardino, Los Padres,
-Cleveland) plus BLM desert (Ridgecrest Field Office):
+Thirteen areas across four national forests (San Bernardino, Los Padres,
+Cleveland, Angeles) plus BLM desert (Ridgecrest Field Office):
 
 **San Bernardino National Forest**
 - **Big Bear**: forest roads and OHV trails ringing Big Bear Lake at 7,000 feet
@@ -47,6 +47,10 @@ Cleveland) plus BLM desert (Ridgecrest Field Office):
   forest roads, the guide's southernmost riding
 - **Palomar**: a compact, all-plate district headlined by the long Palomar
   Divide ridge
+
+**Angeles National Forest**
+- **Rowher Flats**: the closest green-sticker trails to LA, the Rowher Flat OHV
+  system plus the plated Santa Clara Divide country
 
 **BLM Ridgecrest Field Office (Mojave Desert)**
 - **Jawbone Canyon**: open Mojave OHV desert off Highway 14, with designated
@@ -110,6 +114,8 @@ node scripts/fetch-mvum-area.mjs             # USFS overview-map GeoJSON (per ar
 node scripts/build-area-routes.mjs [area]    # USFS featured-route data + GPX from MVUM + SRTM
 node scripts/fetch-blm-area.mjs [area ...]   # BLM overview-map GeoJSON (per area)
 node scripts/build-blm-routes.mjs [area ...] # BLM featured-route data + GPX from GTLF + SRTM
+node scripts/fetch-angeles-area.mjs          # Angeles overview-map GeoJSON (USFS TrailNFS + RoadBasic; no MVUM GIS)
+node scripts/build-angeles-routes.mjs [area] # Angeles featured-route data + GPX from the USFS inventories + SRTM
 ```
 
 ## Deployment
@@ -167,6 +173,9 @@ Worker's **Settings → Domains & Routes** if you want it as a fallback.
   Map (MVUM), EDW MVUM MapServer
 - **Route geometry & legal access (BLM areas):** BLM Ground Transportation
   Linear Features (GTLF), BLM National GTLF Public Display MapServer
+- **Route geometry (Angeles N.F.):** USFS trail (TrailNFS) and road (RoadBasic)
+  inventories, EDW MapServers — the Angeles publishes its MVUM only as a
+  printed map, so trail access derives from the inventory's MVUM symbol codes
 - **Elevation:** SRTM 30m via [opentopodata.org](https://www.opentopodata.org)
 - **Basemap map tiles:** © OpenStreetMap contributors (ODbL)
 
