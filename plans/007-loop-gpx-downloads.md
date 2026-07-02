@@ -7,14 +7,14 @@
 > in `plans/README.md` — unless a reviewer dispatched you and told you they
 > maintain the index.
 >
-> **Drift check (run first)**: `git diff --stat a17800f..HEAD -- lib/areas.ts lib/types.ts components/AreaGuide.tsx components/ExpandableMap.tsx lib/gpx.ts scripts docs README.md tests`
+> **Drift check (run first)**: `git diff --stat 13a87ad..HEAD -- lib/areas.ts lib/types.ts components/AreaGuide.tsx components/ExpandableMap.tsx lib/gpx.ts scripts docs README.md tests`
 > If in-scope files changed since this plan was written, compare the
 > "Current state" excerpts against the live code before proceeding; on a
-> mismatch, treat it as a STOP condition. In particular, if plan 006 (Rowher
-> Flats) has landed by execution time, `AREAS` will include a 13th area with
-> its own loops — the script and tests below are written to cover whatever
-> areas/loops exist at run time, not a hardcoded count, so this should just
-> work; verify that assumption during Step 2.
+> mismatch, treat it as a STOP condition. Plan 006 (Rowher Flats) has already
+> landed as of this plan's baseline: `AREAS` has 13 areas, 23 loops total
+> (Rowher Flats contributes "Rowher Trails Day" and "Divide & Pelona Plated
+> Day") — the counts below reflect that; the script and tests are written to
+> cover whatever areas/loops exist at run time regardless.
 >
 > **Network required**: no. This plan composes new GPX files from data
 > already committed under `public/gpx/*.gpx` (each route's existing track);
@@ -27,7 +27,7 @@
 - **Risk**: LOW (additive; no existing route/area data changes)
 - **Depends on**: none (plans 001–005 landed; independent of 006)
 - **Category**: direction
-- **Planned at**: commit `a17800f`, 2026-07-02
+- **Planned at**: commit `13a87ad`, 2026-07-02
 
 ## Why this matters
 
@@ -48,10 +48,11 @@ rejected"); this plan picks it up.
 
 - `lib/areas.ts` — `AreaLoop` type (~line 36) has `name`, `distanceMiles`,
   `summary`, `description`, `routeIds`; no `id`/slug field. The UI keys loop
-  cards by `name` (`key={loop.name}`, `AreaGuide.tsx` ~line 253). 21 loops
-  exist across the 10 areas currently on `main` (grep `name: "` inside
+  cards by `name` (`key={loop.name}`, `AreaGuide.tsx` ~line 253). 23 loops
+  exist across the 13 areas currently on `main` (grep `name: "` inside
   `loops: [` blocks); each area has one loop except Santa Barbara, San Luis
-  Obispo, Lake Arrowhead, San Gorgonio, and Palomar, which have two.
+  Obispo, Lake Arrowhead, San Gorgonio, Palomar, and Rowher Flats, which have
+  two.
 - `lib/gpx.ts` — `loadTrack(file)` and `loadTrackParts(file)` read
   `public/gpx/<file>` server-side (build time only, uses `fs`); files there
   are also directly downloadable at `/gpx/<file>` because they live under
@@ -167,9 +168,10 @@ rejected"); this plan picks it up.
   not a rendered/parsed view; no new runtime parsing path is needed.
 - Loop content itself (name, summary, description, distanceMiles, routeIds) —
   editorial text is unchanged; only `id` is added.
-- Rowher Flats / plan 006 — if it has landed, its loops (if any) are covered
-  automatically by the script iterating `AREAS`; do not hand-author anything
-  Rowher-specific here.
+- Rowher Flats' own routes/data (plan 006, landed) — its two loops ("Rowher
+  Trails Day", "Divide & Pelona Plated Day") are covered like any other area
+  by the script iterating `AREAS`; do not hand-author anything Rowher-specific
+  here beyond the same `id` backfill every other area's loops get.
 
 ## Git workflow
 
@@ -186,7 +188,7 @@ rejected"); this plan picks it up.
 - Add `id: string` to the `AreaLoop` type in `lib/areas.ts` with a doc
   comment: kebab-case, unique within the area, used as the composite GPX
   filename stem.
-- Add an `id` to each of the 21 existing loop literals, derived from `name`
+- Add an `id` to each of the 23 existing loop literals, derived from `name`
   (lowercase, spaces/`&`/`/` → hyphens, collapse repeats, strip trailing
   hyphens). Spot check a few by hand rather than trusting a blind slugify
   (e.g. "Pozo / La Panza OHV Day" → `pozo-la-panza-ohv-day`; "Wildhorse &
@@ -194,7 +196,7 @@ rejected"); this plan picks it up.
 
 **Verify**: `npx tsc --noEmit` fails until every loop has an `id` (TypeScript
 enforces the required field) — confirm it fails first with the type added
-and no backfill, then passes once all 21 are filled in.
+and no backfill, then passes once all 23 are filled in.
 
 ### Step 2: `scripts/build-loop-gpx.mts`
 
@@ -205,7 +207,7 @@ self-closing vs. content-bearing tags applies) — do not reinvent GPX parsing
 from scratch beyond what's needed to extract `<trk>...</trk>`.
 
 **Verify**: `npm run build:loops` completes with no errors, prints exactly
-21 lines (or the current loop count if it has drifted per the drift check),
+23 lines (or the current loop count if it has drifted per the drift check),
 and `find public/gpx/loops -name '*.gpx' | wc -l` matches. Open one output
 file and confirm it has one `<trk>` per `routeIds` entry, in order, and a
 `<metadata><name>` matching `"<Area>: <Loop>"`.
@@ -303,6 +305,6 @@ Stop and report back (do not improvise) if:
   trk-count test is the safety net, but it's not automatic; consider adding
   `build:loops` to CI as a "no diff" check in a future plan if staleness
   becomes a recurring problem.
-- If plan 006 (Rowher Flats) lands after this plan, its loops (if it defines
-  any) get composite GPX for free the next time `build:loops` runs — no
-  follow-up needed here.
+- Any future area (Rowher Flats' successor pipeline variants, or a wholly new
+  area) gets composite loop GPX for free the next time `build:loops` runs, as
+  long as its loops get an `id` — no follow-up plan needed for that alone.
