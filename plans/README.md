@@ -15,6 +15,7 @@ done.
 | 004  | Add vitest with registry invariant checks and unit tests for the pure libs | P2 | M | 003 (soft) | DONE |
 | 005  | Refresh stale README/PRODUCT.md and clean up small repo debris | P2 | S | — | DONE |
 | 006  | Add the Rowher Flats (Angeles NF) riding area via a TrailNFS/RoadBasic pipeline variant | P2 | L | — | DONE |
+| 007  | Downloadable composite GPX for suggested loops | P2 | M | — | TODO |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
@@ -24,6 +25,7 @@ Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJE
 - 004 is soft-ordered after 003: its final step appends `npm test` to `.github/workflows/ci.yml` if that file exists, and skips gracefully if not.
 - 001 and 005 are independent and can run any time.
 - 004's registry invariant suite permanently guards the bug class 001 fixes; if 004 runs BEFORE 001, its loop-routeId invariant will correctly fail on the San Jacinto loop (that is the expected signal, per 004's STOP conditions, and 001 is the fix).
+- 007 is independent of plan 006 (Rowher Flats, landed); its build script iterates whatever areas/loops exist in the registry at run time, so it needs no coordination either way, and covers Rowher Flats' loops (if any) automatically.
 
 ## Findings considered and rejected
 
@@ -33,5 +35,5 @@ Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJE
 - `tsconfig.tsbuildinfo` at repo root: already gitignored (`*.tsbuildinfo`), untracked; not debris.
 - Leaflet `any` casts in `OverviewMap.tsx` / `RouteMap.tsx`: behind accepted eslint-disable comments and lint-clean today; typed cleanup is a mechanical follow-up after plan 002 proves the pattern in `AreaMap.tsx` (noted there).
 - `Math.min(...lats)` spread in `lib/tiles.ts:135`: only a risk for tracks with ~100k+ points; current GPX tracks are hundreds of points. Not worth guarding.
-- Direction finding, downloadable composite GPX per loop: surfaced to the maintainer 2026-07-01, deliberately not planned this round.
-- Direction finding, Rowher Flats / Angeles NF area (promised by homepage copy at `app/page.tsx:127`): data spike completed 2026-07-01. Angeles is absent from the EDW MVUM service; its OHV trails live in the TrailNFS inventory with MVUM symbols and its roads in RoadBasic without access classes. Planned as 006.
+- Direction finding, Rowher Flats / Angeles NF area (promised by homepage copy at `app/page.tsx:127`): data spike completed 2026-07-01. Angeles is absent from the EDW MVUM service; its OHV trails live in the TrailNFS inventory with MVUM symbols and its roads in RoadBasic without access classes. Planned as 006, landed.
+- Direction finding, downloadable composite GPX per loop: surfaced to the maintainer 2026-07-01, deliberately not planned that round; now planned as plan 007.
