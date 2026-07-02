@@ -9,11 +9,11 @@ done.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001  | Fix the dangling route id in the San Jacinto "Idyllwild & Black Mountain" loop | P1 | S | — | TODO |
-| 002  | Make `npm run lint` exit clean (fix 6 errors, 2 warnings) | P1 | S–M | — | TODO |
-| 003  | Add a GitHub Actions CI workflow (typecheck, lint, build) | P1 | S | 002 | TODO |
-| 004  | Add vitest with registry invariant checks and unit tests for the pure libs | P2 | M | 003 (soft) | TODO |
-| 005  | Refresh stale README/PRODUCT.md and clean up small repo debris | P2 | S | — | TODO |
+| 001  | Fix the dangling route id in the San Jacinto "Idyllwild & Black Mountain" loop | P1 | S | — | DONE |
+| 002  | Make `npm run lint` exit clean (fix 6 errors, 2 warnings) | P1 | S–M | — | DONE |
+| 003  | Add a GitHub Actions CI workflow (typecheck, lint, build) | P1 | S | 002 | DONE |
+| 004  | Add vitest with registry invariant checks and unit tests for the pure libs | P2 | M | 003 (soft) | DONE |
+| 005  | Refresh stale README/PRODUCT.md and clean up small repo debris | P2 | S | — | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
