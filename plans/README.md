@@ -14,7 +14,7 @@ done.
 | 003  | Add a GitHub Actions CI workflow (typecheck, lint, build) | P1 | S | 002 | DONE |
 | 004  | Add vitest with registry invariant checks and unit tests for the pure libs | P2 | M | 003 (soft) | DONE |
 | 005  | Refresh stale README/PRODUCT.md and clean up small repo debris | P2 | S | — | DONE |
-| 006  | Add the Rowher Flats (Angeles NF) riding area via a TrailNFS/RoadBasic pipeline variant | P2 | L | — | TODO |
+| 006  | Add the Rowher Flats (Angeles NF) riding area via a TrailNFS/RoadBasic pipeline variant | P2 | L | — | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
