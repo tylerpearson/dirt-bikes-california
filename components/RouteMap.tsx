@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { parseTrackParts } from "@/lib/gpx-parse";
-import { routeSegmentsFromGeojson, type RouteSegment } from "@/lib/mvum";
+import { routeSegmentsFromGeojson, type RouteSegment } from "@/lib/mvum-parse";
 import type { TrackPoint } from "@/lib/track-stats";
 
 // Mirror the static-map access palette (--color-ok-fill / --color-plate-fill).
