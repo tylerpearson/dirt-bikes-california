@@ -11,11 +11,11 @@
 //           "plate" = street-legal plated vehicles only
 //   seasonal: true when access is not yearlong (drawn dashed)
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
+import { roundLines, fetchPaged, writeAreaGeojson } from "./lib/pipeline.mjs";
 
 const BASE =
   "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_MVUM_01/MapServer";
-const UA = "dirt-bikes/1.0 (route-guide; build script)";
 
 // Per-area bounding boxes (xmin,ymin,xmax,ymax in lon/lat, WGS84). The MVUM
 // service is national, so each area is just a different window onto it.
@@ -50,10 +50,6 @@ const OUT_FIELDS = [
   "atv",
 ].join(",");
 
-// Round to ~11 m precision (4 decimals) — sub-pixel for an area overview map,
-// and it roughly halves the payload vs. full precision.
-const rnd = (n) => Math.round(n * 1e4) / 1e4;
-
 /** Classify a feature's properties into our access model. */
 function classify(p) {
   const open = (v) => typeof v === "string" && v.toLowerCase() === "open";
@@ -73,52 +69,34 @@ function classify(p) {
 
 async function fetchLayer(bbox, layer, kind) {
   const out = [];
-  let offset = 0;
   const PAGE = 500;
-  for (;;) {
-    const url =
+  await fetchPaged(
+    (offset) =>
       `${BASE}/${layer}/query?` +
       `geometry=${encodeURIComponent(bbox)}&geometryType=esriGeometryEnvelope` +
       `&inSR=4326&spatialRel=esriSpatialRelIntersects` +
       `&outFields=${OUT_FIELDS}&returnGeometry=true&outSR=4326` +
-      `&resultOffset=${offset}&resultRecordCount=${PAGE}&f=geojson`;
-    const res = await fetch(url, { headers: { "User-Agent": UA } });
-    if (!res.ok) throw new Error(`layer ${layer} HTTP ${res.status}`);
-    const json = await res.json();
-    const feats = json.features ?? [];
-    for (const f of feats) {
-      if (!f.geometry) continue;
-      const { access, seasonal } = classify(f.properties ?? {});
-      // Normalize to an array of LineStrings.
-      const lines =
-        f.geometry.type === "MultiLineString"
-          ? f.geometry.coordinates
-          : [f.geometry.coordinates];
-      const rounded = lines.map((line) =>
-        // drop consecutive duplicate points created by rounding
-        line
-          .map(([x, y]) => [rnd(x), rnd(y)])
-          .filter((pt, i, a) => i === 0 || pt[0] !== a[i - 1][0] || pt[1] !== a[i - 1][1]),
-      );
-      out.push({
-        type: "Feature",
-        properties: {
-          id: f.properties?.id ?? null,
-          name: f.properties?.name ?? null,
-          kind,
-          access,
-          seasonal,
-        },
-        geometry:
-          rounded.length === 1
-            ? { type: "LineString", coordinates: rounded[0] }
-            : { type: "MultiLineString", coordinates: rounded },
-      });
-    }
-    process.stdout.write(`  layer ${layer} (${kind}): +${feats.length} (total ${out.length})\n`);
-    if (!json.exceededTransferLimit || feats.length === 0) break;
-    offset += feats.length;
-  }
+      `&resultOffset=${offset}&resultRecordCount=${PAGE}&f=geojson`,
+    (feats) => {
+      for (const f of feats) {
+        if (!f.geometry) continue;
+        const { access, seasonal } = classify(f.properties ?? {});
+        out.push({
+          type: "Feature",
+          properties: {
+            id: f.properties?.id ?? null,
+            name: f.properties?.name ?? null,
+            kind,
+            access,
+            seasonal,
+          },
+          geometry: roundLines(f.geometry),
+        });
+      }
+      process.stdout.write(`  layer ${layer} (${kind}): +${feats.length} (total ${out.length})\n`);
+    },
+    `layer ${layer}`,
+  );
   return out;
 }
 
@@ -134,25 +112,12 @@ for (const area of targets) {
   const roads = await fetchLayer(bbox, 1, "road");
   const trails = await fetchLayer(bbox, 2, "trail");
   const features = [...roads, ...trails];
-  const counts = features.reduce((acc, f) => {
-    acc[f.properties.access] = (acc[f.properties.access] ?? 0) + 1;
-    return acc;
-  }, {});
-  const fc = {
-    type: "FeatureCollection",
-    metadata: {
-      source: "USFS Motor Vehicle Use Map (MVUM), EDW_MVUM_01",
-      area,
-      bbox,
-      fetched: new Date().toISOString().slice(0, 10),
-      counts,
-    },
+  await writeAreaGeojson({
+    outUrl: new URL(`../public/data/${area}-mvum.geojson`, import.meta.url),
+    printPath: `public/data/${area}-mvum.geojson`,
+    source: "USFS Motor Vehicle Use Map (MVUM), EDW_MVUM_01",
+    area,
+    bbox,
     features,
-  };
-  const out = new URL(`../public/data/${area}-mvum.geojson`, import.meta.url);
-  const json = JSON.stringify(fc);
-  await writeFile(out, json);
-  console.log(
-    `Wrote ${features.length} features (${(json.length / 1024).toFixed(0)} KB) -> public/data/${area}-mvum.geojson · counts ${JSON.stringify(counts)}`,
-  );
+  });
 }
