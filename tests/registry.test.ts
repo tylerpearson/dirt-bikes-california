@@ -110,6 +110,49 @@ describe("registry invariants", () => {
     }
   });
 
+  it("every loop id is non-empty, kebab-case, and unique within its area", () => {
+    const kebab = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    for (const area of AREAS) {
+      if (!area.loops) continue;
+      const seen = new Set<string>();
+      for (const loop of area.loops) {
+        expect(
+          kebab.test(loop.id),
+          `area "${area.id}" loop "${loop.name}" has a non-kebab-case id: "${loop.id}"`,
+        ).toBe(true);
+        expect(
+          seen.has(loop.id),
+          `area "${area.id}" has more than one loop with id "${loop.id}"`,
+        ).toBe(false);
+        seen.add(loop.id);
+      }
+    }
+  });
+
+  it("every loop has a composite GPX file with one <trk> per routeId", () => {
+    for (const area of AREAS) {
+      if (!area.loops) continue;
+      for (const loop of area.loops) {
+        const gpxPath = path.join(
+          PUBLIC_DIR,
+          "gpx",
+          "loops",
+          `${area.id}--${loop.id}.gpx`,
+        );
+        expect(
+          existsSync(gpxPath),
+          `missing composite loop GPX for area "${area.id}" loop "${loop.name}": ${gpxPath}`,
+        ).toBe(true);
+        const content = readFileSync(gpxPath, "utf8");
+        const trkCount = (content.match(/<trk\b/g) ?? []).length;
+        expect(
+          trkCount,
+          `composite loop GPX for area "${area.id}" loop "${loop.name}" has ${trkCount} <trk> element(s), expected ${loop.routeIds.length} (one per routeId) — run "npm run build:loops"`,
+        ).toBe(loop.routeIds.length);
+      }
+    }
+  });
+
   it("every loop distance is a finite positive number", () => {
     for (const area of AREAS) {
       if (!area.loops) continue;
