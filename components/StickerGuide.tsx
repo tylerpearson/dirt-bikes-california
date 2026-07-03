@@ -46,39 +46,39 @@ const STICKERS: {
 // Resources Board (CARB), the legislature's bill text, or the Forest Service.
 const SOURCES: { label: string; href: string }[] = [
   {
-    label: "California DMV — Register an Off-Highway Vehicle (OHV)",
+    label: "California DMV: Register an Off-Highway Vehicle (OHV)",
     href: "https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/register-an-off-highway-vehicle-ohv/",
   },
   {
-    label: "California DMV — Registration of Noncomplying OHV (the tan sticker)",
+    label: "California DMV: Registration of Noncomplying OHV (the tan sticker)",
     href: "https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/off-highway-vehicles/registration-of-noncomplying-ohv/",
   },
   {
-    label: "California State Parks OHMVR — OHV Registration",
+    label: "California State Parks OHMVR: OHV Registration",
     href: "https://ohv.parks.ca.gov/?page_id=26886",
   },
   {
-    label: "California State Parks OHMVR — Registration FAQ",
+    label: "California State Parks OHMVR: Registration FAQ",
     href: "https://ohv.parks.ca.gov/?page_id=26294",
   },
   {
-    label: "California Air Resources Board — OHRV Red Sticker Program",
+    label: "California Air Resources Board: OHRV Red Sticker Program",
     href: "https://ww2.arb.ca.gov/our-work/programs/highway-recreational-vehicles/ohrv-red-sticker-program",
   },
   {
-    label: "California State Parks OHMVR — Bulletin 25-1, SB 586 electric motorcycles",
+    label: "California State Parks OHMVR: Bulletin 25-1, SB 586 electric motorcycles",
     href: "https://ohv.parks.ca.gov/pages/1234/files/OHV%20Information%20Bulletin%2025-1%20SB-586%20Electric%20Motorcycles%20ADA%20Final.pdf",
   },
   {
-    label: "California Legislature — SB 586, off-highway electric motorcycles",
+    label: "California Legislature: SB 586, off-highway electric motorcycles",
     href: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB586",
   },
   {
-    label: "California State Parks OHMVR — Spark Arrester Law",
+    label: "California State Parks OHMVR: Spark Arrester Law",
     href: "https://ohv.parks.ca.gov/?page_id=23039",
   },
   {
-    label: "US Forest Service (Pacific Southwest Region) — Adventure Pass",
+    label: "US Forest Service (Pacific Southwest Region): Adventure Pass",
     href: "https://www.fs.usda.gov/r05/passes/adventure-pass",
   },
 ];
