@@ -175,6 +175,7 @@ skip this pass.
 loops: [
   {
     name: "Dove Springs Big Day",
+    id: "dove-springs-big-day",         // kebab-case, unique within the area
     distanceMiles: 24,                 // rough composite; routes overlap/connect
     summary: "…one-line framing of the day…",
     description: "…the ride, in order, in prose…",
@@ -191,6 +192,12 @@ rather than one loop pretending it all connects. The GTLF gives route geometry
 but not a verified through-route between routes, so keep mileage approximate and
 lean on the section's standing "segments overlap and connect" disclaimer instead
 of inventing specific junctions.
+
+Every loop needs an `id` (kebab-case, unique within the area). After adding
+loops, run `npm run build:loops` to generate the composite downloadable GPX
+under `public/gpx/loops/<areaId>--<loopId>.gpx` and commit the output with
+the registry change — the "Make a day of it" card's download link depends on
+that file existing.
 
 ### Step 5 — Add the page
 

@@ -122,6 +122,7 @@ Rules we held to (`24acb2c`, `caa2ac3`, `9ad4126`):
 loops: [
   {
     name: "Garner Valley OHV Day",
+    id: "garner-valley-ohv-day",   // kebab-case, unique within the area
     distanceMiles: 24,
     summary: "…one-line framing of the day…",
     description: "…the ride in order, with the real warnings…",
@@ -130,6 +131,11 @@ loops: [
   // …at least one more
 ],
 ```
+
+Every loop needs an `id`. Run `npm run build:loops` afterward to generate its
+composite downloadable GPX under `public/gpx/loops/`, commit the output, and
+confirm the loop card's "↓ GPX" link downloads a file containing the right
+legs (one `<trk>` per `routeId`, in order).
 
 ## Pass 6: Impeccable UI critique + screenshot verify
 
