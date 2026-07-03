@@ -15,6 +15,8 @@
 const TILE_SIZE = 256;
 const TILE_URL = (z: number, x: number, y: number) =>
   `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
+/** RDP tolerance in viewport pixels for thumbnail rendering. */
+const SIMPLIFY_PX = 1;
 
 export type LatLng = { lat: number; lng: number };
 export type Point = { left: number; top: number };
@@ -47,6 +49,65 @@ export type MapRender = {
 export type AccessSegment = { access: "green" | "plate" | "track"; coords: LatLng[] };
 
 type Frame = { width: number; height: number };
+
+/**
+ * Ramer–Douglas–Peucker in viewport pixel space. Keeps endpoints; drops
+ * vertices whose perpendicular distance to the local chord is <= tolerance.
+ * Iterative (explicit stack) so a 10k-point GPX track can't overflow the
+ * call stack.
+ */
+export function simplifyPoints(points: Point[], tolerance: number): Point[] {
+  if (points.length <= 2) return points;
+
+  const keep = new Array<boolean>(points.length).fill(false);
+  keep[0] = true;
+  keep[points.length - 1] = true;
+
+  const stack: [number, number][] = [[0, points.length - 1]];
+  while (stack.length) {
+    const [start, end] = stack.pop()!;
+    if (end <= start + 1) continue;
+
+    const a = points[start];
+    const b = points[end];
+    const dx = b.left - a.left;
+    const dy = b.top - a.top;
+    const lenSq = dx * dx + dy * dy;
+
+    let maxDist = -1;
+    let maxIndex = -1;
+    for (let i = start + 1; i < end; i++) {
+      const p = points[i];
+      let dist: number;
+      if (lenSq === 0) {
+        // Degenerate zero-length chord: fall back to point-to-point distance.
+        const ddx = p.left - a.left;
+        const ddy = p.top - a.top;
+        dist = Math.sqrt(ddx * ddx + ddy * ddy);
+      } else {
+        // Perpendicular distance from p to the line through a-b.
+        const t = ((p.left - a.left) * dx + (p.top - a.top) * dy) / lenSq;
+        const projX = a.left + t * dx;
+        const projY = a.top + t * dy;
+        const ddx = p.left - projX;
+        const ddy = p.top - projY;
+        dist = Math.sqrt(ddx * ddx + ddy * ddy);
+      }
+      if (dist > maxDist) {
+        maxDist = dist;
+        maxIndex = i;
+      }
+    }
+
+    if (maxDist > tolerance) {
+      keep[maxIndex] = true;
+      stack.push([start, maxIndex]);
+      stack.push([maxIndex, end]);
+    }
+  }
+
+  return points.filter((_, i) => keep[i]);
+}
 
 /** Global pixel coordinate of a lat/lng at a given zoom (256px tiles). */
 function project(lat: number, lng: number, z: number): { x: number; y: number } {
@@ -166,10 +227,11 @@ export function trackMap(
     return { left: px.x - originX, top: px.y - originY };
   };
 
-  const path: Point[] = points.map(toPoint);
+  const round = (p: Point): Point => ({ left: Math.round(p.left), top: Math.round(p.top) });
+  const path: Point[] = simplifyPoints(points.map(toPoint), SIMPLIFY_PX).map(round);
   const projected = segments.map((s) => ({
     access: s.access,
-    points: s.coords.map(toPoint),
+    points: simplifyPoints(s.coords.map(toPoint), SIMPLIFY_PX).map(round),
   }));
 
   return {
