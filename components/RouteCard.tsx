@@ -1,13 +1,10 @@
 import type { Difficulty, Route } from "@/lib/types";
 import type { MapRender } from "@/lib/tiles";
-import type { RouteSegment } from "@/lib/mvum";
 import type { TrackStats } from "@/lib/track-stats";
 import { fullMapUrl } from "@/lib/areas";
 import { AccessBadge } from "./AccessBadge";
 import { ExpandableMap } from "./ExpandableMap";
 import { ElevationProfile } from "./ElevationProfile";
-
-type LL = { lat: number; lng: number };
 
 const DIFFICULTY_COLOR: Record<Difficulty, string> = {
   Easy: "text-diff-easy",
@@ -30,15 +27,14 @@ function Stat({ label, value }: { label: string; value: string }) {
 export function RouteCard({
   route,
   map,
-  points,
-  segments,
+  geojsonSrc,
   stats,
   priority = false,
 }: {
   route: Route;
   map: MapRender;
-  points: LL[];
-  segments: RouteSegment[];
+  /** Area overview GeoJSON for green/plate coloring (MVUM areas only). */
+  geojsonSrc?: string;
   stats: TrackStats | null;
   priority?: boolean;
 }) {
@@ -52,11 +48,11 @@ export function RouteCard({
         <div className="relative aspect-[3/2] lg:aspect-auto lg:flex-1">
           <ExpandableMap
             map={map}
-            points={points}
-            segments={segments}
             label={route.trailhead.name}
             routeName={route.name}
             gpxHref={`/gpx/${route.id}.gpx`}
+            geojsonSrc={geojsonSrc}
+            forestRoad={route.forestRoad}
             directionsHref={fullMapUrl(route.trailhead)}
             className="absolute inset-0"
             priority={priority}

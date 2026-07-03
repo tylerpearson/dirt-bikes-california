@@ -317,13 +317,12 @@ export function AreaGuide({ area }: { area: Area }) {
         </div>
 
         <div className="flex flex-col gap-6">
-          {cards.map(({ route, map, points, segments, stats }, i) => (
+          {cards.map(({ route, map, stats }, i) => (
             <RouteCard
               key={route.id}
               route={route}
               map={map}
-              points={points}
-              segments={segments}
+              geojsonSrc={area.source ? undefined : area.mvumGeojson}
               stats={stats}
               priority={i < 2}
             />
