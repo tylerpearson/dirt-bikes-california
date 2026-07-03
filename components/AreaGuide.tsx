@@ -249,7 +249,7 @@ export function AreaGuide({ area }: { area: Area }) {
             <div className="mt-6 grid gap-5 lg:grid-cols-2">
               {area.loops.map((loop, li) => (
                 <article
-                  key={loop.name}
+                  key={loop.id}
                   className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)]"
                 >
                   {loopMaps[li] && (
@@ -262,13 +262,22 @@ export function AreaGuide({ area }: { area: Area }) {
                     <h3 className="font-display text-xl font-bold leading-tight tracking-tight text-bistre">
                       {loop.name}
                     </h3>
-                    <span className="mt-1 flex shrink-0 items-baseline gap-1 leading-none">
-                      <span className="font-display text-2xl font-bold tracking-tight text-rust-ink">
-                        ~{loop.distanceMiles}
+                    <span className="mt-1 flex shrink-0 flex-col items-end gap-1.5">
+                      <span className="flex items-baseline gap-1 leading-none">
+                        <span className="font-display text-2xl font-bold tracking-tight text-rust-ink">
+                          ~{loop.distanceMiles}
+                        </span>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-olive">
+                          mi
+                        </span>
                       </span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-olive">
-                        mi
-                      </span>
+                      <a
+                        href={`/gpx/loops/${area.id}--${loop.id}.gpx`}
+                        download
+                        className="rounded-sm border border-edge-strong/70 bg-paper px-2 py-1 text-[0.65rem] font-semibold text-bistre transition hover:border-rust/60"
+                      >
+                        ↓ GPX
+                      </a>
                     </span>
                   </div>
 
