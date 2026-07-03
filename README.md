@@ -97,11 +97,15 @@ Open [http://localhost:3000](http://localhost:3000).
 ### Scripts
 
 ```bash
-npm run dev      # start the dev server
-npm run build    # production build
-npm run start    # serve the production build
-npm run lint     # eslint
+npm run dev        # start the dev server
+npm run build      # production build
+npm run start      # serve the production build
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit
+npm test           # vitest (registry invariants + unit tests)
 ```
+
+CI runs typecheck, lint, build, and test on every PR.
 
 ### Regenerating area data
 
