@@ -6,7 +6,8 @@ review** every area went through before it was considered done. The data pipelin
 makes an area accurate; these passes make it *good*, and make every area hold the
 same bar.
 
-Run all six passes, in order, on every new area. Each pass is a distinct "lens" /
+Run all six numbered passes, in order, on every new area, then the
+writing-style sweep and the content-humanizer audit. Each pass is a distinct "lens" /
 reviewer persona we actually used. Do them as separate commits so the reasoning
 stays legible (that's how the existing areas read in `git log`).
 

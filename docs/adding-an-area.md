@@ -1,7 +1,8 @@
 # Playbook: Adding a New Riding Area
 
-This is the repeatable process we used to build the Big Bear, Palm Springs,
-Idyllwild, and Santa Barbara guides. Follow it to add another region. The whole
+This is the repeatable process we used to build the first guides (Big Bear,
+San Jacinto, and Santa Barbara), since extended across thirteen areas. Follow
+it to add another region. The whole
 idea is that **facts are derived from authoritative sources and only prose is
 hand-written**, so every new area holds the same accuracy bar.
 
@@ -195,8 +196,11 @@ Create `app/<area-id>/page.tsx` (template in §1).
 
 ```bash
 npm run build                          # must be clean (TS + static gen)
-node .claude/skills/impeccable/scripts/detect.mjs --json <changed files>
 ```
+
+Then run the **`/impeccable`** skill on the changed pages (the same invocation
+Pass 6 of `docs/area-review-process.md` uses); it requires the impeccable
+skill installed in your agent environment (it is not vendored in this repo).
 
 Then run the dev server and screenshot (headless Chrome + puppeteer-core in the
 scratchpad is how we "see" it): the hero, the overview map (let it lazy-load),
