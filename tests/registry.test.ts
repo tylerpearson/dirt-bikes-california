@@ -1,9 +1,32 @@
 import { describe, expect, it } from "vitest";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { AREAS } from "@/lib/areas";
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
+
+const extractMap = (src: string, marker: string): Map<string, string> => {
+  const start = src.indexOf(marker);
+  expect(start, `could not find "${marker}" in source`).toBeGreaterThanOrEqual(0);
+  const end = src.indexOf("};", start);
+  expect(end, `could not find closing "};" after "${marker}"`).toBeGreaterThan(
+    start,
+  );
+  const block = src.slice(start, end);
+  const re = /"?([a-z][a-z-]*)"?: "(-?[\d.]+,-?[\d.]+,-?[\d.]+,-?[\d.]+)"/g;
+  const map = new Map<string, string>();
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(block)) !== null) {
+    map.set(m[1], m[2]);
+  }
+  return map;
+};
+
+const BBOX_PAIRS = [
+  { fetch: "fetch-mvum-area.mjs", build: "build-area-routes.mjs", min: 8 },
+  { fetch: "fetch-blm-area.mjs", build: "build-blm-routes.mjs", min: 2 },
+  { fetch: "fetch-angeles-area.mjs", build: "build-angeles-routes.mjs", min: 1 },
+];
 
 describe("registry invariants", () => {
   it("every loop's routeIds resolve to a route in the same area", () => {
@@ -99,60 +122,124 @@ describe("registry invariants", () => {
     }
   });
 
-  it("bbox tables in fetch-mvum-area.mjs and build-area-routes.mjs agree on shared areas", () => {
-    const scriptsDir = path.join(process.cwd(), "scripts");
-    const fetchSrc = readFileSync(
-      path.join(scriptsDir, "fetch-mvum-area.mjs"),
-      "utf8",
-    );
-    const buildSrc = readFileSync(
-      path.join(scriptsDir, "build-area-routes.mjs"),
-      "utf8",
-    );
-
-    const extractMap = (src: string, marker: string): Map<string, string> => {
-      const start = src.indexOf(marker);
-      expect(start, `could not find "${marker}" in source`).toBeGreaterThanOrEqual(0);
-      const end = src.indexOf("};", start);
-      expect(end, `could not find closing "};" after "${marker}"`).toBeGreaterThan(
-        start,
-      );
-      const block = src.slice(start, end);
-      const re = /"([a-z-]+)": "(-?[\d.]+,-?[\d.]+,-?[\d.]+,-?[\d.]+)"/g;
-      const map = new Map<string, string>();
-      let m: RegExpExecArray | null;
-      while ((m = re.exec(block)) !== null) {
-        map.set(m[1], m[2]);
-      }
-      return map;
-    };
-
-    const fetchMap = extractMap(fetchSrc, "const AREAS");
-    const buildMap = extractMap(buildSrc, "const BBOX");
-
-    expect(
-      fetchMap.size,
-      "expected at least 8 entries in fetch-mvum-area.mjs AREAS",
-    ).toBeGreaterThanOrEqual(8);
-    expect(
-      buildMap.size,
-      "expected at least 8 entries in build-area-routes.mjs BBOX",
-    ).toBeGreaterThanOrEqual(8);
-
-    const sharedKeys = [...fetchMap.keys()].filter((k) => buildMap.has(k));
-    expect(
-      sharedKeys.length,
-      "expected the two bbox tables to share at least 8 area keys",
-    ).toBeGreaterThanOrEqual(8);
-
-    const mismatches: string[] = [];
-    for (const key of sharedKeys) {
-      if (fetchMap.get(key) !== buildMap.get(key)) {
-        mismatches.push(
-          `"${key}": fetch-mvum-area="${fetchMap.get(key)}" vs build-area-routes="${buildMap.get(key)}"`,
-        );
+  it("every file in public/gpx belongs to a registered route", () => {
+    const routeIds = new Set<string>();
+    for (const area of AREAS) {
+      for (const route of area.routes) {
+        routeIds.add(route.id);
       }
     }
-    expect(mismatches, mismatches.join("; ")).toEqual([]);
+    const gpxDir = path.join(PUBLIC_DIR, "gpx");
+    const orphans = readdirSync(gpxDir)
+      .filter((f) => f.endsWith(".gpx"))
+      .filter((f) => !routeIds.has(f.replace(/\.gpx$/, "")));
+    expect(
+      orphans,
+      `orphaned GPX file(s) with no matching route: ${orphans.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  it("every file in public/data is referenced by an area", () => {
+    const referenced = new Set(
+      AREAS.map((a) => path.basename(a.mvumGeojson)),
+    );
+    const dataDir = path.join(PUBLIC_DIR, "data");
+    const onDisk = new Set(
+      readdirSync(dataDir).filter((f) => f.endsWith(".geojson")),
+    );
+
+    const orphanFiles = [...onDisk].filter((f) => !referenced.has(f));
+    const missingFiles = [...referenced].filter((f) => !onDisk.has(f));
+
+    expect(
+      orphanFiles,
+      `public/data has file(s) not referenced by any area: ${orphanFiles.join(", ")}`,
+    ).toEqual([]);
+    expect(
+      missingFiles,
+      `area(s) reference geojson file(s) missing from public/data: ${missingFiles.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  for (const { fetch, build, min } of BBOX_PAIRS) {
+    it(`bbox tables in ${fetch} and ${build} agree on shared areas`, () => {
+      const scriptsDir = path.join(process.cwd(), "scripts");
+      const fetchSrc = readFileSync(path.join(scriptsDir, fetch), "utf8");
+      const buildSrc = readFileSync(path.join(scriptsDir, build), "utf8");
+
+      const fetchMap = extractMap(fetchSrc, "const AREAS");
+      const buildMap = extractMap(buildSrc, "const BBOX");
+
+      expect(
+        fetchMap.size,
+        `expected at least ${min} entries in ${fetch} AREAS`,
+      ).toBeGreaterThanOrEqual(min);
+      expect(
+        buildMap.size,
+        `expected at least ${min} entries in ${build} BBOX`,
+      ).toBeGreaterThanOrEqual(min);
+
+      const sharedKeys = [...fetchMap.keys()].filter((k) => buildMap.has(k));
+      expect(
+        sharedKeys.length,
+        `expected the two bbox tables to share at least ${min} area keys`,
+      ).toBeGreaterThanOrEqual(min);
+
+      const mismatches: string[] = [];
+      for (const key of sharedKeys) {
+        if (fetchMap.get(key) !== buildMap.get(key)) {
+          mismatches.push(
+            `"${key}": ${fetch}="${fetchMap.get(key)}" vs ${build}="${buildMap.get(key)}"`,
+          );
+        }
+      }
+      expect(mismatches, mismatches.join("; ")).toEqual([]);
+    });
+  }
+
+  it("every registry area is claimed by exactly one fetch pipeline", () => {
+    const scriptsDir = path.join(process.cwd(), "scripts");
+    const fetchScripts = [
+      "fetch-mvum-area.mjs",
+      "fetch-blm-area.mjs",
+      "fetch-angeles-area.mjs",
+    ];
+    const keySets = fetchScripts.map((f) =>
+      extractMap(readFileSync(path.join(scriptsDir, f), "utf8"), "const AREAS"),
+    );
+
+    const overlaps: string[] = [];
+    for (let i = 0; i < keySets.length; i++) {
+      for (let j = i + 1; j < keySets.length; j++) {
+        for (const key of keySets[i].keys()) {
+          if (keySets[j].has(key)) {
+            overlaps.push(
+              `"${key}" appears in both ${fetchScripts[i]} and ${fetchScripts[j]}`,
+            );
+          }
+        }
+      }
+    }
+    expect(overlaps, overlaps.join("; ")).toEqual([]);
+
+    const union = new Set<string>();
+    for (const map of keySets) {
+      for (const key of map.keys()) union.add(key);
+    }
+    const registryIds = new Set<string>(AREAS.map((a) => a.id));
+
+    const missingFromPipelines = [...registryIds].filter(
+      (id) => !union.has(id),
+    );
+    const extraInPipelines = [...union].filter((id) => !registryIds.has(id));
+
+    expect(
+      missingFromPipelines,
+      `registry area(s) not claimed by any fetch pipeline: ${missingFromPipelines.join(", ")}`,
+    ).toEqual([]);
+    expect(
+      extraInPipelines,
+      `fetch pipeline area(s) not present in the registry: ${extraInPipelines.join(", ")}`,
+    ).toEqual([]);
   });
 });
