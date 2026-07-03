@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { TrackPoint } from "./track-stats";
+import { parseTrkpts, parseTrackParts } from "./gpx-parse";
 
 /**
  * Load a GPX track from /public/gpx/<file>. Returns the ordered track points
@@ -21,28 +22,6 @@ export function loadTrack(file: string): TrackPoint[] {
   return parseTrkpts(xml);
 }
 
-/** Parse every <trkpt> in a chunk of GPX into ordered track points. */
-function parseTrkpts(xml: string): TrackPoint[] {
-  const points: TrackPoint[] = [];
-  // Match each <trkpt> element, whether self-closing or with inner content.
-  const blockRe = /<trkpt\b([^>]*?)(?:\/>|>([\s\S]*?)<\/trkpt>)/g;
-  let block: RegExpExecArray | null;
-  while ((block = blockRe.exec(xml)) !== null) {
-    const attrs = block[1];
-    const inner = block[2] ?? "";
-    const lat = /\blat="([-\d.]+)"/.exec(attrs);
-    const lon = /\blon="([-\d.]+)"/.exec(attrs);
-    if (!lat || !lon) continue;
-    const ele = /<ele>([-\d.]+)<\/ele>/.exec(inner);
-    points.push({
-      lat: parseFloat(lat[1]),
-      lng: parseFloat(lon[1]),
-      ele: ele ? parseFloat(ele[1]) : undefined,
-    });
-  }
-  return points;
-}
-
 /**
  * Load a GPX track split into its <trkseg> parts. A route stitched from
  * disjoint segments (e.g. a BLM route built from separate GTLF pieces) writes
@@ -58,17 +37,5 @@ export function loadTrackParts(file: string): TrackPoint[][] {
   } catch {
     return [];
   }
-  const segRe = /<trkseg\b[^>]*>([\s\S]*?)<\/trkseg>/g;
-  const parts: TrackPoint[][] = [];
-  let m: RegExpExecArray | null;
-  while ((m = segRe.exec(xml)) !== null) {
-    const pts = parseTrkpts(m[1]);
-    if (pts.length) parts.push(pts);
-  }
-  // Fall back to a single part if the file has no <trkseg> wrappers.
-  if (!parts.length) {
-    const pts = parseTrkpts(xml);
-    if (pts.length) parts.push(pts);
-  }
-  return parts;
+  return parseTrackParts(xml);
 }
