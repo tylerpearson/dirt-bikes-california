@@ -18,12 +18,23 @@
 // note pointing riders at the posted MVUM.
 
 import { writeFile, mkdir } from "node:fs/promises";
+import {
+  UA,
+  stitchParts,
+  haversineMi,
+  fetchElevations,
+  elevationLookup,
+  fmtFtRange,
+  sleep,
+  escXml,
+  varName,
+  writeRoutesModule,
+} from "./lib/pipeline.mjs";
 
 const TRAILS_BASE =
   "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_TrailNFSPublish_01/MapServer/0";
 const ROADS_BASE =
   "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RoadBasic_01/MapServer/0";
-const UA = "dirt-bikes/1.0 (route-guide; build script)";
 const SOURCE = "USFS trail and road inventories (EDW), 2026";
 
 // Per-area bounding boxes (xmin,ymin,xmax,ymax in lon/lat, WGS84). Trail/road
@@ -168,81 +179,7 @@ async function fetchFeatures(select, bbox) {
 // by a wash, a trio of trails); bridging those gaps would draw phantom
 // straight lines and inflate the distance. Returns an array of ordered paths
 // (one per contiguous part).
-const d2 = (a, b) => (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2;
-const GAP = 0.0025; // ~275 m in degrees at this latitude
-function stitchParts(parts) {
-  parts = parts.filter((p) => p.length > 1).map((p) => p.slice());
-  if (!parts.length) return [];
-  const order = () => parts.sort((a, b) => b.length - a.length);
-  order();
-  const paths = [];
-  let path = parts.shift();
-  while (parts.length) {
-    const tail = path[path.length - 1];
-    const head = path[0];
-    let best = { d: Infinity };
-    parts.forEach((seg, i) => {
-      const s = seg[0];
-      const e = seg[seg.length - 1];
-      for (const c of [
-        { d: d2(tail, s), i, flip: false, end: "tail" },
-        { d: d2(tail, e), i, flip: true, end: "tail" },
-        { d: d2(head, e), i, flip: false, end: "head" },
-        { d: d2(head, s), i, flip: true, end: "head" },
-      ])
-        if (c.d < best.d) best = c;
-    });
-    if (Math.sqrt(best.d) > GAP) {
-      // Nearest piece is too far: close this part and start a fresh one.
-      paths.push(path);
-      order();
-      path = parts.shift();
-      continue;
-    }
-    const seg = parts.splice(best.i, 1)[0];
-    const o = best.flip ? seg.slice().reverse() : seg;
-    path = best.end === "tail" ? path.concat(o) : o.concat(path);
-  }
-  paths.push(path);
-  return paths.filter((p) => p.length > 1);
-}
-
-function haversineMi(a, b) {
-  const R = 3958.8;
-  const toR = (d) => (d * Math.PI) / 180;
-  const dLat = toR(b[1] - a[1]);
-  const dLon = toR(a[0] - b[0]);
-  const la1 = toR(a[1]);
-  const la2 = toR(b[1]);
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(la1) * Math.cos(la2) * Math.sin(dLon / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(h));
-}
-
-// ---- elevation (best-effort) -------------------------------------------------
-async function fetchElevations(coords) {
-  const N = Math.min(90, coords.length);
-  const idx = Array.from({ length: N }, (_, i) =>
-    Math.round((i * (coords.length - 1)) / (N - 1)),
-  );
-  const locs = idx.map((i) => `${coords[i][1]},${coords[i][0]}`).join("|");
-  try {
-    const res = await fetch(
-      `https://api.opentopodata.org/v1/srtm90m?locations=${locs}`,
-      { headers: { "User-Agent": UA } },
-    );
-    if (!res.ok) return null;
-    const json = await res.json();
-    if (json.status !== "OK") return null;
-    return idx.map((i, k) => ({ i, ele: json.results[k]?.elevation ?? null }));
-  } catch {
-    return null;
-  }
-}
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const fmtFt = (m) => Math.round((m * 3.28084) / 50) * 50;
-const escXml = (s) =>
-  s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+// (stitchParts/GAP now live in scripts/lib/pipeline.mjs.)
 
 // Trail access is machine-derived from mvum_symbol; road access is not
 // machine-readable here, so featured roads are honestly "unconfirmed".
@@ -291,19 +228,7 @@ async function buildRoute(cfg, bbox) {
   // that same flattened sequence, which the GPX writer walks part by part.
   const flat = paths.flat();
   const eleSamples = await fetchElevations(flat);
-  const eleByIdx = new Map((eleSamples ?? []).map((s) => [s.i, s.ele]));
-  let eMin = Infinity, eMax = -Infinity, hasEle = false;
-  if (eleSamples) {
-    for (const s of eleSamples)
-      if (s.ele != null) { hasEle = true; eMin = Math.min(eMin, s.ele); eMax = Math.max(eMax, s.ele); }
-  }
-  const sampledIdx = (eleSamples ?? []).filter((s) => s.ele != null).map((s) => s.i);
-  const eleAt = (i) => {
-    if (!hasEle) return null;
-    let best = sampledIdx[0];
-    for (const si of sampledIdx) if (Math.abs(si - i) < Math.abs(best - i)) best = si;
-    return eleByIdx.get(best);
-  };
+  const { hasEle, eMin, eMax, eleAt } = elevationLookup(eleSamples);
   // One <trkseg> per part so the renderer draws them as separate polylines.
   let gi = 0;
   const trksegs = paths
@@ -338,7 +263,7 @@ ${trksegs}
     description: cfg.description,
     distanceMiles: Math.round(miles * 10) / 10,
     difficulty: cfg.difficulty,
-    ...(hasEle ? { elevationFt: `${fmtFt(eMin).toLocaleString()}–${fmtFt(eMax).toLocaleString()} ft` } : {}),
+    ...(hasEle ? { elevationFt: fmtFtRange(eMin, eMax) } : {}),
     surface: cfg.surface,
     bestSeason: cfg.bestSeason,
     access: {
@@ -363,9 +288,6 @@ ${trksegs}
   return route;
 }
 
-const varName = (area) =>
-  area.replace(/-([a-z])/g, (_, c) => c.toUpperCase()) + "Routes";
-
 await mkdir(new URL("../public/gpx/", import.meta.url), { recursive: true });
 const targets = process.argv.slice(2).length
   ? process.argv.slice(2)
@@ -384,14 +306,16 @@ for (const area of targets) {
     if (route) routes.push(route);
     await sleep(1200); // be polite to opentopodata (1 req/s)
   }
-  const ts = `// AUTO-GENERATED by scripts/build-angeles-routes.mjs — do not edit by hand.
-// Geometry: USFS TrailNFS (trails) and RoadBasic (roads) inventories, EDW.
-// Elevation: SRTM via opentopodata.
-// Prose, difficulty, and ordering are editorial (see the script's CONFIG).
-import type { Route } from "../types";
-
-export const ${varName(area)}: Route[] = ${JSON.stringify(routes, null, 2)};
-`;
-  await writeFile(new URL(`../lib/routes/${area}.generated.ts`, import.meta.url), ts);
+  await writeRoutesModule({
+    outUrl: new URL(`../lib/routes/${area}.generated.ts`, import.meta.url),
+    exportName: varName(area),
+    routes,
+    headerLines: [
+      `// AUTO-GENERATED by scripts/build-angeles-routes.mjs — do not edit by hand.`,
+      `// Geometry: USFS TrailNFS (trails) and RoadBasic (roads) inventories, EDW.`,
+      `// Elevation: SRTM via opentopodata.`,
+      `// Prose, difficulty, and ordering are editorial (see the script's CONFIG).`,
+    ],
+  });
   console.log(`Wrote lib/routes/${area}.generated.ts (${routes.length} routes)`);
 }
