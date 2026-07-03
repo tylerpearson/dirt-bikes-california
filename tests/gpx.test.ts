@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { loadTrack, loadTrackParts } from "@/lib/gpx";
+import { parseTrackParts } from "@/lib/gpx-parse";
 import { AREAS } from "@/lib/areas";
 
 describe("loadTrack", () => {
@@ -34,5 +35,36 @@ describe("loadTrackParts", () => {
     }
     const flattened = parts.flat();
     expect(flattened.length).toBe(loadTrack(file).length);
+  });
+});
+
+describe("parseTrackParts (fs-free)", () => {
+  it("splits a two-<trkseg> document into two parts", () => {
+    const xml = `<gpx><trk><trkseg>
+      <trkpt lat="34.1" lon="-117.1"><ele>1000</ele></trkpt>
+      <trkpt lat="34.2" lon="-117.2"><ele>1010</ele></trkpt>
+    </trkseg><trkseg>
+      <trkpt lat="34.3" lon="-117.3"><ele>1020</ele></trkpt>
+      <trkpt lat="34.4" lon="-117.4"><ele>1030</ele></trkpt>
+    </trkseg></trk></gpx>`;
+    const parts = parseTrackParts(xml);
+    expect(parts.length).toBe(2);
+    expect(parts[0].length).toBe(2);
+    expect(parts[1].length).toBe(2);
+    expect(parts[0][0]).toEqual({ lat: 34.1, lng: -117.1, ele: 1000 });
+  });
+
+  it("falls back to one part for a <trkpt>-only document with no <trkseg>", () => {
+    const xml = `<gpx><trk>
+      <trkpt lat="34.1" lon="-117.1"/>
+      <trkpt lat="34.2" lon="-117.2"/>
+    </trk></gpx>`;
+    const parts = parseTrackParts(xml);
+    expect(parts.length).toBe(1);
+    expect(parts[0].length).toBe(2);
+  });
+
+  it("returns [] for garbage input", () => {
+    expect(parseTrackParts("not gpx at all")).toEqual([]);
   });
 });
