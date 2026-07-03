@@ -24,7 +24,8 @@ export function ExpandableMap({
   geojsonSrc?: string;
   /** Road number(s) to select in the GeoJSON, e.g. "3N16". */
   forestRoad?: string;
-  directionsHref: string;
+  /** Trailhead directions link. Omitted for loops, which have no single trailhead. */
+  directionsHref?: string;
   className?: string;
   /** Load this map's tiles immediately (for above-the-fold cards). */
   priority?: boolean;
@@ -139,14 +140,16 @@ export function ExpandableMap({
                 >
                   ↓ GPX
                 </a>
-                <a
-                  href={directionsHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-sm border border-edge-strong/70 bg-paper-2 px-3 py-2 text-xs font-semibold text-bistre transition hover:border-rust/60"
-                >
-                  Trailhead ↗
-                </a>
+                {directionsHref && (
+                  <a
+                    href={directionsHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-sm border border-edge-strong/70 bg-paper-2 px-3 py-2 text-xs font-semibold text-bistre transition hover:border-rust/60"
+                  >
+                    Trailhead ↗
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={() => setOpen(false)}

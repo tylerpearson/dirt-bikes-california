@@ -6,7 +6,7 @@ import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
 import { trackStats, trackStatsFromParts } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
-import { StaticMap } from "@/components/StaticMap";
+import { ExpandableMap } from "@/components/ExpandableMap";
 import { AccessBadge } from "@/components/AccessBadge";
 import { AreaMap } from "@/components/AreaMap";
 import { HeroTopo } from "@/components/HeroTopo";
@@ -253,8 +253,14 @@ export function AreaGuide({ area }: { area: Area }) {
                   className="flex flex-col overflow-hidden rounded-sm border border-edge-strong/60 bg-paper-2 shadow-[0_1px_0_var(--color-edge),0_10px_24px_-18px_rgba(60,45,20,0.6)]"
                 >
                   {loopMaps[li] && (
-                    <div className="h-44 w-full border-b border-edge-strong/40 sm:h-52">
-                      <StaticMap map={loopMaps[li]!} label={loop.name} approximate showExpand={false} />
+                    <div className="relative h-44 w-full border-b border-edge-strong/40 sm:h-52">
+                      <ExpandableMap
+                        map={loopMaps[li]!}
+                        label={loop.name}
+                        routeName={loop.name}
+                        gpxHref={`/gpx/loops/${area.id}--${loop.id}.gpx`}
+                        className="absolute inset-0"
+                      />
                     </div>
                   )}
                   <div className="flex flex-1 flex-col gap-3 p-5">
