@@ -17,12 +17,12 @@ when done.
 | 005  | Refresh stale README/PRODUCT.md and clean up small repo debris | P2 | S | — | DONE |
 | 006  | Add the Rowher Flats (Angeles NF) riding area via a TrailNFS/RoadBasic pipeline variant | P2 | L | — | DONE |
 | 007  | Downloadable composite GPX for suggested loops | P2 | M | — | TODO |
-| 008  | Simplify and round the static-thumbnail SVG geometry | P1 | S | — | TODO |
-| 009  | Stop serializing route geometry into area pages; lazy-load it on dialog open | P1 | M | — | TODO |
-| 010  | Harden registry invariants: orphan artifacts + all three pipeline bbox pairs | P2 | S | — | TODO |
-| 011  | Prose content lint (em dashes, jammed compounds) + fix current violations | P2 | S | — | TODO |
-| 012  | Extract the shared data-pipeline core across the six scripts | P2 | L | 010 (soft) | TODO |
-| 013  | Fix the four documentation drifts | P3 | S | — | TODO |
+| 008  | Simplify and round the static-thumbnail SVG geometry | P1 | S | — | DONE (#60) |
+| 009  | Stop serializing route geometry into area pages; lazy-load it on dialog open | P1 | M | — | DONE (#62) |
+| 010  | Harden registry invariants: orphan artifacts + all three pipeline bbox pairs | P2 | S | — | DONE (#59) |
+| 011  | Prose content lint (em dashes, jammed compounds) + fix current violations | P2 | S | — | DONE (#61) |
+| 012  | Extract the shared data-pipeline core across the six scripts | P2 | L | 010 (soft) | DONE (#63) |
+| 013  | Fix the four documentation drifts | P3 | S | — | DONE (#58) |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale)
 
