@@ -2,30 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { MapRender } from "@/lib/tiles";
-import type { RouteSegment } from "@/lib/mvum";
 import { StaticMap } from "./StaticMap";
 import { RouteMap } from "./RouteMap";
 
-type LL = { lat: number; lng: number };
-
 export function ExpandableMap({
   map,
-  points,
-  segments = [],
   label,
   routeName,
   gpxHref,
+  geojsonSrc,
+  forestRoad,
   directionsHref,
   className = "",
   priority = false,
 }: {
   map: MapRender;
-  points: LL[];
-  /** MVUM access segments (lat/lng) for coloring the interactive map. */
-  segments?: RouteSegment[];
   label: string;
   routeName: string;
   gpxHref: string;
+  /** Area overview GeoJSON for green/plate coloring (MVUM areas only). */
+  geojsonSrc?: string;
+  /** Road number(s) to select in the GeoJSON, e.g. "3N16". */
+  forestRoad?: string;
   directionsHref: string;
   className?: string;
   /** Load this map's tiles immediately (for above-the-fold cards). */
@@ -160,7 +158,7 @@ export function ExpandableMap({
               </div>
             </div>
             <div className="relative flex-1">
-              <RouteMap points={points} segments={segments} />
+              <RouteMap gpxHref={gpxHref} geojsonSrc={geojsonSrc} forestRoad={forestRoad} />
             </div>
             <p className="border-t border-edge px-4 py-2 text-[0.65rem] text-olive">
               Route line from the agency travel map, approximate; verify on the official map.
