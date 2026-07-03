@@ -198,6 +198,12 @@ Create `app/<area-id>/page.tsx` (template in §1).
 npm run build                          # must be clean (TS + static gen)
 ```
 
+If Pass 5 of `docs/area-review-process.md` added `loops` for this area, each
+loop needs a kebab-case `id` (unique within the area) and a
+`npm run build:loops` run to generate its composite downloadable GPX under
+`public/gpx/loops/` before it ships — commit the generated file(s) alongside
+the registry change.
+
 Then run the **`/impeccable`** skill on the changed pages (the same invocation
 Pass 6 of `docs/area-review-process.md` uses); it requires the impeccable
 skill installed in your agent environment (it is not vendored in this repo).

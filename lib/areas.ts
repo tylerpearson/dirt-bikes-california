@@ -35,6 +35,8 @@ export type AreaId =
  */
 export type AreaLoop = {
   name: string;
+  /** Kebab-case, unique within the area. Used as the composite GPX filename stem. */
+  id: string;
   /** Rough composite distance in miles (approximate). */
   distanceMiles: number;
   /** One-line framing of the day. */
@@ -138,6 +140,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Holcomb Valley Big Day",
+        id: "holcomb-valley-big-day",
         distanceMiles: 36,
         summary:
           "The classic plated-bike day: climb out of town, loop the gold-rush basin, drop out the back.",
@@ -147,6 +150,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "East-Side OHV Sampler",
+        id: "east-side-ohv-sampler",
         distanceMiles: 14,
         summary:
           "A shorter green-sticker half-day from the Cactus Flat side.",
@@ -172,6 +176,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Garner Valley OHV Day",
+        id: "garner-valley-ohv-day",
         distanceMiles: 24,
         summary:
           "The range's green-sticker corner, strung into one rocky high-country day.",
@@ -181,6 +186,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Idyllwild & Black Mountain",
+        id: "idyllwild-black-mountain",
         distanceMiles: 26,
         summary: "Forested plated dual-sport up toward the Black Mountain lookout.",
         description:
@@ -205,6 +211,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "The Main Divide Traverse",
+        id: "the-main-divide-traverse",
         distanceMiles: 50,
         summary:
           "The signature Santa Ana day: climb to the crest and ride the spine the length of the range.",
@@ -230,6 +237,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Corral Canyon OHV Day",
+        id: "corral-canyon-ohv-day",
         distanceMiles: 22,
         summary:
           "The far south's one real green-sticker network, strung into a full day.",
@@ -255,6 +263,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Alamo Mountain High Country",
+        id: "alamo-mountain-high-country",
         distanceMiles: 28,
         summary:
           "A green-sticker pine-country day on the high roads above Lockwood Valley.",
@@ -264,6 +273,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Cuyama Badlands",
+        id: "cuyama-badlands",
         distanceMiles: 14,
         summary:
           "Colorful sandstone canyons on the desert side, the cool-season counterpart to the high country.",
@@ -289,6 +299,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Camuesa Backcountry Traverse",
+        id: "camuesa-backcountry-traverse",
         distanceMiles: 34,
         summary:
           "The green-sticker crest-to-backcountry day, Santa Barbara's best OHV riding.",
@@ -298,6 +309,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Figueroa & Zaca Country",
+        id: "figueroa-zaca-country",
         distanceMiles: 24,
         summary:
           "Wine-country ridges and oak-shaded backroads northwest of the valley.",
@@ -323,6 +335,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Pozo / La Panza OHV Day",
+        id: "pozo-la-panza-ohv-day",
         distanceMiles: 24,
         summary:
           "Green-sticker roads and real singletrack around Hi Mountain and Pozo.",
@@ -348,6 +361,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Crab Flats Green-Sticker Day",
+        id: "crab-flats-green-sticker-day",
         distanceMiles: 19,
         summary:
           "The area's green-sticker core: the Crab Flats roads and the Deep Creek singletrack.",
@@ -357,6 +371,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Cleghorn Ridge & the West Side",
+        id: "cleghorn-ridge-the-west-side",
         distanceMiles: 42,
         summary:
           "A long western day along the Cleghorn and Pilot Rock ridges above Silverwood.",
@@ -382,6 +397,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Coon Creek Jumpoff & the Front Line",
+        id: "coon-creek-jumpoff-the-front-line",
         distanceMiles: 18,
         summary:
           "The signature plated day: the front-line road out to the Coon Creek Jumpoff overlook.",
@@ -391,6 +407,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Wildhorse & Fish Creek Meadows",
+        id: "wildhorse-fish-creek-meadows",
         distanceMiles: 18,
         summary:
           "A higher, cooler day through the conifer and meadows near the wilderness boundary.",
@@ -416,6 +433,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Palomar Divide Traverse",
+        id: "palomar-divide-traverse",
         distanceMiles: 15,
         summary:
           "The signature ride: in from Oak Grove and the length of the divide.",
@@ -425,6 +443,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "High Point & Indian Flats",
+        id: "high-point-indian-flats",
         distanceMiles: 20,
         summary:
           "The quieter, remote-feeling north side of the mountain.",
@@ -467,6 +486,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Rowher Trails Day",
+        id: "rowher-trails-day",
         distanceMiles: 17,
         summary:
           "The whole green-sticker system in one day, from warm-up laps to the marquee climb.",
@@ -476,6 +496,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Divide & Pelona Plated Day",
+        id: "divide-pelona-plated-day",
         distanceMiles: 55,
         summary:
           "A big street-legal day linking the Sierra Pelona crest with the long Santa Clara Divide traverse.",
@@ -510,6 +531,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Dove Springs Big Day",
+        id: "dove-springs-big-day",
         distanceMiles: 24,
         summary:
           "The northern open-route network strung into a full day of high-desert miles.",
@@ -519,6 +541,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Canyon Stage & Singletrack",
+        id: "canyon-stage-singletrack",
         distanceMiles: 10,
         summary:
           "Come in up Jawbone Canyon, then session the moto singletrack to the south.",
@@ -553,6 +576,7 @@ export const AREAS: Area[] = [
     loops: [
       {
         name: "Singletrack & Canyons Day",
+        id: "singletrack-canyons-day",
         distanceMiles: 31,
         summary:
           "The core green-sticker day: the singletrack network plus the canyon routes around it.",
@@ -562,6 +586,7 @@ export const AREAS: Area[] = [
       },
       {
         name: "Black Mountain & the West Side",
+        id: "black-mountain-the-west-side",
         distanceMiles: 16,
         summary:
           "A road-focused day reaching the Black Mountain high point on the west side.",

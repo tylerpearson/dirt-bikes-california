@@ -120,6 +120,7 @@ node scripts/fetch-blm-area.mjs [area ...]   # BLM overview-map GeoJSON (per are
 node scripts/build-blm-routes.mjs [area ...] # BLM featured-route data + GPX from GTLF + SRTM
 node scripts/fetch-angeles-area.mjs          # Angeles overview-map GeoJSON (USFS TrailNFS + RoadBasic; no MVUM GIS)
 node scripts/build-angeles-routes.mjs [area] # Angeles featured-route data + GPX from the USFS inventories + SRTM
+npm run build:loops                          # composite GPX for suggested loops, from already-generated route GPX (no network)
 ```
 
 ## Deployment
