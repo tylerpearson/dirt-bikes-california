@@ -16,11 +16,11 @@
 //             "Authorized/Permitted" (permitted use, not general rec) — not shown
 // So green/plate mean exactly what they mean on the USFS pages.
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
+import { roundLines, fetchPaged, writeAreaGeojson } from "./lib/pipeline.mjs";
 
 const BASE =
   "https://gis.blm.gov/arcgis/rest/services/transportation/BLM_Natl_GTLF_Public_Display/MapServer";
-const UA = "dirt-bikes/1.0 (route-guide; build script)";
 
 // Per-area bounding boxes (xmin,ymin,xmax,ymax in lon/lat, WGS84).
 const AREAS = {
@@ -63,60 +63,41 @@ function classify(p) {
   return "green"; // motorized / singletrack / ATV-UTV / open
 }
 
-// Round to ~11 m precision (4 decimals) — sub-pixel for an area overview map.
-const rnd = (n) => Math.round(n * 1e4) / 1e4;
-
 async function fetchLayer(bbox, layer, kind) {
   const out = [];
   let dropped = 0;
-  let offset = 0;
   const PAGE = 1000;
-  for (;;) {
-    const url =
+  await fetchPaged(
+    (offset) =>
       `${BASE}/${layer}/query?` +
       `geometry=${encodeURIComponent(bbox)}&geometryType=esriGeometryEnvelope` +
       `&inSR=4326&spatialRel=esriSpatialRelIntersects` +
       `&outFields=${OUT_FIELDS}&returnGeometry=true&outSR=4326` +
-      `&resultOffset=${offset}&resultRecordCount=${PAGE}&f=geojson`;
-    const res = await fetch(url, { headers: { "User-Agent": UA } });
-    if (!res.ok) throw new Error(`layer ${layer} HTTP ${res.status}`);
-    const json = await res.json();
-    const feats = json.features ?? [];
-    for (const f of feats) {
-      if (!f.geometry) continue;
-      const p = f.properties ?? {};
-      const access = classify(p);
-      if (!access) { dropped += 1; continue; } // closed-to-rec / permit / closed
-      // A short stable label: route name if present, else its BLM FAMS id.
-      const id = (p.ROUTE_PRMRY_NM || p.FAMS_ID || "").trim() || null;
-      const lines =
-        f.geometry.type === "MultiLineString"
-          ? f.geometry.coordinates
-          : [f.geometry.coordinates];
-      const rounded = lines.map((line) =>
-        line
-          .map(([x, y]) => [rnd(x), rnd(y)])
-          .filter((pt, i, a) => i === 0 || pt[0] !== a[i - 1][0] || pt[1] !== a[i - 1][1]),
-      );
-      out.push({
-        type: "Feature",
-        properties: {
-          id,
-          name: (p.ROUTE_PRMRY_NM || "").trim() || null,
-          kind,
-          access,
-          seasonal: false, // GTLF seasonal restriction is not populated here
-        },
-        geometry:
-          rounded.length === 1
-            ? { type: "LineString", coordinates: rounded[0] }
-            : { type: "MultiLineString", coordinates: rounded },
-      });
-    }
-    process.stdout.write(`  layer ${layer} (${kind}): +${feats.length} kept ${out.length}, dropped ${dropped}\n`);
-    if (!json.exceededTransferLimit || feats.length === 0) break;
-    offset += feats.length;
-  }
+      `&resultOffset=${offset}&resultRecordCount=${PAGE}&f=geojson`,
+    (feats) => {
+      for (const f of feats) {
+        if (!f.geometry) continue;
+        const p = f.properties ?? {};
+        const access = classify(p);
+        if (!access) { dropped += 1; continue; } // closed-to-rec / permit / closed
+        // A short stable label: route name if present, else its BLM FAMS id.
+        const id = (p.ROUTE_PRMRY_NM || p.FAMS_ID || "").trim() || null;
+        out.push({
+          type: "Feature",
+          properties: {
+            id,
+            name: (p.ROUTE_PRMRY_NM || "").trim() || null,
+            kind,
+            access,
+            seasonal: false, // GTLF seasonal restriction is not populated here
+          },
+          geometry: roundLines(f.geometry),
+        });
+      }
+      process.stdout.write(`  layer ${layer} (${kind}): +${feats.length} kept ${out.length}, dropped ${dropped}\n`);
+    },
+    `layer ${layer}`,
+  );
   return out;
 }
 
@@ -133,25 +114,12 @@ for (const area of targets) {
   for (const { id, kind } of LAYERS) {
     features.push(...(await fetchLayer(bbox, id, kind)));
   }
-  const counts = features.reduce((acc, f) => {
-    acc[f.properties.access] = (acc[f.properties.access] ?? 0) + 1;
-    return acc;
-  }, {});
-  const fc = {
-    type: "FeatureCollection",
-    metadata: {
-      source: "BLM National Ground Transportation Linear Features (GTLF), Public Display",
-      area,
-      bbox,
-      fetched: new Date().toISOString().slice(0, 10),
-      counts,
-    },
+  await writeAreaGeojson({
+    outUrl: new URL(`../public/data/${area}-blm.geojson`, import.meta.url),
+    printPath: `public/data/${area}-blm.geojson`,
+    source: "BLM National Ground Transportation Linear Features (GTLF), Public Display",
+    area,
+    bbox,
     features,
-  };
-  const out = new URL(`../public/data/${area}-blm.geojson`, import.meta.url);
-  const json = JSON.stringify(fc);
-  await writeFile(out, json);
-  console.log(
-    `Wrote ${features.length} features (${(json.length / 1024).toFixed(0)} KB) -> public/data/${area}-blm.geojson · counts ${JSON.stringify(counts)}`,
-  );
+  });
 }
