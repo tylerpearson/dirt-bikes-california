@@ -22,15 +22,6 @@ export function loadRouteSegments(
   geojsonPublicPath: string,
   forestRoad: string | undefined,
 ): RouteSegment[] {
-  if (!forestRoad) return [];
-  const roads = new Set(
-    forestRoad
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean),
-  );
-  if (roads.size === 0) return [];
-
   const full = path.join(
     process.cwd(),
     "public",
@@ -42,6 +33,28 @@ export function loadRouteSegments(
   } catch {
     return [];
   }
+
+  return routeSegmentsFromGeojson(json, forestRoad);
+}
+
+/**
+ * Pure filter/transform: pick the GeoJSON features matching a route's forest
+ * road(s) and turn their geometry into access-colored segments. Shared by the
+ * server-side `loadRouteSegments` (build time) and the client-side dialog
+ * (fetches the same area GeoJSON on demand).
+ */
+export function routeSegmentsFromGeojson(
+  json: { features?: GeoFeature[] },
+  forestRoad: string | undefined,
+): RouteSegment[] {
+  if (!forestRoad) return [];
+  const roads = new Set(
+    forestRoad
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  );
+  if (roads.size === 0) return [];
 
   const segs: RouteSegment[] = [];
   for (const f of json.features ?? []) {
@@ -63,7 +76,7 @@ export function loadRouteSegments(
   return segs;
 }
 
-type GeoFeature = {
+export type GeoFeature = {
   properties?: { id?: string; access?: string };
   geometry?: { type?: string; coordinates?: unknown };
 };
