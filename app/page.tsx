@@ -4,6 +4,7 @@ import { AREAS } from "@/lib/areas";
 import { HeroTopo } from "@/components/HeroTopo";
 import { OverviewMap, type AreaPin } from "@/components/OverviewMap";
 import { StickerGuide } from "@/components/StickerGuide";
+import { RideDisclaimer } from "@/components/RideDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -107,7 +108,8 @@ export default function Home() {
             <span className="font-semibold text-bistre">street-legal (plated)</span>{" "}
             bike rides every route here. A{" "}
             <span className="font-semibold text-bistre">green-sticker</span> bike
-            (dirt only, now including electric bikes like a Sur-Ron) rides only
+            (dirt only, now including electric bikes like a Surron or Stark Varg)
+            rides only
             the routes flagged for it.{" "}
             <Link
               href="#stickers"
@@ -147,7 +149,8 @@ export default function Home() {
 
       <footer className="border-t-2 border-bistre/70 bg-manila">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="font-display text-lg font-bold uppercase tracking-tight text-rust-ink">
+          <RideDisclaimer />
+          <h2 className="mt-8 font-display text-lg font-bold uppercase tracking-tight text-rust-ink">
             Ride responsibly · verify before you go
           </h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink/90">

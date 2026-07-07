@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
-  // Keep the whole site out of search indexes. Inherited by every page (area
-  // pages don't override `robots`), so this emits noindex,nofollow everywhere.
+  // The site is public: let search engines index every page. Inherited by every
+  // page (area pages don't override `robots`), so this applies site-wide.
   robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
