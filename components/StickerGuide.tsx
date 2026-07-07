@@ -238,7 +238,8 @@ export function StickerGuide() {
             </li>
             <li>
               <span className="font-semibold text-bistre">Electric bikes:</span>{" "}
-              a Sur-Ron, Talaria, or similar e-moto gets a green sticker too. See
+              a Surron, Talaria, Stark Varg, or similar e-moto gets a green
+              sticker too. See
               the electric section below.
             </li>
           </ul>
@@ -354,7 +355,8 @@ export function StickerGuide() {
               The law is specific about what counts: an off-road electric
               motorcycle with handlebars, a straddle seat, two wheels, and{" "}
               <span className="font-semibold text-bistre">no pedals</span> from
-              the factory. That is a Sur-Ron or Talaria style bike, not a pedal
+              the factory. That is a Surron, Talaria, or Stark Varg style bike,
+              not a pedal
               e-bike.
             </li>
             <li>
