@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/JsonLd";
+
 // The full California registration explainer, rendered inline on the home page
 // under "Where to ride" rather than on a separate page. Plain language for new
 // riders, every fact sourced from a government page (links at the bottom).
@@ -83,6 +85,66 @@ const SOURCES: { label: string; href: string }[] = [
   },
 ];
 
+// FAQPage structured data. Each question maps to one of the sections rendered
+// below; the answer is a plain-text faithful summary of that section's visible
+// prose. Google requires FAQ structured data to match on-page content, so if
+// you edit the copy in a section, update its answer here too (and vice versa).
+const FAQS: { q: string; a: string }[] = [
+  {
+    q: "Which sticker does my dirt bike need to ride in California?",
+    a: "It comes down to your bike's model year and whether its engine meets California's emissions standards. An emissions-compliant off-road bike gets a green sticker and can ride any public OHV area year-round. A non-compliant bike from 2003 to 2021 has a red sticker (no longer issued), which now also rides year-round. A non-compliant bike from model year 2022 on gets a tan competition sticker, limited to closed-course events or private land. A street-legal, plated dual-sport can ride everything. If you want to ride public trails, buy a bike that can get a green sticker or a street-legal plate.",
+  },
+  {
+    q: "How do I tell which sticker a bike needs?",
+    a: "Two things decide it: the bike's model year and whether its engine meets California's emissions standards. If you're buying used, check the sticker it already wears, since green or red is good for public trails and tan is closed-course only. On the VIN (the 17-character number stamped on the frame and printed on the title), a 3 or a C in the 8th character means the engine does not meet California's emissions standards. Emissions-compliant bikes get green; non-compliant 2003–2021 bikes got red; non-compliant 2022 and newer bikes get tan.",
+  },
+  {
+    q: "What can a green-sticker dirt bike ride?",
+    a: "The green sticker is the normal off-road registration, for dirt bikes that aren't street-legal but do meet California's emissions standards. It lets you ride any public land open to off-highway vehicles, all year long. It costs $54 for two years and expires June 30 of the second year. Electric dirt bikes like a Surron, Talaria, or Stark Varg get a green sticker too.",
+  },
+  {
+    q: "Can a red-sticker bike ride year-round now?",
+    a: "Yes. The red sticker covers older non-compliant bikes, model years 2003 through 2021. The old seasonal riding calendar is gone: as of January 1, 2025, California treats red and green stickers as equally valid year-round in every public OHV area. The DMV stopped issuing new red stickers after model year 2021, so this is a fixed pool of bikes that only shrinks over time.",
+  },
+  {
+    q: "Where can a tan-sticker (competition) bike ride?",
+    a: "A tan sticker is what a non-compliant model-year 2022 or newer bike gets, and the DMV labels it a competition vehicle. It cannot be ridden on public recreational trails. On public land it's limited to sanctioned closed-course competition; otherwise it's a private-property bike. If you want a newer bike for public OHV land, you need a model that earns a green sticker or a street-legal dual-sport.",
+  },
+  {
+    q: "What is a street-legal (dual-sport) plate?",
+    a: "A dual-sport or plated bike is registered for the road like a car, with a real license plate and the equipment the road requires: lights, turn signals, a mirror, a horn, a DOT tire, and a street-legal exhaust. It doesn't need an OHV sticker and can ride everything: paved roads, the connectors between trails, and the dirt routes themselves. The plate has to stay on and visible even off-road.",
+  },
+  {
+    q: "Do electric dirt bikes need to be registered in California?",
+    a: "Yes. As of January 1, 2026 (SB 586, signed October 10, 2025), an off-highway electric motorcycle is an OHV and registers with a green sticker through the DMV. With no exhaust it automatically meets the emissions rules. The law covers off-road electric motorcycles with handlebars, a straddle seat, two wheels, and no pedals from the factory, like a Surron, Talaria, or Stark Varg, not a pedal e-bike. You cannot convert one to street-legal, so it stays an off-road bike and can only be ridden in OHV areas.",
+  },
+  {
+    q: "Do I need a spark arrester on my dirt bike?",
+    a: "Every gas bike does. A spark arrester is a screen in the exhaust that stops the engine from spitting a spark into dry brush. California Vehicle Code section 38366 requires a working, US Forest Service-approved spark arrester on any forest, brush, or grass covered land, all year, no matter how the bike is registered. Rangers check for it at the gate. Electric bikes have no exhaust, so the rule doesn't apply to them.",
+  },
+  {
+    q: "What is the Adventure Pass and do I need it?",
+    a: "The Adventure Pass is a Forest Service parking fee, not a riding permit, so it doesn't decide where you can ride. It covers parking and day use at four Southern California national forests: Angeles, San Bernardino, Cleveland, and Los Padres. It's $5 per day or $30 per year, and a national America the Beautiful pass works in its place. BLM desert like Jawbone Canyon doesn't use the Adventure Pass.",
+  },
+  {
+    q: "What happens if you ride with the wrong sticker?",
+    a: "Enforcement is real: rangers check stickers at OHV areas and getting it wrong means a citation, not a warning. Riding with no sticker or an expired one is an infraction (Vehicle Code section 38020). A tan competition bike on a recreation trail isn't legal there at all and gets turned around at the gate. No spark arrester is a common reason to be denied entry and cited. A plated bike with the plate removed off-road is its own violation. Registering correctly is far cheaper than a citation.",
+  },
+];
+
+/** FAQPage structured data built from the Q&A sections rendered below. */
+function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+}
+
 function Swatch({ color }: { color: string }) {
   return (
     <span
@@ -109,6 +171,7 @@ export function StickerGuide() {
       id="stickers"
       className="scroll-mt-16 border-t-2 border-bistre/70 bg-paper-2"
     >
+      <JsonLd data={faqJsonLd()} />
       <div className="mx-auto max-w-2xl px-6 py-14">
         <div className="flex items-baseline justify-between gap-4 border-b border-edge-strong/50 pb-3">
           <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-bistre">
