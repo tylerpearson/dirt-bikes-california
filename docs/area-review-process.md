@@ -24,6 +24,7 @@ stays legible (that's how the existing areas read in `git log`).
 | Route order, distances, seasons, descriptions | `lib/routes/<area>.generated.ts` **and** the `CONFIG` in `scripts/build-area-routes.mjs` (keep both in sync or a regen reverts you) |
 | Area blurb, tagline, loops | `lib/areas.ts` (`AREAS[]`) |
 | Loop rendering ("Make a day of it") | `components/AreaGuide.tsx` (already built, no per-area change) |
+| Current fire/storm/order closures | `lib/closures.ts` (structured entries, joined at render by `components/AreaGuide.tsx`; never the generated route notes or the area blurb) |
 | UI critique fixes | shared components (`RouteCard`, `RouteMap`, `AreaMap`, `app/page.tsx`, …) |
 
 **The golden rule from the data pipeline still applies here:** the access badge and
@@ -61,7 +62,13 @@ This pass is about *truth and usefulness*, not polish. What we fixed historicall
   Don't round in the rider's favor.
 - **Date the seasonal closures.** Replace vague "closes seasonally" with a rough
   window: high-country snow ~Dec–Apr, storm-driven wet-weather closures ~Nov–Apr.
-  A window a rider can plan around beats a hedge.
+  A window a rider can plan around beats a hedge. This is for the recurring
+  pattern only. A current, dated fire/storm/gate order (one with an order
+  number and an official URL) doesn't belong in this prose at all: it goes into
+  `lib/closures.ts` as a structured entry, which renders as a banner, a
+  per-route "Currently closed" badge, and greyed segments on the overview map,
+  and auto-hides once its `effectiveThrough` date passes. Prose carries the
+  season; the registry carries what's closed right now.
 - **Surface the real gotchas.** Gates between stretches, wet-season gate closures,
   required passes (Adventure Pass), plate-only connectors that isolate the
   green-sticker bits (so you trailer/shuttle between them). These are the things
@@ -170,6 +177,8 @@ Eyeball, for the new area:
 - [ ] Order mirrored in `*.generated.ts` **and** script `CONFIG`
 - [ ] Distances match the GPX the card renders
 - [ ] Seasonal closures given as dated windows, not "closes seasonally"
+- [ ] Any current fire/storm/order closure captured in `lib/closures.ts` (not
+      prose), with order number, official URL, and end date
 - [ ] Real warnings surfaced (gates, passes, isolated green-sticker, connectors)
 - [ ] No access claim the route list / MVUM can't back up
 - [ ] Prose never contradicts the derived access badge/note
