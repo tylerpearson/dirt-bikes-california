@@ -43,3 +43,16 @@ export function AccessBadge({
     </span>
   );
 }
+
+/** Temporary-closure pill, shown alongside AccessBadge (which stays: legal
+ * class is permanent, a closure is temporary and can lift). */
+export function ClosedBadge({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border border-rust/50 bg-rust/15 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-rust-ink ${className}`}
+    >
+      <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
+      Currently closed
+    </span>
+  );
+}
