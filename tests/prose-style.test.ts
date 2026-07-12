@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { AREAS } from "@/lib/areas";
+import { CLOSURES } from "@/lib/closures";
 
 const EM_DASH = "—"; // U+2014; en dash – (U+2013) in ranges is allowed
 /** Jammed compounds banned by AGENTS.md; extend as new ones are spotted. */
@@ -89,6 +90,15 @@ describe("prose style: no em dashes, no jammed compounds", () => {
           ? String((area as { id: unknown }).id)
           : "unknown";
       collectStrings(area, areaId, strings);
+    }
+    checkProse(strings);
+  });
+
+  it("closure copy (lib/closures.ts via CLOSURES) has no em dashes or banned compounds", () => {
+    const strings: { path: string; value: string }[] = [];
+    for (const c of CLOSURES) {
+      // `url` is excluded automatically by NON_PROSE_KEYS in collectStrings.
+      collectStrings(c, c.title || "closure", strings);
     }
     checkProse(strings);
   });
