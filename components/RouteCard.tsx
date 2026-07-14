@@ -1,10 +1,33 @@
 import type { Difficulty, Route } from "@/lib/types";
 import type { MapRender } from "@/lib/tiles";
 import type { TrackStats } from "@/lib/track-stats";
+import type { Closure } from "@/lib/closures";
+import { closedThroughLabel } from "@/lib/closures";
 import { fullMapUrl } from "@/lib/areas";
-import { AccessBadge } from "./AccessBadge";
+import { AccessBadge, ClosedBadge } from "./AccessBadge";
 import { ExpandableMap } from "./ExpandableMap";
 import { ElevationProfile } from "./ElevationProfile";
+
+/** "Forest Order … · closed through … · official closure info", non-empty parts only. */
+function ClosureMeta({ c }: { c: Closure }) {
+  const parts: string[] = [];
+  if (c.orderNumber) parts.push(`Forest Order ${c.orderNumber}`);
+  const through = closedThroughLabel(c);
+  if (through) parts.push(through);
+  return (
+    <p className="mt-1 text-xs uppercase tracking-wide text-rust-ink">
+      {parts.length > 0 && <>{parts.join(" · ")} · </>}
+      <a
+        href={c.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-bistre underline decoration-rust/50 underline-offset-2 hover:decoration-rust hover:text-rust-ink"
+      >
+        official closure info
+      </a>
+    </p>
+  );
+}
 
 const DIFFICULTY_COLOR: Record<Difficulty, string> = {
   Easy: "text-diff-easy",
@@ -30,6 +53,7 @@ export function RouteCard({
   geojsonSrc,
   stats,
   priority = false,
+  closures,
 }: {
   route: Route;
   map: MapRender;
@@ -37,7 +61,10 @@ export function RouteCard({
   geojsonSrc?: string;
   stats: TrackStats | null;
   priority?: boolean;
+  /** Active closures hitting this specific route, if any. */
+  closures?: Closure[];
 }) {
+  const hasClosures = !!closures && closures.length > 0;
   return (
     <article
       id={route.id}
@@ -106,7 +133,10 @@ export function RouteCard({
               </span>
             )}
           </div>
-          <AccessBadge status={route.access.greenSticker} className="self-start" />
+          <div className="flex flex-wrap gap-2">
+            <AccessBadge status={route.access.greenSticker} />
+            {hasClosures && <ClosedBadge />}
+          </div>
         </header>
 
         {/* Headline spec line — the two numbers a rider scans first */}
@@ -136,6 +166,19 @@ export function RouteCard({
             </dd>
           </div>
         </dl>
+
+        {hasClosures && (
+          <div className="rounded-sm border border-rust/40 bg-rust/10 p-3">
+            {closures!.map((c, i) => (
+              <div key={i} className={i > 0 ? "mt-2" : undefined}>
+                <p className="text-xs leading-relaxed text-bistre">
+                  {c.summary}
+                </p>
+                <ClosureMeta c={c} />
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="rounded-sm border border-edge bg-manila/40 p-3">
           <p className="text-xs leading-relaxed text-bistre">

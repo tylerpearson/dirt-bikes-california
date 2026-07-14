@@ -26,6 +26,17 @@ geometry). Then run every area through the six editorial/QA passes in
 rider review → PM review → trim weak routes → loops → impeccable UI critique)
 before calling it done.
 
+Current closures (fire, storm, or gate orders with an order number, official
+URL, and end date) live in `lib/closures.ts`, a hand-maintained registry
+decoupled from the route generators. It's joined to routes at render time by
+`components/AreaGuide.tsx`: a banner, a "Currently closed" badge on affected
+route cards, and greyed segments on the overview map. Each entry auto-hides
+once its `effectiveThrough` date passes, and the build warns when a dated
+entry has lapsed so it gets renewed or removed. This replaces the old
+`closure:` field that used to live in `scripts/build-area-routes.mjs`; that
+field is gone. Seasonal riding windows and weekly weather closures still
+belong in hand-written prose, not the registry.
+
 # Writing style (hand-written prose)
 
 Write like a person, not a brochure. Applies to public-facing site copy: area

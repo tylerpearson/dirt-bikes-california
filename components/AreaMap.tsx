@@ -22,6 +22,7 @@ const COLOR: Record<Access, string> = {
   green: "#3f8f3a", // --color-ok-fill: green-sticker OHV allowed
   plate: "#3a6e92", // --color-plate-fill: street-legal plated only
 };
+const CLOSED_COLOR = "#7a7058"; // --color-unsure-fill: closed by forest order
 
 /** Escape values before they go into tooltip HTML (data is third-party MVUM). */
 const esc = (s: string) =>
@@ -40,12 +41,16 @@ export function AreaMap({
   src,
   labels = { green: "Green-sticker OHV allowed", plate: "Street-legal plate only" },
   attribution = "&copy; OpenStreetMap contributors · Forest Service travel maps",
+  closedRoadIds,
 }: {
   src: string;
   /** Legend + tooltip labels for the two access classes (source-specific). */
   labels?: { green: string; plate: string };
   /** Tile attribution suffix naming the data source. */
   attribution?: string;
+  /** MVUM road numbers currently under an active closure, matched against
+   * feature.properties.id. Drawn in their own grey layer, beneath green/plate. */
+  closedRoadIds?: string[];
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -53,7 +58,7 @@ export function AreaMap({
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
   // Which legend rows to show — set once the GeoJSON loads, so an all-green
   // area (e.g. most BLM areas) doesn't show an empty "plate" or "seasonal" row.
-  const [present, setPresent] = useState({ green: true, plate: true, seasonal: true });
+  const [present, setPresent] = useState({ green: true, plate: true, seasonal: true, closed: false });
 
   // Defer all work until the section is near the viewport.
   useEffect(() => {
@@ -88,10 +93,13 @@ export function AreaMap({
         if (cancelled) return;
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const fc: FC = await res.json();
+        const closedSet = new Set(closedRoadIds ?? []);
+        const isClosed = (f: Feature) => !!f.properties.id && closedSet.has(f.properties.id);
         setPresent({
-          green: fc.features.some((f) => f.properties.access === "green"),
-          plate: fc.features.some((f) => f.properties.access === "plate"),
+          green: fc.features.some((f) => f.properties.access === "green" && !isClosed(f)),
+          plate: fc.features.some((f) => f.properties.access === "plate" && !isClosed(f)),
           seasonal: fc.features.some((f) => f.properties.seasonal),
+          closed: fc.features.some((f) => isClosed(f)),
         });
         const el = mapRef.current as (HTMLDivElement & { _leaflet_id?: number }) | null;
         if (cancelled || !el || el._leaflet_id) return;
@@ -114,10 +122,20 @@ export function AreaMap({
             lineCap: "round" as const,
           };
         };
+        const closedStyle = (): PathOptions => ({
+          color: CLOSED_COLOR,
+          weight: 2.5,
+          opacity: 0.9,
+          lineCap: "round" as const,
+        });
+        // Closed roads are pulled out of the green/plate arrays so they aren't
+        // drawn twice, and drawn first (underneath) in their own grey layer.
+        const closed = fc.features.filter((f) => isClosed(f));
+        const plate = fc.features.filter((f) => f.properties.access === "plate" && !isClosed(f));
+        const green = fc.features.filter((f) => f.properties.access === "green" && !isClosed(f));
+        const closedLayer = L.geoJSON(closed as unknown as GeoJsonFeature[], { style: closedStyle, interactive: false }).addTo(map);
         // Plate routes underneath, green on top — both non-interactive so the
         // wide hit layer below owns all hover/tap handling.
-        const plate = fc.features.filter((f) => f.properties.access === "plate");
-        const green = fc.features.filter((f) => f.properties.access === "green");
         const plateLayer = L.geoJSON(plate as unknown as GeoJsonFeature[], { style, interactive: false }).addTo(map);
         const greenLayer = L.geoJSON(green as unknown as GeoJsonFeature[], { style, interactive: false }).addTo(map);
 
@@ -125,7 +143,11 @@ export function AreaMap({
         // route that carries the tooltip and a faint highlight on hover.
         const onEach = (f: GeoJsonFeature, layer: Layer) => {
           const p = (f as unknown as Feature).properties;
-          const label = p.access === "green" ? labels.green : labels.plate;
+          const label = isClosed(f as unknown as Feature)
+            ? "CLOSED by forest order"
+            : p.access === "green"
+              ? labels.green
+              : labels.plate;
           const name = p.name
             ? p.name.replace(/\b\w/g, (c) => c.toUpperCase())
             : "Unnamed route";
@@ -137,19 +159,22 @@ export function AreaMap({
           path.on("mouseover", () => path.setStyle({ opacity: 0.25 }));
           path.on("mouseout", () => path.setStyle({ opacity: 0 }));
         };
-        const hitStyle = (f?: GeoJsonFeature): PathOptions => ({
-          color: COLOR[(f as unknown as Feature).properties.access],
-          weight: 16,
-          opacity: 0,
-          lineCap: "round" as const,
-        });
+        const hitStyle = (f?: GeoJsonFeature): PathOptions => {
+          const p = f as unknown as Feature;
+          return {
+            color: isClosed(p) ? CLOSED_COLOR : COLOR[p.properties.access],
+            weight: 16,
+            opacity: 0,
+            lineCap: "round" as const,
+          };
+        };
         L.geoJSON(fc.features as unknown as GeoJsonFeature[], {
           style: hitStyle,
           onEachFeature: onEach,
           bubblingMouseEvents: false,
         }).addTo(map);
 
-        const bounds = plateLayer.getBounds().extend(greenLayer.getBounds());
+        const bounds = plateLayer.getBounds().extend(greenLayer.getBounds()).extend(closedLayer.getBounds());
         map.fitBounds(bounds, { padding: [24, 24] });
         L.control.scale({ imperial: true, metric: false }).addTo(map);
 
@@ -163,7 +188,7 @@ export function AreaMap({
       cancelled = true;
       if (map) map.remove();
     };
-  }, [inView, src, attribution, labels.green, labels.plate]);
+  }, [inView, src, attribution, labels.green, labels.plate, (closedRoadIds ?? []).join(",")]);
 
   return (
     <div ref={wrapRef} className="relative">
@@ -190,6 +215,12 @@ export function AreaMap({
             <li className="flex items-center gap-2">
               <span className="h-[3px] w-6 rounded-full" style={{ background: COLOR.plate }} />
               {labels.plate}
+            </li>
+          )}
+          {present.closed && (
+            <li className="flex items-center gap-2">
+              <span className="h-[3px] w-6 rounded-full" style={{ background: CLOSED_COLOR }} />
+              Closed by forest order
             </li>
           )}
           {present.seasonal && (

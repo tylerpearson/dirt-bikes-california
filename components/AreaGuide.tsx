@@ -1,6 +1,7 @@
 import Link from "next/link";
-import type { Area } from "@/lib/areas";
+import { AREAS, type Area } from "@/lib/areas";
 import type { GreenStickerStatus } from "@/lib/types";
+import { CLOSURES, activeClosures, isActive, type Closure } from "@/lib/closures";
 import { loadTrack, loadTrackParts } from "@/lib/gpx";
 import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
@@ -9,6 +10,7 @@ import { RouteCard } from "@/components/RouteCard";
 import { ExpandableMap } from "@/components/ExpandableMap";
 import { AccessBadge } from "@/components/AccessBadge";
 import { AreaMap } from "@/components/AreaMap";
+import { ClosureNotice } from "@/components/ClosureNotice";
 import { HeroTopo } from "@/components/HeroTopo";
 import { RideDisclaimer } from "@/components/RideDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
@@ -51,6 +53,28 @@ const LEGEND: { status: GreenStickerStatus; meaning: string }[] = [
 ];
 
 export function AreaGuide({ area }: { area: Area }) {
+  const closures = activeClosures(area.id);
+  const closuresByRoute = new Map<string, Closure[]>();
+  for (const c of closures) {
+    for (const rid of c.routeIds) {
+      const arr = closuresByRoute.get(rid) ?? [];
+      arr.push(c);
+      closuresByRoute.set(rid, arr);
+    }
+  }
+  // Map greying spans ALL areas in the same forest, because area bboxes overlap
+  // within a forest (Big Bear's GeoJSON contains San Gorgonio's roads). Keying on
+  // forest.name (NOT a global set) avoids cross-forest road-number collisions
+  // (santa-ana and san-jacinto both have a 6S13).
+  const closedRoadIds = Array.from(new Set(
+    CLOSURES.filter((c) => isActive(c))
+      .filter((c) => {
+        const other = AREAS.find((a) => a.id === c.areaId);
+        return other?.forest.name === area.forest.name;
+      })
+      .flatMap((c) => c.roadIds ?? [])
+  ));
+
   // Build each route's map at request/build time (GPX parsing needs fs).
   const cards = area.routes.map((route) => {
     const track = loadTrack(`${route.id}.gpx`);
@@ -122,6 +146,12 @@ export function AreaGuide({ area }: { area: Area }) {
             {area.name}, {area.state} · {area.region} · {area.routes.length}{" "}
             routes
           </p>
+
+          {closures.length > 0 && (
+            <div className="mt-5 max-w-2xl">
+              <ClosureNotice closures={closures} />
+            </div>
+          )}
 
           {area.source ? (
             <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ink/90">
@@ -221,9 +251,10 @@ export function AreaGuide({ area }: { area: Area }) {
                 src={area.mvumGeojson}
                 labels={area.source.legend}
                 attribution={area.source.attribution}
+                closedRoadIds={closedRoadIds}
               />
             ) : (
-              <AreaMap src={area.mvumGeojson} />
+              <AreaMap src={area.mvumGeojson} closedRoadIds={closedRoadIds} />
             )}
           </div>
         </div>
@@ -295,6 +326,26 @@ export function AreaGuide({ area }: { area: Area }) {
                     {loop.description}
                   </p>
 
+                  {(() => {
+                    const closedNames = loop.routeIds
+                      .filter((id) => closuresByRoute.has(id))
+                      .map((id) => area.routes.find((r) => r.id === id)?.name)
+                      .filter((n): n is string => !!n);
+                    if (closedNames.length === 0) return null;
+                    const list =
+                      closedNames.length === 1
+                        ? closedNames[0]
+                        : closedNames.length === 2
+                          ? `${closedNames[0]} and ${closedNames[1]}`
+                          : `${closedNames.slice(0, -1).join(", ")}, and ${closedNames[closedNames.length - 1]}`;
+                    const verb = closedNames.length === 1 ? "is" : "are";
+                    return (
+                      <p className="text-xs font-semibold text-rust-ink">
+                        {`Heads up: ${list} ${verb} currently closed, so this loop doesn't run in full.`}
+                      </p>
+                    );
+                  })()}
+
                   <div className="mt-auto flex flex-wrap items-center gap-x-1.5 gap-y-2 border-t border-edge pt-4 text-sm">
                     {loop.routeIds.map((id, i) => {
                       const r = area.routes.find((x) => x.id === id);
@@ -341,6 +392,7 @@ export function AreaGuide({ area }: { area: Area }) {
               geojsonSrc={area.source ? undefined : area.mvumGeojson}
               stats={stats}
               priority={i < 2}
+              closures={closuresByRoute.get(route.id)}
             />
           ))}
         </div>
