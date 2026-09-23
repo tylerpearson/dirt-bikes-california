@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import type { Layer, Map as LeafletMap, Path, PathOptions } from "leaflet";
 import type { Feature as GeoJsonFeature } from "geojson";
+import { hasLapsed, todayPacific } from "@/lib/today";
 
 type Access = "green" | "plate";
 type Feature = {
@@ -24,6 +25,19 @@ const COLOR: Record<Access, string> = {
 };
 const CLOSED_COLOR = "#7a7058"; // --color-unsure-fill: closed by forest order
 
+/** A road greyed on the map because a closure covers it. */
+export type ClosedRoad = {
+  /** MVUM road number, matched exactly against feature.properties.id. */
+  id: string;
+  /** ISO end date; lapsed roads are dropped client-side. Undefined = no end date. */
+  through?: string;
+  /** Closure title, shown in the tooltip. */
+  title: string;
+  /** Owning area's display name when the closure belongs to a neighbouring
+   * area whose roads also appear on this map; null when it's this area's own. */
+  otherAreaName: string | null;
+};
+
 /** Escape values before they go into tooltip HTML (data is third-party MVUM). */
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) =>
@@ -41,16 +55,16 @@ export function AreaMap({
   src,
   labels = { green: "Green-sticker OHV allowed", plate: "Street-legal plate only" },
   attribution = "&copy; OpenStreetMap contributors · Forest Service travel maps",
-  closedRoadIds,
+  closedRoads,
 }: {
   src: string;
   /** Legend + tooltip labels for the two access classes (source-specific). */
   labels?: { green: string; plate: string };
   /** Tile attribution suffix naming the data source. */
   attribution?: string;
-  /** MVUM road numbers currently under an active closure, matched against
+  /** Roads currently under an active closure, matched against
    * feature.properties.id. Drawn in their own grey layer, beneath green/plate. */
-  closedRoadIds?: string[];
+  closedRoads?: ClosedRoad[];
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -59,6 +73,9 @@ export function AreaMap({
   // Which legend rows to show — set once the GeoJSON loads, so an all-green
   // area (e.g. most BLM areas) doesn't show an empty "plate" or "seasonal" row.
   const [present, setPresent] = useState({ green: true, plate: true, seasonal: true, closed: false });
+  // Stable string key for the effect dependency array below; closedRoads is a
+  // fresh array/object graph on every render (built inline in AreaGuide.tsx).
+  const closedKey = JSON.stringify(closedRoads ?? []);
 
   // Defer all work until the section is near the viewport.
   useEffect(() => {
@@ -93,8 +110,12 @@ export function AreaMap({
         if (cancelled) return;
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const fc: FC = await res.json();
-        const closedSet = new Set(closedRoadIds ?? []);
-        const isClosed = (f: Feature) => !!f.properties.id && closedSet.has(f.properties.id);
+        const today = todayPacific();
+        const closedById = new Map<string, ClosedRoad>();
+        for (const r of JSON.parse(closedKey) as ClosedRoad[]) {
+          if (!hasLapsed(r.through, today) && !closedById.has(r.id)) closedById.set(r.id, r);
+        }
+        const isClosed = (f: Feature) => !!f.properties.id && closedById.has(f.properties.id);
         setPresent({
           green: fc.features.some((f) => f.properties.access === "green" && !isClosed(f)),
           plate: fc.features.some((f) => f.properties.access === "plate" && !isClosed(f)),
@@ -144,7 +165,10 @@ export function AreaMap({
         const onEach = (f: GeoJsonFeature, layer: Layer) => {
           const p = (f as unknown as Feature).properties;
           const label = isClosed(f as unknown as Feature)
-            ? "CLOSED by forest order"
+            ? (() => {
+                const r = closedById.get(p.id!)!;
+                return `CLOSED: ${esc(r.title)}${r.otherAreaName ? ` (see the ${esc(r.otherAreaName)} page)` : ""}`;
+              })()
             : p.access === "green"
               ? labels.green
               : labels.plate;
@@ -188,7 +212,7 @@ export function AreaMap({
       cancelled = true;
       if (map) map.remove();
     };
-  }, [inView, src, attribution, labels.green, labels.plate, (closedRoadIds ?? []).join(",")]);
+  }, [inView, src, attribution, labels.green, labels.plate, closedKey]);
 
   return (
     <div ref={wrapRef} className="relative">

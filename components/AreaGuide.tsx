@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AREAS, type Area } from "@/lib/areas";
 import type { GreenStickerStatus } from "@/lib/types";
-import { CLOSURES, activeClosures, isActive, type Closure } from "@/lib/closures";
+import { CLOSURES, activeClosures, closureThrough, isActive, type Closure } from "@/lib/closures";
 import { loadTrack, loadTrackParts } from "@/lib/gpx";
 import { loadRouteSegments } from "@/lib/mvum";
 import { centeredMap, trackMap } from "@/lib/tiles";
@@ -9,8 +9,9 @@ import { trackStats, trackStatsFromParts } from "@/lib/track-stats";
 import { RouteCard } from "@/components/RouteCard";
 import { ExpandableMap } from "@/components/ExpandableMap";
 import { AccessBadge } from "@/components/AccessBadge";
-import { AreaMap } from "@/components/AreaMap";
+import { AreaMap, type ClosedRoad } from "@/components/AreaMap";
 import { ClosureNotice } from "@/components/ClosureNotice";
+import { ClosureExpiry } from "@/components/ClosureExpiry";
 import { HeroTopo } from "@/components/HeroTopo";
 import { RideDisclaimer } from "@/components/RideDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
@@ -66,14 +67,22 @@ export function AreaGuide({ area }: { area: Area }) {
   // within a forest (Big Bear's GeoJSON contains San Gorgonio's roads). Keying on
   // forest.name (NOT a global set) avoids cross-forest road-number collisions
   // (santa-ana and san-jacinto both have a 6S13).
-  const closedRoadIds = Array.from(new Set(
-    CLOSURES.filter((c) => isActive(c))
-      .filter((c) => {
-        const other = AREAS.find((a) => a.id === c.areaId);
-        return other?.forest.name === area.forest.name;
-      })
-      .flatMap((c) => c.roadIds ?? [])
-  ));
+  const closedRoads: ClosedRoad[] = CLOSURES.filter((c) => isActive(c))
+    .filter((c) => {
+      const other = AREAS.find((a) => a.id === c.areaId);
+      return other?.forest.name === area.forest.name;
+    })
+    .flatMap((c) =>
+      (c.roadIds ?? []).map((id) => ({
+        id,
+        through: c.effectiveThrough,
+        title: c.title,
+        otherAreaName:
+          c.areaId === area.id
+            ? null
+            : (AREAS.find((a) => a.id === c.areaId)?.name ?? null),
+      })),
+    );
 
   // Build each route's map at request/build time (GPX parsing needs fs).
   const cards = area.routes.map((route) => {
@@ -125,6 +134,7 @@ export function AreaGuide({ area }: { area: Area }) {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(area)} />
+      {closures.length > 0 && <ClosureExpiry />}
       <header className="relative overflow-hidden border-b-2 border-bistre/70 bg-paper">
         <HeroTopo />
         <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
@@ -251,10 +261,10 @@ export function AreaGuide({ area }: { area: Area }) {
                 src={area.mvumGeojson}
                 labels={area.source.legend}
                 attribution={area.source.attribution}
-                closedRoadIds={closedRoadIds}
+                closedRoads={closedRoads}
               />
             ) : (
-              <AreaMap src={area.mvumGeojson} closedRoadIds={closedRoadIds} />
+              <AreaMap src={area.mvumGeojson} closedRoads={closedRoads} />
             )}
           </div>
         </div>
@@ -339,8 +349,14 @@ export function AreaGuide({ area }: { area: Area }) {
                           ? `${closedNames[0]} and ${closedNames[1]}`
                           : `${closedNames.slice(0, -1).join(", ")}, and ${closedNames[closedNames.length - 1]}`;
                     const verb = closedNames.length === 1 ? "is" : "are";
+                    const loopClosures = loop.routeIds.flatMap(
+                      (id) => closuresByRoute.get(id) ?? [],
+                    );
                     return (
-                      <p className="text-xs font-semibold text-rust-ink">
+                      <p
+                        className="text-xs font-semibold text-rust-ink"
+                        data-closure-through={closureThrough(loopClosures)}
+                      >
                         {`Heads up: ${list} ${verb} currently closed, so this loop doesn't run in full.`}
                       </p>
                     );
