@@ -40,7 +40,8 @@ export type Closure = {
 
 /**
  * All facts below were verified against official USFS/BLM sources on
- * July 12, 2026. Update against each forest's alerts page and the SBNF
+ * July 12, 2026 (San Gorgonio Coon/Fish Creek and Santa Barbara re-verified
+ * September 22, 2026). Update against each forest's alerts page and the SBNF
  * conditions/roads page; do not "correct" from memory.
  */
 export const CLOSURES: Closure[] = [
@@ -51,11 +52,11 @@ export const CLOSURES: Closure[] = [
     roadIds: ["1N02", "1N05"],
     title: "Coon Creek and Fish Creek annual closure",
     summary:
-      "The Forest Service closes the Coon Creek and Fish Creek roads under an annual order that runs into mid-summer. This is a seasonal gate closure, so check whether it has been renewed before you plan a ride here.",
+      "The Forest Service closes the Coon Creek and Fish Creek roads to motor vehicles under a forest roads order it renews each summer. The current order runs through late July 2027.",
     kind: "order",
-    orderNumber: "05-12-00-25-04",
-    url: "https://www.fs.usda.gov/r05/sanbernardino/conditions/roads",
-    effectiveThrough: "2026-07-21",
+    orderNumber: "05-12-00-26-06",
+    url: "https://www.fs.usda.gov/r05/sanbernardino/alerts/roads-closures-mt-fc-ranger-districts",
+    effectiveThrough: "2027-07-29",
   },
   {
     areaId: "san-gorgonio",
@@ -82,18 +83,18 @@ export const CLOSURES: Closure[] = [
     url: "https://www.fs.usda.gov/r05/cleveland/alerts/airport-fire-burned-area-closure",
     effectiveThrough: "2027-05-26",
   },
-  // ---- Santa Barbara backcountry (Los Padres NF) ---------------------------
+  // ---- Santa Barbara backcountry (Los Padres NF): advisory, order lapsed ----
+  // Order 05-07-54-25-14 ended 2026-09-17 with no successor posted as of
+  // 2026-09-22. If a renewal appears, restore this as a dated "storm" entry
+  // with routeIds ["camuesa-road", "buckhorn-road"] and roadIds ["5N15.2", "9N11.4"].
   {
     areaId: "santa-barbara",
-    routeIds: ["camuesa-road", "buckhorn-road"],
-    roadIds: ["5N15.2", "9N11.4"],
-    title: "Santa Barbara storm damage closure",
+    routeIds: [],
+    title: "Santa Barbara storm damage order lapsed",
     summary:
-      "A special closure covers storm-damaged roads on the Santa Barbara district, including Camuesa Road and Buckhorn Road. Washouts and slides can take a while to repair, so verify the roads have reopened before making the drive.",
-    kind: "storm",
-    orderNumber: "05-07-54-25-14",
+      "The storm damage closure on Camuesa Road and Buckhorn Road expired in September 2026, and no new order has been posted yet. Washouts can outlast an order, so call the Santa Barbara district before you drive out.",
+    kind: "advisory",
     url: "https://www.fs.usda.gov/r05/lospadres/alerts/special-closure-sbrd-storm-damage-recovery",
-    effectiveThrough: "2026-09-17",
   },
   // ---- Big Bear (San Bernardino NF): area-level, no curated route hit -------
   {
