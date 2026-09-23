@@ -2,7 +2,7 @@ import type { Difficulty, Route } from "@/lib/types";
 import type { MapRender } from "@/lib/tiles";
 import type { TrackStats } from "@/lib/track-stats";
 import type { Closure } from "@/lib/closures";
-import { closedThroughLabel } from "@/lib/closures";
+import { closedThroughLabel, closureThrough } from "@/lib/closures";
 import { fullMapUrl } from "@/lib/areas";
 import { AccessBadge, ClosedBadge } from "./AccessBadge";
 import { ExpandableMap } from "./ExpandableMap";
@@ -135,7 +135,7 @@ export function RouteCard({
           </div>
           <div className="flex flex-wrap gap-2">
             <AccessBadge status={route.access.greenSticker} />
-            {hasClosures && <ClosedBadge />}
+            {hasClosures && <ClosedBadge through={closureThrough(closures!)} />}
           </div>
         </header>
 
@@ -168,9 +168,16 @@ export function RouteCard({
         </dl>
 
         {hasClosures && (
-          <div className="rounded-sm border border-rust/40 bg-rust/10 p-3">
+          <div
+            className="rounded-sm border border-rust/40 bg-rust/10 p-3"
+            data-closure-through={closureThrough(closures!)}
+          >
             {closures!.map((c, i) => (
-              <div key={i} className={i > 0 ? "mt-2" : undefined}>
+              <div
+                key={i}
+                className={i > 0 ? "mt-2" : undefined}
+                data-closure-through={c.effectiveThrough}
+              >
                 <p className="text-xs leading-relaxed text-bistre">
                   {c.summary}
                 </p>
