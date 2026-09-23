@@ -7,8 +7,10 @@ import {
   isActive,
   activeClosures,
   closedThroughLabel,
+  closureThrough,
   type Closure,
 } from "@/lib/closures";
+import { hasLapsed, todayPacific } from "@/lib/today";
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 
@@ -99,26 +101,22 @@ describe("closures registry integrity", () => {
     }
   });
 
-  // Rot guard: freshly-expired entries only warn at build (see lib/closures.ts),
-  // so a deploy isn't blocked the week an order lapses; but a long-stale entry
-  // fails the suite so it gets cleaned up.
-  it("no dated closure is expired by more than 60 days", () => {
-    const today = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "America/Los_Angeles",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    }).format(new Date());
-    const cutoff = new Date(`${today}T00:00:00Z`).getTime() - 60 * 864e5;
-    for (const c of CLOSURES) {
-      if (!c.effectiveThrough) continue;
-      const ended = new Date(`${c.effectiveThrough}T00:00:00Z`).getTime();
-      expect(
-        ended >= cutoff,
-        `closure "${c.title}" (area "${c.areaId}") expired ${c.effectiveThrough}, more than 60 days ago — remove or update lib/closures.ts`,
-      ).toBe(true);
-    }
-  });
+  // Freshness reminder, NOT a PR gate: the wall clock would turn every PR red
+  // the day an order lapses. Runs only in the weekly scheduled workflow
+  // (.github/workflows/closures-freshness.yml), which fails as a nudge to
+  // re-verify the entry against the official page and renew or remove it.
+  it.runIf(process.env.CHECK_CLOSURE_FRESHNESS === "1")(
+    "no dated closure has lapsed",
+    () => {
+      const today = todayPacific();
+      for (const c of CLOSURES) {
+        expect(
+          hasLapsed(c.effectiveThrough, today),
+          `closure "${c.title}" (area "${c.areaId}") lapsed ${c.effectiveThrough}; verify against ${c.url} and renew or remove it in lib/closures.ts`,
+        ).toBe(false);
+      }
+    },
+  );
 });
 
 describe("isActive", () => {
@@ -189,5 +187,50 @@ describe("closedThroughLabel", () => {
 
   it("returns nothing for advisories", () => {
     expect(closedThroughLabel({ ...base, kind: "advisory" })).toBe("");
+  });
+});
+
+describe("closureThrough", () => {
+  const base: Closure = {
+    areaId: "san-gorgonio",
+    routeIds: [],
+    title: "t",
+    summary: "s",
+    kind: "order",
+    url: "https://example.com",
+  };
+
+  it("returns undefined for an empty list", () => {
+    expect(closureThrough([])).toBeUndefined();
+  });
+
+  it("returns the date for a single dated closure", () => {
+    expect(
+      closureThrough([{ ...base, effectiveThrough: "2026-07-21" }]),
+    ).toBe("2026-07-21");
+  });
+
+  it("returns the latest date across dated closures, regardless of order", () => {
+    expect(
+      closureThrough([
+        { ...base, effectiveThrough: "2026-07-21" },
+        { ...base, effectiveThrough: "2026-09-30" },
+      ]),
+    ).toBe("2026-09-30");
+    expect(
+      closureThrough([
+        { ...base, effectiveThrough: "2026-09-30" },
+        { ...base, effectiveThrough: "2026-07-21" },
+      ]),
+    ).toBe("2026-09-30");
+  });
+
+  it("returns undefined when any closure in the group is undated", () => {
+    expect(
+      closureThrough([
+        { ...base, effectiveThrough: "2026-07-21" },
+        { ...base, effectiveThrough: undefined },
+      ]),
+    ).toBeUndefined();
   });
 });

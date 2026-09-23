@@ -31,8 +31,12 @@ URL, and end date) live in `lib/closures.ts`, a hand-maintained registry
 decoupled from the route generators. It's joined to routes at render time by
 `components/AreaGuide.tsx`: a banner, a "Currently closed" badge on affected
 route cards, and greyed segments on the overview map. Each entry auto-hides
-once its `effectiveThrough` date passes, and the build warns when a dated
-entry has lapsed so it gets renewed or removed. This replaces the old
+once its `effectiveThrough` date passes, in the browser too
+(`components/ClosureExpiry.tsx`), so a lapsed order disappears from the live
+static site without a redeploy. The build warns about lapsed entries, and a
+weekly scheduled workflow (`.github/workflows/closures-freshness.yml`) fails
+until they are renewed or removed; PR CI deliberately doesn't check dates.
+This replaces the old
 `closure:` field that used to live in `scripts/build-area-routes.mjs`; that
 field is gone. Seasonal riding windows and weekly weather closures still
 belong in hand-written prose, not the registry.

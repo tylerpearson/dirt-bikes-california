@@ -1,5 +1,5 @@
 import type { Closure } from "@/lib/closures";
-import { closedThroughLabel } from "@/lib/closures";
+import { closedThroughLabel, closureThrough } from "@/lib/closures";
 
 /** "Forest Order … · closed through … · official closure info", non-empty parts only. */
 function closureMetaParts(c: Closure): string[] {
@@ -26,6 +26,7 @@ export function ClosureNotice({ closures }: { closures: Closure[] }) {
     <aside
       role="note"
       className="rounded-md border border-rust/40 bg-rust/10 px-5 py-4"
+      data-closure-through={closureThrough(closures)}
     >
       <p className="flex items-center gap-2 font-display text-base font-bold uppercase tracking-tight text-rust-ink">
         <span aria-hidden className="text-lg leading-none">
@@ -37,7 +38,11 @@ export function ClosureNotice({ closures }: { closures: Closure[] }) {
         {closures.map((c, i) => {
           const meta = closureMetaParts(c);
           return (
-            <p key={i} className="text-sm leading-relaxed text-ink/90">
+            <p
+              key={i}
+              className="text-sm leading-relaxed text-ink/90"
+              data-closure-through={c.effectiveThrough}
+            >
               <span className="font-semibold text-bistre">{c.title}.</span>{" "}
               {c.summary}
               {meta.length > 0 && (

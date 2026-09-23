@@ -1,0 +1,23 @@
+name: Closures freshness
+
+# Weekly nudge: fails when a dated entry in lib/closures.ts has lapsed, so it
+# gets re-verified against the official order and renewed or removed. Kept out
+# of PR CI on purpose (see tests/closures.test.ts).
+on:
+  schedule:
+    - cron: "0 15 * * 1" # Mondays 15:00 UTC (7-8am Pacific)
+  workflow_dispatch:
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx vitest run tests/closures.test.ts
+        env:
+          CHECK_CLOSURE_FRESHNESS: "1"
