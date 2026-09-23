@@ -1,4 +1,5 @@
 import type { AreaId } from "./areas"; // type-only import, no runtime cycle
+import { todayPacific } from "./today";
 
 /**
  * Current forest / land-manager closures affecting guide areas. Hand-maintained
@@ -165,17 +166,6 @@ export const CLOSURES: Closure[] = [
   },
 ];
 
-/** Today's date as YYYY-MM-DD in the closures' home time zone (Pacific). */
-function todayPacific(): string {
-  // en-CA yields ISO-ordered YYYY-MM-DD, which compares correctly as a string.
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/Los_Angeles",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date());
-}
-
 /**
  * Whether a closure is still in effect on the given date (defaults to today,
  * Pacific). Undated closures (no `effectiveThrough`) are always active until
@@ -212,6 +202,23 @@ export function closedThroughLabel(c: Closure): string {
   if (c.effectiveThroughText) return `closed through ${c.effectiveThroughText}`;
   if (c.effectiveThrough) return `closed through ${formatIsoDate(c.effectiveThrough)}`;
   return "closed until further notice";
+}
+
+/**
+ * The date after which a group of closures has fully lapsed: the latest
+ * `effectiveThrough`, or undefined if the group is empty or any member is
+ * undated (an undated closure never lapses). Rendered as
+ * `data-closure-through` so the browser can hide lapsed notices without a
+ * rebuild (see components/ClosureExpiry.tsx).
+ */
+export function closureThrough(closures: Closure[]): string | undefined {
+  if (closures.length === 0) return undefined;
+  let latest = "";
+  for (const c of closures) {
+    if (!c.effectiveThrough) return undefined;
+    if (c.effectiveThrough > latest) latest = c.effectiveThrough;
+  }
+  return latest;
 }
 
 // Warn at build time about entries whose order has lapsed, so the registry gets
