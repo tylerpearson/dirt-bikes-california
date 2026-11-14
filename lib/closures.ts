@@ -40,8 +40,7 @@ export type Closure = {
 
 /**
  * All facts below were verified against official USFS/BLM sources on
- * July 12, 2026 (San Gorgonio Coon/Fish Creek and Santa Barbara re-verified
- * September 22, 2026). Update against each forest's alerts page and the SBNF
+ * July 12, 2026. All USFS and BLM entries re-verified November 14, 2026. Update against each forest's alerts page and the SBNF
  * conditions/roads page; do not "correct" from memory.
  */
 export const CLOSURES: Closure[] = [
@@ -58,17 +57,18 @@ export const CLOSURES: Closure[] = [
     url: "https://www.fs.usda.gov/r05/sanbernardino/alerts/roads-closures-mt-fc-ranger-districts",
     effectiveThrough: "2027-07-29",
   },
+  // Line Fire order 05-12-52-26-03 ended 2026-09-30 and was not renewed: the
+  // alert is gone and the SBNF roads page (updated 2026-10-10) lists no
+  // closure on 1N04 or 1N09. If a new order appears, restore a dated "fire"
+  // entry with routeIds ["radford-front-line", "city-creek"] and roadIds ["1N04", "1N09"].
   {
     areaId: "san-gorgonio",
-    routeIds: ["radford-front-line", "city-creek"],
-    roadIds: ["1N04", "1N09"],
-    title: "Line Fire burned area closure",
+    routeIds: [],
+    title: "Line Fire burn area advisory",
     summary:
-      "The Line Fire burned area closure keeps the Radford and City Creek front country roads shut while crews stabilize the slopes. Expect the order to be extended if the ground stays unstable.",
-    kind: "fire",
-    orderNumber: "05-12-52-26-03",
-    url: "https://www.fs.usda.gov/r05/sanbernardino/alerts/line-fire-area-closure",
-    effectiveThrough: "2026-09-30",
+      "The Line Fire closure on the Radford (1N04) and City Creek (1N09) roads ended in September 2026, and the Forest Service no longer lists either road as closed. The burned slopes above them can still drop rock and wash out after storms, so check road conditions after any rain.",
+    kind: "advisory",
+    url: "https://www.fs.usda.gov/r05/sanbernardino/conditions/roads",
   },
   // ---- Santa Ana Mountains (Cleveland NF) ----------------------------------
   {
@@ -83,18 +83,20 @@ export const CLOSURES: Closure[] = [
     url: "https://www.fs.usda.gov/r05/cleveland/alerts/airport-fire-burned-area-closure",
     effectiveThrough: "2027-05-26",
   },
-  // ---- Santa Barbara backcountry (Los Padres NF): advisory, order lapsed ----
-  // Order 05-07-54-25-14 ended 2026-09-17 with no successor posted as of
-  // 2026-09-22. If a renewal appears, restore this as a dated "storm" entry
-  // with routeIds ["camuesa-road", "buckhorn-road"] and roadIds ["5N15.2", "9N11.4"].
+  // ---- Santa Barbara backcountry (Los Padres NF) ---------------------------
+  // Order 05-07-54-26-09 supersedes 05-07-54-25-14; Exhibit D closes 5N15.2
+  // and 9N11.4 to motorized use.
   {
     areaId: "santa-barbara",
-    routeIds: [],
-    title: "Santa Barbara storm damage order lapsed",
+    routeIds: ["camuesa-road", "buckhorn-road"],
+    roadIds: ["5N15.2", "9N11.4"],
+    title: "Santa Barbara storm damage closure",
     summary:
-      "The storm damage closure on Camuesa Road and Buckhorn Road expired in September 2026, and no new order has been posted yet. Washouts can outlast an order, so call the Santa Barbara district before you drive out.",
-    kind: "advisory",
-    url: "https://www.fs.usda.gov/r05/lospadres/alerts/special-closure-sbrd-storm-damage-recovery",
+      "A renewed storm damage order closes Camuesa Road and Buckhorn Road to motor vehicles, along with the Upper Oso OHV staging area. The current order runs through mid-September 2027.",
+    kind: "storm",
+    orderNumber: "05-07-54-26-09",
+    url: "https://www.fs.usda.gov/r05/lospadres/alerts/special-closure-sbrd-storm-damage-recovery-0",
+    effectiveThrough: "2027-09-15",
   },
   // ---- Big Bear (San Bernardino NF): area-level, no curated route hit -------
   {
@@ -151,7 +153,7 @@ export const CLOSURES: Closure[] = [
     routeIds: [],
     title: "WEMO route closures nearby",
     summary:
-      "Court-ordered WEMO route closures affect the Rand Mountains and Red Mountain area to the south. Jawbone Canyon and Dove Springs themselves are open, but stay on signed routes if you range that way.",
+      "Court-ordered WEMO route closures affect the Rand Mountains and Red Mountain area to the south. Jawbone Canyon and Dove Springs themselves are open. If you range that way, stay on signed routes, and get the free BLM permit the Rand Mountains Management Area now requires for OHV riding.",
     kind: "advisory",
     url: "https://www.blm.gov/office/ridgecrest-field-office",
   },
