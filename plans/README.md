@@ -41,7 +41,7 @@ Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJE
 ## Findings considered and rejected
 
 - OSM public tile server usage for map thumbnails: documented tradeoff in `lib/tiles.ts:11` ("fine for a small, low-traffic site"); by design.
-- Site-wide `noindex` despite full SEO scaffolding: explicitly intentional per comments in `app/layout.tsx:34` and `app/robots.ts:6`; a product decision, not a defect. When the maintainer decides to index, it is a two-file change.
+- Site-wide `noindex` despite full SEO scaffolding: explicitly intentional per comments in `app/layout.tsx` and `app/robots.ts`; a product decision, not a defect. (The site was briefly indexable after PR #68 and was hidden again 2026-11-14.) robots.txt intentionally allows crawling so crawlers can see the `noindex` tag, and `app/sitemap.ts` is kept but not advertised. When the maintainer decides to index, it is a two-file change.
 - `npm audit` moderate advisory (postcss via next 16.2.9's bundled copy): build-time only on a static export, not reachable at runtime; clears on a routine Next.js patch bump (noted in plan 005's maintenance notes).
 - `tsconfig.tsbuildinfo` at repo root: already gitignored (`*.tsbuildinfo`), untracked; not debris.
 - Leaflet `any` casts in `OverviewMap.tsx` / `RouteMap.tsx`: behind accepted eslint-disable comments and lint-clean today; typed cleanup is a mechanical follow-up after plan 002 proves the pattern in `AreaMap.tsx` (noted there).
