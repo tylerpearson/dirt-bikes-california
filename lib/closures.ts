@@ -40,7 +40,7 @@ export type Closure = {
 
 /**
  * All facts below were verified against official USFS/BLM sources on
- * July 12, 2026. All USFS entries re-verified November 14, 2026. Update against each forest's alerts page and the SBNF
+ * July 12, 2026. All USFS and BLM entries re-verified November 14, 2026. Update against each forest's alerts page and the SBNF
  * conditions/roads page; do not "correct" from memory.
  */
 export const CLOSURES: Closure[] = [
@@ -153,7 +153,7 @@ export const CLOSURES: Closure[] = [
     routeIds: [],
     title: "WEMO route closures nearby",
     summary:
-      "Court-ordered WEMO route closures affect the Rand Mountains and Red Mountain area to the south. Jawbone Canyon and Dove Springs themselves are open, but stay on signed routes if you range that way.",
+      "Court-ordered WEMO route closures affect the Rand Mountains and Red Mountain area to the south. Jawbone Canyon and Dove Springs themselves are open. If you range that way, stay on signed routes, and get the free BLM permit the Rand Mountains Management Area now requires for OHV riding.",
     kind: "advisory",
     url: "https://www.blm.gov/office/ridgecrest-field-office",
   },
